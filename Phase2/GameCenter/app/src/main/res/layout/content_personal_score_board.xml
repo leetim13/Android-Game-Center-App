@@ -1,0 +1,234 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_tiles1"
+    android:orientation="vertical"
+    tools:context=".ScoreBoardActivity"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="3x3 Personal Best"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="sans-serif-light"
+                android:textAllCaps="true"
+                android:textColor="#000"
+                android:textSize="56sp" />
+
+            <Button
+                android:id="@+id/p_score_p1_33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimary"
+                android:clickable="false"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:text="expecting players"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/p_score_p2_33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:clickable="false"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:text="expecting Players"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/p_score_p3_33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:clickable="false"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:text="expecting Players"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="4x4 \nPersonal Best"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="sans-serif-light"
+                android:textAllCaps="true"
+                android:textColor="#000"
+                android:textSize="56sp" />
+
+            <Button
+                android:id="@+id/p_score_p1_44"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimary"
+                android:clickable="false"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:text="expecting players"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/p_score_p2_44"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:clickable="false"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:text="expecting Players"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/p_score_p3_44"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:clickable="false"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:text="expecting Players"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="5x5 Personal Best"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="sans-serif-light"
+                android:textAllCaps="true"
+                android:textColor="#000"
+                android:textSize="56sp" />
+
+            <Button
+                android:id="@+id/p_score_p1_55"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimary"
+                android:clickable="false"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:text="expecting players"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/p_score_p2_55"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:clickable="false"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:text="expecting Players"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/p_score_p3_55"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:clickable="false"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:text="expecting Players"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="#ffd3d3d3"
+            android:onClick="returnPage"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:text="return"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
