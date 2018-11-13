@@ -115,14 +115,11 @@ class BoardManager implements Serializable {
             row = i / boardNumOfCols + 1;
             if (row % 2 == 0 && getNumOfInversions(tiles, blankId) % 2 == 0)
                 return true;
-            if (row % 2 != 0 && getNumOfInversions(tiles, blankId) % 2 != 0)
-                return true;
+            return row % 2 != 0 && getNumOfInversions(tiles, blankId) % 2 != 0;
         }
         else{
-            if(getNumOfInversions(tiles, blankId) % 2 == 0)
-                return true;
+            return getNumOfInversions(tiles, blankId) % 2 == 0;
         }
-        return false;
     }
 
     /**
