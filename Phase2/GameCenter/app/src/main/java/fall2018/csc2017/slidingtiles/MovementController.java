@@ -26,7 +26,7 @@ public class MovementController {
     /**
      * The stack to keep track state of every movement.
      */
-    protected ArrayStack stateStack = new ArrayStack(200);
+    protected ArrayStack stateStack = new ArrayStack(2000);
 
     /**
      * The functional saveScore, which provides method to save score into corresponding HashMap.

@@ -64,13 +64,66 @@ class BoardManager implements Serializable {
                 tiles.add(new Tile(tileNum, numRows, numCols));
             }
         }
-        Collections.shuffle(tiles);
+        do {
+            Collections.shuffle(tiles);
+        }while(!isValidShuffle(tiles, numCols, numRows));
         this.board = new Board(numRows, numCols, tiles);
         this.complexity = numCols;
         this.boardNumOfRows = this.boardNumOfCols = complexity;
     }
 
 
+    /**
+     * Get the number of inversions in tiles
+     * @param tiles the tiles for the board
+     * @param blankId the Id of the blank tile
+     * @return the number of inversions in tiles
+     */
+    private int getNumOfInversions(List<Tile> tiles, int blankId){
+        if(tiles.isEmpty())
+            return 0;
+        int size = tiles.size();
+        int count = 0;
+        for(int i = 0; i < size; i++) {
+            if(tiles.get(i).getId() == blankId)
+                continue;
+            for (int j = i + 1; j < size; j++) {
+                if (tiles.get(i).getId() > tiles.get(j).getId()
+                        && tiles.get(j).getId() != blankId)
+                    count++;
+            }
+        }
+        return count;
+    }
+
+
+    /**
+     *
+     * @param tiles the tiles of the board
+     * @param boardNumOfCols the number of columns of the board
+     * @param boardNumOfRows the number of rows of the board
+     * @return if the board is solvable
+     */
+    private boolean isValidShuffle(List<Tile> tiles, int boardNumOfCols, int boardNumOfRows){
+        int i;
+        int row;
+        int blankId = boardNumOfCols * boardNumOfRows;
+        if(boardNumOfCols % 2 == 0){
+            for(i = 0; i < tiles.size(); i++)
+                if(tiles.get(i).getId() == blankId)
+                    break;
+            row = i / boardNumOfCols + 1;
+            if (row % 2 == 0 && getNumOfInversions(tiles, blankId) % 2 == 0)
+                return true;
+            if (row % 2 != 0 && getNumOfInversions(tiles, blankId) % 2 != 0)
+                return true;
+        }
+        else{
+            if(getNumOfInversions(tiles, blankId) % 2 == 0)
+                return true;
+        }
+        return false;
+    }
 
     /**
      * Return whether the tiles are in row-major order.
