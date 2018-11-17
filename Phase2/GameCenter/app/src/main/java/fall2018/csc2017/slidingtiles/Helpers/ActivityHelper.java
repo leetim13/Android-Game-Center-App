@@ -2,31 +2,28 @@ package fall2018.csc2017.slidingtiles.Helpers;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.HashMap;
-
-import fall2018.csc2017.slidingtiles.LoginActivity;
 
 /*
 * helper tools for handling ui effect
+* The static methods have the same use like System.Math, (utility) with only small scope of use, it's not a
+* code smell. We're not creating object from any of these static method, or extends these
+ * classes with static methods.
 * */
 public class ActivityHelper {
+
     /*disable a button and shows the expected text on the textview which has
         been set inside a layout xml
         @param View button: the button in the layout
         @param TextView invalidView: the warning textview in that layout
         @param String text: the text to display on the invalidView
      */
-    public static void disableButton(final View button, final TextView invalidView, String text) {
+    public final static void disableButton(final View button, final TextView invalidView, String text) {
         invalidView.setVisibility(View.VISIBLE);
         invalidView.setText(text);
         button.setEnabled(false);
@@ -47,7 +44,7 @@ public class ActivityHelper {
     * @param xCount: x columns
     * @param yCount: y columns
     * */
-    public static Bitmap[][] splitBitmap(Bitmap bitmap, int xCount, int yCount) {
+    public final static Bitmap[][] splitBitmap(Bitmap bitmap, int xCount, int yCount) {
         // Allocate a two dimensional array to hold the individual images.
         Bitmap[][] bitmaps = new Bitmap[xCount][yCount];
         int width, height;
@@ -73,7 +70,7 @@ public class ActivityHelper {
      * @param obj the object to write to the file with fileName
      */
 
-    public static void saveToFile(String fileName, Context ctx, Object obj) {
+    public final static void saveToFile(String fileName, Context ctx, Object obj) {
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(ctx.openFileOutput(fileName,
                                                                     ctx.MODE_PRIVATE));

@@ -14,13 +14,16 @@ import java.util.Map;
 
 /*
 * functional tool for IO operations, for reading and writing process
+*The static methods have the same use like System.Math, (utility) with only small scope of use
+* it's not a code smell. We're not creating object from any of these static method, or extends these
+* classes with static methods.
 * */
 public class IOHelper {
     /*
     * @param Object obj: the object to write into file
     * @param String path: the path to store the object file
     * */
-    private static void writeMap(Object obj, String path) throws IOException {
+    private final static void writeMap(Object obj, String path) throws IOException {
         File userFile = new File(path);
         if (!userFile.exists()){
             System.out.println("using new file method...");
@@ -38,13 +41,13 @@ public class IOHelper {
     /*
     * write object file within android context
     * */
-    public static void writeAndroidMap(Object obj, String path, Context ctx) throws IOException{
+    public final static void writeAndroidMap(Object obj, String path, Context ctx) throws IOException{
         writeMap(obj, ctx.getFilesDir() + path);
     }
     /*
     *
     * */
-    private static HashMap readMap (String path) throws IOException{
+    private final static HashMap readMap (String path) throws IOException{
         File userFile = new File(path);
         if (userFile.exists()) {
             System.out.println("the path is: ..." + path);
@@ -67,12 +70,12 @@ public class IOHelper {
         return null;
     }
 
-    public static HashMap readAndroidMap (String path, Context ctx) throws IOException{
+    public final static HashMap readAndroidMap (String path, Context ctx) throws IOException{
         return readMap(ctx.getFilesDir() + path);
     }
 
     // sort any kinds of map through values
-    public static List<sequenceBundler> convertMap(Map<String, int[]> map) {
+    public final static List<sequenceBundler> convertMap(Map<String, int[]> map) {
         List<sequenceBundler> returned_list = new ArrayList <sequenceBundler>();
         for (Object key: map.keySet()) {
             int[] values = map.get(key);
