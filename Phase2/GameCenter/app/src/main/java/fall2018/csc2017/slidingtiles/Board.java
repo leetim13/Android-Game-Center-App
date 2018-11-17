@@ -142,16 +142,9 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
     public int getNumRows() {
         return numRows;
     }
-
-    public void setNumRows(int numRows) {
-        this.numRows = numRows;
-    }
+    
 
     public int getNumCols() {
         return numCols;
-    }
-
-    public void setNumCols(int numCols) {
-        this.numCols = numCols;
     }
 }
