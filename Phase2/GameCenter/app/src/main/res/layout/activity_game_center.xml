@@ -65,8 +65,8 @@
 
     <ImageButton
         android:id="@+id/TilesGameImageButton"
-        android:layout_width="121dp"
-        android:layout_height="175dp"
+        android:layout_width="325px"
+        android:layout_height="500px"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:contentDescription="this is the Sliding Tiles Game"
@@ -75,22 +75,6 @@
         app:layout_constraintStart_toStartOf="@+id/imageButton4"
         app:layout_constraintTop_toTopOf="@+id/imageButton4"
         app:srcCompat="@drawable/tile_7" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:background="@color/colorAccent"
-        android:fontFamily="casual"
-        android:text="Coming Soon..."
-        android:textAllCaps="true"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/TilesGame"
-        app:layout_constraintEnd_toEndOf="@+id/TilesGame"
-        app:layout_constraintStart_toStartOf="@+id/TilesGame"
-        app:layout_constraintTop_toTopOf="@+id/TilesGame" />
 
     <Button
         android:id="@+id/button2"
@@ -139,5 +123,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/TFGameImageButton"
+        android:layout_width="325px"
+        android:layout_height="500px"
+        app:layout_constraintBottom_toBottomOf="@+id/TilesGame"
+        app:layout_constraintEnd_toEndOf="@+id/TilesGame"
+        app:layout_constraintStart_toStartOf="@+id/TilesGame"
+        app:layout_constraintTop_toTopOf="@+id/TilesGame"
+        app:srcCompat="@drawable/tflogo" />
 
 </android.support.constraint.ConstraintLayout>

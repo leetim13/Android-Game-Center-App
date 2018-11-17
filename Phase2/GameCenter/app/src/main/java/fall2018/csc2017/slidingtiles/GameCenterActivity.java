@@ -17,6 +17,7 @@ public class GameCenterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_center);
         addTilesGameListener();
+        addTFTilesGameListener();
         addProfileListener();
     }
     /**
@@ -28,6 +29,18 @@ public class GameCenterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 switchToPanel();
+            }
+        });
+    }
+    /**
+     * Activate the 2048 game image button.
+     */
+    private void addTFTilesGameListener() {
+        ImageButton ib = findViewById(R.id.TFGameImageButton);
+        ib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToTFPanel();
             }
         });
     }
@@ -50,6 +63,14 @@ public class GameCenterActivity extends AppCompatActivity {
         Intent tmp = new Intent(this, StartingActivity.class);
         startActivity(tmp);
     }
+    /**
+     * Switch to Starting Activity of 2048 game.
+     */
+    private void switchToTFPanel() {
+        Intent tmp = new Intent(this, StartingActivityTF.class);
+        startActivity(tmp);
+    }
+
     /**
      * Switch to Profile Activity.
      */
