@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
+import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
 import fall2018.csc2017.slidingtiles.users.User;
@@ -23,9 +24,9 @@ import fall2018.csc2017.slidingtiles.users.UserRouter;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private final int NumOfUsers = 16;
+    private final static int NumOfUsers = 16;
 
-    protected static HashMap<String, BoardManager> userBoardHashMap;
+    protected final static HashMap<String, BoardManager> userBoardHashMap = new HashMap<>(NumOfUsers);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loadFromFile(StartingActivity.TEMP_SAVE_FILENAME);
 
-        if(userBoardHashMap == null){
-            userBoardHashMap = new HashMap<>(NumOfUsers);
+        if(userBoardHashMap.size() == 0){
             ActivityHelper.saveToFile(StartingActivity.TEMP_SAVE_FILENAME, this, userBoardHashMap);
         }
         addLoginListener();
@@ -99,7 +99,12 @@ public class LoginActivity extends AppCompatActivity {
             InputStream inputStream = this.openFileInput(fileName);
             if (inputStream != null) {
                 ObjectInputStream input = new ObjectInputStream(inputStream);
-                userBoardHashMap = (HashMap<String, BoardManager>) input.readObject();
+                HashMap<String, BoardManager> newMap = (HashMap<String, BoardManager>) input.readObject();
+                for(Map.Entry<String, BoardManager> entry: newMap.entrySet()) {
+                    String key = entry.getKey();
+                    BoardManager board = entry.getValue();
+                    userBoardHashMap.put(key, board);
+                }
                 inputStream.close();
             }
         } catch (FileNotFoundException e) {
