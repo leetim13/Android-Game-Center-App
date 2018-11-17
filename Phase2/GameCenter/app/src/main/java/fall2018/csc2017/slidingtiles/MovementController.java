@@ -11,6 +11,7 @@ import java.util.HashMap;
 import fall2018.csc2017.slidingtiles.Structures.ArrayStack;
 import fall2018.csc2017.slidingtiles.Helpers.IOHelper;
 import fall2018.csc2017.slidingtiles.users.User;
+import fall2018.csc2017.slidingtiles.users.UserPanel;
 import fall2018.csc2017.slidingtiles.users.UserRouter;
 
 /**
@@ -58,7 +59,7 @@ public class MovementController {
             int[] dir = boardManager.touchMove(position);
             boardManager.addScore();
             int positionPrime = dir[0]*Board.numRows + dir[1];
-            LoginActivity.userBoardHashMap.put(User.currentUser.username, boardManager);
+            LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
             stateStack.push(positionPrime);
             if (boardManager.puzzleSolved()) {
                 Toast.makeText(context, "YOU WIN!", Toast.LENGTH_SHORT).show();
@@ -114,7 +115,7 @@ public class MovementController {
                     map = new HashMap<String, int[]>();
                     newScores = changeScore(map, new int[1], score);
                 }else{
-                    int[] scores = map.get(User.currentUser.username);
+                    int[] scores = map.get(UserPanel.getInstance().getName());
                     newScores = changeScore(map, scores, score);
                 }
                 writeInMapHelper(map, newScores, context);
@@ -137,7 +138,7 @@ public class MovementController {
          */
         private int[] changeScore(HashMap map, int[] scores, int score) {
             int[] newScores;
-            if (map != null && map.containsKey(User.currentUser.username)) {
+            if (map != null && map.containsKey(UserPanel.getInstance().getName())) {
                 newScores = new int[scores.length + 1];
                 for (int i = 0; i < scores.length; i++) {
                     newScores[i] = scores[i];
@@ -159,7 +160,7 @@ public class MovementController {
          */
         private void writeInMapHelper(HashMap<String, int[]> map, int[] newScore, Context context) throws IOException{
             String mapName = hook.get(boardManager.getComplexity());
-            map.put(User.currentUser.username, newScore);
+            map.put(UserPanel.getInstance().getName(), newScore);
             IOHelper.writeAndroidMap(map, mapName, context);
             System.out.println("the first score map for" + mapName + "created!");
         }

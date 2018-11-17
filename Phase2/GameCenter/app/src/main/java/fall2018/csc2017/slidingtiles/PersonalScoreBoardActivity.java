@@ -12,6 +12,7 @@ import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.Helpers.IOHelper;
 import fall2018.csc2017.slidingtiles.users.User;
+import fall2018.csc2017.slidingtiles.users.UserPanel;
 import fall2018.csc2017.slidingtiles.users.UserRouter;
 
 /**
@@ -70,7 +71,7 @@ public class PersonalScoreBoardActivity extends AppCompatActivity {
     }
 
     protected void displayScore(int[] renderList, Map<String, int[]> mp) {
-        int[] obj = mp.get(User.currentUser.username);
+        int[] obj = mp.get(UserPanel.getInstance().getName());
 
         int[] new_array;
         if (obj != null) {
@@ -83,7 +84,7 @@ public class PersonalScoreBoardActivity extends AppCompatActivity {
 
             for (int i = 0; i < new_array.length; i++) {
 
-                String username = User.currentUser.username;
+                String username = UserPanel.getInstance().getName();
                 int record = new_array[i];
                 if (i < renderList.length) {
                     Button bt = findViewById(renderList[i]);

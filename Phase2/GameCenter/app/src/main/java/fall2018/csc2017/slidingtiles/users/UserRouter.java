@@ -47,8 +47,8 @@ public class UserRouter {
         return false;
     }
     /**
-     * @param User user: the user that is being verified
-     * @param boolean store: whether to store this user when verification succeeds
+     * @param  user: the user that is being verified
+     * @param  store: whether to store this user when verification succeeds
      * @return whether the user has passed the verification
     */
     public boolean verifyUser(User user, boolean store) {
@@ -73,7 +73,7 @@ public class UserRouter {
         }
 
         if (result) {
-            User.currentUser = user;
+            UserPanel.getInstance().setUser(user);
         }
 
         return result;

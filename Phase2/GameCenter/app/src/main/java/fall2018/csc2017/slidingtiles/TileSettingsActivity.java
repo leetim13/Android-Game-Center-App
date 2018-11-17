@@ -23,6 +23,8 @@ import fall2018.csc2017.slidingtiles.Components.ImageTile;
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
 import fall2018.csc2017.slidingtiles.Structures.InputFilterMinMax;
 import fall2018.csc2017.slidingtiles.users.User;
+import fall2018.csc2017.slidingtiles.users.UserPanel;
+
 /**
  * The Tiles Settings Activity that is the initial activity when the user clicks on the tiles game.
  */
@@ -78,7 +80,7 @@ public class TileSettingsActivity extends AppCompatActivity{
                     }
 
                     BoardManager boardManager = new BoardManager(i, i);
-                    LoginActivity.userBoardHashMap.put(User.currentUser.username, boardManager);
+                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
                     switchToGame();
                 }
 

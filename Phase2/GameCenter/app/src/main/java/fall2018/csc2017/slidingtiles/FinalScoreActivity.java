@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import fall2018.csc2017.slidingtiles.users.User;
+import fall2018.csc2017.slidingtiles.users.UserPanel;
 
 public class FinalScoreActivity extends AppCompatActivity {
     /**
@@ -28,7 +29,7 @@ public class FinalScoreActivity extends AppCompatActivity {
      * Display total moves to replace "num" from BoardManager.
      */
     private void setNum(){
-        BoardManager currentBM = LoginActivity.userBoardHashMap.get(User.currentUser.username);
+        BoardManager currentBM = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
         int numMoves = currentBM.getScore();
         System.out.println("number of moves:" + numMoves);
         tv = findViewById(R.id.NumMovesButton);

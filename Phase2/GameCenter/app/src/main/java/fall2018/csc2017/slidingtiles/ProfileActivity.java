@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 
 import fall2018.csc2017.slidingtiles.users.User;
+import fall2018.csc2017.slidingtiles.users.UserPanel;
 
 /**
  * The profile activity for an individual user's profile.
@@ -34,12 +35,12 @@ public class ProfileActivity extends AppCompatActivity {
     */
     private void display() {
         setConstant();
-        BoardManager game = LoginActivity.userBoardHashMap.get(User.currentUser.username);
+        BoardManager game = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
         String prevGame = (game != null) ?
                             game.getComplexity() + "x" + game.getComplexity():
                             INVALID_TEXT;
         String numMoves = (game != null) ? Integer.toString(game.getScore()): INVALID_TEXT;
-        displayContent(titleView, User.currentUser.username);
+        displayContent(titleView, UserPanel.getInstance().getName());
         displayContent(previousStateType, prevGame);
         displayContent(previousStateMove, numMoves);
     }

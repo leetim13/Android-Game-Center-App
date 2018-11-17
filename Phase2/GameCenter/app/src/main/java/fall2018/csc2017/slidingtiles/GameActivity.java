@@ -20,6 +20,7 @@ import fall2018.csc2017.slidingtiles.Components.ImageTile;
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
 import fall2018.csc2017.slidingtiles.users.CustomAdapter;
 import fall2018.csc2017.slidingtiles.users.User;
+import fall2018.csc2017.slidingtiles.users.UserPanel;
 
 /**
  * The game activity.
@@ -66,7 +67,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        boardManager = LoginActivity.userBoardHashMap.get(User.currentUser.username);
+        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
 
         createTileButtons(this);
         setContentView(R.layout.activity_main);
@@ -138,7 +139,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
             }
             nextPos++;
         }
-        LoginActivity.userBoardHashMap.put(User.currentUser.username, boardManager);
+        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
         ActivityHelper.saveToFile(StartingActivity.TEMP_SAVE_FILENAME, this, LoginActivity.userBoardHashMap);
 
     }
@@ -162,7 +163,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
                 if(maxUndoSteps > 0) {
                     int position = gridView.getUndoPop();
                     boardManager.touchMove(position);
-                    LoginActivity.userBoardHashMap.put(User.currentUser.username, boardManager);
+                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
                     boardManager.minusScore();
                     maxUndoSteps--;
                 }

@@ -16,7 +16,6 @@ package fall2018.csc2017.slidingtiles.users;
 public class User {
 
     public static final int TILEGAMEINDEX = 0;
-    public static User currentUser;
     public String username;
     public String password;
 

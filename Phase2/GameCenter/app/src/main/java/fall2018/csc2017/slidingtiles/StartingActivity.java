@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
 import fall2018.csc2017.slidingtiles.users.User;
+import fall2018.csc2017.slidingtiles.users.UserPanel;
 
 /**
  * The initial activity for the sliding puzzle tile game.
@@ -32,7 +33,7 @@ public class StartingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        boardManager = LoginActivity.userBoardHashMap.get(User.currentUser.username);
+        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
 
         setContentView(R.layout.activity_starting_);
         addStartButtonListener();
@@ -77,11 +78,11 @@ public class StartingActivity extends AppCompatActivity {
         loadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boardManager = LoginActivity.userBoardHashMap.get(User.currentUser.username);
+                boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
                 if (boardManager != null) {
                     Board.numRows = boardManager.boardNumOfRows;
                     Board.numCols = boardManager.boardNumOfCols;
-                    LoginActivity.userBoardHashMap.put(User.currentUser.username, boardManager);
+                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
                     ActivityHelper.saveToFile(TEMP_SAVE_FILENAME, STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
                     makeToastLoadedText();
                     switchToGame();
