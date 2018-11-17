@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -42,8 +43,8 @@
         <activity android:name=".PersonalScoreBoardActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".FinalScoreActivity" />
-        <activity android:name=".ProfileActivity"></activity>
-
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".StartingActivityTF"></activity>
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 </manifest>
