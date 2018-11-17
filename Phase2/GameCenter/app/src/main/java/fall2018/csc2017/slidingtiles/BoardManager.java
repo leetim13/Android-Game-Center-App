@@ -31,8 +31,8 @@ class BoardManager implements Serializable {
     /**
      * the number of Rows/columns of current board.
      */
-    public int boardNumOfRows;
-    public int boardNumOfCols;
+    private int boardNumOfRows;
+    private int boardNumOfCols;
 
     /**
      * Manage a board that has been pre-populated.
@@ -40,8 +40,8 @@ class BoardManager implements Serializable {
      */
     BoardManager(Board board) {
         this.board = board;
-        this.boardNumOfCols = Board.numCols;
-        this.boardNumOfRows = Board.numRows;
+        this.boardNumOfCols = board.getNumCols();
+        this.boardNumOfRows = board.getNumRows();
     }
 
     /**
@@ -151,14 +151,14 @@ class BoardManager implements Serializable {
      */
     boolean isValidTap(int position) {
 
-        int row = position / Board.numCols;
-        int col = position % Board.numCols;
+        int row = position / boardNumOfRows;
+        int col = position % boardNumOfRows;
         int blankId = board.numTiles();
         // Are any of the 4 the blank tile?
         Tile above = row == 0 ? null : board.getTile(row - 1, col);
-        Tile below = row == Board.numRows - 1 ? null : board.getTile(row + 1, col);
+        Tile below = row == boardNumOfRows - 1 ? null : board.getTile(row + 1, col);
         Tile left = col == 0 ? null : board.getTile(row, col - 1);
-        Tile right = col == Board.numCols - 1 ? null : board.getTile(row, col + 1);
+        Tile right = col == boardNumOfCols - 1 ? null : board.getTile(row, col + 1);
         return (below != null && below.getId() == blankId)
                 || (above != null && above.getId() == blankId)
                 || (left != null && left.getId() == blankId)
@@ -173,8 +173,8 @@ class BoardManager implements Serializable {
      */
     int[] touchMove(int position) {
 
-        int row = position / Board.numRows;
-        int col = position % Board.numCols;
+        int row = position / boardNumOfRows;
+        int col = position % boardNumOfCols;
         int blankId = board.numTiles();
 
         // tiles is the blank tile, swap by calling Board's swap method.
@@ -202,9 +202,9 @@ class BoardManager implements Serializable {
 
         int row = pos[0], col = pos[1];
         return  row >= 0 &&
-                row < Board.numRows &&
+                row < boardNumOfRows &&
                 col >= 0 &&
-                col < Board.numCols;
+                col < boardNumOfCols;
     }
 
     /**
@@ -236,4 +236,13 @@ class BoardManager implements Serializable {
     public int getComplexity(){
         return complexity;
     }
+
+    public int getBoardNumOfCols() {
+        return boardNumOfCols;
+    }
+
+    public int getBoardNumOfRows() {
+        return boardNumOfRows;
+    }
+
 }

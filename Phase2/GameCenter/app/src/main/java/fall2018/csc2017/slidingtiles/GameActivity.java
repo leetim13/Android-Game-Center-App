@@ -37,13 +37,13 @@ public class GameActivity extends AppCompatActivity implements Observer {
      */
     private ArrayList<Button> tileButtons;
 
-    /**
-     * Constants for swiping directions. Should be an enum, probably.
-     */
-    public static final int UP = 1;
-    public static final int DOWN = 2;
-    public static final int LEFT = 3;
-    public static final int RIGHT = 4;
+//    /**
+//     * Constants for swiping directions. Should be an enum, probably.
+//     */
+//    public static final int UP = 1;
+//    public static final int DOWN = 2;
+//    public static final int LEFT = 3;
+//    public static final int RIGHT = 4;
 
     // Grid View and calculated column height and width based on device size
     private GestureDetectGridView gridView;
@@ -75,7 +75,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
 
         // Add View to activity
         gridView = findViewById(R.id.grid);
-        gridView.setNumColumns(Board.numCols);
+        gridView.setNumColumns(boardManager.getBoardNumOfCols());
         gridView.setBoardManager(boardManager);
         boardManager.getBoard().addObserver(this);
         //gridView.setGameActivity(this);
@@ -90,8 +90,8 @@ public class GameActivity extends AppCompatActivity implements Observer {
                         int displayWidth = gridView.getMeasuredWidth();
                         int displayHeight = gridView.getMeasuredHeight();
 
-                        columnWidth = displayWidth / Board.numCols;
-                        columnHeight = displayHeight / Board.numRows;
+                        columnWidth = displayWidth / boardManager.getBoardNumOfCols();
+                        columnHeight = displayHeight / boardManager.getBoardNumOfRows();
                         display();
                     }
                 });
@@ -106,8 +106,8 @@ public class GameActivity extends AppCompatActivity implements Observer {
     private void createTileButtons(Context context) {
         Board board = boardManager.getBoard();
         tileButtons = new ArrayList<>();
-        for (int row = 0; row != Board.numRows; row++) {
-            for (int col = 0; col != Board.numCols; col++) {
+        for (int row = 0; row != boardManager.getBoardNumOfRows(); row++) {
+            for (int col = 0; col != boardManager.getBoardNumOfCols(); col++) {
                 Button tmp = new Button(context);
                 if(TileSettingsActivity.isImageTile) {
                     Drawable drawable = new BitmapDrawable(tmp.getResources(),
@@ -128,8 +128,8 @@ public class GameActivity extends AppCompatActivity implements Observer {
         Board board = boardManager.getBoard();
         int nextPos = 0;
         for (Button b : tileButtons) {
-            int row = nextPos / Board.numRows;
-            int col = nextPos % Board.numCols;
+            int row = nextPos / boardManager.getBoardNumOfRows();
+            int col = nextPos % boardManager.getBoardNumOfCols();
             if(TileSettingsActivity.isImageTile) {
                 Drawable drawable = new BitmapDrawable(b.getResources(),
                         ((ImageTile) board.getTile(row, col)).getBack());

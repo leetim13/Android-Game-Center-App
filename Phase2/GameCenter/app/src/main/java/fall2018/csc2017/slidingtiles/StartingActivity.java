@@ -80,8 +80,8 @@ public class StartingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
                 if (boardManager != null) {
-                    Board.numRows = boardManager.boardNumOfRows;
-                    Board.numCols = boardManager.boardNumOfCols;
+//                    Board.numRows = boardManager.boardNumOfRows;
+//                    Board.numCols = boardManager.boardNumOfCols;
                     LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
                     ActivityHelper.saveToFile(TEMP_SAVE_FILENAME, STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
                     makeToastLoadedText();

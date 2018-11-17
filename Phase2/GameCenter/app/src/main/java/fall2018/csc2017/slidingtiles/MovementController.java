@@ -58,7 +58,7 @@ public class MovementController {
         if (boardManager.isValidTap(position)) {
             int[] dir = boardManager.touchMove(position);
             boardManager.addScore();
-            int positionPrime = dir[0]*Board.numRows + dir[1];
+            int positionPrime = dir[0]*boardManager.getBoardNumOfRows()+ dir[1];
             LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
             stateStack.push(positionPrime);
             if (boardManager.puzzleSolved()) {

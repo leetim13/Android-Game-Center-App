@@ -19,12 +19,12 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
     /**
      * The number of rows.
      */
-    static int numRows;
+    private int numRows;
 
     /**
      * The number of rows.
      */
-    static int numCols;
+    private int numCols;
 
     /**
      * The tiles on the board in row-major order.
@@ -43,8 +43,8 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
         this.tiles = new Tile[numRows][numCols];
         Iterator<Tile> iter = tiles.iterator();
 
-        for (int row = 0; row != Board.numRows; row++) {
-            for (int col = 0; col != Board.numCols; col++) {
+        for (int row = 0; row != numRows; row++) {
+            for (int col = 0; col != numCols; col++) {
                 this.tiles[row][col] = iter.next();
             }
         }
@@ -139,5 +139,19 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
         }
     }
 
+    public int getNumRows() {
+        return numRows;
+    }
 
+    public void setNumRows(int numRows) {
+        this.numRows = numRows;
+    }
+
+    public int getNumCols() {
+        return numCols;
+    }
+
+    public void setNumCols(int numCols) {
+        this.numCols = numCols;
+    }
 }
