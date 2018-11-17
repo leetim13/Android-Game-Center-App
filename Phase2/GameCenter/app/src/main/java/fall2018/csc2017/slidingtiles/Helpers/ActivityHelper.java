@@ -80,5 +80,4 @@ public class ActivityHelper {
             Log.e("Exception", "File write failed: " + e.toString());
         }
     }
-
 }

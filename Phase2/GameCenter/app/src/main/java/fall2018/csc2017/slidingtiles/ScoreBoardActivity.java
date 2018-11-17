@@ -3,22 +3,17 @@ package fall2018.csc2017.slidingtiles;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import fall2018.csc2017.slidingtiles.interfaces.scoreDisplayable;
 import android.widget.Button;
+import android.widget.TextView;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import fall2018.csc2017.slidingtiles.Helpers.IOHelper;
+import fall2018.csc2017.slidingtiles.Systems.ScoreBoardSystem;
 import fall2018.csc2017.slidingtiles.users.UserRouter;
-import fall2018.csc2017.slidingtiles.Helpers.sequenceBundler;
 /**
  * The global scoreboard activity for the sliding puzzle tile game.
  */
 
-public class ScoreBoardActivity extends AppCompatActivity {
+public class ScoreBoardActivity extends AppCompatActivity implements scoreDisplayable{
 
     public int[] renderList1;
     public int[] renderList2;
@@ -40,48 +35,29 @@ public class ScoreBoardActivity extends AppCompatActivity {
 
     @SuppressWarnings("unchecked")
     public void renderBoard() {
-        HashMap<String, int[]> player_state1 = null;
-        HashMap<String, int[]> player_state2 = null;
-        HashMap<String, int[]> player_state3 = null;
 
-        try {
-
-            player_state1 = IOHelper.readAndroidMap(UserRouter.SCORE_STORAGE_PATH33,
-                    getApplicationContext());
-            player_state2 = IOHelper.readAndroidMap(UserRouter.SCORE_STORAGE_PATH44,
-                    getApplicationContext());
-            player_state3 = IOHelper.readAndroidMap(UserRouter.SCORE_STORAGE_PATH55,
-                    getApplicationContext());
-
-        } catch (IOException e) {
-            System.out.println("score board hasn't been initiated: " + e);
-        }
-
-        if (player_state1 != null) {
-            System.out.println("wryyyyyyyyyyyy!");
-            displayScore(renderList1, player_state1);
-        }
-
-        if (player_state2 != null) {
-            displayScore(renderList2, player_state2);
-        }
-
-        if (player_state3 != null) {
-            displayScore(renderList3, player_state3);
-        }
+        String[] scoreFiles = new String[]{UserRouter.SCORE_STORAGE_PATH33,
+                                           UserRouter.SCORE_STORAGE_PATH44,
+                                           UserRouter.SCORE_STORAGE_PATH55
+                                            }; // index0: 33, index1: 44, index2: 55
+        ScoreBoardSystem boardSystem = new ScoreBoardSystem<Button>(scoreFiles ,getApplicationContext());
+        Button[] viewList1 = getViewList(renderList1);
+        Button[] viewList2 = getViewList(renderList2);
+        Button[] viewList3 = getViewList(renderList3);
+        displayScore(viewList1, boardSystem, 0); // display 33 to viewList1
+        displayScore(viewList2, boardSystem, 1); // display 44 to viewList2
+        displayScore(viewList3, boardSystem, 2);
     }
 
-    protected void displayScore(int[] renderList, Map<String, int[]> mp) {
-        List<sequenceBundler> bd = IOHelper.convertMap(mp);
-        Collections.sort(bd);
-        for (int i = 0; i < bd.size(); i++) {
-            sequenceBundler bundler = bd.get(i);
-            String username = bundler.getkey();
-            int record = bundler.getValue();
-            if (i < renderList.length) {
-                Button bt = findViewById(renderList[i]);
-                bt.setText(username + "  " + record);
-            }
+    private Button[] getViewList(int[] renderList) {
+        Button[] result = new Button[3];
+        for (int i = 0; i < renderList.length; i++) {
+            result[i] = findViewById(renderList[i]);
         }
+        return result;
+    }
+
+    public void displayScore(TextView[] renderList, ScoreBoardSystem<TextView> system, int index) {
+        system.displayScore(renderList, index);
     }
 }
