@@ -44,7 +44,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".FinalScoreActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".StartingActivityTF"></activity>
+        <activity android:name=".StartingActivityTF" />
+        <activity android:name=".GameActivityTF" />
     </application>
 
 </manifest>

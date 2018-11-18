@@ -63,7 +63,7 @@ public class StartingActivityTF extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchToSettings();
+                switchToGame();
             }
         });
     }
@@ -154,7 +154,7 @@ public class StartingActivityTF extends AppCompatActivity {
      */
     public void switchToGame() {
         final StartingActivityTF StartingActivityTF = this;
-        Intent tmp = new Intent(this, GameActivity.class);
+        Intent tmp = new Intent(this, GameActivityTF.class);
         ActivityHelper.saveToFile(TEMP_SAVE_FILENAME,StartingActivityTF, LoginActivity.userBoardHashMap);
         startActivity(tmp);
     }
