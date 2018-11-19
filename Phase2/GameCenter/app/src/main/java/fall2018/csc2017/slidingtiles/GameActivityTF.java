@@ -5,11 +5,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -19,15 +19,14 @@ import java.util.Observer;
 
 import fall2018.csc2017.slidingtiles.Components.ImageTile;
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
-import fall2018.csc2017.slidingtiles.Helpers.SimpleGestureFilter;
+import fall2018.csc2017.slidingtiles.Helpers.OnSwipeTouchListener;
 import fall2018.csc2017.slidingtiles.users.CustomAdapter;
 import fall2018.csc2017.slidingtiles.users.UserPanel;
 
-import fall2018.csc2017.slidingtiles.Helpers.SimpleGestureFilter.SimpleGestureListener;
 /**
  * The game activity.
  */
-public class GameActivityTF extends AppCompatActivity implements Observer, SimpleGestureListener  {
+public class GameActivityTF extends AppCompatActivity implements Observer {
 
     /**
      * The board manager.
@@ -50,7 +49,7 @@ public class GameActivityTF extends AppCompatActivity implements Observer, Simpl
     // Grid View and calculated column height and width based on device size
     private GestureDetectGridView gridView;
     private static int columnWidth, columnHeight;
-    private SimpleGestureFilter detector;
+    private TextView tvSwipDescription;
 
     /**
      * Set up the background image for each button based on the master list
@@ -99,40 +98,37 @@ public class GameActivityTF extends AppCompatActivity implements Observer, Simpl
                     }
                 });
         addUndoButtonListener();
-        detector = new SimpleGestureFilter(GameActivityTF.this, this);
+        initializeView();
+        tvSwipDescription.setOnTouchListener(new OnSwipeTouchListener(this){
+            @Override
+            public void onSwipeDown() {
+                Toast.makeText(GameActivityTF.this, "You swiped Down", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                Toast.makeText(GameActivityTF.this, "You swiped Left", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSwipeUp() {
+                Toast.makeText(GameActivityTF.this, "You swiped Up", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSwipeRight() {
+                Toast.makeText(GameActivityTF.this, "You swiped Right", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+    private void initializeView() {
+        tvSwipDescription=(TextView) findViewById(R.id.tvSwipDescription);
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent me) {
-        // Call onTouchEvent of SimpleGestureFilter class
-        this.detector.onTouchEvent(me);
-        return super.dispatchTouchEvent(me);
-    }
 
-    @Override
-    public void onSwipe(int direction) {
 
-        //Detect the swipe gestures and display toast
-        String showToastMessage = "";
 
-        switch (direction) {
-
-            case SimpleGestureFilter.SWIPE_RIGHT:
-                showToastMessage = "You have Swiped Right.";
-                break;
-            case SimpleGestureFilter.SWIPE_LEFT:
-                showToastMessage = "You have Swiped Left.";
-                break;
-            case SimpleGestureFilter.SWIPE_DOWN:
-                showToastMessage = "You have Swiped Down.";
-                break;
-            case SimpleGestureFilter.SWIPE_UP:
-                showToastMessage = "You have Swiped Up.";
-                break;
-
-        }
-        Toast.makeText(this, showToastMessage, Toast.LENGTH_SHORT).show();
-    }
 
     /**
      * Create the buttons for displaying the tiles.

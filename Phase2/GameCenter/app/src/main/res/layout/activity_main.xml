@@ -21,6 +21,15 @@
         android:layout_marginTop="74dp"
         tools:context="fall2018.csc2017.slidingtiles.GameActivity" />
 
+    <TextView
+        android:id="@+id/tvSwipDescription"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:visibility="visible"></TextView>
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="81dp"
