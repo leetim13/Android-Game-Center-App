@@ -9,17 +9,12 @@ import fall2018.csc2017.slidingtiles.R;
 /**
  * A Tile in a sliding tiles puzzle.
  */
-public class Tile implements Comparable<Tile>, Serializable {
+public class Tile extends BasicTile {
 
     /**
      * The background id to find the tile image.
      */
     private int background;
-
-    /**
-     * The unique id.
-     */
-    private int id;
 
     /**
      * Return the background id.
@@ -143,10 +138,5 @@ public class Tile implements Comparable<Tile>, Serializable {
                 background = R.drawable.tile_25;
         }
         }
-    }
-
-    @Override
-    public int compareTo(@NonNull Tile o) {
-        return o.id - this.id;
     }
 }

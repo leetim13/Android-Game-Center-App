@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 public class ImageTile extends Tile{
 
     private Bitmap background; // background of this tile
-    private int id;
     public static Bitmap[][] bitmapCollection; // turned into 5x5 whenever the image is chosen
     private int backgoundId;
     public Bitmap getBack() {
