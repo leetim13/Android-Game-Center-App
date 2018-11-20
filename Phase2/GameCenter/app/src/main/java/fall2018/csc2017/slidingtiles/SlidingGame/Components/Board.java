@@ -9,12 +9,13 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import fall2018.csc2017.slidingtiles.Components.BasicBoard;
 import fall2018.csc2017.slidingtiles.SlidingGame.Components.Tile;
 
 /**
  * The sliding tiles board.
  */
-public class Board extends Observable implements Serializable, Iterable<Tile> {
+public class Board extends BasicBoard implements Iterable<Tile> {
 
     /**
      * The number of rows.
