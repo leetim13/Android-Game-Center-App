@@ -42,7 +42,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
 
         for(int i = 0; i < boardTF.getNumRows(); i++) {
             for (int j = 0; j < boardTF.getNumCols(); j++)
-                if (((TfTile)boardTF.getTile(i, j)).getId() == BoardTF.WIN_VALUE) {
+                if (boardTF.getTile(i, j).getId() == BoardTF.WIN_VALUE) {
                     win = true;
                     break;
                 }
@@ -57,7 +57,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
 
         for(int i = 0; i < boardTF.getNumRows(); i++){
             for (int j = 0; j < boardTF.getNumCols(); j++)
-                if (((TfTile)boardTF.getTile(i, j)).getId() == BoardTF.BLANK_ID){
+                if ((boardTF.getTile(i, j)).getId() == BoardTF.BLANK_ID){
                     lose = false;
                     break;
                 }
@@ -67,28 +67,125 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         return lose;
     }
 
-    public void leftOperation(){
+    public void touchMove(char x){
+        switch (x){
+            case 'u':
+                upOperation();
+                break;
+            case 'd':
+                downOperation();
+                break;
+            case 'l':
+                leftOperation();
+                break;
+            case 'r':
+                rirghtOperation();
+                break;
+            default:
+                System.out.println("Invalid Operation");
+        }
+    }
+
+    private void leftOperation(){
         int id1, id2;
         for (int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++){
             for (int j = 0; j < BoardTF.LENGTH_OF_SIDE; j++){
-                id1 = ((TfTile)boardTF.getTile(i, j)).getId();
+                id1 = boardTF.getTile(i, j).getId();
                 if (id1 == BoardTF.BLANK_ID)
                     continue;
                 for(int k = j+1; k < BoardTF.LENGTH_OF_SIDE; k++){
-                    id2 = ((TfTile)boardTF.getTile(i, k)).getId();
+                    id2 = boardTF.getTile(i, k).getId();
                     if (id1 == id2){
-                        ((TfTile)boardTF.getTile(i, j)).setId(id1+1);
-                        ((TfTile)boardTF.getTile(i, k)).setId(BoardTF.BLANK_ID);
+                        boardTF.getTile(i, j).setId(id1+1);
+                        boardTF.getTile(i, k).setId(BoardTF.BLANK_ID);
                     }
                 }
             }
             for (int j = 0; j < BoardTF.LENGTH_OF_SIDE; j++){
                 int k = j;
                 while (k < BoardTF.LENGTH_OF_SIDE &&
-                        ((TfTile)boardTF.getTile(i, k)).getId() == BoardTF.BLANK_ID)
+                        boardTF.getTile(i, k).getId() == BoardTF.BLANK_ID)
                     k++;
                 if (j != k && k != BoardTF.LENGTH_OF_SIDE)
                     boardTF.swapTiles(i, j, i, k);
+            }
+        }
+    }
+
+    private void rirghtOperation(){
+        int id1, id2;
+        for (int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++){
+            for (int j = BoardTF.LENGTH_OF_SIDE - 1; j >= 0; j--){
+                id1 = boardTF.getTile(i, j).getId();
+                if (id1 == BoardTF.BLANK_ID)
+                    continue;
+                for(int k = j-1; k >= 0; k--){
+                    id2 = boardTF.getTile(i, k).getId();
+                    if (id1 == id2){
+                        boardTF.getTile(i, j).setId(id1+1);
+                        boardTF.getTile(i, k).setId(BoardTF.BLANK_ID);
+                    }
+                }
+            }
+            for (int j = BoardTF.LENGTH_OF_SIDE - 1; j >= 0; j--){
+                int k = j;
+                while (k >= 0 &&
+                        boardTF.getTile(i, k).getId() == BoardTF.BLANK_ID)
+                    k--;
+                if (j != k && k >= 0)
+                    boardTF.swapTiles(i, j, i, k);
+            }
+        }
+    }
+
+    private void upOperation(){
+        int id1, id2;
+        for (int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++){
+            for (int j = 0; j < BoardTF.LENGTH_OF_SIDE; j++){
+                id1 = boardTF.getTile(j, i).getId();
+                if (id1 == BoardTF.BLANK_ID)
+                    continue;
+                for(int k = j+1; k < BoardTF.LENGTH_OF_SIDE; k++){
+                    id2 = boardTF.getTile(k, i).getId();
+                    if (id1 == id2){
+                        boardTF.getTile(j, i).setId(id1+1);
+                        boardTF.getTile(k, i).setId(BoardTF.BLANK_ID);
+                    }
+                }
+            }
+            for (int j = 0; j < BoardTF.LENGTH_OF_SIDE; j++){
+                int k = j;
+                while (k < BoardTF.LENGTH_OF_SIDE &&
+                        boardTF.getTile(k, i).getId() == BoardTF.BLANK_ID)
+                    k++;
+                if (j != k && k != BoardTF.LENGTH_OF_SIDE)
+                    boardTF.swapTiles(j, i, k, i);
+            }
+        }
+    }
+
+    private void downOperation(){
+        int id1, id2;
+        for (int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++){
+            for (int j = BoardTF.LENGTH_OF_SIDE - 1; j >= 0; j--){
+                id1 = boardTF.getTile(j, i).getId();
+                if (id1 == BoardTF.BLANK_ID)
+                    continue;
+                for(int k = j-1; k >= 0; k--){
+                    id2 = boardTF.getTile(k, i).getId();
+                    if (id1 == id2){
+                        boardTF.getTile(j, i).setId(id1+1);
+                        boardTF.getTile(k, i).setId(BoardTF.BLANK_ID);
+                    }
+                }
+            }
+            for (int j = BoardTF.LENGTH_OF_SIDE - 1; j >= 0; j--){
+                int k = j;
+                while (k >= 0 &&
+                        boardTF.getTile(k, i).getId() == BoardTF.BLANK_ID)
+                    k--;
+                if (j != k && k >= 0)
+                    boardTF.swapTiles(j, i, k, i);
             }
         }
     }
