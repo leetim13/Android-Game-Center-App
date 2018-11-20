@@ -77,22 +77,6 @@
         app:srcCompat="@drawable/tile_7" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:fontFamily="casual"
-        android:text="Coming Soon..."
-        android:textAllCaps="true"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton3"
-        app:layout_constraintStart_toStartOf="@+id/imageButton3"
-        app:layout_constraintTop_toTopOf="@+id/imageButton3"
-        tools:text="Coming Soon..." />
-
-    <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,5 +117,15 @@
         app:layout_constraintStart_toStartOf="@+id/TilesGame"
         app:layout_constraintTop_toTopOf="@+id/TilesGame"
         app:srcCompat="@drawable/tflogo" />
+
+    <ImageButton
+        android:id="@+id/SudokuGameImageButton"
+        android:layout_width="325px"
+        android:layout_height="500px"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+        app:layout_constraintStart_toStartOf="@+id/imageButton3"
+        app:layout_constraintTop_toTopOf="@+id/imageButton3"
+        app:srcCompat="@drawable/sudokulogo" />
 
 </android.support.constraint.ConstraintLayout>
