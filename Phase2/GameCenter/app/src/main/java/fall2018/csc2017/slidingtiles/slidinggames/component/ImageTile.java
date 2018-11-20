@@ -8,7 +8,6 @@ public class ImageTile extends Tile {
 
     private Bitmap background; // background of this tile
     public static Bitmap[][] bitmapCollection; // turned into 5x5 whenever the image is chosen
-    private int backgoundId;
     public Bitmap getBack() {
         return this.background;
     }
@@ -20,7 +19,6 @@ public class ImageTile extends Tile {
     * */
     public ImageTile(int backgroundId,int numRows, int numCols) {
         id = backgroundId + 1;
-        this.backgoundId = backgroundId;
         if(id == numRows*numCols){
             background = null;
             return;
