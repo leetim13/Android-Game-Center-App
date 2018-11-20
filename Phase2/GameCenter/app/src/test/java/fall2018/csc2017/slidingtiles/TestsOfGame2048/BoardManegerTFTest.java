@@ -2,9 +2,8 @@ package fall2018.csc2017.slidingtiles.TestsOfGame2048;
 
 import org.junit.Test;
 
-import fall2018.csc2017.slidingtiles.TFGame.Components.BoardTF;
-import fall2018.csc2017.slidingtiles.TFGame.Components.TfTile;
-import fall2018.csc2017.slidingtiles.TFGame.Manager.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
+import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 
 import static org.junit.Assert.*;
 

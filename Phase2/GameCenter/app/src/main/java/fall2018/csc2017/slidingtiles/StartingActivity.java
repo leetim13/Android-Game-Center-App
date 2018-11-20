@@ -9,12 +9,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
-import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
-import fall2018.csc2017.slidingtiles.SlidingGame.Views.GameActivity;
-import fall2018.csc2017.slidingtiles.SlidingGame.Views.PersonalScoreBoardActivity;
-import fall2018.csc2017.slidingtiles.SlidingGame.Views.TileSettingsActivity;
-import fall2018.csc2017.slidingtiles.Systems.UserPanel;
+import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
+import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
+import fall2018.csc2017.slidingtiles.slidinggames.view.GameActivity;
+import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
+import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
+import fall2018.csc2017.slidingtiles.system.UserPanel;
 
 /**
  * The initial activity for the sliding puzzle tile game.

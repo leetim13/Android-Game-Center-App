@@ -8,7 +8,7 @@
     android:background="#f07c65"
     tools:context=".GameCenterActivity">
 
-    <fall2018.csc2017.slidingtiles.Controllers.GestureDetectGridView xmlns:android="http://schemas.android.com/apk/res/android"
+    <fall2018.csc2017.slidingtiles.controller.GestureDetectGridView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/grid"
@@ -19,7 +19,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="74dp"
-        tools:context="fall2018.csc2017.slidingtiles.SlidingGame.Views.GameActivity" />
+        tools:context="fall2018.csc2017.slidingtiles.slidinggames.view.GameActivity" />
 
     <TextView
         android:id="@+id/tvSwipDescription"

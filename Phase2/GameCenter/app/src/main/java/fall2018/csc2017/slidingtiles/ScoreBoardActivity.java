@@ -7,8 +7,8 @@ import fall2018.csc2017.slidingtiles.interfaces.scoreDisplayable;
 import android.widget.Button;
 import android.widget.TextView;
 
-import fall2018.csc2017.slidingtiles.Systems.ScoreBoardSystem;
-import fall2018.csc2017.slidingtiles.Controllers.UserRouter;
+import fall2018.csc2017.slidingtiles.system.ScoreBoardSystem;
+import fall2018.csc2017.slidingtiles.controller.UserRouter;
 /**
  * The global scoreboard activity for the sliding puzzle tile game.
  */

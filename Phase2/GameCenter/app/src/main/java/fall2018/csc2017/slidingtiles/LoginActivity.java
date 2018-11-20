@@ -18,10 +18,10 @@ import java.io.ObjectInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
-import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
-import fall2018.csc2017.slidingtiles.Components.User;
-import fall2018.csc2017.slidingtiles.Controllers.UserRouter;
+import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
+import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
+import fall2018.csc2017.slidingtiles.component.User;
+import fall2018.csc2017.slidingtiles.controller.UserRouter;
 
 public class LoginActivity extends AppCompatActivity {
 

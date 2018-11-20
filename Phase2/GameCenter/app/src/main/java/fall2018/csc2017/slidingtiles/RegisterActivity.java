@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
-import fall2018.csc2017.slidingtiles.Components.User;
-import fall2018.csc2017.slidingtiles.Controllers.UserRouter;
+import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
+import fall2018.csc2017.slidingtiles.component.User;
+import fall2018.csc2017.slidingtiles.controller.UserRouter;
 
 /**
  * The register/sign up activity for the sliding puzzle tile game.

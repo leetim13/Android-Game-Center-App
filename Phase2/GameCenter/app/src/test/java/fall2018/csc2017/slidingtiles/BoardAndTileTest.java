@@ -5,9 +5,9 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import fall2018.csc2017.slidingtiles.SlidingGame.Components.Board;
-import fall2018.csc2017.slidingtiles.SlidingGame.Components.Tile;
-import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
+import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
+import fall2018.csc2017.slidingtiles.slidinggames.component.Tile;
+import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 
 import static org.junit.Assert.*;
 

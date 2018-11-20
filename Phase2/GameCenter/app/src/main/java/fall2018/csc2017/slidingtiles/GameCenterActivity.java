@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import fall2018.csc2017.slidingtiles.TFGame.Views.StartingActivityTF;
+import fall2018.csc2017.slidingtiles.tfgames.view.StartingActivityTF;
 
 /**
  * The game activity.

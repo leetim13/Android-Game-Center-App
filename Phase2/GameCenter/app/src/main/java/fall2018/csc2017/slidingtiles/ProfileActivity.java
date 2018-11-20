@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 
-import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
-import fall2018.csc2017.slidingtiles.Systems.UserPanel;
+import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
+import fall2018.csc2017.slidingtiles.system.UserPanel;
 
 /**
  * The profile activity for an individual user's profile.
