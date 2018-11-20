@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
 import fall2018.csc2017.slidingtiles.SlidingGame.Views.PersonalScoreBoardActivity;
-import fall2018.csc2017.slidingtiles.users.UserPanel;
+import fall2018.csc2017.slidingtiles.Systems.UserPanel;
 
 public class FinalScoreActivity extends AppCompatActivity {
     /**

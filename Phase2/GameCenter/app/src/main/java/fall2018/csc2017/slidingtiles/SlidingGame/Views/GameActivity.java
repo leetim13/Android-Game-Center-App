@@ -25,7 +25,7 @@ import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
 import fall2018.csc2017.slidingtiles.SlidingGame.Components.Board;
 import fall2018.csc2017.slidingtiles.Helpers.CustomAdapter;
 import fall2018.csc2017.slidingtiles.StartingActivity;
-import fall2018.csc2017.slidingtiles.users.UserPanel;
+import fall2018.csc2017.slidingtiles.Systems.UserPanel;
 
 /**
  * The game activity.

@@ -14,7 +14,7 @@ import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
 import fall2018.csc2017.slidingtiles.SlidingGame.Views.GameActivity;
 import fall2018.csc2017.slidingtiles.SlidingGame.Views.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.SlidingGame.Views.TileSettingsActivity;
-import fall2018.csc2017.slidingtiles.users.UserPanel;
+import fall2018.csc2017.slidingtiles.Systems.UserPanel;
 
 /**
  * The initial activity for the sliding puzzle tile game.

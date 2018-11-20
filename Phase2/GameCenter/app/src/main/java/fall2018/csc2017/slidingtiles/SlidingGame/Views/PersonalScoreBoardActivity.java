@@ -12,9 +12,8 @@ import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.Helpers.IOHelper;
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.users.User;
-import fall2018.csc2017.slidingtiles.users.UserPanel;
-import fall2018.csc2017.slidingtiles.users.UserRouter;
+import fall2018.csc2017.slidingtiles.Systems.UserPanel;
+import fall2018.csc2017.slidingtiles.Controllers.UserRouter;
 
 /**
  * The personal scoreboard activity for the sliding puzzle tile game.

@@ -13,8 +13,7 @@ import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
 import fall2018.csc2017.slidingtiles.Structures.ArrayStack;
 import fall2018.csc2017.slidingtiles.Helpers.IOHelper;
-import fall2018.csc2017.slidingtiles.users.UserPanel;
-import fall2018.csc2017.slidingtiles.users.UserRouter;
+import fall2018.csc2017.slidingtiles.Systems.UserPanel;
 
 /**
  * the class to make change on each move.

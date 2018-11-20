@@ -17,7 +17,7 @@ import fall2018.csc2017.slidingtiles.ScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
 import fall2018.csc2017.slidingtiles.SlidingGame.Views.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.SlidingGame.Views.TileSettingsActivity;
-import fall2018.csc2017.slidingtiles.users.UserPanel;
+import fall2018.csc2017.slidingtiles.Systems.UserPanel;
 /**
  * The initial activity for the 2048 game.
  */

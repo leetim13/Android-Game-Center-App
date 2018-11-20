@@ -20,8 +20,8 @@ import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
 import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
-import fall2018.csc2017.slidingtiles.users.User;
-import fall2018.csc2017.slidingtiles.users.UserRouter;
+import fall2018.csc2017.slidingtiles.SlidingGame.Components.User;
+import fall2018.csc2017.slidingtiles.Controllers.UserRouter;
 
 public class LoginActivity extends AppCompatActivity {
 
