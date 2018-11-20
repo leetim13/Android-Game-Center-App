@@ -8,6 +8,10 @@ import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
 
+/**
+ * Manage a boardTF, including making movements after each operation made by the user
+ * and checking for a win or a lose.
+ */
 public class BoardManagerTF extends BasicBoardManager implements Serializable {
     /**
      * The board being managed.
