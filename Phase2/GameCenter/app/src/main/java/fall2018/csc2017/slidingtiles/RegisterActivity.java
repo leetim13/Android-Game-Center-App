@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
-import fall2018.csc2017.slidingtiles.SlidingGame.Components.User;
+import fall2018.csc2017.slidingtiles.Components.User;
 import fall2018.csc2017.slidingtiles.Controllers.UserRouter;
 
 /**

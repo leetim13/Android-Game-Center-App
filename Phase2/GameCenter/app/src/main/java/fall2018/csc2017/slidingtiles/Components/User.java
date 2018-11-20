@@ -11,7 +11,7 @@ HashMap0 Structure
 * +username: the name of the user
 * +password: the password of this user
 * */
-package fall2018.csc2017.slidingtiles.SlidingGame.Components;
+package fall2018.csc2017.slidingtiles.Components;
 
 public class User {
 

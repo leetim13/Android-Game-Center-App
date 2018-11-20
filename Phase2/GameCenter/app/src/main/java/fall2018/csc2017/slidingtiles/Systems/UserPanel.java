@@ -1,6 +1,6 @@
 package fall2018.csc2017.slidingtiles.Systems;
 
-import fall2018.csc2017.slidingtiles.SlidingGame.Components.User;
+import fall2018.csc2017.slidingtiles.Components.User;
 
 /*
  * singleton controlpanel, hold a user and record the current user state

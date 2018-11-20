@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import fall2018.csc2017.slidingtiles.Helpers.IOHelper;
-import fall2018.csc2017.slidingtiles.SlidingGame.Components.User;
+import fall2018.csc2017.slidingtiles.Components.User;
 import fall2018.csc2017.slidingtiles.Systems.UserPanel;
 
 /**
