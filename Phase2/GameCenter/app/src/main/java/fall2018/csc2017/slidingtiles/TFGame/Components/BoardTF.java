@@ -9,15 +9,15 @@ import java.util.NoSuchElementException;
 import fall2018.csc2017.slidingtiles.Components.BasicBoard;
 
 public class BoardTF extends BasicBoard implements Iterable {
-    static final int LENGTH_OF_SIDE = 4;
-    static final int WIN_VALUE = 2048;
-    static final int BLANK_ID = 0;
+    public static final int LENGTH_OF_SIDE = 4;
+    public static final int WIN_VALUE = 2048;
+    public static final int BLANK_ID = 0;
 
     private int numRows;
     private int numCols;
     private TfTile[][] tfTiles;
 
-    BoardTF(int lengthOfSide, List<TfTile> tfTiles){
+    public BoardTF(int lengthOfSide, List<TfTile> tfTiles){
         this.numCols = this.numRows = lengthOfSide;
         this.tfTiles = new TfTile[numRows][numCols];
         Iterator<TfTile> iter = tfTiles.iterator();
