@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import fall2018.csc2017.slidingtiles.Components.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.SlidingGame.Components.ImageTile;
 import fall2018.csc2017.slidingtiles.SlidingGame.Components.Tile;
 import fall2018.csc2017.slidingtiles.SlidingGame.Components.Board;
@@ -13,7 +14,7 @@ import fall2018.csc2017.slidingtiles.SlidingGame.Views.TileSettingsActivity;
 /**
  * Manage a board, including swapping tiles, checking for a win, and managing taps.
  */
-public class BoardManager implements Serializable {
+public class BoardManager extends BasicBoardManager implements Serializable {
 
     /**
      * The board being managed.
