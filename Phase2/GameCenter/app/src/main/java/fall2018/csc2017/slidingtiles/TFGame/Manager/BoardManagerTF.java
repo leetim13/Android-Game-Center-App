@@ -67,7 +67,31 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         return lose;
     }
 
-
+    void leftOperation(){
+        int id1, id2;
+        for (int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++){
+            for (int j = 0; j < BoardTF.LENGTH_OF_SIDE; j++){
+                id1 = ((TfTile)boardTF.getTile(i, j)).getId();
+                if (id1 == BoardTF.BLANK_ID)
+                    continue;
+                for(int k = j+1; k < BoardTF.LENGTH_OF_SIDE; k++){
+                    id2 = ((TfTile)boardTF.getTile(i, k)).getId();
+                    if (id1 == id2){
+                        ((TfTile)boardTF.getTile(i, j)).setId(id1+1);
+                        ((TfTile)boardTF.getTile(i, k)).setId(BoardTF.BLANK_ID);
+                    }
+                }
+            }
+            for (int j = 0; j < BoardTF.LENGTH_OF_SIDE; j++){
+                int k = j;
+                while (k < BoardTF.LENGTH_OF_SIDE &&
+                        ((TfTile)boardTF.getTile(i, k)).getId() == BoardTF.BLANK_ID)
+                    k++;
+                if (j != k && k != BoardTF.LENGTH_OF_SIDE)
+                    boardTF.swapTiles(i, j, i, k);
+            }
+        }
+    }
 
     public void addScore(){ this.score++; }
 
