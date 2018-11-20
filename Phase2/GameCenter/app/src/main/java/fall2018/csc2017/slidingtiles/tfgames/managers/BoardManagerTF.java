@@ -25,6 +25,10 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     private int boardNumOfRows;
     private int boardNumOfCols;
 
+    /**
+     * Constructor of BoardManagerTF
+     * @param lengthOfSide The length of the side of the board
+     */
     public BoardManagerTF(int lengthOfSide){
         this.boardNumOfCols = this.boardNumOfRows = lengthOfSide;
         List<TfTile> tfTiles = new ArrayList<>();
@@ -35,8 +39,18 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         this.boardTF = new BoardTF(lengthOfSide, tfTiles);
     }
 
+
+    /**
+     * Return the boardtf of boardManagerTF
+     * @return the boardtf of boardManagerTF
+     */
     public BoardTF getBoardTF(){ return boardTF; }
 
+
+    /**
+     * Check if the user wins the game
+     * @return whether the user wins the game
+     */
     public boolean hasWon(){
         boolean win = false;
 
@@ -52,6 +66,10 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         return win;
     }
 
+    /**
+     * Check if the user loses the game
+     * @return whether the user loses the game
+     */
     public boolean hasLost(){
         boolean lose = true;
 
@@ -67,6 +85,10 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         return lose;
     }
 
+    /**
+     * Make movements in the boardTF according to operation of the user
+     * @param x Character indicating the operation the user made
+     */
     public void touchMove(char x){
         switch (x){
             case 'u':
@@ -79,13 +101,17 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
                 leftOperation();
                 break;
             case 'r':
-                rirghtOperation();
+                rightOperation();
                 break;
             default:
                 System.out.println("Invalid Operation");
         }
     }
 
+    /**
+     * Calculate the places of each tfTile after a slide towards left is made
+     * Update the boardTF accordingly
+     */
     private void leftOperation(){
         int id1, id2;
         for (int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++){
@@ -112,7 +138,11 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         }
     }
 
-    private void rirghtOperation(){
+    /**
+     * Calculate the places of each tfTile after a slide towards right is made
+     * Update the boardTF accordingly
+     */
+    private void rightOperation(){
         int id1, id2;
         for (int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++){
             for (int j = BoardTF.LENGTH_OF_SIDE - 1; j >= 0; j--){
@@ -138,6 +168,10 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         }
     }
 
+    /**
+     * Calculate the places of each tfTile after a slide towards upwards is made
+     * Update the boardTF accordingly
+     */
     private void upOperation(){
         int id1, id2;
         for (int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++){
@@ -164,6 +198,10 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         }
     }
 
+    /**
+     * Calculate the places of each tfTile after a slide downwards left is made
+     * Update the boardTF accordingly
+     */
     private void downOperation(){
         int id1, id2;
         for (int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++){
@@ -190,13 +228,33 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         }
     }
 
+    /**
+     * Add the score of the user by 1
+     */
     public void addScore(){ this.score++; }
 
+
+    /**
+     * Minus the score of the user by 1
+     */
     public void minusScore(){ this.score--; }
 
+
+    /**
+     * Return the score of the user
+     * @return the score of the user
+     */
     public int getScore(){ return this.score; }
 
+    /**
+     * Return the number of rows in boardTF
+     * @return the number of rows in boardTF
+     */
     public int getBoardNumOfRows(){ return this.boardNumOfRows; }
 
+    /**
+     * Return the number of columns in boardTF
+     * @return the number of columns in boardTF
+     */
     public int getBoardNumOfCols(){ return this.boardNumOfCols; }
 }
