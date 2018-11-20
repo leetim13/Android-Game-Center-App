@@ -5,6 +5,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import fall2018.csc2017.slidingtiles.SlidingGame.Components.Board;
+import fall2018.csc2017.slidingtiles.SlidingGame.Components.Tile;
+import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
+
 import static org.junit.Assert.*;
 
 /**
@@ -23,7 +27,7 @@ public class BoardAndTileTest {
      */
     private List<Tile> makeTiles() {
         List<Tile> tiles = new ArrayList<>();
-        final int numTiles = Board.numRows * Board.numCols;
+        final int numTiles = 4 * 4;
         for (int tileNum = 0; tileNum != numTiles; tileNum++) {
             tiles.add(new Tile(tileNum + 1, tileNum));
         }
@@ -36,7 +40,7 @@ public class BoardAndTileTest {
      */
     private void setUpCorrect() {
         List<Tile> tiles = makeTiles();
-        Board board = new Board(tiles);
+        Board board = new Board(4, 4, tiles);
         boardManager = new BoardManager(board);
     }
 
