@@ -25,7 +25,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     private int boardNumOfRows;
     private int boardNumOfCols;
 
-    BoardManagerTF(int lengthOfSide){
+    public BoardManagerTF(int lengthOfSide){
         this.boardNumOfCols = this.boardNumOfRows = lengthOfSide;
         List<TfTile> tfTiles = new ArrayList<>();
         final int numTiles = lengthOfSide * lengthOfSide;
@@ -35,9 +35,9 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         this.boardTF = new BoardTF(lengthOfSide, tfTiles);
     }
 
-    BoardTF getBoardTF(){ return boardTF; }
+    public BoardTF getBoardTF(){ return boardTF; }
 
-    boolean hasWon(){
+    public boolean hasWon(){
         boolean win = false;
 
         for(int i = 0; i < boardTF.getNumRows(); i++) {
@@ -52,7 +52,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         return win;
     }
 
-    boolean hasLost(){
+    public boolean hasLost(){
         boolean lose = true;
 
         for(int i = 0; i < boardTF.getNumRows(); i++){
@@ -67,7 +67,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         return lose;
     }
 
-    void leftOperation(){
+    public void leftOperation(){
         int id1, id2;
         for (int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++){
             for (int j = 0; j < BoardTF.LENGTH_OF_SIDE; j++){
