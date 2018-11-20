@@ -18,4 +18,4 @@ draw the CRC and UML card for "2048" and confirm some process of implementation
 
 ## second meething##
 
-confirm the second game "saduko"
+confirm the second game "saduko" (Nov 19)
