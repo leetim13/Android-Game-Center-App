@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 
-import fall2018.csc2017.slidingtiles.users.User;
+import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
 import fall2018.csc2017.slidingtiles.users.UserPanel;
 
 /**
@@ -18,7 +18,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView previousStateMove; // the number of moves the player took in previous game
     private TextView previousStateType; // previous game name
     private TextView cUser; // the name of the user in the bottom line
-    final String INVALID_TEXT = "no games played";
+    public static final String INVALID_TEXT = "no games played";
 
     /**
      *

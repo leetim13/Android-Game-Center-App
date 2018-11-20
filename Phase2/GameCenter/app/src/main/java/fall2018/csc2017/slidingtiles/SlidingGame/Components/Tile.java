@@ -1,9 +1,10 @@
-package fall2018.csc2017.slidingtiles.Components;
+package fall2018.csc2017.slidingtiles.SlidingGame.Components;
 
 import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 
+import fall2018.csc2017.slidingtiles.Components.BasicTile;
 import fall2018.csc2017.slidingtiles.R;
 
 /**

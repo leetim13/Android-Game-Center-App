@@ -1,6 +1,5 @@
-package fall2018.csc2017.slidingtiles;
+package fall2018.csc2017.slidingtiles.SlidingGame.Views;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -16,13 +15,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.HashMap;
 
-import fall2018.csc2017.slidingtiles.Components.ImageTile;
+import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
+import fall2018.csc2017.slidingtiles.LoginActivity;
+import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.SlidingGame.Components.ImageTile;
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
 import fall2018.csc2017.slidingtiles.Structures.InputFilterMinMax;
-import fall2018.csc2017.slidingtiles.users.User;
 import fall2018.csc2017.slidingtiles.users.UserPanel;
 
 /**

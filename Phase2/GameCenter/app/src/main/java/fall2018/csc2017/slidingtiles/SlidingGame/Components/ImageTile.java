@@ -1,9 +1,10 @@
-package fall2018.csc2017.slidingtiles.Components;
+package fall2018.csc2017.slidingtiles.SlidingGame.Components;
 
 import android.graphics.Bitmap;
+
 /*Tile  used for changing background functionality
 * */
-public class ImageTile extends Tile{
+public class ImageTile extends Tile {
 
     private Bitmap background; // background of this tile
     public static Bitmap[][] bitmapCollection; // turned into 5x5 whenever the image is chosen

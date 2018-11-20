@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles;
+package fall2018.csc2017.slidingtiles.SlidingGame.Views;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.Helpers.IOHelper;
+import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.users.User;
 import fall2018.csc2017.slidingtiles.users.UserPanel;
 import fall2018.csc2017.slidingtiles.users.UserRouter;

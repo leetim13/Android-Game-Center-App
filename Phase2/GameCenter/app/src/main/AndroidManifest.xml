@@ -31,7 +31,7 @@
         <!-- </intent-filter> -->
         <!-- </activity> -->
 
-        <activity android:name=".GameActivity" />
+        <activity android:name=".SlidingGame.Views.GameActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
@@ -39,13 +39,13 @@
 
         <activity android:name=".GameCenterActivity" />
         <activity android:name=".ScoreBoardActivity" />
-        <activity android:name=".TileSettingsActivity" />
-        <activity android:name=".PersonalScoreBoardActivity" />
+        <activity android:name=".SlidingGame.Views.TileSettingsActivity" />
+        <activity android:name=".SlidingGame.Views.PersonalScoreBoardActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".FinalScoreActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".StartingActivityTF" />
-        <activity android:name=".GameActivityTF" />
+        <activity android:name=".TFGame.Views.StartingActivityTF" />
+        <activity android:name=".TFGame.Views.GameActivityTF" />
     </application>
 
 </manifest>

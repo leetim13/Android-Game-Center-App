@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+
+import fall2018.csc2017.slidingtiles.TFGame.Views.StartingActivityTF;
+
 /**
  * The game activity.
  * @author Timothy Lee

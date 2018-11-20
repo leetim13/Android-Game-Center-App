@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
+import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
 import fall2018.csc2017.slidingtiles.users.User;
 import fall2018.csc2017.slidingtiles.users.UserRouter;
 
@@ -26,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private final static int NumOfUsers = 16;
 
-    protected final static HashMap<String, BoardManager> userBoardHashMap = new HashMap<>(NumOfUsers);
+    public final static HashMap<String, BoardManager> userBoardHashMap = new HashMap<>(NumOfUsers);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

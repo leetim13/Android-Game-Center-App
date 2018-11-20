@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/load1"
-    tools:context="fall2018.csc2017.slidingtiles.StartingActivityTF">
+    tools:context="fall2018.csc2017.slidingtiles.TFGame.Views.StartingActivityTF">
 
     <TextView
         android:id="@+id/warningText"

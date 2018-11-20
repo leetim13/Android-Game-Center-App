@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles;
+package fall2018.csc2017.slidingtiles.SlidingGame.Components;
 
 import android.support.annotation.NonNull;
 
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-import fall2018.csc2017.slidingtiles.Components.Tile;
+import fall2018.csc2017.slidingtiles.SlidingGame.Components.Tile;
 
 /**
  * The sliding tiles board.
@@ -37,7 +37,7 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
      *
      * @param tiles the tiles for the board
      */
-    Board(int numRows, int numCols, List<Tile> tiles) {
+    public Board(int numRows, int numCols, List<Tile> tiles) {
         this.numRows = numRows;
         this.numCols = numCols;
         this.tiles = new Tile[numRows][numCols];
@@ -59,7 +59,7 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
      * Return the number of tiles on the board.
      * @return the number of tiles on the board
      */
-    int numTiles() {
+    public int numTiles() {
         int sum = 0;
 
         for (Tile[] row:this.tiles) {
@@ -76,7 +76,7 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
      * @param col the tile column
      * @return the tile at (row, col)
      */
-    Tile getTile(int row, int col) {
+    public Tile getTile(int row, int col) {
         return tiles[row][col];
     }
 
@@ -88,7 +88,7 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
      * @param row2 the second tile row
      * @param col2 the second tile col
      */
-    void swapTiles(int row1, int col1, int row2, int col2) {
+    public void swapTiles(int row1, int col1, int row2, int col2) {
 
         Tile temp = this.tiles[row1][col1];
 

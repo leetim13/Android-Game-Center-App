@@ -9,8 +9,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
-import fall2018.csc2017.slidingtiles.users.User;
+import fall2018.csc2017.slidingtiles.SlidingGame.Views.GameActivity;
+import fall2018.csc2017.slidingtiles.SlidingGame.Views.PersonalScoreBoardActivity;
+import fall2018.csc2017.slidingtiles.SlidingGame.Views.TileSettingsActivity;
 import fall2018.csc2017.slidingtiles.users.UserPanel;
 
 /**

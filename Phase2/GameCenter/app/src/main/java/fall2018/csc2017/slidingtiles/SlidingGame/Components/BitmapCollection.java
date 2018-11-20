@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.Components;
+package fall2018.csc2017.slidingtiles.SlidingGame.Components;
 /*
 * singleton pattern to display the load image
 * */

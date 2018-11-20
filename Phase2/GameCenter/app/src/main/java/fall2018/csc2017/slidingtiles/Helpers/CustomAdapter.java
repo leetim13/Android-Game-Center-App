@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.users;
+package fall2018.csc2017.slidingtiles.Helpers;
 
 /*
 Taken from:

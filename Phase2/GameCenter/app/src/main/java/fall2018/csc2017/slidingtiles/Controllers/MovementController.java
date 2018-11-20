@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles;
+package fall2018.csc2017.slidingtiles.Controllers;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,9 +8,11 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.HashMap;
 
+import fall2018.csc2017.slidingtiles.FinalScoreActivity;
+import fall2018.csc2017.slidingtiles.LoginActivity;
+import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
 import fall2018.csc2017.slidingtiles.Structures.ArrayStack;
 import fall2018.csc2017.slidingtiles.Helpers.IOHelper;
-import fall2018.csc2017.slidingtiles.users.User;
 import fall2018.csc2017.slidingtiles.users.UserPanel;
 import fall2018.csc2017.slidingtiles.users.UserRouter;
 
@@ -27,7 +29,7 @@ public class MovementController {
     /**
      * The stack to keep track state of every movement.
      */
-    protected ArrayStack stateStack = new ArrayStack(2000);
+    public ArrayStack stateStack = new ArrayStack(2000);
 
     /**
      * The functional saveScore, which provides method to save score into corresponding HashMap.

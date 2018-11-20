@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles;
+package fall2018.csc2017.slidingtiles.SlidingGame.Views;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -16,10 +16,15 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-import fall2018.csc2017.slidingtiles.Components.ImageTile;
+import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
+import fall2018.csc2017.slidingtiles.Controllers.GestureDetectGridView;
+import fall2018.csc2017.slidingtiles.LoginActivity;
+import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.SlidingGame.Components.ImageTile;
 import fall2018.csc2017.slidingtiles.Helpers.ActivityHelper;
-import fall2018.csc2017.slidingtiles.users.CustomAdapter;
-import fall2018.csc2017.slidingtiles.users.User;
+import fall2018.csc2017.slidingtiles.SlidingGame.Components.Board;
+import fall2018.csc2017.slidingtiles.Helpers.CustomAdapter;
+import fall2018.csc2017.slidingtiles.StartingActivity;
 import fall2018.csc2017.slidingtiles.users.UserPanel;
 
 /**

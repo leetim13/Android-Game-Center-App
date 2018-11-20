@@ -1,17 +1,19 @@
-package fall2018.csc2017.slidingtiles;
+package fall2018.csc2017.slidingtiles.SlidingGame.Managers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import fall2018.csc2017.slidingtiles.Components.ImageTile;
-import fall2018.csc2017.slidingtiles.Components.Tile;
+import fall2018.csc2017.slidingtiles.SlidingGame.Components.ImageTile;
+import fall2018.csc2017.slidingtiles.SlidingGame.Components.Tile;
+import fall2018.csc2017.slidingtiles.SlidingGame.Components.Board;
+import fall2018.csc2017.slidingtiles.SlidingGame.Views.TileSettingsActivity;
 
 /**
  * Manage a board, including swapping tiles, checking for a win, and managing taps.
  */
-class BoardManager implements Serializable {
+public class BoardManager implements Serializable {
 
     /**
      * The board being managed.
@@ -38,7 +40,7 @@ class BoardManager implements Serializable {
      * Manage a board that has been pre-populated.
      * @param board the board
      */
-    BoardManager(Board board) {
+    public BoardManager(Board board) {
         this.board = board;
         this.boardNumOfCols = board.getNumCols();
         this.boardNumOfRows = board.getNumRows();
@@ -47,14 +49,14 @@ class BoardManager implements Serializable {
     /**
      * Return the current board.
      */
-    Board getBoard() {
+    public Board getBoard() {
         return board;
     }
 
     /**
      * Manage a new shuffled board with given numRows and numCols.
      */
-    BoardManager(int numRows, int numCols) {
+    public BoardManager(int numRows, int numCols) {
         List<Tile> tiles = new ArrayList<>();
         final int numTiles = numRows * numCols;
         for (int tileNum = 0; tileNum != numTiles; tileNum++) {
@@ -127,7 +129,7 @@ class BoardManager implements Serializable {
      *
      * @return whether the tiles are in row-major order
      */
-    boolean puzzleSolved() {
+    public boolean puzzleSolved() {
         boolean solved = true;
 
         // judge by id
@@ -149,7 +151,7 @@ class BoardManager implements Serializable {
      * @param position the tile to check
      * @return whether the tile at position is surrounded by a blank tile
      */
-    boolean isValidTap(int position) {
+    public boolean isValidTap(int position) {
 
         int row = position / boardNumOfRows;
         int col = position % boardNumOfRows;
@@ -171,7 +173,7 @@ class BoardManager implements Serializable {
      * @param position the position
      * @return the changed position
      */
-    int[] touchMove(int position) {
+    public int[] touchMove(int position) {
 
         int row = position / boardNumOfRows;
         int col = position % boardNumOfCols;

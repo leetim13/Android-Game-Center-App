@@ -9,7 +9,7 @@ import java.io.Serializable;
 * */
 public abstract class BasicTile implements Comparable <BasicTile>, Serializable {
     public int id;
-    abstract int getId();
+    public abstract int getId();
 
     @Override
     public int compareTo(@NonNull BasicTile o) {

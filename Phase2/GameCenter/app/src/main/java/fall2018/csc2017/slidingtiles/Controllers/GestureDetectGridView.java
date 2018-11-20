@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles;
+package fall2018.csc2017.slidingtiles.Controllers;
 
 /*
 Adapted from:
@@ -14,6 +14,8 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.GridView;
+
+import fall2018.csc2017.slidingtiles.SlidingGame.Managers.BoardManager;
 
 public class GestureDetectGridView extends GridView {
     public static final int SWIPE_MIN_DISTANCE = 100;
