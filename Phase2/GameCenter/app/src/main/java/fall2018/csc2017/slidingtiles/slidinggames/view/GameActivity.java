@@ -24,7 +24,6 @@ import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
 import fall2018.csc2017.slidingtiles.helper.CustomAdapter;
-import fall2018.csc2017.slidingtiles.StartingActivity;
 import fall2018.csc2017.slidingtiles.system.UserPanel;
 
 /**

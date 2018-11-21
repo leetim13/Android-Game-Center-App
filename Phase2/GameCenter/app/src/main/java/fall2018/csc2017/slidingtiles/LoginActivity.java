@@ -22,6 +22,7 @@ import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
+import fall2018.csc2017.slidingtiles.slidinggames.view.StartingActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

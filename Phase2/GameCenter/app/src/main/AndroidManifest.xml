@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartingActivity" />
+        <activity android:name=".slidinggames.view.StartingActivity" />
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->
 
@@ -38,11 +38,11 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".GameCenterActivity" />
-        <activity android:name=".ScoreBoardActivity" />
+        <activity android:name=".slidinggames.view.ScoreBoardActivity" />
         <activity android:name=".slidinggames.view.TileSettingsActivity" />
         <activity android:name=".slidinggames.view.PersonalScoreBoardActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".FinalScoreActivity" />
+        <activity android:name=".slidinggames.view.FinalScoreActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".tfgames.view.StartingActivityTF" />
         <activity android:name=".tfgames.view.GameActivityTF" />

@@ -8,7 +8,7 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.HashMap;
 
-import fall2018.csc2017.slidingtiles.FinalScoreActivity;
+import fall2018.csc2017.slidingtiles.slidinggames.view.FinalScoreActivity;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.structure.ArrayStack;

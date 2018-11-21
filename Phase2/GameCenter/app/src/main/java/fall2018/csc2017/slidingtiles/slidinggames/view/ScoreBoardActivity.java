@@ -1,8 +1,10 @@
-package fall2018.csc2017.slidingtiles;
+package fall2018.csc2017.slidingtiles.slidinggames.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.interfaces.scoreDisplayable;
 import android.widget.Button;
 import android.widget.TextView;

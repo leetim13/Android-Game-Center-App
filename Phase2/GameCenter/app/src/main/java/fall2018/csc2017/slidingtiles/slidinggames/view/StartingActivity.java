@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles;
+package fall2018.csc2017.slidingtiles.slidinggames.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,11 +9,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import fall2018.csc2017.slidingtiles.LoginActivity;
+import fall2018.csc2017.slidingtiles.ProfileActivity;
+import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
-import fall2018.csc2017.slidingtiles.slidinggames.view.GameActivity;
-import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
-import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
 import fall2018.csc2017.slidingtiles.system.UserPanel;
 
 /**

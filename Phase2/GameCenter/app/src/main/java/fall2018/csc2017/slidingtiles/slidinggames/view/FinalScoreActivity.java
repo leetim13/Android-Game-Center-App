@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles;
+package fall2018.csc2017.slidingtiles.slidinggames.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import fall2018.csc2017.slidingtiles.GameCenterActivity;
+import fall2018.csc2017.slidingtiles.LoginActivity;
+import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
+import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.system.UserPanel;
 
 public class FinalScoreActivity extends AppCompatActivity {
