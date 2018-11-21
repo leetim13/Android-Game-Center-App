@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.sudokugames;
+package fall2018.csc2017.slidingtiles.sudokugames.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

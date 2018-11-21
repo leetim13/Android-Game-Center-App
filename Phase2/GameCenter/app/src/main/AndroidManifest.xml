@@ -46,7 +46,7 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".tfgames.view.StartingActivityTF" />
         <activity android:name=".tfgames.view.GameActivityTF" />
-        <activity android:name=".sudokugames.StartingActivitySudoku"></activity>
+        <activity android:name=".sudokugames.view.StartingActivitySudoku"></activity>
     </application>
 
 </manifest>
