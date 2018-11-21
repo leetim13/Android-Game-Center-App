@@ -17,10 +17,10 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
      * The board being managed.
      */
 
-    private final static int UP_SIGNAL = 0;
-    private final static int RIGHT_SIGNAL = 1;
-    private final static int DOWN_SIGNAL = 2;
-    private final static int LEFT_SIGNAL = 3;
+    public final static int UP_SIGNAL = 0;
+    public final static int RIGHT_SIGNAL = 1;
+    public final static int DOWN_SIGNAL = 2;
+    public final static int LEFT_SIGNAL = 3;
 
     private BoardTF boardTF;
 
