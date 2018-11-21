@@ -39,4 +39,26 @@ public class BoardManegerTFTest {
         assertEquals(2, (boardManagerTF.getBoardTF().getTile(3, 0)).getId());
         assertEquals(3, (boardManagerTF.getBoardTF().getTile(3, 1)).getId());
     }
+
+    @Test
+    public void testRightOperation(){
+        boardManagerTF = setBoardManagerTF();
+        boardManagerTF.getBoardTF().getTile(0, 0).setId(1);
+        boardManagerTF.getBoardTF().getTile(0, 1).setId(1);
+        boardManagerTF.getBoardTF().getTile(0, 3).setId(1);
+        boardManagerTF.getBoardTF().getTile(1, 0).setId(2);
+        boardManagerTF.getBoardTF().getTile(1, 1).setId(2);
+        boardManagerTF.getBoardTF().getTile(2, 0).setId(4);
+        boardManagerTF.getBoardTF().getTile(3, 0).setId(3);
+        boardManagerTF.getBoardTF().getTile(3, 1).setId(1);
+        boardManagerTF.touchMove('r');
+        assertEquals(1, (boardManagerTF.getBoardTF().getTile(0, 2)).getId());
+        assertEquals(2, (boardManagerTF.getBoardTF().getTile(0, 3)).getId());
+        assertEquals(3, (boardManagerTF.getBoardTF().getTile(1, 3)).getId());
+        assertEquals(4, (boardManagerTF.getBoardTF().getTile(2, 3)).getId());
+        assertEquals(3, (boardManagerTF.getBoardTF().getTile(3, 2)).getId());
+        assertEquals(1, (boardManagerTF.getBoardTF().getTile(3, 3)).getId());
+        assertEquals(0, (boardManagerTF.getBoardTF().getTile(0, 1)).getId());
+        assertEquals(0, (boardManagerTF.getBoardTF().getTile(1, 2)).getId());
+    }
 }
