@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoard;
+import fall2018.csc2017.slidingtiles.component.BasicTile;
 
 /**
  * The sliding tiles board.
@@ -49,8 +50,7 @@ public class Board extends BasicBoard implements Iterable<Tile> {
 
     @NonNull
     @Override
-    public TileIterator iterator() {
-        return new TileIterator();
+    public TileIterator iterator() { return new TileIterator();
     }
     /**
      * Return the number of tiles on the board.
@@ -66,6 +66,7 @@ public class Board extends BasicBoard implements Iterable<Tile> {
         return sum;
     }
 
+    @Override
     /**
      * Return the tile at (row, col)
      *
@@ -136,11 +137,12 @@ public class Board extends BasicBoard implements Iterable<Tile> {
         }
     }
 
+    @Override
     public int getNumRows() {
         return numRows;
     }
     
-
+    @Override
     public int getNumCols() {
         return numCols;
     }

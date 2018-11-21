@@ -125,12 +125,13 @@ public class BoardManager extends BasicBoardManager implements Serializable {
         }
     }
 
+    @Override
     /**
      * Return whether the tiles are in row-major order.
      *
      * @return whether the tiles are in row-major order
      */
-    public boolean puzzleSolved() {
+    public boolean hasWon() {
         boolean solved = true;
 
         // judge by id
@@ -210,11 +211,13 @@ public class BoardManager extends BasicBoardManager implements Serializable {
                 col < boardNumOfCols;
     }
 
+    @Override
     /**
      * add one step
      */
     public void addScore(){ this.score++; }
 
+    @Override
     /**
      * minus one step
      */
@@ -222,6 +225,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
         this.score--;
     }
 
+    @Override
     /**
      * return current number of steps
      *
@@ -231,6 +235,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
         return score;
     }
 
+    @Override
     /**
      * return complexity of current game manipulated by this board manager
      *

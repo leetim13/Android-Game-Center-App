@@ -57,9 +57,9 @@ public class BoardAndTileTest {
     @Test
     public void testIsSolved() {
         setUpCorrect();
-        assertEquals(true, boardManager.puzzleSolved());
+        assertEquals(true, boardManager.hasWon());
         swapFirstTwoTiles();
-        assertEquals(false, boardManager.puzzleSolved());
+        assertEquals(false, boardManager.hasWon());
     }
 
     /**

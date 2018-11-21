@@ -7,8 +7,9 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoard;
+import fall2018.csc2017.slidingtiles.component.BasicTile;
 
-public class BoardTF extends BasicBoard implements Iterable {
+public class BoardTF extends BasicBoard implements Iterable<TfTile>{
     public static final int LENGTH_OF_SIDE = 4;
     public static final int WIN_VALUE = 2048;
     public static final int BLANK_ID = 0;
@@ -29,14 +30,18 @@ public class BoardTF extends BasicBoard implements Iterable {
         }
     }
 
+    @Override
     public TfTile getTile(int row, int col){
         return tfTiles[row][col];
     }
 
+    @Override
     public int getNumRows(){ return this.numRows; }
 
+    @Override
     public int getNumCols(){ return this.numCols; }
 
+    @Override
     public void swapTiles(int row1, int col1, int row2, int col2) {
 
         TfTile temp = this.tfTiles[row1][col1];

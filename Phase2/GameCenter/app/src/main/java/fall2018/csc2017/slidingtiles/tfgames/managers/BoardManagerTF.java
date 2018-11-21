@@ -43,14 +43,14 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         this.boardTF = new BoardTF(lengthOfSide, tfTiles);
     }
 
-
+    @Override
     /**
      * Return the boardtf of boardManagerTF
      * @return the boardtf of boardManagerTF
      */
-    public BoardTF getBoardTF(){ return boardTF; }
+    public BoardTF getBoard(){ return boardTF; }
 
-
+    @Override
     /**
      * Check if the user wins the game
      * @return whether the user wins the game
@@ -236,33 +236,45 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         }
     }
 
+    @Override
     /**
      * Add the score of the user by 1
      */
     public void addScore(){ this.score++; }
 
-
+    @Override
     /**
      * Minus the score of the user by 1
      */
     public void minusScore(){ this.score--; }
 
-
+    @Override
     /**
      * Return the score of the user
      * @return the score of the user
      */
     public int getScore(){ return this.score; }
 
+    @Override
     /**
      * Return the number of rows in boardTF
      * @return the number of rows in boardTF
      */
     public int getBoardNumOfRows(){ return this.boardNumOfRows; }
 
+    @Override
     /**
      * Return the number of columns in boardTF
      * @return the number of columns in boardTF
      */
     public int getBoardNumOfCols(){ return this.boardNumOfCols; }
+
+    @Override
+    /**
+     * Return the complexity of the game, here it is always 4
+     * @return the complexity of the game, here it is always 4
+     */
+    public int getComplexity() {
+        return 4;
+    }
 }
