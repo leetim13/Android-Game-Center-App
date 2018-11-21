@@ -13,11 +13,18 @@ import static org.junit.Assert.*;
 public class BoardManagerTFTest {
     private BoardManagerTF boardManagerTF;
 
+    /**
+     * Return a new BoardManagerTF
+     * @return a new BoardManagerTF
+     */
     private BoardManagerTF setBoardManagerTF(){
         boardManagerTF = new BoardManagerTF(BoardTF.LENGTH_OF_SIDE);
         return boardManagerTF;
     }
 
+    /**
+     * Test whether leftOperation works (simple)
+     */
     @Test
     public void testLeftOperationSimple(){
         boardManagerTF = setBoardManagerTF();
@@ -27,6 +34,9 @@ public class BoardManagerTFTest {
         assertEquals(2, (boardManagerTF.getBoardTF().getTile(1, 0)).getId());
     }
 
+    /**
+     * Test whether leftOperation works (complex)
+     */
     @Test
     public void testLeftOperationComplex(){
         boardManagerTF = setBoardManagerTF();
@@ -43,6 +53,9 @@ public class BoardManagerTFTest {
         assertEquals(3, (boardManagerTF.getBoardTF().getTile(3, 1)).getId());
     }
 
+    /**
+     * Test whether rightOperation works
+     */
     @Test
     public void testRightOperation(){
         boardManagerTF = setBoardManagerTF();
@@ -65,6 +78,9 @@ public class BoardManagerTFTest {
         assertEquals(0, (boardManagerTF.getBoardTF().getTile(2, 2)).getId());
     }
 
+    /**
+     * Test whether upOperation works
+     */
     @Test
     public void testUpOperation(){
         boardManagerTF = setBoardManagerTF();
@@ -87,6 +103,9 @@ public class BoardManagerTFTest {
         assertEquals(0, (boardManagerTF.getBoardTF().getTile(1, 2)).getId());
     }
 
+    /**
+     * Test whether downOperation works
+     */
     @Test
     public void testdownOperation(){
         boardManagerTF = setBoardManagerTF();
@@ -108,6 +127,9 @@ public class BoardManagerTFTest {
         assertEquals(0, (boardManagerTF.getBoardTF().getTile(1, 1)).getId());
     }
 
+    /**
+     * Test whether swapTile works
+     */
     @Test
     public void testSwapTile(){
         boardManagerTF = setBoardManagerTF();
@@ -124,6 +146,9 @@ public class BoardManagerTFTest {
         assertEquals(4, boardManagerTF.getBoardNumOfRows());
     }
 
+    /**
+     * Test whether the iterator of boardTF works
+     */
     @Test
     public void testBoardTFIterator(){
         boardManagerTF = setBoardManagerTF();
@@ -137,6 +162,9 @@ public class BoardManagerTFTest {
         assertEquals(1, iterator.next().getId());
     }
 
+    /**
+     * Test whether hasLost works
+     */
     @Test
     public void testLose(){
         boardManagerTF = setBoardManagerTF();
@@ -147,6 +175,9 @@ public class BoardManagerTFTest {
         assertTrue(boardManagerTF.hasLost());
     }
 
+    /**
+     * Test whether hasWon works
+     */
     @Test
     public void testWin(){
         boardManagerTF = setBoardManagerTF();
@@ -155,6 +186,9 @@ public class BoardManagerTFTest {
         assertTrue(boardManagerTF.hasWon());
     }
 
+    /**
+     * Test whether score related methods works
+     */
     @Test
     public void testScore(){
         boardManagerTF = setBoardManagerTF();
