@@ -8,15 +8,41 @@ import java.util.NoSuchElementException;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoard;
 
+/**
+ * The board of game twenty forty-eight
+ */
 public class BoardTF extends BasicBoard implements Iterable {
+    /**
+     * The length of side of the board
+     */
     public static final int LENGTH_OF_SIDE = 4;
+
+    /**
+     * The value once a tile in the board reaches, the user wins
+     */
     public static final int WIN_VALUE = 11;
+
+    /**
+     * The id of a blank tile
+     */
     public static final int BLANK_ID = 0;
 
+    /**
+     * Number of rows and columns
+     */
     private int numRows;
     private int numCols;
+
+    /**
+     * A 2D array of tiles in the board
+     */
     private TfTile[][] tfTiles;
 
+    /**
+     * Constructor of the board
+     * @param lengthOfSide the length of the side of the board
+     * @param tfTiles tiles planing to put in the board
+     */
     public BoardTF(int lengthOfSide, List<TfTile> tfTiles){
         this.numCols = this.numRows = lengthOfSide;
         this.tfTiles = new TfTile[numRows][numCols];
@@ -29,14 +55,35 @@ public class BoardTF extends BasicBoard implements Iterable {
         }
     }
 
+    /**
+     * Return the tile at position (row, col)
+     * @param row row position
+     * @param col column position
+     * @return the tile at position (row, col)
+     */
     public TfTile getTile(int row, int col){
         return tfTiles[row][col];
     }
 
+    /**
+     * Return the number of rows in the board
+     * @return the number of rows in the board
+     */
     public int getNumRows(){ return this.numRows; }
 
+    /**
+     * Return the number of columns in the board
+     * @return the number of columns in the board
+     */
     public int getNumCols(){ return this.numCols; }
 
+    /**
+     * Swap positions of tile1 at position (row1, col1) and tile2 at position (row2, col2)
+     * @param row1 the row number of tile1
+     * @param col1 the column number of tile1
+     * @param row2 the row number of tile2
+     * @param col2 the column number of tile2
+     */
     public void swapTiles(int row1, int col1, int row2, int col2) {
 
         TfTile temp = this.tfTiles[row1][col1];
@@ -49,6 +96,10 @@ public class BoardTF extends BasicBoard implements Iterable {
         notifyObservers();
     }
 
+    /**
+     * Return the number of tiles
+     * @return the number of tiles
+     */
     private int numTiles(){ return numCols * numRows; }
 
     /*
@@ -85,6 +136,10 @@ public class BoardTF extends BasicBoard implements Iterable {
         }
     }
 
+    /**
+     * Return a iterator of the board
+     * @return a iterator of the board
+     */
     @Override
     @NonNull
     public Iterator<TfTile> iterator() { return new BoardIterator(); }
