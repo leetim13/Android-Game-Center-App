@@ -105,27 +105,7 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
                 });
         addUndoButtonListener();
         initializeView();
-        tvSwipDescription.setOnTouchListener(new OnSwipeTouchListener(this){
-            @Override
-            public void onSwipeDown() {
-                Toast.makeText(GameActivityTF.this, "You swiped Down", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onSwipeLeft() {
-                Toast.makeText(GameActivityTF.this, "You swiped Left", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onSwipeUp() {
-                Toast.makeText(GameActivityTF.this, "You swiped Up", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onSwipeRight() {
-                Toast.makeText(GameActivityTF.this, "You swiped Right", Toast.LENGTH_SHORT).show();
-            }
-        });
+        tvSwipDescription.setOnTouchListener(new OnSwipeTouchListener(this));
 
     }
     private void initializeView() {

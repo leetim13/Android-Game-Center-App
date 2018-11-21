@@ -5,12 +5,20 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 public class OnSwipeTouchListener implements View.OnTouchListener {
+    public static final int UP_SIGNAL = 0;
+    public static final int RIGHT_SIGNAL = 1;
+    public static final int DOWN_SIGNAL = 2;
+    public static final int LEFT_SIGNAL = 3;
+
     private GestureDetector gestureDetector;
+    private Context context;
 
     public OnSwipeTouchListener(Context c) {
         gestureDetector = new GestureDetector(c, new GestureListener());
+        context = c;
     }
 
     public boolean onTouch(final View view, final MotionEvent motionEvent) {
@@ -37,17 +45,17 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
                 if (Math.abs(diffX) > Math.abs(diffY)) {
                     if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                         if (diffX > 0) {
-                            onSwipeRight();
+                            swipe(OnSwipeTouchListener.RIGHT_SIGNAL);
                         } else {
-                            onSwipeLeft();
+                            swipe(OnSwipeTouchListener.LEFT_SIGNAL);
                         }
                     }
                 } else {
                     if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
                         if (diffY > 0) {
-                            onSwipeDown();
+                            swipe(OnSwipeTouchListener.DOWN_SIGNAL);
                         } else {
-                            onSwipeUp();
+                            swipe(OnSwipeTouchListener.UP_SIGNAL);
                         }
                     }
                 }
@@ -58,15 +66,21 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
         }
     }
 
-    public void onSwipeRight() {
-    }
+    private void swipe(int signal) {
+        if (signal == OnSwipeTouchListener.UP_SIGNAL) {
+            Toast.makeText(context, "You swiped Up", Toast.LENGTH_SHORT).show();
+        }
 
-    public void onSwipeLeft() {
-    }
+        if (signal == OnSwipeTouchListener.RIGHT_SIGNAL) {
+            Toast.makeText(context, "You swiped right", Toast.LENGTH_SHORT).show();
+        }
 
-    public void onSwipeUp() {
-    }
+        if (signal == OnSwipeTouchListener.DOWN_SIGNAL) {
+            Toast.makeText(context, "You swiped down", Toast.LENGTH_SHORT).show();
+        }
 
-    public void onSwipeDown() {
+        if (signal == OnSwipeTouchListener.LEFT_SIGNAL) {
+            Toast.makeText(context, "You swiped left", Toast.LENGTH_SHORT).show();
+        }
     }
 }
