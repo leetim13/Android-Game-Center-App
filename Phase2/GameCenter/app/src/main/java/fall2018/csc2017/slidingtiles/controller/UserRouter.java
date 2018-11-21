@@ -19,6 +19,8 @@ public class UserRouter {
     final public static String SCORE_STORAGE_PATH44 = "score_storage1.ser"; // path to store the game file 4x4
     final public static String SCORE_STORAGE_PATH55 = "score_storage2.ser"; // path to store the game file 5x5
 
+    final public static String SCORE_STORAGE_TF = "score_storagetf.ser";
+
     private HashMap <String, String[]> userMap;
     private Context context;
 
