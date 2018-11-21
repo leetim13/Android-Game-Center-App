@@ -10,7 +10,7 @@ import fall2018.csc2017.slidingtiles.component.BasicBoard;
 
 public class BoardTF extends BasicBoard implements Iterable {
     public static final int LENGTH_OF_SIDE = 4;
-    public static final int WIN_VALUE = 2048;
+    public static final int WIN_VALUE = 11;
     public static final int BLANK_ID = 0;
 
     private int numRows;
