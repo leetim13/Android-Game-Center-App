@@ -155,4 +155,15 @@ public class BoardManagerTFTest {
         boardManagerTF.getBoardTF().getTile(0, 1).setId(11);
         assertTrue(boardManagerTF.hasWon());
     }
+
+    @Test
+    public void testScore(){
+        boardManagerTF = setBoardManagerTF();
+        assertEquals(0, boardManagerTF.getScore());
+        boardManagerTF.addScore();
+        boardManagerTF.addScore();
+        assertEquals(2, boardManagerTF.getScore());
+        boardManagerTF.minusScore();
+        assertEquals(1, boardManagerTF.getScore());
+    }
 }
