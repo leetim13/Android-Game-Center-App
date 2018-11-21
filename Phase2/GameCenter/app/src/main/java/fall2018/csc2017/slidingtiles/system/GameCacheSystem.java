@@ -23,8 +23,11 @@ public class GameCacheSystem {
     private GameCacheSystem() {
 
     }
-
-    public void loadFromFile(String fileName, Context ctx) {
+    /*
+    * @param gameIndex: the game index attribute in User class, with TILEGAMEINDEX, TFGAMEINDEX
+    * @param context: the activity context for file reading and writing
+    * */
+    public void loadFromFile(int gameIndex, Context context) {
 
     }
 }
