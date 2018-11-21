@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
-import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
 import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
 import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
