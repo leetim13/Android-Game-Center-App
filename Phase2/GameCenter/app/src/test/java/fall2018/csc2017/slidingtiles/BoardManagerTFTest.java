@@ -10,6 +10,9 @@ import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 
 import static org.junit.Assert.*;
 
+/**
+ * Tests of methods in BoardManagerTF and its BoardTF
+ */
 public class BoardManagerTFTest {
     private BoardManagerTF boardManagerTF;
 
