@@ -33,7 +33,7 @@ public class BoardManagerTFTest {
         boardManagerTF = setBoardManagerTF();
         boardManagerTF.getBoard().getTile(1, 1).setId(1);
         boardManagerTF.getBoard().getTile(1, 3).setId(1);
-        boardManagerTF.touchMove('l');
+        boardManagerTF.touchMove(boardManagerTF.LEFT_SIGNAL);
         assertEquals(2, (boardManagerTF.getBoard().getTile(1, 0)).getId());
     }
 
@@ -48,7 +48,7 @@ public class BoardManagerTFTest {
         boardManagerTF.getBoard().getTile(2, 3).setId(3);
         boardManagerTF.getBoard().getTile(3, 2).setId(2);
         boardManagerTF.getBoard().getTile(3, 3).setId(3);
-        boardManagerTF.touchMove('l');
+        boardManagerTF.touchMove(boardManagerTF.LEFT_SIGNAL);
         assertEquals(1, (boardManagerTF.getBoard().getTile(0, 0)).getId());
         assertEquals(1, (boardManagerTF.getBoard().getTile(2, 0)).getId());
         assertEquals(3, (boardManagerTF.getBoard().getTile(2, 1)).getId());
@@ -70,7 +70,7 @@ public class BoardManagerTFTest {
         boardManagerTF.getBoard().getTile(2, 3).setId(1);
         boardManagerTF.getBoard().getTile(3, 0).setId(1);
         boardManagerTF.getBoard().getTile(3, 1).setId(4);
-        boardManagerTF.touchMove('u');
+        boardManagerTF.touchMove(BoardManagerTF.UP_SIGNAL);
         assertEquals(2, (boardManagerTF.getBoard().getTile(0, 0)).getId());
         assertEquals(1, (boardManagerTF.getBoard().getTile(0, 1)).getId());
         assertEquals(3, (boardManagerTF.getBoard().getTile(0, 2)).getId());
@@ -95,7 +95,7 @@ public class BoardManagerTFTest {
         boardManagerTF.getBoard().getTile(2, 0).setId(4);
         boardManagerTF.getBoard().getTile(3, 0).setId(3);
         boardManagerTF.getBoard().getTile(3, 1).setId(1);
-        boardManagerTF.touchMove('r');
+        boardManagerTF.touchMove(BoardManagerTF.RIGHT_SIGNAL);
         assertEquals(1, (boardManagerTF.getBoard().getTile(0, 2)).getId());
         assertEquals(2, (boardManagerTF.getBoard().getTile(0, 3)).getId());
         assertEquals(3, (boardManagerTF.getBoard().getTile(1, 3)).getId());
@@ -119,7 +119,7 @@ public class BoardManagerTFTest {
         boardManagerTF.getBoard().getTile(1, 0).setId(2);
         boardManagerTF.getBoard().getTile(1, 1).setId(5);
         boardManagerTF.getBoard().getTile(1, 2).setId(1);
-        boardManagerTF.touchMove('d');
+        boardManagerTF.touchMove(BoardManagerTF.DOWN_SIGNAL);
         assertEquals(1, (boardManagerTF.getBoard().getTile(2, 1)).getId());
         assertEquals(3, (boardManagerTF.getBoard().getTile(2, 2)).getId());
         assertEquals(3, (boardManagerTF.getBoard().getTile(3, 0)).getId());
