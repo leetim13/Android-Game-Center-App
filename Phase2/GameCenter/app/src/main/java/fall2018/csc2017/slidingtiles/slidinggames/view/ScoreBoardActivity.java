@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.interfaces.scoreDisplayable;
+import fall2018.csc2017.slidingtiles.interfaces.ScoreDisplayable;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,7 +15,7 @@ import fall2018.csc2017.slidingtiles.controller.UserRouter;
  * The global scoreboard activity for the sliding puzzle tile game.
  */
 
-public class ScoreBoardActivity extends AppCompatActivity implements scoreDisplayable{
+public class ScoreBoardActivity extends AppCompatActivity implements ScoreDisplayable {
 
     public int[] renderList1;
     public int[] renderList2;
