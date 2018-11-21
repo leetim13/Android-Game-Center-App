@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
+import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
 import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
 import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
@@ -118,6 +119,10 @@ public class BoardManagerTFTest {
 
         assertEquals(1, (boardManagerTF.getBoardTF().getTile(0, 0)).getId());
         assertEquals(2, (boardManagerTF.getBoardTF().getTile(0, 1)).getId());
+        assertEquals(4, boardTF.getNumCols());
+        assertEquals(4, boardTF.getNumRows());
+        assertEquals(4, boardManagerTF.getBoardNumOfCols());
+        assertEquals(4, boardManagerTF.getBoardNumOfRows());
     }
 
     @Test
@@ -131,5 +136,23 @@ public class BoardManagerTFTest {
         assertTrue(iterator.hasNext());
         assertEquals(2, iterator.next().getId());
         assertEquals(1, iterator.next().getId());
+    }
+
+    @Test
+    public void testLose(){
+        boardManagerTF = setBoardManagerTF();
+        assertFalse(boardManagerTF.hasLost());
+        for(int i = 0; i < BoardTF.LENGTH_OF_SIDE; i++)
+            for(int j = 0; j < BoardTF.LENGTH_OF_SIDE; j++)
+                boardManagerTF.getBoardTF().getTile(i, j).setId(1);
+        assertTrue(boardManagerTF.hasLost());
+    }
+
+    @Test
+    public void testWin(){
+        boardManagerTF = setBoardManagerTF();
+        assertFalse(boardManagerTF.hasWon());
+        boardManagerTF.getBoardTF().getTile(0, 1).setId(11);
+        assertTrue(boardManagerTF.hasWon());
     }
 }
