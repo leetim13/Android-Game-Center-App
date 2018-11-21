@@ -16,6 +16,12 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     /**
      * The board being managed.
      */
+
+    private final static int UP_SIGNAL = 0;
+    private final static int RIGHT_SIGNAL = 1;
+    private final static int DOWN_SIGNAL = 2;
+    private final static int LEFT_SIGNAL = 3;
+
     private BoardTF boardTF;
 
     /**
@@ -93,18 +99,18 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
      * Make movements in the boardTF according to operation of the user
      * @param x Character indicating the operation the user made
      */
-    public void touchMove(char x){
+    public void touchMove(int x){
         switch (x){
-            case 'u':
+            case BoardManagerTF.UP_SIGNAL:
                 upOperation();
                 break;
-            case 'd':
+            case BoardManagerTF.DOWN_SIGNAL:
                 downOperation();
                 break;
-            case 'l':
+            case BoardManagerTF.LEFT_SIGNAL:
                 leftOperation();
                 break;
-            case 'r':
+            case BoardManagerTF.RIGHT_SIGNAL:
                 rightOperation();
                 break;
             default:
