@@ -2,7 +2,10 @@ package fall2018.csc2017.slidingtiles.TestsOfGame2048;
 
 import org.junit.Test;
 
+import java.util.Iterator;
+
 import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
+import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
 import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 
 import static org.junit.Assert.*;
@@ -103,5 +106,30 @@ public class BoardManegerTFTest {
         assertEquals(1, (boardManagerTF.getBoardTF().getTile(3, 3)).getId());
         assertEquals(0, (boardManagerTF.getBoardTF().getTile(0, 3)).getId());
         assertEquals(0, (boardManagerTF.getBoardTF().getTile(1, 1)).getId());
+    }
+
+    @Test
+    public void testSwapTile(){
+        boardManagerTF = setBoardManagerTF();
+        BoardTF boardTF = boardManagerTF.getBoardTF();
+        boardManagerTF.getBoardTF().getTile(0, 0).setId(2);
+        boardManagerTF.getBoardTF().getTile(0, 1).setId(1);
+        boardTF.swapTiles(0, 0, 0, 1);
+
+        assertEquals(1, (boardManagerTF.getBoardTF().getTile(0, 0)).getId());
+        assertEquals(2, (boardManagerTF.getBoardTF().getTile(0, 1)).getId());
+    }
+
+    @Test
+    public void testBoardTFIterator(){
+        boardManagerTF = setBoardManagerTF();
+        BoardTF boardTF = boardManagerTF.getBoardTF();
+        Iterator<TfTile> iterator = boardTF.iterator();
+        boardManagerTF.getBoardTF().getTile(0, 0).setId(2);
+        boardManagerTF.getBoardTF().getTile(0, 1).setId(1);
+
+        assertTrue(iterator.hasNext());
+        assertEquals(2, iterator.next().getId());
+        assertEquals(1, iterator.next().getId());
     }
 }
