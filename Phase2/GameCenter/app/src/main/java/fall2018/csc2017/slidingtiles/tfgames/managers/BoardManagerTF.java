@@ -127,6 +127,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
                     id2 = boardTF.getTile(i, k).getId();
                     if (id1 == id2){
                         boardTF.getTile(i, j).setId(id1+1);
+                        id1++;
                         boardTF.getTile(i, k).setId(BoardTF.BLANK_ID);
                     }
                 }
@@ -157,6 +158,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
                     id2 = boardTF.getTile(i, k).getId();
                     if (id1 == id2){
                         boardTF.getTile(i, j).setId(id1+1);
+                        id1++;
                         boardTF.getTile(i, k).setId(BoardTF.BLANK_ID);
                     }
                 }
@@ -187,6 +189,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
                     id2 = boardTF.getTile(k, i).getId();
                     if (id1 == id2){
                         boardTF.getTile(j, i).setId(id1+1);
+                        id1++;
                         boardTF.getTile(k, i).setId(BoardTF.BLANK_ID);
                     }
                 }
@@ -217,6 +220,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
                     id2 = boardTF.getTile(k, i).getId();
                     if (id1 == id2){
                         boardTF.getTile(j, i).setId(id1+1);
+                        id1++;
                         boardTF.getTile(k, i).setId(BoardTF.BLANK_ID);
                     }
                 }
