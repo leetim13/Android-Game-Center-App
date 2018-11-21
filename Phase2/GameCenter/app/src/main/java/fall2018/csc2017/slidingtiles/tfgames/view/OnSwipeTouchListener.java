@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.controller;
+package fall2018.csc2017.slidingtiles.tfgames.view;
 
 import android.content.Context;
 import android.view.GestureDetector;
