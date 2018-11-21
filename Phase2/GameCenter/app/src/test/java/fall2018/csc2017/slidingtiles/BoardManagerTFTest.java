@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.TestsOfGame2048;
+package fall2018.csc2017.slidingtiles;
 
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 
 import static org.junit.Assert.*;
 
-public class BoardManegerTFTest {
+public class BoardManagerTFTest {
     private BoardManagerTF boardManagerTF;
 
     private BoardManagerTF setBoardManagerTF(){
