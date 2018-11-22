@@ -2,7 +2,9 @@ package fall2018.csc2017.slidingtiles.tfgames.managers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
@@ -50,17 +52,9 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /**
-     * Return the boardtf of boardManagerTF
-     * @return the boardtf of boardManagerTF
-     */
     public BoardTF getBoard(){ return boardTF; }
 
     @Override
-    /**
-     * Check if the user wins the game
-     * @return whether the user wins the game
-     */
     public boolean hasWon(){
         boolean win = false;
 
@@ -103,15 +97,19 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         switch (x){
             case BoardManagerTF.UP_SIGNAL:
                 upOperation();
+                generateNewTile();
                 break;
             case BoardManagerTF.DOWN_SIGNAL:
                 downOperation();
+                generateNewTile();
                 break;
             case BoardManagerTF.LEFT_SIGNAL:
                 leftOperation();
+                generateNewTile();
                 break;
             case BoardManagerTF.RIGHT_SIGNAL:
                 rightOperation();
+                generateNewTile();
                 break;
             default:
                 System.out.println("Invalid Operation");
@@ -242,44 +240,45 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         }
     }
 
+    public int countNumOfBlankTiles(){
+        int count = 0;
+        for (TfTile aBoardTF : boardTF)
+            if (aBoardTF.getId() == 0)
+                count++;
+        return count;
+    }
+
+    public void generateNewTile(){
+        Random random = new Random();
+        int newTileSeqNum = random.nextInt(countNumOfBlankTiles());
+        Iterator<TfTile> iterator = boardTF.iterator();
+        TfTile temp = null;
+        int i = 0;
+        while(i <= newTileSeqNum){
+            temp = iterator.next();
+            if(temp.getId() == 0) i++;
+        }
+        if (temp != null) {
+            temp.setId(1);
+        }
+    }
+
     @Override
-    /**
-     * Add the score of the user by 1
-     */
     public void addScore(){ this.score++; }
 
     @Override
-    /**
-     * Minus the score of the user by 1
-     */
     public void minusScore(){ this.score--; }
 
     @Override
-    /**
-     * Return the score of the user
-     * @return the score of the user
-     */
     public int getScore(){ return this.score; }
 
     @Override
-    /**
-     * Return the number of rows in boardTF
-     * @return the number of rows in boardTF
-     */
     public int getBoardNumOfRows(){ return this.boardNumOfRows; }
 
     @Override
-    /**
-     * Return the number of columns in boardTF
-     * @return the number of columns in boardTF
-     */
     public int getBoardNumOfCols(){ return this.boardNumOfCols; }
 
     @Override
-    /**
-     * Return the complexity of the game, here it is always 4
-     * @return the complexity of the game, here it is always 4
-     */
     public int getComplexity() {
         return 4;
     }
