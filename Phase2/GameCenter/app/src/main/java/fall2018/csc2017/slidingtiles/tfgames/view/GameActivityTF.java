@@ -1,5 +1,6 @@
 package fall2018.csc2017.slidingtiles.tfgames.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -14,20 +15,27 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
 import fall2018.csc2017.slidingtiles.controller.GestureDetectGridView;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.controller.MovementControllerTF;
+import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
+import fall2018.csc2017.slidingtiles.slidinggames.view.GameActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.StartingActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
 import fall2018.csc2017.slidingtiles.helper.CustomAdapter;
+import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
+import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 
 /**
  * The game activity.
@@ -38,12 +46,12 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
     /**
      * The board manager.
      */
-    private BoardManager boardManager;
+    private BoardManagerTF boardManager;
 
     /**
      * The buttons to display.
      */
-    private ArrayList<Button> tileButtons;
+    private List<Button> tileButtons;
 
 //    /**
 //     * Constants for swiping directions. Should be an enum, probably.
@@ -73,10 +81,15 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
     }
 
     @Override
+    @SuppressLint("ClickableViewAccessibility")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+        boardManager = (BoardManagerTF) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
+
+        if (boardManager == null) {
+            boardManager = new BoardManagerTF(4);
+        }
 
         createTileButtons(this);
         setContentView(R.layout.activity_main);
@@ -85,9 +98,9 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
         // Add View to activity
         gridView = findViewById(R.id.grid);
         gridView.setNumColumns(boardManager.getBoardNumOfCols());
-        gridView.setBoardManager(boardManager);
+//        gridView.setBoardManager(boardManager);
         boardManager.getBoard().addObserver(this);
-        //gridView.setGameActivity(this);
+//        gridView.setGameActivity(this);
 
         // Observer sets up desired dimensions as well as calls our display function
         gridView.getViewTreeObserver().addOnGlobalLayoutListener(
@@ -106,7 +119,32 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
                 });
         addUndoButtonListener();
         initializeView();
-        tvSwipDescription.setOnTouchListener(new OnSwipeTouchListener(this));
+
+        tvSwipDescription.setOnTouchListener(new OnSwipeTouchListener(this, boardManager) {
+            @Override
+            public void swipe(int signal) {
+                if (signal == OnSwipeTouchListener.UP_SIGNAL) {
+
+                    Toast.makeText(GameActivityTF.this, "You swiped Up", Toast.LENGTH_SHORT).show();
+                }
+
+                if (signal == OnSwipeTouchListener.RIGHT_SIGNAL) {
+                    Toast.makeText(GameActivityTF.this, "You swiped right", Toast.LENGTH_SHORT).show();
+                }
+
+                if (signal == OnSwipeTouchListener.DOWN_SIGNAL) {
+                    Toast.makeText(GameActivityTF.this, "You swiped down", Toast.LENGTH_SHORT).show();
+                }
+
+                if (signal == OnSwipeTouchListener.LEFT_SIGNAL) {
+                    Toast.makeText(GameActivityTF.this, "You swiped left", Toast.LENGTH_SHORT).show();
+                }
+                MovementControllerTF movement = new MovementControllerTF();
+                movement.setBoardManager(boardManager);
+                movement.processTapMovement(GameActivityTF.this, signal);
+                display();
+            }
+        });
 
     }
     private void initializeView() {
@@ -123,18 +161,12 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
      * @param context the context
      */
     private void createTileButtons(Context context) {
-        Board board = boardManager.getBoard();
+        BoardTF board = boardManager.getBoard();
         tileButtons = new ArrayList<>();
         for (int row = 0; row != boardManager.getBoardNumOfRows(); row++) {
             for (int col = 0; col != boardManager.getBoardNumOfCols(); col++) {
                 Button tmp = new Button(context);
-                if(TileSettingsActivity.isImageTile) {
-                    Drawable drawable = new BitmapDrawable(tmp.getResources(),
-                            ((ImageTile) board.getTile(row, col)).getBack());
-                    tmp.setBackground(drawable);
-                } else{
-                    tmp.setBackgroundResource(board.getTile(row, col).getBackground());
-                }
+                tmp.setBackgroundResource(board.getTile(row, col).getBackground());
                 this.tileButtons.add(tmp);
             }
         }
@@ -144,23 +176,20 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
      * Update the backgrounds on the buttons to match the tiles.
      */
     private void updateTileButtons() throws IOException {
-        Board board = boardManager.getBoard();
+        BoardTF board = boardManager.getBoard();
         int nextPos = 0;
         for (Button b : tileButtons) {
             int row = nextPos / boardManager.getBoardNumOfRows();
             int col = nextPos % boardManager.getBoardNumOfCols();
-            if(TileSettingsActivity.isImageTile) {
-                Drawable drawable = new BitmapDrawable(b.getResources(),
-                        ((ImageTile) board.getTile(row, col)).getBack());
-                b.setBackground(drawable);
-            } else{
-                b.setBackgroundResource(board.getTile(row, col).getBackground());
-            }
+            b.setBackgroundResource(board.getTile(row, col).getBackground());
+            System.out.println("style is here!");
+            System.out.println(board.getTile(row, col).getBackground());
             nextPos++;
         }
-        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
-        ActivityHelper.saveToFile(StartingActivity.TEMP_SAVE_FILENAME, this, LoginActivity.userBoardHashMap);
-
+//        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+        System.out.println("tile style changed!");
+        GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
+        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, this,  GameCacheSystem.getInstance().getData());
     }
 
     /**
@@ -182,7 +211,8 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
                 if(maxUndoSteps > 0) {
                     int position = gridView.getUndoPop();
                     boardManager.touchMove(position);
-                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+                    GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
                     boardManager.minusScore();
                     maxUndoSteps--;
                 }

@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.ProfileActivity;
@@ -17,7 +18,10 @@ import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
+import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
+
 /**
  * The initial activity for the 2048 game.
  */
@@ -32,14 +36,14 @@ public class StartingActivityTF extends AppCompatActivity {
     /**
      * The board manager.
      */
-    private BoardManager boardManager;
+    private BoardManagerTF boardManager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
-
+//        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+        boardManager = (BoardManagerTF) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
         setContentView(R.layout.activity_starting_tf);
         addStartButtonListener();
         addLoadButtonListener();
@@ -83,12 +87,12 @@ public class StartingActivityTF extends AppCompatActivity {
         loadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+//                boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+                boardManager = (BoardManagerTF) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
                 if (boardManager != null) {
-//                    Board.numRows = boardManager.boardNumOfRows;
-//                    Board.numCols = boardManager.boardNumOfCols;
-                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
-                    ActivityHelper.saveToFile(TEMP_SAVE_FILENAME, StartingActivityTF, LoginActivity.userBoardHashMap);
+//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+                    GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
+                    ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivityTF, GameCacheSystem.getInstance().getData());
                     makeToastLoadedText();
                     switchToGame();
                 } else {
@@ -116,7 +120,7 @@ public class StartingActivityTF extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (boardManager != null) {
-                    ActivityHelper.saveToFile(TEMP_SAVE_FILENAME, StartingActivityTF, LoginActivity.userBoardHashMap);
+                    ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivityTF, GameCacheSystem.getInstance().getData());
                     makeToastSavedText();
                 } else {
                     final TextView invalidView = findViewById(R.id.warningText);
@@ -161,7 +165,7 @@ public class StartingActivityTF extends AppCompatActivity {
     public void switchToGame() {
         final StartingActivityTF StartingActivityTF = this;
         Intent tmp = new Intent(this, GameActivityTF.class);
-        ActivityHelper.saveToFile(TEMP_SAVE_FILENAME,StartingActivityTF, LoginActivity.userBoardHashMap);
+        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivityTF, GameCacheSystem.getInstance().getData());
         startActivity(tmp);
     }
     /**

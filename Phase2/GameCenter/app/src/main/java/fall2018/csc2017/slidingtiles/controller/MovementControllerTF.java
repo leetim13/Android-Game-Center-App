@@ -34,6 +34,7 @@ public class MovementControllerTF extends MovementController{
      */
     public void processTapMovement(Context context, int direction){
         boardManagerTF.touchMove(direction);
+        System.out.println("touch moved!");
         boardManagerTF.addScore();
         if(boardManagerTF.hasWon()){
             Toast.makeText(context, "You win!", Toast.LENGTH_SHORT).show();

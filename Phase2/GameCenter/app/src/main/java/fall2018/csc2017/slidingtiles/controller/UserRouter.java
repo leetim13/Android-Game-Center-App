@@ -19,9 +19,10 @@ public class UserRouter {
     final public static String SCORE_STORAGE_PATH33 = "score_storage_st0.ser"; // path to store the game file 3x3
     final public static String SCORE_STORAGE_PATH44 = "score_storage_st1.ser"; // path to store the game file 4x4
     final public static String SCORE_STORAGE_PATH55 = "score_storage_st2.ser"; // path to store the game file 5x5
+    final public static String GAME_STORAGE_SLIDING = "save_file_tmp.ser"; // path to store the game file of slidingtile
 
     final public static String SCORE_STORAGE_TF = "score_storage_tf.ser";
-    final public static String GAME_STORAGE_TF = "game_storage_tf.ser";
+    final public static String GAME_STORAGE_TF = "game_storage_tf.ser"; // path to store the tfgame
 
     final public static String SCORE_STORAGE_SD = "score_storage_sd.ser";
 

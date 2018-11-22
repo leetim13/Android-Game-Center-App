@@ -12,9 +12,6 @@ public class TfTile extends BasicTile {
      * Constructor of TfTile
      * @param id the id for this tile
      */
-    public TfTile(int id){
-        this.id = id;
-    }
 
     /**
      * Update the id of this tile
@@ -42,6 +39,8 @@ public class TfTile extends BasicTile {
      * @return the background id
      */
     public int getBackground() {
+        System.out.println("id is..." + id);
+        assignBackground(id);
         return background;
     }
 
@@ -49,16 +48,14 @@ public class TfTile extends BasicTile {
      * A Tile with id and background. The background may not have a corresponding image.
      *
      * @param id         the id
-     * @param background the background
      */
-    public TfTile(int id, int background) {
+    public TfTile(int id) {
         this.id = id;
         assignBackground(id);
     }
 
-    private void assignBackground(int id) {
-
-        switch (id + 1) {
+    public void assignBackground(int id) {
+        switch (id) {
             case 1:
                 background = R.drawable.tftile_01;
                 break;

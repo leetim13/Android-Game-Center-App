@@ -18,12 +18,12 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
 
     private GestureDetector gestureDetector;
     private Context context;
-    private BoardManagerTF boardManagerTF;
-    private MovementControllerTF movementControllerTF;
+    private MovementControllerTF movementControllerTF = new MovementControllerTF();
 
-    public OnSwipeTouchListener(Context c) {
+    public OnSwipeTouchListener(Context c, BoardManagerTF manager) {
         gestureDetector = new GestureDetector(c, new GestureListener());
         context = c;
+        setBoardManager(manager);
     }
 
     public boolean onTouch(final View view, final MotionEvent motionEvent) {
@@ -71,29 +71,11 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
         }
     }
 
-    private void swipe(int signal) {
-        if (signal == OnSwipeTouchListener.UP_SIGNAL) {
-
-            Toast.makeText(context, "You swiped Up", Toast.LENGTH_SHORT).show();
-        }
-
-        if (signal == OnSwipeTouchListener.RIGHT_SIGNAL) {
-            Toast.makeText(context, "You swiped right", Toast.LENGTH_SHORT).show();
-        }
-
-        if (signal == OnSwipeTouchListener.DOWN_SIGNAL) {
-            Toast.makeText(context, "You swiped down", Toast.LENGTH_SHORT).show();
-        }
-
-        if (signal == OnSwipeTouchListener.LEFT_SIGNAL) {
-            Toast.makeText(context, "You swiped left", Toast.LENGTH_SHORT).show();
-        }
-
+    public void swipe(int signal) {
         movementControllerTF.processTapMovement(context, signal);
     }
 
     public void setBoardManager(BoardManagerTF boardManager) {
-        this.boardManagerTF = boardManager;
         movementControllerTF.setBoardManager(boardManager);
     }
 }

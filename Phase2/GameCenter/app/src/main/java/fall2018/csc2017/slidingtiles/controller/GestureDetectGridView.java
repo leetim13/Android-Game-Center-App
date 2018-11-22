@@ -15,6 +15,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.GridView;
 
+import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 
 public class GestureDetectGridView extends GridView {
@@ -103,8 +104,8 @@ public class GestureDetectGridView extends GridView {
         return gDetector.onTouchEvent(ev);
     }
 
-    public void setBoardManager(BoardManager boardManager) {
-        this.boardManager = boardManager;
+    public void setBoardManager(BasicBoardManager boardManager) {
+        this.boardManager = (BoardManager) boardManager;
         mController.setBoardManager(boardManager);
     }
 

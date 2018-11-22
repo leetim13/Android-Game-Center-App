@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loadFromFile(StartingActivity.TEMP_SAVE_FILENAME);
 
+
         if(userBoardHashMap.size() == 0){
             ActivityHelper.saveToFile(StartingActivity.TEMP_SAVE_FILENAME, this, userBoardHashMap);
         }
