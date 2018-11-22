@@ -71,8 +71,7 @@ public class UserRouter {
                 userMap = new HashMap<String, String[]>();
             }
 
-//            userMap.put(user.username, new String[]{user.password,
-//                                                    Integer.toString(user.TILEGAMEINDEX)});
+            userMap.put(user.username, new String[]{user.password});
             try {
                 IOHelper.writeAndroidMap(userMap, USER_STORE_PATH, context);
                 result = true;
