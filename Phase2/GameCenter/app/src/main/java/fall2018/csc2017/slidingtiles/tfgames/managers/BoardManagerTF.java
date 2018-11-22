@@ -240,6 +240,10 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         }
     }
 
+    /**
+     * Count the number of blank tiles in the board
+     * @return the number of blank tiles in the board
+     */
     public int countNumOfBlankTiles(){
         int count = 0;
         for (TfTile aBoardTF : boardTF)
@@ -248,6 +252,9 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         return count;
     }
 
+    /**
+     * Randomly generate a new tile in the board
+     */
     public void generateNewTile(){
         Random random = new Random();
         int newTileSeqNum = random.nextInt(countNumOfBlankTiles());
