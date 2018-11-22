@@ -5,6 +5,7 @@ import android.content.Context;
 import java.io.IOException;
 import java.util.HashMap;
 
+
 import fall2018.csc2017.slidingtiles.helper.IOHelper;
 import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.system.UserPanel;
@@ -15,12 +16,14 @@ router class for user and file reflections.
 public class UserRouter {
 
     final public static String USER_STORE_PATH = "user.ser"; // path to store user file
-    final public static String SCORE_STORAGE_PATH33 = "score_storage0.ser"; // path to store the game file 3x3
-    final public static String SCORE_STORAGE_PATH44 = "score_storage1.ser"; // path to store the game file 4x4
-    final public static String SCORE_STORAGE_PATH55 = "score_storage2.ser"; // path to store the game file 5x5
+    final public static String SCORE_STORAGE_PATH33 = "score_storage_st0.ser"; // path to store the game file 3x3
+    final public static String SCORE_STORAGE_PATH44 = "score_storage_st1.ser"; // path to store the game file 4x4
+    final public static String SCORE_STORAGE_PATH55 = "score_storage_st2.ser"; // path to store the game file 5x5
 
-    final public static String SCORE_STORAGE_TF = "score_storagetf.ser";
-    final public static String GAME_STORAGE_TF = "game_storagetf.ser";
+    final public static String SCORE_STORAGE_TF = "score_storage_tf.ser";
+    final public static String GAME_STORAGE_TF = "game_storage_tf.ser";
+
+    final public static String SCORE_STORAGE_SD = "score_storage_sd.ser";
 
     private HashMap <String, String[]> userMap;
     private Context context;
@@ -67,8 +70,8 @@ public class UserRouter {
                 userMap = new HashMap<String, String[]>();
             }
 
-            userMap.put(user.username, new String[]{user.password,
-                                                    Integer.toString(user.TILEGAMEINDEX)});
+//            userMap.put(user.username, new String[]{user.password,
+//                                                    Integer.toString(user.TILEGAMEINDEX)});
             try {
                 IOHelper.writeAndroidMap(userMap, USER_STORE_PATH, context);
                 result = true;

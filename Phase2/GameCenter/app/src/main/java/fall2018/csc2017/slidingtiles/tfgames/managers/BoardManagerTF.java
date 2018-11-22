@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
 
@@ -282,5 +283,10 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
      */
     public int getComplexity() {
         return 4;
+    }
+
+    @Override
+    public int getGameIndex(){
+        return User.TF_GAME_INDEX;
     }
 }

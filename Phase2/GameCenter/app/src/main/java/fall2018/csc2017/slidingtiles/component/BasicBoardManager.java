@@ -41,6 +41,16 @@ public abstract class BasicBoardManager {
      */
     public abstract boolean hasWon();
 
+    /**
+     * Return the board being manipulated by the boardManager
+     * @return the board being manipulated by the boardManager
+     */
     public abstract BasicBoard getBoard();
+
+    /**
+     * Return the index of the current game being manipulated by the boardManager
+     * @return the index of the current game being manipulated by the boardManager
+     */
+    public abstract int getGameIndex();
 
 }

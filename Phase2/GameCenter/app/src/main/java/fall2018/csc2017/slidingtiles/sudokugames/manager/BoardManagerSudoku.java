@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
 import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
@@ -279,5 +280,14 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
      */
     public int getComplexity() {
         return 4;
+    }
+
+    @Override
+    /**
+     * Return the index of the sd game
+     * @return the index of the sd game
+     */
+    public int getGameIndex() {
+        return User.SD_GAME_INDEX;
     }
 }

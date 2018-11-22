@@ -7,6 +7,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import fall2018.csc2017.slidingtiles.controller.MovementControllerTF;
+import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
+
 public class OnSwipeTouchListener implements View.OnTouchListener {
     public static final int UP_SIGNAL = 0;
     public static final int RIGHT_SIGNAL = 1;
@@ -15,6 +18,8 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
 
     private GestureDetector gestureDetector;
     private Context context;
+    private BoardManagerTF boardManagerTF;
+    private MovementControllerTF movementControllerTF;
 
     public OnSwipeTouchListener(Context c) {
         gestureDetector = new GestureDetector(c, new GestureListener());
@@ -68,6 +73,7 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
 
     private void swipe(int signal) {
         if (signal == OnSwipeTouchListener.UP_SIGNAL) {
+
             Toast.makeText(context, "You swiped Up", Toast.LENGTH_SHORT).show();
         }
 
@@ -82,5 +88,12 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
         if (signal == OnSwipeTouchListener.LEFT_SIGNAL) {
             Toast.makeText(context, "You swiped left", Toast.LENGTH_SHORT).show();
         }
+
+        movementControllerTF.processTapMovement(context, signal);
+    }
+
+    public void setBoardManager(BoardManagerTF boardManager) {
+        this.boardManagerTF = boardManager;
+        movementControllerTF.setBoardManager(boardManager);
     }
 }

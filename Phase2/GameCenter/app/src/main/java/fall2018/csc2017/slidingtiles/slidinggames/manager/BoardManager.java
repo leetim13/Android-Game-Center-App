@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
 import fall2018.csc2017.slidingtiles.slidinggames.component.Tile;
 import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
@@ -67,9 +68,9 @@ public class BoardManager extends BasicBoardManager implements Serializable {
                 tiles.add(new Tile(tileNum, numRows, numCols));
             }
         }
-        do {
-            Collections.shuffle(tiles);
-        }while(!isValidShuffle(tiles, numCols, numRows));
+//        do {
+//            Collections.shuffle(tiles);
+//        }while(!isValidShuffle(tiles, numCols, numRows));
         this.board = new Board(numRows, numCols, tiles);
         this.complexity = numCols;
         this.boardNumOfRows = this.boardNumOfCols = complexity;
@@ -245,12 +246,19 @@ public class BoardManager extends BasicBoardManager implements Serializable {
         return complexity;
     }
 
+    @Override
     public int getBoardNumOfCols() {
         return boardNumOfCols;
     }
 
+    @Override
     public int getBoardNumOfRows() {
         return boardNumOfRows;
+    }
+
+    @Override
+    public int getGameIndex(){
+        return complexity-3;
     }
 
 }

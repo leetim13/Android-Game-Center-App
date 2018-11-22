@@ -15,8 +15,11 @@ package fall2018.csc2017.slidingtiles.component;
 
 public class User {
 
-    public static final int TILEGAMEINDEX = 0;
-    public static final int TFGAMEINDEX = 1;
+    public static final int ST_GAME_INDEX_3 = 0;
+    public static final int ST_GAME_INDEX_4 = 1;
+    public static final int ST_GAME_INDEX_5 = 2;
+    public static final int TF_GAME_INDEX = 3;
+    public static final int SD_GAME_INDEX = 4;
     public String username;
     public String password;
 
