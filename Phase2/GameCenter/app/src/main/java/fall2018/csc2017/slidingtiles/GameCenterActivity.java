@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 
 import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.slidinggames.view.StartingActivity;
+import fall2018.csc2017.slidingtiles.sudokugames.view.StartingActivitySudoku;
 import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.tfgames.view.StartingActivityTF;
 
@@ -47,7 +48,7 @@ public class GameCenterActivity extends AppCompatActivity {
         ib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchToTFPanel();
+                switchToSudokuPanel();
             }
         });
     }
@@ -96,7 +97,7 @@ public class GameCenterActivity extends AppCompatActivity {
      */
     private void switchToSudokuPanel() {
         GameCacheSystem.getInstance().loadGame(User.TF_GAME_INDEX, getApplicationContext());
-        Intent tmp = new Intent(this, StartingActivityTF.class);
+        Intent tmp = new Intent(this, StartingActivitySudoku.class);
         startActivity(tmp);
     }
 
