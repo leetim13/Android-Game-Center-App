@@ -25,6 +25,7 @@ public class GameCenterActivity extends AppCompatActivity {
         addTilesGameListener();
         addTFTilesGameListener();
         addProfileListener();
+        addSudokuGameListener();
     }
     /**
      * Activate the Sliding Tiles game image button.
@@ -35,6 +36,18 @@ public class GameCenterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 switchToPanel();
+            }
+        });
+    }
+    /**
+     * Activate the Sudoku game image button.
+     */
+    private void addSudokuGameListener() {
+        ImageButton ib = findViewById(R.id.SudokuGameImageButton);
+        ib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToTFPanel();
             }
         });
     }
@@ -74,6 +87,14 @@ public class GameCenterActivity extends AppCompatActivity {
      * Switch to Starting Activity of 2048 game.
      */
     private void switchToTFPanel() {
+        GameCacheSystem.getInstance().loadGame(User.TF_GAME_INDEX, getApplicationContext());
+        Intent tmp = new Intent(this, StartingActivityTF.class);
+        startActivity(tmp);
+    }
+    /**
+     * Switch to Starting Activity of Sudoku game.
+     */
+    private void switchToSudokuPanel() {
         GameCacheSystem.getInstance().loadGame(User.TF_GAME_INDEX, getApplicationContext());
         Intent tmp = new Intent(this, StartingActivityTF.class);
         startActivity(tmp);
