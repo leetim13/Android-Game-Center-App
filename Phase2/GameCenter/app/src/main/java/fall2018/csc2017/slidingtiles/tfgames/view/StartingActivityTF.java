@@ -73,7 +73,7 @@ public class StartingActivityTF extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchToGame();
+                switchToGame(true);
             }
         });
     }
@@ -94,7 +94,7 @@ public class StartingActivityTF extends AppCompatActivity {
                     GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
                     ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivityTF, GameCacheSystem.getInstance().getData());
                     makeToastLoadedText();
-                    switchToGame();
+                    switchToGame(false);
                 } else {
                     final TextView invalidView = findViewById(R.id.warningText);
                     ActivityHelper.disableButton(v, invalidView, "You don't have incomplete game undergoing!");
@@ -163,10 +163,18 @@ public class StartingActivityTF extends AppCompatActivity {
      * Switch to the GameActivity view to play the game.
      */
     public void switchToGame() {
+        GameCacheSystem cached = GameCacheSystem.getInstance();
         final StartingActivityTF StartingActivityTF = this;
         Intent tmp = new Intent(this, GameActivityTF.class);
-        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivityTF, GameCacheSystem.getInstance().getData());
+        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivityTF, cached.getData());
         startActivity(tmp);
+    }
+    // a packed switch function to judge whether to order this game
+    public void switchToGame(boolean isNew) {
+        if (isNew) {
+            GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), null);
+        }
+        switchToGame();
     }
     /**
      * Switch to the TileSettingsActivity Activity view to customize game settings.
