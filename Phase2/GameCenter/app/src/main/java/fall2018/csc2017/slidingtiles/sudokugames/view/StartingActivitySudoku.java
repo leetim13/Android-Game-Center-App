@@ -1,15 +1,195 @@
 package fall2018.csc2017.slidingtiles.sudokugames.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import fall2018.csc2017.slidingtiles.ProfileActivity;
 import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.controller.UserRouter;
+import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
+import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
+import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
+import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
+import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
+import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.tfgames.view.GameActivityTF;
+import fall2018.csc2017.slidingtiles.tfgames.view.StartingActivityTF;
 
 public class StartingActivitySudoku extends AppCompatActivity {
+    /**
+     * A temporary save file.
+     */
+    public static final String TEMP_SAVE_FILENAME = "save_file_tmp.ser";
+
+    /**
+     * The board manager.
+     */
+    private BoardManagerSudoku boardManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting_sudoku);
+        //boardManager = (BoardManagerSudoku) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
+        boardManager = new BoardManagerSudoku(9);
+        addStartButtonListener();
+        addLoadButtonListener();
+        addSaveButtonListener();
+        addScoreboardButtonListener();
+        addScoreboardpersonalButtonListener();
+        addProfileImageButtonListener();
+    }
+
+    /**
+     * Activate Profile Image button, which goes to profile page
+     */
+    private void addProfileImageButtonListener() {
+        ImageButton pib = findViewById(R.id.ProfileImageButton);
+        pib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToProfile();
+            }
+        });
+    }
+    /**
+     * Activate Start button, which goes to settings page
+     */
+    private void addStartButtonListener() {
+        Button startButton = findViewById(R.id.StartButton);
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToGame(true);
+            }
+        });
+    }
+
+    /**
+     * Activate the load button.
+     */
+    private void addLoadButtonListener() {
+        Button loadButton = findViewById(R.id.LoadButton);
+        final StartingActivitySudoku StartingActivitySudoku = this;
+        loadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+                boardManager = (BoardManagerSudoku) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
+                if (boardManager != null) {
+//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+                    GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
+                    ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivitySudoku, GameCacheSystem.getInstance().getData());
+                    makeToastLoadedText();
+                    switchToGame(false);
+                } else {
+                    final TextView invalidView = findViewById(R.id.warningText);
+                    ActivityHelper.disableButton(v, invalidView, "You don't have incomplete game undergoing!");
+                }
+            }
+        });
+    }
+
+    /**
+     * Display that a game was loaded successfully.
+     */
+    private void makeToastLoadedText() {
+        Toast.makeText(this, "Loaded Game", Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Activate the save button.
+     */
+    private void addSaveButtonListener() {
+        Button saveButton = findViewById(R.id.SaveButton);
+        final StartingActivitySudoku StartingActivitySudoku = this;
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (boardManager != null) {
+                    ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivitySudoku, GameCacheSystem.getInstance().getData());
+                    makeToastSavedText();
+                } else {
+                    final TextView invalidView = findViewById(R.id.warningText);
+                    ActivityHelper.disableButton(v, invalidView, "You don't have incomplete game undergoing!");
+                }
+            }
+        });
+    }
+    /**
+     * Activate the scoreboard button.
+     */
+    private void addScoreboardButtonListener() {
+        Button startButton = findViewById(R.id.button_scoreboard);
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToScoreboard();
+            }
+        });
+    }
+
+    private void addScoreboardpersonalButtonListener() {
+        Button startButton = findViewById(R.id.button_personal_record);
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToPersonalBoard();
+            }
+        });
+    }
+
+    /**
+     * Display that a game was saved successfully.
+     */
+    private void makeToastSavedText() {
+        Toast.makeText(this, "Game Saved", Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Switch to the GameActivity view to play the game.
+     */
+    public void switchToGame() {
+        GameCacheSystem cached = GameCacheSystem.getInstance();
+        final StartingActivitySudoku StartingActivitySudoku = this;
+        Intent tmp = new Intent(this, GameActivitySudoku.class);
+        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivitySudoku, cached.getData());
+        startActivity(tmp);
+    }
+    // a packed switch function to judge whether to order this game
+    public void switchToGame(boolean isNew) {
+        if (isNew) {
+            GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), null);
+        }
+        switchToGame();
+    }
+
+    /**
+     * Switch to the ScoreBoardActivity Activity view to see global scoreboard.
+     */
+    public void switchToScoreboard(){
+        Intent tmp = new Intent(this, ScoreBoardActivity.class);
+        startActivity(tmp);
+    }
+    /**
+     * Switch to the PersonalScoreBoardActivity  view to see local (personal) scoreboard.
+     */
+    public void switchToPersonalBoard() {
+        Intent tmp = new Intent(this, PersonalScoreBoardActivity.class);
+        startActivity(tmp);
+    }
+    /**
+     * Switch to the Profile Activity  view.
+     */
+    public void switchToProfile() {
+        Intent tmp = new Intent(this, ProfileActivity.class);
+        startActivity(tmp);
     }
 }
