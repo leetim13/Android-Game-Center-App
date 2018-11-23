@@ -43,6 +43,7 @@ public class SudokuBoardAndManagerTest {
             if(temp.getId() == 0) break;
             i++;
         }
+        assertTrue(boardManagerSudoku.checkBoardValidation());
         boardManagerSudoku.updateSudokuTiles(10, i);
         assertFalse(boardManagerSudoku.checkBoardValidation());
     }
