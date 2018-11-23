@@ -7,21 +7,14 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoard;
+import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
 import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
 
-public class BoardSudoku extends BasicBoard implements Iterable<TfTile>{
-    /**
-     * The board of game twenty forty-eight
-     */
+public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
     /**
      * The length of side of the board
      */
-    public static final int LENGTH_OF_SIDE = 4;
-
-    /**
-     * The value once a tile in the board reaches, the user wins
-     */
-    public static final int WIN_VALUE = 11;
+    public static final int LENGTH_OF_SIDE = 9;
 
     /**
      * The id of a blank tile
@@ -37,44 +30,43 @@ public class BoardSudoku extends BasicBoard implements Iterable<TfTile>{
     /**
      * A 2D array of tiles in the board
      */
-    private TfTile[][] tfTiles;
+    private SudokuTile[][] sudokuTiles;
 
-    /**
-     * Constructor of the board
-     * @param lengthOfSide the length of the side of the board
-     * @param tfTiles tiles planing to put in the board
-     */
-    public BoardSudoku(int lengthOfSide, List<TfTile> tfTiles){
+    private SudokuTile[][] completeTiles;
+
+    public SudokuTile[][] getSudokuTiles(){ return sudokuTiles; }
+
+    public SudokuTile[][] getCompleteTiles() { return completeTiles; }
+
+
+    public BoardSudoku(int lengthOfSide){
         this.numCols = this.numRows = lengthOfSide;
-        this.tfTiles = new TfTile[numRows][numCols];
-        Iterator<TfTile> iter = tfTiles.iterator();
-
-        for (int row = 0; row != numRows; row++) {
-            for (int col = 0; col != numCols; col++) {
-                this.tfTiles[row][col] = iter.next();
-            }
-        }
+        int numDigitRemoved = 20;
+        Sudoku sudoku = new Sudoku(lengthOfSide, numDigitRemoved);
+        int[][] mat;
+        sudokuTiles = new SudokuTile[lengthOfSide][lengthOfSide];
+        completeTiles = new SudokuTile[lengthOfSide][lengthOfSide];
+        sudoku.fillValues();
+        mat = sudoku.getMat();
+        for(int i = 0; i < lengthOfSide; i++)
+            for(int j = 0; j < lengthOfSide; j++)
+                completeTiles[i][j].setId(mat[i][j]);
+        sudoku.removeKDigits();
+        mat = sudoku.getMat();
+        for(int i = 0; i < lengthOfSide; i++)
+            for(int j = 0; j < lengthOfSide; j++)
+                sudokuTiles[i][j].setId(mat[i][j]);
     }
 
     @Override
-    /**
-     * Return the tile at position (row, col)
-     * @param row row position
-     * @param col column position
-     * @return the tile at position (row, col)
-     */
-    public TfTile getTile(int row, int col){
-        return tfTiles[row][col];
-    }
+    public SudokuTile getTile(int row, int col){ return sudokuTiles[row][col]; }
+
+
 
     @Override
     public int getNumCols(){ return this.numCols; }
 
     @Override
-    /**
-     * Return the number of rows in the board
-     * @return the number of rows in the board
-     */
     public int getNumRows(){ return this.numRows; }
 
     /**
@@ -86,10 +78,10 @@ public class BoardSudoku extends BasicBoard implements Iterable<TfTile>{
      */
     public void swapTiles(int row1, int col1, int row2, int col2) {
 
-        TfTile temp = this.tfTiles[row1][col1];
+        SudokuTile temp = this.sudokuTiles[row1][col1];
 
-        this.tfTiles[row1][col1] = this.tfTiles[row2][col2];
-        this.tfTiles[row2][col2] = temp;
+        this.sudokuTiles[row1][col1] = this.sudokuTiles[row2][col2];
+        this.sudokuTiles[row2][col2] = temp;
 
 
         setChanged();
@@ -106,7 +98,7 @@ public class BoardSudoku extends BasicBoard implements Iterable<TfTile>{
      * The nested class defines an iterator of board by implementing Iterator<Tile>.
      * Methods hasNext() and next() are implemented in this class.
      */
-    public class BoardIterator implements Iterator<TfTile>{
+    public class BoardIterator implements Iterator<SudokuTile>{
 
         /** The index of the next Tile to return. */
         private int next = 0;
@@ -125,14 +117,14 @@ public class BoardSudoku extends BasicBoard implements Iterable<TfTile>{
          * @return the next Tile
          */
         @Override
-        public TfTile next() {
+        public SudokuTile next() {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
             int row = next / LENGTH_OF_SIDE;
             int col = next % LENGTH_OF_SIDE;
             next++;
-            return tfTiles[row][col];
+            return sudokuTiles[row][col];
         }
     }
 
@@ -142,5 +134,5 @@ public class BoardSudoku extends BasicBoard implements Iterable<TfTile>{
      */
     @Override
     @NonNull
-    public Iterator<TfTile> iterator() { return new BoardIterator(); }
+    public Iterator<SudokuTile> iterator() { return new BoardIterator(); }
 }
