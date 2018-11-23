@@ -42,20 +42,23 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
     public BoardSudoku(int lengthOfSide){
         this.numCols = this.numRows = lengthOfSide;
         int numDigitRemoved = 20;
+        List<SudokuTile> tiles;
         Sudoku sudoku = new Sudoku(lengthOfSide, numDigitRemoved);
         int[][] mat;
         sudokuTiles = new SudokuTile[lengthOfSide][lengthOfSide];
         completeTiles = new SudokuTile[lengthOfSide][lengthOfSide];
         sudoku.fillValues();
-        mat = sudoku.getMat();
+        tiles = sudoku.getTilesList();
+        Iterator<SudokuTile> iterator = tiles.iterator();
         for(int i = 0; i < lengthOfSide; i++)
             for(int j = 0; j < lengthOfSide; j++)
-                completeTiles[i][j].setId(mat[i][j]);
+                completeTiles[i][j] = iterator.next();
         sudoku.removeKDigits();
-        mat = sudoku.getMat();
+        tiles = sudoku.getTilesList();
+        iterator = tiles.iterator();
         for(int i = 0; i < lengthOfSide; i++)
             for(int j = 0; j < lengthOfSide; j++)
-                sudokuTiles[i][j].setId(mat[i][j]);
+                sudokuTiles[i][j] = iterator.next();
     }
 
     @Override
@@ -135,4 +138,26 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
     @Override
     @NonNull
     public Iterator<SudokuTile> iterator() { return new BoardIterator(); }
+
+    public void printSu()
+    {
+        for (int i = 0; i<9; i++)
+        {
+            for (int j = 0; j<9; j++)
+                System.out.print(sudokuTiles[i][j].getId() + " ");
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public void printCo()
+    {
+        for (int i = 0; i<9; i++)
+        {
+            for (int j = 0; j<9; j++)
+                System.out.print(completeTiles[i][j].getId() + " ");
+            System.out.println();
+        }
+        System.out.println();
+    }
 }
