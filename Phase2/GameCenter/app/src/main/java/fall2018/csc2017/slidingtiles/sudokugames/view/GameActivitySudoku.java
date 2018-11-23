@@ -87,7 +87,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer {
         }
 
         createTileButtons(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_sudoku);
 
 
         // Add View to activity
@@ -112,7 +112,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer {
                         display();
                     }
                 });
-        addUndoButtonListener();
+//        addUndoButtonListener();
         initializeView();
 
 
