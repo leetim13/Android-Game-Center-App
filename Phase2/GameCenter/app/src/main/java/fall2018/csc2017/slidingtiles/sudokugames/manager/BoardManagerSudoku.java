@@ -69,6 +69,13 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
         return valid;
     }
 
+    public void updateSudokuTiles(int newId, int position){
+        int row = position / boardNumOfRows;
+        int col = position % boardNumOfCols;
+        boardSudoku.getSudokuTiles()[row][col].setId(newId);
+        sudokuTiles = boardSudoku.getSudokuTiles();
+    }
+
     @Override
     public void addScore(){ this.score++; }
 
