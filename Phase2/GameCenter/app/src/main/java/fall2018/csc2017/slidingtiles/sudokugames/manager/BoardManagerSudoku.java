@@ -102,4 +102,6 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
     public int getGameIndex() {
         return User.SD_GAME_INDEX;
     }
+
+    public void setSudokuTiles(){ sudokuTiles = completeTiles; }
 }
