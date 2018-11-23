@@ -41,7 +41,7 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
 
     public BoardSudoku(int lengthOfSide){
         this.numCols = this.numRows = lengthOfSide;
-        int numDigitRemoved = 20;
+        int numDigitRemoved = 40;
         List<SudokuTile> tiles;
         Sudoku sudoku = new Sudoku(lengthOfSide, numDigitRemoved);
         int[][] mat;
