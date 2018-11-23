@@ -1,5 +1,9 @@
 package fall2018.csc2017.slidingtiles.sudokugames.component;
 
+import java.io.BufferedOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Adapted from:
  * https://www.geeksforgeeks.org/program-sudoku-generator/
@@ -201,5 +205,11 @@ class Sudoku {
 //        sudoku.fillValues();
 //        sudoku.printSudoku();
 //    }
-    int[][] getMat(){ return mat; }
+    List<SudokuTile> getTilesList(){
+        List<SudokuTile> tiles = new ArrayList<>();
+        for(int i = 0; i < BoardSudoku.LENGTH_OF_SIDE; i++)
+            for(int j = 0; j < BoardSudoku.LENGTH_OF_SIDE; j++)
+                tiles.add(new SudokuTile(mat[i][j]));
+        return tiles;
+    }
 }
