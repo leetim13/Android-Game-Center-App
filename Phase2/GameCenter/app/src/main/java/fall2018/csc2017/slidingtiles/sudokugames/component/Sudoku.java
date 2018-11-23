@@ -2,7 +2,11 @@ package fall2018.csc2017.slidingtiles.sudokugames.component;
 
 import java.io.BufferedOutputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
+
+import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
 
 /**
  * Adapted from:
@@ -160,29 +164,42 @@ class Sudoku {
         return false;
     }
 
+    /**
+     * Count the number of blank non-zeros in the board
+     * @return the number of blank non-zeros in the board
+     */
+    private int countNumOfBlankTiles(){
+        int count = 0;
+        for(int i = 0; i < BoardSudoku.LENGTH_OF_SIDE; i++)
+            for(int j = 0; j < BoardSudoku.LENGTH_OF_SIDE; j++)
+                if(mat[i][j] != 0)
+                    count++;
+        return count;
+    }
+
+    /**
+     * Randomly remove one digit of mat
+     */
+    private void removeOneDigit(){
+        Random random = new Random();
+        int newPosition = random.nextInt(countNumOfBlankTiles());
+        int position = 0;
+        int row = 0, col = 0, i = 0;
+        while(i <= newPosition){
+            row = position / BoardSudoku.LENGTH_OF_SIDE;
+            col = position % BoardSudoku.LENGTH_OF_SIDE;
+            if(mat[row][col] != 0) i++;
+            position++;
+        }
+        mat[row][col] = 0;
+    }
+
     // Remove the K no. of digits to
     // complete game
     void removeKDigits()
     {
-        int count = K;
-        while (count != 0)
-        {
-            int cellId = randomGenerator(N*N);
-
-            // System.out.println(cellId);
-            // extract coordinates i  and j
-            int i = (cellId/N);
-            int j = cellId%9;
-            if (j != 0)
-                j = j - 1;
-
-            // System.out.println(i+" "+j);
-            if (mat[i][j] != 0)
-            {
-                count--;
-                mat[i][j] = 0;
-            }
-        }
+        for(int i = 0; i < K; i++)
+            removeOneDigit();
     }
 
     // Print sudoku
