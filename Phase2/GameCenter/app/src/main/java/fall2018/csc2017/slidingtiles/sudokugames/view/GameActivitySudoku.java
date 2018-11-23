@@ -29,6 +29,7 @@ import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.slidinggames.view.StartingActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
+import fall2018.csc2017.slidingtiles.sudokugames.component.BoardSudoku;
 import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.system.UserPanel;
@@ -132,7 +133,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer {
      * @param context the context
      */
     private void createTileButtons(Context context) {
-        BoardTF board = boardManager.getBoard();
+        BoardSudoku board = boardManager.getBoard();
         tileButtons = new ArrayList<>();
         for (int row = 0; row != boardManager.getBoardNumOfRows(); row++) {
             for (int col = 0; col != boardManager.getBoardNumOfCols(); col++) {
@@ -147,7 +148,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer {
      * Update the backgrounds on the buttons to match the tiles.
      */
     private void updateTileButtons() throws IOException {
-        BoardTF board = boardManager.getBoard();
+        BoardSudoku board = boardManager.getBoard();
         int nextPos = 0;
         for (Button b : tileButtons) {
             int row = nextPos / boardManager.getBoardNumOfRows();
@@ -181,7 +182,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer {
                 }
                 if(maxUndoSteps > 0) {
                     int position = gridView.getUndoPop();
-                    boardManager.touchMove(position);
+//                    boardManager.touchMove(position);
 //                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
                     GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
                     boardManager.minusScore();
