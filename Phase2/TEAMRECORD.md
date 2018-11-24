@@ -8,7 +8,10 @@
 
 ##Nov 20##
 -- previous refactoring and name convention fixed, and new boardmanager set up
+-- construct the inheritance relationship for tiles, boards, boardManagers, movementControllers 
 
+##Nov 21##
+-- 2048 almost done
 
 ======== GROUP MEETING ==========
 

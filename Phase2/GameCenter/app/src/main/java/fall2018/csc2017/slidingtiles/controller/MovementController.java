@@ -7,7 +7,7 @@ import fall2018.csc2017.slidingtiles.structure.ArrayStack;
 
 public abstract class MovementController {
 
-    public ArrayStack stateStack = new ArrayStack(2000);
+    public ArrayStack <Integer> stateStack = new ArrayStack <Integer> (2000); // stateStack is for the number collection of the previous state
 
     public abstract void setBoardManager(BasicBoardManager boardManager);
 
