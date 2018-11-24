@@ -1,81 +1,110 @@
 package fall2018.csc2017.slidingtiles.sudokugames.component;
 
-import java.io.BufferedOutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
 
 /**
  * Adapted from:
  * https://www.geeksforgeeks.org/program-sudoku-generator/
+ *
+ * Generate a sudoku matrix
  */
 class Sudoku {
+    /**
+     * Matrix used to contain the generated sudoku
+     */
     private int[] mat[];
-    private final int N; // number of columns/rows.
-    private int SRN; // square root of N
-    private int K; // No. Of missing digits
 
-    // Constructor
-    Sudoku(int N, int K)
+    /**
+     * The length of side of the sudoku
+     */
+    private int lengthOfSide;
+
+    /**
+     * Square root of lengthOfSide
+     */
+    private int rootLenOfSide;
+
+    /**
+     * Number of digits to remove
+     */
+    private int numOfRemovedDigits;
+
+    /**
+     * Constructor of the sudoku
+     * @param lengthOfSide The length of side of the sudoku
+     * @param numOfRemovedDigits Number of removed digits
+     */
+    Sudoku(int lengthOfSide, int numOfRemovedDigits)
     {
-        this.N = N;
-        this.K = K;
+        this.lengthOfSide = lengthOfSide;
+        this.numOfRemovedDigits = numOfRemovedDigits;
 
-        // Compute square root of N
-        Double SRNd = Math.sqrt(N);
-        SRN = SRNd.intValue();
+        // Compute square root of lengthOfSide
+        Double squaLen = Math.sqrt(lengthOfSide);
+        rootLenOfSide = squaLen.intValue();
 
-        mat = new int[N][N];
+        mat = new int[lengthOfSide][lengthOfSide];
     }
 
-    // Sudoku Generator
+    /**
+     * Sudoku generator
+     */
     void fillValues()
     {
-        // Fill the diagonal of SRN x SRN matrices
+        // Fill the diagonal of rootLenOfSide x rootLenOfSide matrices
         fillDiagonal();
 
         // Fill remaining blocks
-        fillRemaining(0, SRN);
-
-        // Remove Randomly K digits to make game
-//        removeKDigits();
+        fillRemaining(0, rootLenOfSide);
     }
 
-    // Fill the diagonal SRN number of SRN x SRN matrices
+    /**
+     * Fill the diagonal rootLenOfSide number of rootLenOfSide x rootLenOfSide matrices
+     */
     private void fillDiagonal()
     {
 
-        for (int i = 0; i<N; i=i+SRN)
+        for (int i = 0; i< lengthOfSide; i=i+ rootLenOfSide)
 
             // for diagonal box, start coordinates->i==j
             fillBox(i, i);
     }
 
-    // Returns false if given 3 x 3 block contains num.
+    /**
+     * Return whether given 3 x 3 block contains num
+     * @param rowStart Starting row of the block
+     * @param colStart Starting column of the block
+     * @param num The number to check
+     * @return whether the given 3 x 3 block contains num
+     */
     private boolean unUsedInBox(int rowStart, int colStart, int num)
     {
-        for (int i = 0; i<SRN; i++)
-            for (int j = 0; j<SRN; j++)
+        for (int i = 0; i< rootLenOfSide; i++)
+            for (int j = 0; j< rootLenOfSide; j++)
                 if (mat[rowStart+i][colStart+j]==num)
                     return false;
 
         return true;
     }
 
-    // Fill a 3 x 3 matrix.
+    /**
+     * Fill a 3 x 3 block
+     * @param row Starting row of the block
+     * @param col Starting column of the block
+     */
     private void fillBox(int row,int col)
     {
         int num;
-        for (int i=0; i<SRN; i++)
+        for (int i = 0; i< rootLenOfSide; i++)
         {
-            for (int j=0; j<SRN; j++)
+            for (int j = 0; j< rootLenOfSide; j++)
             {
                 do
                 {
-                    num = randomGenerator(N);
+                    num = randomGenerator(lengthOfSide);
                 }
                 while (!unUsedInBox(row, col, num));
 
@@ -84,7 +113,11 @@ class Sudoku {
         }
     }
 
-    // Random generator
+    /**
+     * Generate a number from 0 to num randomly
+     * @param num The celling of the number that would be genarated
+     * @return The generated number
+     */
     private int randomGenerator(int num)
     {
         return (int) Math.floor((Math.random()*num+1));
@@ -95,70 +128,83 @@ class Sudoku {
     {
         return (unUsedInRow(i, num) &&
                 unUsedInCol(j, num) &&
-                unUsedInBox(i-i%SRN, j-j%SRN, num));
+                unUsedInBox(i-i% rootLenOfSide, j-j% rootLenOfSide, num));
     }
 
-    // check in the row for existence
-    private boolean unUsedInRow(int i,int num)
+    /**
+     * Check in row for existence
+     * @param row The row being checked
+     * @param num The number being checked
+     * @return whether the row contains num
+     */
+    private boolean unUsedInRow(int row,int num)
     {
-        for (int j = 0; j<N; j++)
-            if (mat[i][j] == num)
+        for (int col = 0; col < lengthOfSide; col++)
+            if (mat[row][col] == num)
                 return false;
         return true;
     }
 
-    // check in the row for existence
-    private boolean unUsedInCol(int j,int num)
+    /**
+     * Check in column for existence
+     * @param col The column being checked
+     * @param num The number being checked
+     * @return whether the column contains num
+     */
+    private boolean unUsedInCol(int col,int num)
     {
-        for (int i = 0; i<N; i++)
-            if (mat[i][j] == num)
+        for (int row = 0; row < lengthOfSide; row++)
+            if (mat[row][col] == num)
                 return false;
         return true;
     }
 
-    // A recursive function to fill remaining
-    // matrix
-    private boolean fillRemaining(int i, int j)
+    /**
+     * A recursive function to fill remaining matrix
+     * @param row Row number
+     * @param col Column number
+     * @return whether its filled
+     */
+    private boolean fillRemaining(int row, int col)
     {
-        //  System.out.println(i+" "+j);
-        if (j>=N && i<N-1)
+        if (col>= lengthOfSide && row< lengthOfSide -1)
         {
-            i = i + 1;
-            j = 0;
+            row = row + 1;
+            col = 0;
         }
-        if (i>=N && j>=N)
+        if (row>= lengthOfSide && col>= lengthOfSide)
             return true;
 
-        if (i < SRN)
+        if (row < rootLenOfSide)
         {
-            if (j < SRN)
-                j = SRN;
+            if (col < rootLenOfSide)
+                col = rootLenOfSide;
         }
-        else if (i < N-SRN)
+        else if (row < lengthOfSide - rootLenOfSide)
         {
-            if (j==(i/SRN)*SRN)
-                j =  j + SRN;
+            if (col==(row/ rootLenOfSide)* rootLenOfSide)
+                col =  col + rootLenOfSide;
         }
         else
         {
-            if (j == N-SRN)
+            if (col == lengthOfSide - rootLenOfSide)
             {
-                i = i + 1;
-                j = 0;
-                if (i>=N)
+                row = row + 1;
+                col = 0;
+                if (row>= lengthOfSide)
                     return true;
             }
         }
 
-        for (int num = 1; num<=N; num++)
+        for (int num = 1; num<= lengthOfSide; num++)
         {
-            if (CheckIfSafe(i, j, num))
+            if (CheckIfSafe(row, col, num))
             {
-                mat[i][j] = num;
-                if (fillRemaining(i, j+1))
+                mat[row][col] = num;
+                if (fillRemaining(row, col+1))
                     return true;
 
-                mat[i][j] = 0;
+                mat[row][col] = 0;
             }
         }
         return false;
@@ -194,34 +240,21 @@ class Sudoku {
         mat[row][col] = 0;
     }
 
-    // Remove the K no. of digits to
-    // complete game
+    /**
+     * Remove numOfRemovedDigits to generate a sudoku game board
+     * completing the game
+     */
     void removeKDigits()
     {
-        for(int i = 0; i < K; i++)
+        for(int i = 0; i < numOfRemovedDigits; i++)
             removeOneDigit();
     }
 
-    // Print sudoku
-//    public void printSudoku()
-//    {
-//        for (int i = 0; i<N; i++)
-//        {
-//            for (int j = 0; j<N; j++)
-//                System.out.print(mat[i][j] + " ");
-//            System.out.println();
-//        }
-//        System.out.println();
-//    }
-
-    // Driver code
-//    public static void main(String[] args)
-//    {
-//        int N = 9, K = 20;
-//        Sudoku sudoku = new Sudoku(N, K);
-//        sudoku.fillValues();
-//        sudoku.printSudoku();
-//    }
+    /**
+     * Transmit the values of mat to a list of SudokuTiles
+     * Return the list
+     * @return A list a SudokuTiles containing values of mat accordingly
+     */
     List<SudokuTile> getTilesList(){
         List<SudokuTile> tiles = new ArrayList<>();
         for(int i = 0; i < BoardSudoku.LENGTH_OF_SIDE; i++)
