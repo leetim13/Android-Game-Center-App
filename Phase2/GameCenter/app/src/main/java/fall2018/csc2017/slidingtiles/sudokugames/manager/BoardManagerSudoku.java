@@ -14,7 +14,9 @@ import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 
 public class BoardManagerSudoku extends BasicBoardManager implements Serializable {
 
-
+    /**
+     * The board of this board manager
+     */
     private BoardSudoku boardSudoku;
 
     /**
@@ -28,7 +30,14 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
     private int boardNumOfRows;
     private int boardNumOfCols;
 
+    /**
+     * A 2D array of tiles containing values the user inputs
+     */
     private SudokuTile[][] sudokuTiles;
+
+    /**
+     * A 2D array of tiles containing values of a completed sudoku board
+     */
     private SudokuTile[][] completeTiles;
 
     /**
@@ -57,6 +66,10 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
         return win;
     }
 
+    /**
+     * Check if the board after inputting from the user is valid
+     * @return whether the board if valid after the user inputs numbers
+     */
     public boolean checkBoardValidation(){
         boolean valid = true;
 //        boardSudoku.printCo();
@@ -71,6 +84,11 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
         return valid;
     }
 
+    /**
+     * Add or change the values of a tile
+     * @param newId New id the user wants to give the tile
+     * @param position The postion of the tile
+     */
     public void updateSudokuTiles(int newId, int position){
         int row = position / boardNumOfRows;
         int col = position % boardNumOfCols;
@@ -103,5 +121,8 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
         return User.SD_GAME_INDEX;
     }
 
+    /**
+     * Make sudokuTiles equal to completeTiles (Used for testing)
+     */
     public void setSudokuTiles(){ sudokuTiles = completeTiles; }
 }
