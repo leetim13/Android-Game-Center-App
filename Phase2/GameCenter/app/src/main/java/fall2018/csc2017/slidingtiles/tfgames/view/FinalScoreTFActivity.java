@@ -13,10 +13,11 @@ import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
+import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 
 public class FinalScoreTFActivity extends AppCompatActivity {
-    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +32,11 @@ public class FinalScoreTFActivity extends AppCompatActivity {
      * Display total moves to replace "num" from BoardManager.
      */
     private void setNum(){
-        BoardManager currentBM = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+//        BoardManager currentBM = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+        BoardManagerTF currentBM = (BoardManagerTF) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
         int numMoves = currentBM.getScore();
         System.out.println("number of moves:" + numMoves);
-        tv = findViewById(R.id.NumMovesButton);
+        TextView tv = findViewById(R.id.NumMovesButton);
         tv.setText(Integer.toString(numMoves));
     }
 
