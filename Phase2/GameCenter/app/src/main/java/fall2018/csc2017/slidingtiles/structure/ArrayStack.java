@@ -1,9 +1,11 @@
 package fall2018.csc2017.slidingtiles.structure;
 
+import java.lang.reflect.Array;
+
 /**
  * ArrayStack for undo function implementation
  */
-public class ArrayStack {
+public class ArrayStack <T>{
 
     /**
      * Index of the ArrayStack
@@ -13,21 +15,22 @@ public class ArrayStack {
     /**
      * Contents of the ArrayStack
      */
-    private int[] contents;
+    private T[] contents;
 
     /**
      * Constructor of the ArrayStack
      * @param n the size of contents
      */
+    @SuppressWarnings("unchecked")
     public ArrayStack(int n){
-        contents = new int[n];
+        contents = (T[]) new Object[n];
     }
 
     /**
      * Push a new item into the ArrayStack
      * @param x item pushed
      */
-    public void push(int x){
+    public void push(T x){
         contents[top] = x;
         top++;
     }
@@ -36,9 +39,9 @@ public class ArrayStack {
      * Pop an item from the ArrayStack. Return -1 if the ArrayStack is empty
      * @return the top item from the ArrayStack
      */
-    public int pop(){
+    public T pop(){
         if(top == 0)
-            return -1;
+            return null;
         top--;
         return contents[top];
     }

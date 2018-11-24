@@ -71,6 +71,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
         do {
             Collections.shuffle(tiles);
         }while(!isValidShuffle(tiles, numCols, numRows));
+
         this.board = new Board(numRows, numCols, tiles);
         this.complexity = numCols;
         this.boardNumOfRows = this.boardNumOfCols = complexity;

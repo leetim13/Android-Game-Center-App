@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -39,7 +40,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
     /**
      * The buttons to display.
      */
-    private ArrayList<Button> tileButtons;
+    private List<Button> tileButtons;
 
 //    /**
 //     * Constants for swiping directions. Should be an enum, probably.
