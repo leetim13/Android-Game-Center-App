@@ -31,6 +31,7 @@ public class BoardManagerTFTest {
     @Test
     public void testLeftOperationSimple(){
         boardManagerTF = setBoardManagerTF();
+        BoardManagerTF.setCount(0);
         boardManagerTF.getBoard().getTile(1, 1).setId(1);
         boardManagerTF.getBoard().getTile(1, 3).setId(1);
         boardManagerTF.touchMove(BoardManagerTF.LEFT_SIGNAL);
@@ -43,6 +44,7 @@ public class BoardManagerTFTest {
     @Test
     public void testLeftOperationComplex(){
         boardManagerTF = setBoardManagerTF();
+        BoardManagerTF.setCount(0);
         boardManagerTF.getBoard().getTile(0, 3).setId(1);
         boardManagerTF.getBoard().getTile(2, 0).setId(1);
         boardManagerTF.getBoard().getTile(2, 3).setId(3);
@@ -62,6 +64,7 @@ public class BoardManagerTFTest {
     @Test
     public void testRightOperation(){
         boardManagerTF = setBoardManagerTF();
+        BoardManagerTF.setCount(0);
         boardManagerTF.getBoard().getTile(1, 0).setId(2);
         boardManagerTF.getBoard().getTile(1, 1).setId(1);
         boardManagerTF.getBoard().getTile(2, 0).setId(1);
@@ -85,6 +88,7 @@ public class BoardManagerTFTest {
     @Test
     public void testUpOperation(){
         boardManagerTF = setBoardManagerTF();
+        BoardManagerTF.setCount(0);
         boardManagerTF.getBoard().getTile(0, 0).setId(1);
         boardManagerTF.getBoard().getTile(0, 1).setId(1);
         boardManagerTF.getBoard().getTile(0, 3).setId(1);
@@ -108,6 +112,7 @@ public class BoardManagerTFTest {
     @Test
     public void testdownOperation(){
         boardManagerTF = setBoardManagerTF();
+        BoardManagerTF.setCount(0);
         boardManagerTF.getBoard().getTile(0, 0).setId(2);
         boardManagerTF.getBoard().getTile(0, 1).setId(1);
         boardManagerTF.getBoard().getTile(0, 2).setId(3);
@@ -201,10 +206,10 @@ public class BoardManagerTFTest {
     @Test
     public void testGenerateNewTile(){
         boardManagerTF = setBoardManagerTF();
-        assertEquals(16, boardManagerTF.countNumOfBlankTiles());
+        assertEquals(14, boardManagerTF.countNumOfBlankTiles());
         boardManagerTF.getBoard().getTile(0, 2).setId(3);
         boardManagerTF.getBoard().getTile(0, 3).setId(1);
         boardManagerTF.generateNewTile();
-        assertEquals(13, boardManagerTF.countNumOfBlankTiles());
+        assertEquals(11, boardManagerTF.countNumOfBlankTiles());
     }
 }
