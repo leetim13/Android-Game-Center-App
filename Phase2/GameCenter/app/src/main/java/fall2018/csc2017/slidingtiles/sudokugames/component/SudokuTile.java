@@ -17,6 +17,7 @@ public class SudokuTile extends BasicTile {
     public int getId() {
         return this.id;
     }
+    private boolean isGenerated = false;
 
     private int background;
     /**
@@ -28,6 +29,16 @@ public class SudokuTile extends BasicTile {
         System.out.println("id is..." + id);
         assignBackground(id);
         return background;
+    }
+    /*
+    * set the tile to solid tile
+    * */
+    public void setTrait(boolean isGenerated) {
+        this.isGenerated = isGenerated;
+    }
+
+    public boolean getGenerate() {
+        return this.isGenerated;
     }
 
     private void assignBackground (int id) {
@@ -63,6 +74,5 @@ public class SudokuTile extends BasicTile {
                 background = R.drawable.tf0;
                 break;
         }
-
     }
 }
