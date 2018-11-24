@@ -189,7 +189,7 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
 //        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
         System.out.println("tile style changed!");
         GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
-        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, this,  GameCacheSystem.getInstance().getData());
+        GameCacheSystem.getInstance().save(boardManager.getGameIndex(), this);
     }
 
     /**

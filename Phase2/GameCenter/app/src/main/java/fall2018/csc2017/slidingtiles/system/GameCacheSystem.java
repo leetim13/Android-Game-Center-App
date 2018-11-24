@@ -14,6 +14,7 @@ import fall2018.csc2017.slidingtiles.component.BasicBoard;
 import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
+import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 
@@ -83,5 +84,12 @@ public class GameCacheSystem {
             System.out.println("no game is specified in tfgame!");
             return null;
         }
+    }
+    /*
+    * @param gameIndex the index of this game
+    * save game progress to certain files according to game index
+    * */
+    public void save(int gameIndex, Context ctx) {
+        ActivityHelper.saveToFile(hook.get(gameIndex), ctx, currentGame);
     }
 }
