@@ -29,6 +29,7 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
      */
     private int boardNumOfRows;
     private int boardNumOfCols;
+    private int[] currentSelection = {0, 0};
 
     /**
      * A 2D array of tiles containing values the user inputs
@@ -92,6 +93,10 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
         int col = position % boardNumOfCols;
         boardSudoku.getSudokuTiles()[row][col].setId(newId);
         sudokuTiles = boardSudoku.getSudokuTiles();
+    }
+
+    public void touchMove(int value) {
+
     }
 
     @Override
