@@ -63,7 +63,7 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
 
     // Grid View and calculated column height and width based on device size
     private GestureDetectGridView gridView;
-    private static int columnWidth, columnHeight;
+    private int columnWidth, columnHeight;
     private TextView tvSwipDescription;
 
     /**
@@ -99,7 +99,7 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
         gridView = findViewById(R.id.grid);
         gridView.setNumColumns(boardManager.getBoardNumOfCols());
 //        gridView.setBoardManager(boardManager);
-        boardManager.getBoard().addObserver(this);
+//        boardManager.getBoard().addObserver(this);
 //        gridView.setGameActivity(this);
 
         // Observer sets up desired dimensions as well as calls our display function
