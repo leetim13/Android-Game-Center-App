@@ -28,17 +28,32 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
     private int numCols;
 
     /**
-     * A 2D array of tiles in the board
+     * A 2D array of tiles containing values the user inputs
      */
     private SudokuTile[][] sudokuTiles;
 
+    /**
+     * A 2D array of tiles containing values of a completed sudoku board
+     */
     private SudokuTile[][] completeTiles;
 
+    /**
+     * Return tiles containing removed digits and the user's inputs
+     * @return tiles containing removed digits and the user's inputs
+     */
     public SudokuTile[][] getSudokuTiles(){ return sudokuTiles; }
 
+    /**
+     * Return tiles containing values of completed sudoku board
+     * @return tiles containing values of completed sudoku board
+     */
     public SudokuTile[][] getCompleteTiles() { return completeTiles; }
 
 
+    /**
+     * Constructor of the sudoku
+     * @param lengthOfSide The length of side of the sudoku board
+     */
     public BoardSudoku(int lengthOfSide){
         this.numCols = this.numRows = lengthOfSide;
         int numDigitRemoved = 40;
@@ -63,8 +78,6 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
 
     @Override
     public SudokuTile getTile(int row, int col){ return sudokuTiles[row][col]; }
-
-
 
     @Override
     public int getNumCols(){ return this.numCols; }
@@ -98,7 +111,7 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
     private int numTiles(){ return numCols * numRows; }
 
     /*
-     * The nested class defines an iterator of board by implementing Iterator<Tile>.
+     * The nested class defines an iterator of board by implementing Iterator<SudokuTile>.
      * Methods hasNext() and next() are implemented in this class.
      */
     public class BoardIterator implements Iterator<SudokuTile>{
@@ -138,26 +151,4 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
     @Override
     @NonNull
     public Iterator<SudokuTile> iterator() { return new BoardIterator(); }
-
-    public void printSu()
-    {
-        for (int i = 0; i<9; i++)
-        {
-            for (int j = 0; j<9; j++)
-                System.out.print(sudokuTiles[i][j].getId() + " ");
-            System.out.println();
-        }
-        System.out.println();
-    }
-
-    public void printCo()
-    {
-        for (int i = 0; i<9; i++)
-        {
-            for (int j = 0; j<9; j++)
-                System.out.print(completeTiles[i][j].getId() + " ");
-            System.out.println();
-        }
-        System.out.println();
-    }
 }
