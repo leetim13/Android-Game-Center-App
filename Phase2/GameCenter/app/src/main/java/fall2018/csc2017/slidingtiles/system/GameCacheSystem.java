@@ -89,6 +89,7 @@ public class GameCacheSystem {
     * @param gameIndex the index of this game
     * save game progress to certain files according to game index
     * */
+    @SuppressWarnings("unchecked")
     public void save(int gameIndex, Context ctx) {
         ActivityHelper.saveToFile(hook.get(gameIndex), ctx, currentGame);
     }

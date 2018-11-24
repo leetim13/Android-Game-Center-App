@@ -5,9 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import fall2018.csc2017.slidingtiles.GameCenterActivity;
 import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.system.UserPanel;
 
 public class YouLoseTFActivity extends AppCompatActivity {
 
@@ -16,7 +18,8 @@ public class YouLoseTFActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_lose_tf);
         addGameCenterButtonListener();
-
+        TextView view = findViewById(R.id.gameover_username);
+        view.setText(UserPanel.getInstance().getName());
     }
     /**
      * Activate the game center button.
