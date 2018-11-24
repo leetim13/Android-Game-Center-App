@@ -10,13 +10,26 @@ import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
 
 import static org.junit.Assert.*;
 
+/**
+ * Test class for BoardSudoku and BoardManagerSudoku
+ */
 public class SudokuBoardAndManagerTest {
+    /**
+     * The BoardManagerSudoku needing to be tested
+     */
     private BoardManagerSudoku boardManagerSudoku;
 
+    /**
+     * Construct a new BoardManagerSudoku
+     * @return a new BoardManagerSudoku
+     */
     private BoardManagerSudoku setBoardManager(){
         return new BoardManagerSudoku(BoardSudoku.LENGTH_OF_SIDE);
     }
 
+    /**
+     * Test whether checkBoardValidation works
+     */
     @Test
     public void testCheckValidation(){
         boardManagerSudoku = setBoardManager();
@@ -24,6 +37,9 @@ public class SudokuBoardAndManagerTest {
         assertTrue(boardManagerSudoku.checkBoardValidation());
     }
 
+    /**
+     * Test whether hasWon works
+     */
     @Test
     public void testHasWon(){
         boardManagerSudoku = setBoardManager();
@@ -32,6 +48,9 @@ public class SudokuBoardAndManagerTest {
         assertTrue(boardManagerSudoku.hasWon());
     }
 
+    /**
+     * Test whether updateSudokuTiles works
+     */
     @Test
     public void testUpdateTiles(){
         boardManagerSudoku = setBoardManager();
