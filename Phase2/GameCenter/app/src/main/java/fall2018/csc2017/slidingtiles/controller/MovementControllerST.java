@@ -25,7 +25,6 @@ public class MovementControllerST extends MovementController {
     /**
      * The stack to keep track state of every movement.
      */
-    public ArrayStack stateStack = new ArrayStack(2000);
 
     private SaveScore saveScore = new SaveScore();
 
