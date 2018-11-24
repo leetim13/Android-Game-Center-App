@@ -72,8 +72,6 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
      */
     public boolean checkBoardValidation(){
         boolean valid = true;
-//        boardSudoku.printCo();
-//        boardSudoku.printSu();
         for(int i = 0; i < boardNumOfRows; i++)
             for(int j = 0; j < boardNumOfCols; j++)
                 if(sudokuTiles[i][j].getId() != 0 &&
