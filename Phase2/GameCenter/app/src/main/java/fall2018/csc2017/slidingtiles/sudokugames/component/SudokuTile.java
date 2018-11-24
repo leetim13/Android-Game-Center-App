@@ -37,7 +37,7 @@ public class SudokuTile extends BasicTile {
         this.isGenerated = isGenerated;
     }
 
-    public boolean getGenerate() {
+    public boolean generated() {
         return this.isGenerated;
     }
 
