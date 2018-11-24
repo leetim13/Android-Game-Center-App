@@ -9,11 +9,10 @@ import java.util.NoSuchElementException;
 import fall2018.csc2017.slidingtiles.component.BasicBoard;
 import fall2018.csc2017.slidingtiles.component.BasicTile;
 
-
-public class BoardTF extends BasicBoard implements Iterable<TfTile>{
 /**
  * The board of game twenty forty-eight
  */
+public class BoardTF extends BasicBoard implements Iterable<TfTile>{
     /**
      * The length of side of the board
      */
@@ -58,12 +57,6 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
     }
 
     @Override
-    /**
-     * Return the tile at position (row, col)
-     * @param row row position
-     * @param col column position
-     * @return the tile at position (row, col)
-     */
     public TfTile getTile(int row, int col){
         return tfTiles[row][col];
     }
@@ -72,10 +65,6 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
     public int getNumCols(){ return this.numCols; }
 
     @Override
-    /**
-     * Return the number of rows in the board
-     * @return the number of rows in the board
-     */
     public int getNumRows(){ return this.numRows; }
 
     /**
@@ -104,7 +93,7 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
     private int numTiles(){ return numCols * numRows; }
 
     /*
-     * The nested class defines an iterator of board by implementing Iterator<Tile>.
+     * The nested class defines an iterator of board by implementing Iterator<TfTile>.
      * Methods hasNext() and next() are implemented in this class.
      */
     public class BoardIterator implements Iterator<TfTile>{
