@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -38,7 +39,7 @@ import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 import fall2018.csc2017.slidingtiles.tfgames.view.GameActivityTF;
 import fall2018.csc2017.slidingtiles.tfgames.view.OnSwipeTouchListener;
 
-public class GameActivitySudoku extends AppCompatActivity implements Observer {
+public class GameActivitySudoku extends AppCompatActivity implements Observer{
 
     /**
      * The board manager.
@@ -48,8 +49,10 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer {
     /**
      * The buttons to display.
      */
-    private ArrayList<Button> tileButtons;
-
+    private List <Button> tileButtons;
+    private boolean isSelected = false; // check whether we have selected a tile
+    private int[] currentCoordinate = {0, 0}; // the coordinate to change the value
+    private int[] buttonList = {R.id.s1, R.id.s2, R.id.s3, R.id.s4, R.id.s5, R.id.s6, R.id.s7, R.id.s8, R.id.s9};
 //    /**
 //     * Constants for swiping directions. Should be an enum, probably.
 //     */
@@ -61,7 +64,6 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer {
     // Grid View and calculated column height and width based on device size
     private GestureDetectGridView gridView;
     private static int columnWidth, columnHeight;
-    private TextView tvSwipDescription;
 
     /**
      * Set up the background image for each button based on the master list
@@ -113,20 +115,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer {
                         display();
                     }
                 });
-//        addUndoButtonListener();
-        initializeView();
-
-
-
     }
-    private void initializeView() {
-        tvSwipDescription=(TextView) findViewById(R.id.tvSwipDescription);
-    }
-
-
-
-
-
     /**
      * Create the buttons for displaying the tiles.
      *
@@ -161,43 +150,26 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer {
 //        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
         System.out.println("tile style changed!");
         GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
-        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, this,  GameCacheSystem.getInstance().getData());
+//        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, this,  GameCacheSystem.getInstance().getData());
+        GameCacheSystem.getInstance().save(boardManager.getGameIndex(), this);
     }
 
     /**
      * The maximum undo steps that the user sets.
      */
     static int maxUndoSteps;
-    /**
-     * Activate the undo button.
-     */
-    private void addUndoButtonListener(){
-        final ImageView undo = findViewById(R.id.imageView2);
-        undo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(gridView.stackIsEmpty()) {
-                    cannotUndoText();
-                    return;
-                }
-                if(maxUndoSteps > 0) {
-                    int position = gridView.getUndoPop();
-//                    boardManager.touchMove(position);
-//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
-                    GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
-                    boardManager.minusScore();
-                    maxUndoSteps--;
-                }
-                remainedUndoText();
-                display();
-            }
-        });
-    }
+
     /**
      * Display error message as toast when no steps are made, but undo is clicked.
      */
     private void cannotUndoText(){
         Toast.makeText(this, "You should make a move first!", Toast.LENGTH_SHORT).show();
+    }
+    /*
+    * add the listener for buttons handling the number sets
+    * */
+    private void addSelectionListener() {
+
     }
 
     /**
