@@ -282,11 +282,14 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
             if(temp.getId() == 0) i++;
         }
         if (temp != null) {
-            if(count % 10 == 0){
-                temp.setId(2);
-                count++;
+            if(count % 100 == 0)
+                temp.setId(3);
+            else {
+                if (count % 10 == 0) {
+                    temp.setId(2);
+                    count++;
+                } else temp.setId(1);
             }
-            else temp.setId(1);
         }
     }
 
