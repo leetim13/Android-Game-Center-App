@@ -39,6 +39,11 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     private int boardNumOfCols;
 
     /**
+     * Counted number of numbers randomly generated
+     */
+    private static int count = 2;
+
+    /**
      * Constructor of BoardManagerTF
      * @param lengthOfSide The length of the side of the board
      */
@@ -277,7 +282,11 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
             if(temp.getId() == 0) i++;
         }
         if (temp != null) {
-            temp.setId(1);
+            if(count % 10 == 0){
+                temp.setId(2);
+                count++;
+            }
+            else temp.setId(1);
         }
     }
 
@@ -304,5 +313,9 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     @Override
     public int getGameIndex(){
         return User.TF_GAME_INDEX;
+    }
+
+    public static void setCount(int count) {
+        BoardManagerTF.count = count;
     }
 }
