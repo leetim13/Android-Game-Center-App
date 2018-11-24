@@ -14,8 +14,8 @@ import fall2018.csc2017.slidingtiles.tfgames.view.YouLoseTFActivity;
 
 public class MovementControllerTF extends MovementController{
 
-    BoardManagerTF boardManagerTF;
-    SaveScore saveScore = new SaveScore();
+    private BoardManagerTF boardManagerTF;
+    private SaveScore saveScore = new SaveScore();
 
 //    MovementControllerTF(BoardManagerTF boardManagerTF){
 //        this.boardManagerTF = boardManagerTF;
@@ -28,12 +28,13 @@ public class MovementControllerTF extends MovementController{
     }
 
     @Override
-    /**
+    /*
      * UP_SIGNAL = 0;
      * RIGHT_SIGNAL = 1;
      * DOWN_SIGNAL = 2;
      * LEFT_SIGNAL = 3;
      */
+    // TODO: add save state process for future undo functionality
     public void processTapMovement(Context context, int direction){
         boardManagerTF.touchMove(direction);
         System.out.println("touch moved!");
