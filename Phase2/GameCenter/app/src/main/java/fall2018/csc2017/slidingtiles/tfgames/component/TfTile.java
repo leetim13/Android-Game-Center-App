@@ -54,7 +54,7 @@ public class TfTile extends BasicTile {
         assignBackground(id);
     }
 
-    public void assignBackground(int id) {
+    private void assignBackground(int id) {
         switch (id) {
             case 1:
                 background = R.drawable.tftile_01;
