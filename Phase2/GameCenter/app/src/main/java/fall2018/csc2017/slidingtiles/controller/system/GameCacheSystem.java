@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.controller.StorageIndexer;
 import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
@@ -24,18 +25,13 @@ public class GameCacheSystem {
     private final static int NumOfUsers = 16;
     private Map<String, BasicBoardManager> currentGame = new HashMap<>(NumOfUsers);
     private static final GameCacheSystem ourInstance = new GameCacheSystem();
-    private Map<Integer, String> hook = new HashMap<>(); // to identify the corresponding files saving games
+    private StorageIndexer indexer = new StorageIndexer();
 
     public static GameCacheSystem getInstance() {
         return ourInstance;
     }
 
     private GameCacheSystem() {
-        hook.put(User.ST_GAME_INDEX_3, UserRouter.GAME_STORAGE_SLIDING);
-        hook.put(User.ST_GAME_INDEX_4, UserRouter.GAME_STORAGE_SLIDING);
-        hook.put(User.ST_GAME_INDEX_5, UserRouter.GAME_STORAGE_SLIDING);
-        hook.put(User.TF_GAME_INDEX, UserRouter.GAME_STORAGE_TF);
-        hook.put(User.SD_GAME_INDEX, UserRouter.SCORE_STORAGE_SD);
     }
     /*
     * @param gameIndex: the game index attribute in User class, with TILEGAMEINDEX, TFGAMEINDEX
@@ -45,7 +41,7 @@ public class GameCacheSystem {
     public void loadGame(int gameIndex, Context context) {
         currentGame = new HashMap<>();
         try {
-            InputStream inputStream = context.openFileInput(hook.get(gameIndex));
+            InputStream inputStream = context.openFileInput(indexer.index(gameIndex, StorageIndexer.GAME));
             if (inputStream != null) {
                 ObjectInputStream input = new ObjectInputStream(inputStream);
                 HashMap<String, BasicBoardManager> newMap = (HashMap<String, BasicBoardManager>) input.readObject();
@@ -89,6 +85,6 @@ public class GameCacheSystem {
     * */
     @SuppressWarnings("unchecked")
     public void save(int gameIndex, Context ctx) {
-        ActivityHelper.saveToFile(hook.get(gameIndex), ctx, currentGame);
+        ActivityHelper.saveToFile(indexer.index(gameIndex, StorageIndexer.GAME), ctx, currentGame);
     }
 }
