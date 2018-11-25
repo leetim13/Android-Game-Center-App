@@ -19,12 +19,12 @@ import java.util.Observer;
 
 import fall2018.csc2017.slidingtiles.GestureDetectGridView;
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.controller.MovementControllerTF;
+import fall2018.csc2017.slidingtiles.tfgames.controller.MovementControllerTF;
 import fall2018.csc2017.slidingtiles.helper.CustomAdapter;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
-import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
-import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
+import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 
 /**
  * The game activity.

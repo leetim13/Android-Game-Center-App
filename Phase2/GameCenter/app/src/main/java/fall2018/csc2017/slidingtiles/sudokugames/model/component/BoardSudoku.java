@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.sudokugames.component;
+package fall2018.csc2017.slidingtiles.sudokugames.model.component;
 
 import android.support.annotation.NonNull;
 
@@ -6,9 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import fall2018.csc2017.slidingtiles.component.BasicBoard;
-import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
-import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
+import fall2018.csc2017.slidingtiles.model.component.BasicBoard;
 
 public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
     /**

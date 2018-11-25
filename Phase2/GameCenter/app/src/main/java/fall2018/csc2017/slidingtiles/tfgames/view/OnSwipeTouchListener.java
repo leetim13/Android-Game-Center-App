@@ -5,10 +5,9 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
-import fall2018.csc2017.slidingtiles.controller.MovementControllerTF;
-import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.tfgames.controller.MovementControllerTF;
+import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 
 public class OnSwipeTouchListener implements View.OnTouchListener {
     public static final int UP_SIGNAL = 0;

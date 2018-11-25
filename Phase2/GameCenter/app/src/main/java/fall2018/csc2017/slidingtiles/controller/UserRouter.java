@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 
 import fall2018.csc2017.slidingtiles.helper.IOHelper;
-import fall2018.csc2017.slidingtiles.component.User;
+import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 /**

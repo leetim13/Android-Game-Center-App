@@ -1,16 +1,11 @@
-package fall2018.csc2017.slidingtiles.sudokugames.manager;
+package fall2018.csc2017.slidingtiles.sudokugames.controller;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
-import fall2018.csc2017.slidingtiles.component.User;
-import fall2018.csc2017.slidingtiles.sudokugames.component.BoardSudoku;
-import fall2018.csc2017.slidingtiles.sudokugames.component.SudokuTile;
-import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
-import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
-import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.model.component.User;
+import fall2018.csc2017.slidingtiles.sudokugames.model.component.BoardSudoku;
+import fall2018.csc2017.slidingtiles.sudokugames.model.component.SudokuTile;
 
 public class BoardManagerSudoku extends BasicBoardManager implements Serializable {
 

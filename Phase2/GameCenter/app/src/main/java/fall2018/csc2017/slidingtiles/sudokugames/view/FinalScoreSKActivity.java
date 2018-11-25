@@ -11,7 +11,7 @@ import fall2018.csc2017.slidingtiles.GameCenterActivity;
 import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
-import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
+import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import fall2018.csc2017.slidingtiles.GameCenterActivity;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
+import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 public class FinalScoreActivity extends AppCompatActivity {

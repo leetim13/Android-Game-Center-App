@@ -17,14 +17,14 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import fall2018.csc2017.slidingtiles.controller.MovementControllerST;
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
+import fall2018.csc2017.slidingtiles.slidinggames.controller.MovementControllerST;
+import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.GestureDetectGridView;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.ImageTile;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
-import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.Board;
 import fall2018.csc2017.slidingtiles.helper.CustomAdapter;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 

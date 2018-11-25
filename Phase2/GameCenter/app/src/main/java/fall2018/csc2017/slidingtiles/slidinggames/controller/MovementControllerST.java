@@ -1,13 +1,15 @@
-package fall2018.csc2017.slidingtiles.controller;
+package fall2018.csc2017.slidingtiles.slidinggames.controller;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
-import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
+
+import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.controller.MovementController;
 import fall2018.csc2017.slidingtiles.slidinggames.view.FinalScoreActivity;
 import fall2018.csc2017.slidingtiles.LoginActivity;
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
+import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.helper.SaveScore;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 

@@ -1,15 +1,14 @@
-package fall2018.csc2017.slidingtiles.slidinggames.manager;
+package fall2018.csc2017.slidingtiles.slidinggames.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
-import fall2018.csc2017.slidingtiles.component.User;
-import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
-import fall2018.csc2017.slidingtiles.slidinggames.component.Tile;
-import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
+import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.ImageTile;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.Tile;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.Board;
 import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
 
 /**

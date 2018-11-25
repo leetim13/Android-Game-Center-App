@@ -1,19 +1,20 @@
-package fall2018.csc2017.slidingtiles.controller;
+package fall2018.csc2017.slidingtiles.tfgames.controller;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.controller.MovementController;
 import fall2018.csc2017.slidingtiles.helper.SaveScore;
 import fall2018.csc2017.slidingtiles.helper.structure.ArrayStack;
-import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
-import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
+import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 import fall2018.csc2017.slidingtiles.tfgames.view.FinalScoreTFActivity;
 import fall2018.csc2017.slidingtiles.tfgames.view.YouLoseTFActivity;
 
-public class MovementControllerTF extends MovementController{
+public class MovementControllerTF extends MovementController {
 
     private BoardManagerTF boardManagerTF;
     private SaveScore saveScore = new SaveScore();

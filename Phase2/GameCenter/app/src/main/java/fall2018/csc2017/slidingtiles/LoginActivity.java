@@ -19,8 +19,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
-import fall2018.csc2017.slidingtiles.component.User;
+import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
+import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.slidinggames.view.StartingActivity;
 

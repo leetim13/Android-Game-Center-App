@@ -17,10 +17,10 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.util.HashMap;
 
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
+import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.ImageTile;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.helper.structure.InputFilterMinMax;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;

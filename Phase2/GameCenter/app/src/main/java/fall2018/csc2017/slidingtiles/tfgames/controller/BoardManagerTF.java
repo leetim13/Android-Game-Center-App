@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.tfgames.managers;
+package fall2018.csc2017.slidingtiles.tfgames.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,10 +6,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
-import fall2018.csc2017.slidingtiles.component.User;
-import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
-import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
+import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.model.component.User;
+import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
+import fall2018.csc2017.slidingtiles.tfgames.model.component.TfTile;
 
 /**
  * Manage a boardTF, including making movements after each operation made by the user

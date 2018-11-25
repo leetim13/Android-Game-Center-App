@@ -1,7 +1,7 @@
-package fall2018.csc2017.slidingtiles.tfgames.component;
+package fall2018.csc2017.slidingtiles.tfgames.model.component;
 
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.component.BasicTile;
+import fall2018.csc2017.slidingtiles.model.component.BasicTile;
 
 /**
  * Tile for game twenty forty-eight

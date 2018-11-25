@@ -15,7 +15,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.GridView;
 
-import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.MovementController;
 
 public class GestureDetectGridView extends GridView {

@@ -18,7 +18,7 @@ import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivit
 import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
-import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 
 /**
  * The initial activity for the 2048 game.

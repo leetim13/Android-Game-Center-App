@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.sudokugames.component;
+package fall2018.csc2017.slidingtiles.sudokugames.model.component;
 
 import java.util.ArrayList;
 import java.util.List;

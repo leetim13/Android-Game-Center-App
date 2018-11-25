@@ -5,7 +5,7 @@ import android.content.Context;
 import java.io.IOException;
 import java.util.HashMap;
 
-import fall2018.csc2017.slidingtiles.component.User;
+import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 

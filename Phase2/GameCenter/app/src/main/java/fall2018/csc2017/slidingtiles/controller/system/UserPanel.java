@@ -1,6 +1,6 @@
 package fall2018.csc2017.slidingtiles.controller.system;
 
-import fall2018.csc2017.slidingtiles.component.User;
+import fall2018.csc2017.slidingtiles.model.component.User;
 
 /*
  * singleton controlpanel, hold a user and record the current user state

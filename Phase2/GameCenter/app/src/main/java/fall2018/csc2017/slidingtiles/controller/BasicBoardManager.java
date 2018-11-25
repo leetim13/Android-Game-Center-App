@@ -1,4 +1,6 @@
-package fall2018.csc2017.slidingtiles.component;
+package fall2018.csc2017.slidingtiles.controller;
+
+import fall2018.csc2017.slidingtiles.model.component.BasicBoard;
 
 public abstract class BasicBoardManager {
     /**

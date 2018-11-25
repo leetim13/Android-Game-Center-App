@@ -1,7 +1,7 @@
-package fall2018.csc2017.slidingtiles.sudokugames.component;
+package fall2018.csc2017.slidingtiles.sudokugames.model.component;
 
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.component.BasicTile;
+import fall2018.csc2017.slidingtiles.model.component.BasicTile;
 
 public class SudokuTile extends BasicTile {
 

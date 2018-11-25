@@ -10,8 +10,8 @@ import java.io.ObjectInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
-import fall2018.csc2017.slidingtiles.component.User;
+import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 

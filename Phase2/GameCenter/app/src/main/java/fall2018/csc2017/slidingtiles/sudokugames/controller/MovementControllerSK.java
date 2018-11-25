@@ -1,11 +1,12 @@
-package fall2018.csc2017.slidingtiles.controller;
+package fall2018.csc2017.slidingtiles.sudokugames.controller;
 
 import android.content.Context;
 
-import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
-import fall2018.csc2017.slidingtiles.component.User;
+import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.controller.MovementController;
+import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.helper.SaveScore;
-import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
+import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 

@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.slidinggames.component;
+package fall2018.csc2017.slidingtiles.slidinggames.model.component;
 
 import android.support.annotation.NonNull;
 
@@ -6,8 +6,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-import fall2018.csc2017.slidingtiles.component.BasicBoard;
-import fall2018.csc2017.slidingtiles.component.BasicTile;
+import fall2018.csc2017.slidingtiles.model.component.BasicBoard;
 
 /**
  * The sliding tiles board.

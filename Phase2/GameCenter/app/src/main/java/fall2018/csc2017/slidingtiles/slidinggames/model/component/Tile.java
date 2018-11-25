@@ -1,6 +1,6 @@
-package fall2018.csc2017.slidingtiles.slidinggames.component;
+package fall2018.csc2017.slidingtiles.slidinggames.model.component;
 
-import fall2018.csc2017.slidingtiles.component.BasicTile;
+import fall2018.csc2017.slidingtiles.model.component.BasicTile;
 import fall2018.csc2017.slidingtiles.R;
 
 /**
