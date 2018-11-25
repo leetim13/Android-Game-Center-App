@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import fall2018.csc2017.slidingtiles.controller.MovementControllerST;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.controller.GestureDetectGridView;
 import fall2018.csc2017.slidingtiles.LoginActivity;
@@ -80,6 +81,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
 
         // Add View to activity
         gridView = findViewById(R.id.grid);
+        gridView.setController(new MovementControllerST()); // set the controller
         gridView.setNumColumns(boardManager.getBoardNumOfCols());
         gridView.setBoardManager(boardManager);
         boardManager.getBoard().addObserver(this);

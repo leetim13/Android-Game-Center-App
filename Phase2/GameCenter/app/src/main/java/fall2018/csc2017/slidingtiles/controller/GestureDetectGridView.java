@@ -49,7 +49,7 @@ public class GestureDetectGridView extends GridView {
     }
 
     private void init(final Context context) {
-        mController = new MovementControllerST();
+//        mController = new MovementControllerST();
         gDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
 
             @Override
@@ -67,6 +67,10 @@ public class GestureDetectGridView extends GridView {
             }
 
         });
+    }
+
+    private void init(final Context context, MovementController controller) {
+
     }
 
     @Override
@@ -94,6 +98,12 @@ public class GestureDetectGridView extends GridView {
         }
 
         return super.onInterceptTouchEvent(ev);
+    }
+    /*
+    * set the controller for the grid view
+    * */
+    public void setController(MovementController controller) {
+        mController = controller;
     }
 
     @Override
