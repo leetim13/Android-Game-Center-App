@@ -1,6 +1,7 @@
 package fall2018.csc2017.slidingtiles.sudokugames.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -22,12 +23,14 @@ import java.util.Observer;
 
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.controller.GestureDetectGridView;
 import fall2018.csc2017.slidingtiles.controller.MovementControllerSK;
 import fall2018.csc2017.slidingtiles.controller.MovementControllerTF;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.helper.CustomAdapter;
+import fall2018.csc2017.slidingtiles.helper.SaveScore;
 import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
 import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
@@ -66,7 +69,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
 
     // Grid View and calculated column height and width based on device size
     private GestureDetectGridView gridView;
-    private static int columnWidth, columnHeight;
+    private int columnWidth, columnHeight;
 
     /**
      * Set up the background image for each button based on the master list
@@ -118,6 +121,8 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
                         display();
                     }
                 });
+
+        addCheckListener();
         addSelectionListener(); // used for buttons
     }
     /**
@@ -141,6 +146,9 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
      * Update the backgrounds on the buttons to match the tiles.
      */
     private void updateTileButtons() throws IOException {
+
+        GameCacheSystem system = GameCacheSystem.getInstance();
+        UserPanel user = UserPanel.getInstance();
         BoardSudoku board = boardManager.getBoard();
         int nextPos = 0;
         for (Button b : tileButtons) {
@@ -153,9 +161,31 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
         }
 //        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
         System.out.println("tile style changed!");
-        GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
+        system.update(user.getName(), boardManager);
 //        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, this,  GameCacheSystem.getInstance().getData());
-        GameCacheSystem.getInstance().save(boardManager.getGameIndex(), this);
+        system.save(boardManager.getGameIndex(), this);
+    }
+    /*
+    * check whether the user has won the saduko game
+    * */
+    private void addCheckListener() {
+        Button bt = findViewById(R.id.check_button);
+        final TextView notWin = findViewById(R.id.warningTextSK);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (boardManager.hasWon()) {
+                    SaveScore saveTool = new SaveScore();
+                    saveTool.saveScoreIntoMap(getApplicationContext(), boardManager.getGameIndex(), boardManager.getScore());
+                    Intent intent = new Intent(GameActivitySudoku.this, FinalScoreSKActivity.class);
+                    startActivity(intent);
+                }
+
+                else {
+                    ActivityHelper.disableButton(v,  notWin, "you haven't solved this game");
+                }
+            }
+        });
     }
 
     /**
@@ -180,6 +210,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
                 public void onClick(View v) {
                     if (controllerSK.selected()) {
                         String text = ((Button) v).getText().toString();
+                        boardManager.addScore();
                         int value = Integer.parseInt(text);
                         System.out.println("loading value:..." + value);
                         controllerSK.loadVal(getApplicationContext(), value);

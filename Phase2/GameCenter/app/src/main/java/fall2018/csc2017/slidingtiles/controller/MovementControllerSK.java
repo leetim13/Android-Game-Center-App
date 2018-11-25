@@ -30,7 +30,6 @@ public class MovementControllerSK extends MovementController {
     @Override
     public void processTapMovement(Context context, int position){
         System.out.println("haha, I am here!");
-        // TODO: add condition if it's a valid tap, then do the process
         if (boardManagerSK.isValidTap(position)) {
             this.selectedPos = position;
             isSelected = true;
