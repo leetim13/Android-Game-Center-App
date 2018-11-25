@@ -44,6 +44,7 @@ public class GameCacheSystem {
     * @param gameIndex: the game index attribute in User class, with TILEGAMEINDEX, TFGAMEINDEX
     * @param context: the activity context for file reading and writing
     * */
+    @SuppressWarnings("unchecked")
     public void loadGame(int gameIndex, Context context) {
         currentGame = new HashMap<>();
         try {
