@@ -48,15 +48,14 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
      * The board manager.
      */
     private BoardManagerSudoku boardManager;
-    public final static String SELECT_FIRST_WARNNING = "Select a target first before choosing value!";
+    public final static String SELECT_FIRST_WARNNING = "Select a target first!";
 
     /**
      * The buttons to display.
      */
     private List <Button> tileButtons;
-    private boolean isSelected = false; // check whether we have selected a tile
-    private int selectedPos = 0; // the coordinate to change the value
     private int[] buttonList = {R.id.s1, R.id.s2, R.id.s3, R.id.s4, R.id.s5, R.id.s6, R.id.s7, R.id.s8, R.id.s9};
+    private MovementControllerSK controllerSK; // control part into controller
 //    /**
 //     * Constants for swiping directions. Should be an enum, probably.
 //     */
@@ -96,10 +95,10 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
         createTileButtons(this);
         setContentView(R.layout.activity_main_sudoku);
 
-
+        this.controllerSK = new MovementControllerSK(boardManager);
         // Add View to activity
         gridView = findViewById(R.id.grid);
-        gridView.setController(new MovementControllerSK()); // set the  controller so it can be applied to sudoku game
+        gridView.setController(controllerSK); // set the  controller so it can be applied to sudoku game
         gridView.setNumColumns(boardManager.getBoardNumOfCols());
 //        gridView.setBoardManager(boardManager);
         boardManager.getBoard().addObserver(this);
@@ -114,7 +113,6 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
                                 this);
                         int displayWidth = gridView.getMeasuredWidth();
                         int displayHeight = gridView.getMeasuredHeight();
-
                         columnWidth = displayWidth / boardManager.getBoardNumOfCols();
                         columnHeight = displayHeight / boardManager.getBoardNumOfRows();
                         display();
@@ -180,16 +178,18 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (isSelected) {
-
+                    if (controllerSK.selected()) {
+                        String text = ((Button) v).getText().toString();
+                        int value = Integer.parseInt(text);
+                        System.out.println("loading value:..." + value);
+                        controllerSK.loadVal(getApplicationContext(), value);
+                        controllerSK.changeSelect();
                     }
 
                     else {
                         TextView warnText = findViewById(R.id.warningTextSK);
                         ActivityHelper.disableButton(v, warnText, SELECT_FIRST_WARNNING);
                     }
-
-                    GameActivitySudoku.this.isSelected = false;
                 }
             });
         }
@@ -204,6 +204,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
+        System.out.println("I am notified!");
         display();
     }
 }

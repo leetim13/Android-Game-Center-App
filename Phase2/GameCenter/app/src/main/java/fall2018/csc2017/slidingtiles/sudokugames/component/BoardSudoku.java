@@ -99,7 +99,6 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
         this.sudokuTiles[row1][col1] = this.sudokuTiles[row2][col2];
         this.sudokuTiles[row2][col2] = temp;
 
-
         setChanged();
         notifyObservers();
     }
@@ -142,6 +141,12 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
             next++;
             return sudokuTiles[row][col];
         }
+    }
+    /*
+    * notify that this board has been changed
+    * */
+    public void change() {
+        this.setChanged();
     }
 
     /**

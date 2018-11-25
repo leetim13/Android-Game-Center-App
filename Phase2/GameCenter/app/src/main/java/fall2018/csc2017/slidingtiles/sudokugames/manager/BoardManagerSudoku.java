@@ -90,7 +90,10 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
     public void updateSudokuTiles(int newId, int position){
         int row = position / boardNumOfRows;
         int col = position % boardNumOfCols;
+        System.out.println("row: " + row + " col: " + col);
         boardSudoku.getSudokuTiles()[row][col].setId(newId);
+        boardSudoku.change();
+        boardSudoku.notifyObservers(); // notify the activity to update the view
         sudokuTiles = boardSudoku.getSudokuTiles();
     }
 
