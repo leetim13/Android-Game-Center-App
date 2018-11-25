@@ -80,7 +80,9 @@ public class GameCenterActivity extends AppCompatActivity {
      * Switch to Starting Activity of Tiles game.
      */
     private void switchToPanel() {
-        GameCacheSystem.getInstance().loadGame(User.ST_GAME_INDEX_3, getApplicationContext());
+        GameCacheSystem sys = GameCacheSystem.getInstance();
+        sys.loadGame(User.ST_GAME_INDEX_3, getApplicationContext());
+        sys.load_index(this);
         Intent tmp = new Intent(this, StartingActivity.class);
         startActivity(tmp);
     }
@@ -88,7 +90,9 @@ public class GameCenterActivity extends AppCompatActivity {
      * Switch to Starting Activity of 2048 game.
      */
     private void switchToTFPanel() {
-        GameCacheSystem.getInstance().loadGame(User.TF_GAME_INDEX, getApplicationContext());
+        GameCacheSystem sys = GameCacheSystem.getInstance();
+        sys.loadGame(User.TF_GAME_INDEX, getApplicationContext());
+        sys.load_index(this);
         Intent tmp = new Intent(this, StartingActivityTF.class);
         startActivity(tmp);
     }
@@ -96,7 +100,9 @@ public class GameCenterActivity extends AppCompatActivity {
      * Switch to Starting Activity of Sudoku game.
      */
     private void switchToSudokuPanel() {
-        GameCacheSystem.getInstance().loadGame(User.SD_GAME_INDEX, getApplicationContext());
+        GameCacheSystem sys = GameCacheSystem.getInstance();
+        sys.loadGame(User.SD_GAME_INDEX, getApplicationContext());
+        sys.load_index(this);
         Intent tmp = new Intent(this, StartingActivitySudoku.class);
         startActivity(tmp);
     }

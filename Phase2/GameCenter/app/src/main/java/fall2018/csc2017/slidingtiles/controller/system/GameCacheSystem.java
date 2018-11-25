@@ -3,15 +3,22 @@ package fall2018.csc2017.slidingtiles.controller.system;
 import android.content.Context;
 import android.util.Log;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
+import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.StorageIndexer;
+import fall2018.csc2017.slidingtiles.helper.IOHelper;
 import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
@@ -24,9 +31,12 @@ this is a system to store and cache the game data when login process succeeds
 public class GameCacheSystem {
     private final static int NumOfUsers = 16;
     private Map<String, BasicBoardManager> currentGame = new HashMap<>(NumOfUsers);
+    private Map<String, Integer> previousGame = new HashMap<>(NumOfUsers); // previous game map
     private static final GameCacheSystem ourInstance = new GameCacheSystem();
     private StorageIndexer indexer = new StorageIndexer();
-    private int currentIndex = 0;
+    private int currentIndex = -1;
+    private static String LAST_GAME_INDEX = "__last__.ser";
+    private boolean prevLoaded = false; // check whether the previous index loaded
 
     public static GameCacheSystem getInstance() {
         return ourInstance;
@@ -88,6 +98,8 @@ public class GameCacheSystem {
     @SuppressWarnings("unchecked")
     public void save(int gameIndex, Context ctx) {
         ActivityHelper.saveToFile(indexer.index(gameIndex, StorageIndexer.GAME), ctx, currentGame);
+        prevLoaded = true; // confirm that we're going to save the current index as previous
+        saveCurrentIndex(ctx);
     }
 
     /*
@@ -96,6 +108,47 @@ public class GameCacheSystem {
     * */
     @SuppressWarnings("unchecked")
     public void save(Context ctx) {
-        ActivityHelper.saveToFile(indexer.index(currentIndex, StorageIndexer.GAME), ctx, currentGame);
+        if (currentIndex == -1) {
+            System.out.println("invalid index for the currentGame");
+            return;
+        }
+        save(currentIndex, ctx);
+    }
+    /*
+    * save the current game index when save to file
+    * */
+    private void saveCurrentIndex(Context ctx) {
+
+        if (currentIndex == -1 || !prevLoaded) {
+            return;
+        }
+
+        previousGame.put(UserPanel.getInstance().getName(), currentIndex);
+        ActivityHelper.saveToFile(LAST_GAME_INDEX, ctx, previousGame);
+    }
+    /*
+    * load the index of the last game played
+    * */
+    @SuppressWarnings("unchecked")
+    public void load_index(Context ctx) {
+        try {
+            Map<String, Integer> newMap = IOHelper.readAndroidMap(LAST_GAME_INDEX, ctx);
+            previousGame = (newMap == null) ? previousGame:newMap;
+            prevLoaded = true;
+        } catch (IOException e) {
+            System.out.println("previous indexes cannot be loaded!");
+        }
+    }
+    /*
+    * return the index of the previous game
+    * */
+    public int prevGame() {
+        String name = UserPanel.getInstance().getName();
+
+        if (previousGame.containsKey(name)) {
+            return previousGame.get(name);
+        }
+
+        return -1;
     }
 }

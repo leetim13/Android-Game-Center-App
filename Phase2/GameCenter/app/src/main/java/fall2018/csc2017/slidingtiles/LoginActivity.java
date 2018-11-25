@@ -36,18 +36,6 @@ public class LoginActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        GameCacheSystem sys = GameCacheSystem.getInstance();
-
-        loadFromFile(StartingActivity.TEMP_SAVE_FILENAME);
-
-
-//        if(userBoardHashMap.size() == 0){
-//            ActivityHelper.saveToFile(StartingActivity.TEMP_SAVE_FILENAME, this, userBoardHashMap);
-//        }
-        if (sys.getData().size() == 0) {
-            sys.save(getApplicationContext());
-        }
-
         addLoginListener();
     }
 
@@ -95,36 +83,6 @@ public class LoginActivity extends AppCompatActivity {
         register.setTextColor(Color.WHITE);
         Intent tmp = new Intent(this, RegisterActivity.class);
         startActivity(tmp);
-    }
-
-    /**
-     * Load the board manager from fileName.
-     *
-     * @param fileName the name of the file
-     */
-    @SuppressWarnings("unchecked")
-    private void loadFromFile(String fileName) {
-        try {
-            InputStream inputStream = this.openFileInput(fileName);
-            if (inputStream != null) {
-                ObjectInputStream input = new ObjectInputStream(inputStream);
-                HashMap<String, BoardManager> newMap = (HashMap<String, BoardManager>) input.readObject();
-                for(Map.Entry<String, BoardManager> entry: newMap.entrySet()) {
-                    String key = entry.getKey();
-                    BoardManager board = entry.getValue();
-                    GameCacheSystem sys = GameCacheSystem.getInstance();
-//                    userBoardHashMap.put(key, board);
-                    sys.update(key, board);
-                }
-                inputStream.close();
-            }
-        } catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
-        } catch (ClassNotFoundException e) {
-            Log.e("login activity", "File contained unexpected data type: " + e.toString());
-        }
     }
 
 }
