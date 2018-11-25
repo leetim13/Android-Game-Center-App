@@ -257,9 +257,13 @@ class Sudoku {
      */
     List<SudokuTile> getTilesList(){
         List<SudokuTile> tiles = new ArrayList<>();
-        for(int i = 0; i < BoardSudoku.LENGTH_OF_SIDE; i++)
-            for(int j = 0; j < BoardSudoku.LENGTH_OF_SIDE; j++)
-                tiles.add(new SudokuTile(mat[i][j]));
+        for(int i = 0; i < BoardSudoku.LENGTH_OF_SIDE; i++) {
+            for (int j = 0; j < BoardSudoku.LENGTH_OF_SIDE; j++) {
+                SudokuTile newTile = new SudokuTile(mat[i][j]);
+                if (mat[i][j] != 0) {newTile.setTrait(true);}
+                tiles.add(newTile);
+            }
+        }
         return tiles;
     }
 }
