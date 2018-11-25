@@ -5,6 +5,7 @@ import android.content.Context;
 import java.io.IOException;
 import java.util.HashMap;
 
+import fall2018.csc2017.slidingtiles.controller.StorageIndexer;
 import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
@@ -15,23 +16,17 @@ import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
  */
 public class SaveScore{
 
-    /**
-     * a hashMap, matching the complexity and Path for their corresponding hashMap to store
-     * user's scores.
-     */
-    private HashMap<Integer, String> hook;
+    /*
+    * load the indexer
+    * */
+    private StorageIndexer indexer = new StorageIndexer();
 
     /**
      * The new SaveScore, initialize the hashMap, matching the complexity and Path for their
      * corresponding hashMap to store the score.
      */
     public SaveScore() {
-        hook = new HashMap<>();
-        hook.put(User.ST_GAME_INDEX_3, UserRouter.SCORE_STORAGE_PATH33);
-        hook.put(User.ST_GAME_INDEX_4, UserRouter.SCORE_STORAGE_PATH44);
-        hook.put(User.ST_GAME_INDEX_5, UserRouter.SCORE_STORAGE_PATH55);
-        hook.put(User.TF_GAME_INDEX, UserRouter.SCORE_STORAGE_TF);
-        hook.put(User.SD_GAME_INDEX, UserRouter.SCORE_STORAGE_SD);
+
     }
 
     /**
@@ -42,7 +37,7 @@ public class SaveScore{
      */
     @SuppressWarnings("unchecked")
     public void saveScoreIntoMap(Context context, int gameIndex, int score){
-        String mapName = hook.get(gameIndex);
+        String mapName = indexer.index(gameIndex, StorageIndexer.SCORE);
         try{
             HashMap<String, int[]> map = IOHelper.readAndroidMap(mapName, context);
             int[] newScores;
@@ -94,7 +89,7 @@ public class SaveScore{
      *
      */
     private void writeInMapHelper(HashMap<String, int[]> map, int[] newScore, Context context, int gameIndex) throws IOException{
-        String mapName = hook.get(gameIndex);
+        String mapName = indexer.index(gameIndex, StorageIndexer.SCORE);
         map.put(UserPanel.getInstance().getName(), newScore);
         IOHelper.writeAndroidMap(map, mapName, context);
         System.out.println("the first score map for" + mapName + "created!");
