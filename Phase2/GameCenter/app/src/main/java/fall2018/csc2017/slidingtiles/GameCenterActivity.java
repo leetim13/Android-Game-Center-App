@@ -96,7 +96,7 @@ public class GameCenterActivity extends AppCompatActivity {
      * Switch to Starting Activity of Sudoku game.
      */
     private void switchToSudokuPanel() {
-        GameCacheSystem.getInstance().loadGame(User.TF_GAME_INDEX, getApplicationContext());
+        GameCacheSystem.getInstance().loadGame(User.SD_GAME_INDEX, getApplicationContext());
         Intent tmp = new Intent(this, StartingActivitySudoku.class);
         startActivity(tmp);
     }
