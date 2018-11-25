@@ -191,7 +191,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="List of Games Played"
+                    android:text="Last played time"
                     android:textColor="@color/colorPrimary"
                     android:textSize="13sp" />
 
