@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private final static int NumOfUsers = 16;
 
-    public final static HashMap<String, BoardManager> userBoardHashMap = new HashMap<>(NumOfUsers);
+//    public final static HashMap<String, BoardManager> userBoardHashMap = new HashMap<>(NumOfUsers);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
