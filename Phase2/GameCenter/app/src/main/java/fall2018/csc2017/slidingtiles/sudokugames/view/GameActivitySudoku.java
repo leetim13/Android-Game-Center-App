@@ -120,6 +120,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
                         display();
                     }
                 });
+        addSelectionListener(); // used for buttons
     }
     /**
      * Create the buttons for displaying the tiles.
@@ -175,7 +176,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
     * */
     private void addSelectionListener() {
         for (int id:buttonList) {
-            final Button button = findViewById(id);
+            Button button = findViewById(id);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -185,8 +186,10 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
 
                     else {
                         TextView warnText = findViewById(R.id.warningTextSK);
-                        ActivityHelper.disableButton(button, warnText, SELECT_FIRST_WARNNING);
+                        ActivityHelper.disableButton(v, warnText, SELECT_FIRST_WARNNING);
                     }
+
+                    GameActivitySudoku.this.isSelected = false;
                 }
             });
         }
