@@ -2,18 +2,13 @@ package fall2018.csc2017.slidingtiles.sudokugames.view;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,29 +16,16 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.controller.GestureDetectGridView;
 import fall2018.csc2017.slidingtiles.controller.MovementControllerSK;
-import fall2018.csc2017.slidingtiles.controller.MovementControllerTF;
-import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.helper.CustomAdapter;
 import fall2018.csc2017.slidingtiles.helper.SaveScore;
-import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
-import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
-import fall2018.csc2017.slidingtiles.slidinggames.view.StartingActivity;
-import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
 import fall2018.csc2017.slidingtiles.sudokugames.component.BoardSudoku;
 import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
-import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
-import fall2018.csc2017.slidingtiles.system.UserPanel;
-import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
-import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
-import fall2018.csc2017.slidingtiles.tfgames.view.GameActivityTF;
-import fall2018.csc2017.slidingtiles.tfgames.view.OnSwipeTouchListener;
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
+import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 public class GameActivitySudoku extends AppCompatActivity implements Observer{
 

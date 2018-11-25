@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.slidinggames.view.StartingActivity;
 import fall2018.csc2017.slidingtiles.sudokugames.view.StartingActivitySudoku;
-import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.tfgames.view.StartingActivityTF;
 
 /**

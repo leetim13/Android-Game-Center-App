@@ -3,7 +3,7 @@ package fall2018.csc2017.slidingtiles.controller;
 import android.content.Context;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
-import fall2018.csc2017.slidingtiles.structure.ArrayStack;
+import fall2018.csc2017.slidingtiles.helper.structure.ArrayStack;
 
 public abstract class MovementController {
 

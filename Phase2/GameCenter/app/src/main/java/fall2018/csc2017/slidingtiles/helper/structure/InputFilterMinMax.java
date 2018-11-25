@@ -1,5 +1,5 @@
 //Adapted from: https://stackoverflow.com/questions/14212518/is-there-a-way-to-define-a-min-and-max-value-for-edittext-in-android. Retrieved Nov, 2018
-package fall2018.csc2017.slidingtiles.structure;
+package fall2018.csc2017.slidingtiles.helper.structure;
 import android.text.InputFilter;
 import android.text.Spanned;
 /**

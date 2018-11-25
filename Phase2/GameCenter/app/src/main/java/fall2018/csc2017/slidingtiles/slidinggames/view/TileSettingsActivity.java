@@ -22,8 +22,8 @@ import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
-import fall2018.csc2017.slidingtiles.structure.InputFilterMinMax;
-import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.helper.structure.InputFilterMinMax;
+import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 /**
  * The Tiles Settings Activity that is the initial activity when the user clicks on the tiles game.

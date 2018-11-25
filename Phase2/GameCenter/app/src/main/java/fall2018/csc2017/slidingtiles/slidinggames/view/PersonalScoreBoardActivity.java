@@ -12,7 +12,7 @@ import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.helper.IOHelper;
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 
 /**

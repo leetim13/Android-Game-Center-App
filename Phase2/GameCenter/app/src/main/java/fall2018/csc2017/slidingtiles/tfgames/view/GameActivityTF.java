@@ -2,8 +2,6 @@ package fall2018.csc2017.slidingtiles.tfgames.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,20 +18,11 @@ import java.util.Observable;
 import java.util.Observer;
 
 import fall2018.csc2017.slidingtiles.controller.GestureDetectGridView;
-import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.controller.MovementControllerTF;
-import fall2018.csc2017.slidingtiles.controller.UserRouter;
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
-import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;
-import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
-import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
-import fall2018.csc2017.slidingtiles.slidinggames.view.GameActivity;
-import fall2018.csc2017.slidingtiles.slidinggames.view.StartingActivity;
-import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
 import fall2018.csc2017.slidingtiles.helper.CustomAdapter;
-import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
-import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
+import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import fall2018.csc2017.slidingtiles.GameCenterActivity;
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 public class YouLoseTFActivity extends AppCompatActivity {
 

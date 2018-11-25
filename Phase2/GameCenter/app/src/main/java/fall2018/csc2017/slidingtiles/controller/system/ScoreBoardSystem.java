@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.system;
+package fall2018.csc2017.slidingtiles.controller.system;
 
 /*this is a ScoreBoard System providing score data for all games, and help render the scenes
     in activities related to score board.

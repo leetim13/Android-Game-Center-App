@@ -8,13 +8,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import fall2018.csc2017.slidingtiles.GameCenterActivity;
-import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
-import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
-import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
+import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 
 public class FinalScoreTFActivity extends AppCompatActivity {

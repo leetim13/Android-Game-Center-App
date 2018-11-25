@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
-import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 /**
  * the functional class, save the score of current completed sliding tile game into correspoding

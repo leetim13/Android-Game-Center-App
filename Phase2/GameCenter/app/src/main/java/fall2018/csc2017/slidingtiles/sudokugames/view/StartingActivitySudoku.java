@@ -16,11 +16,8 @@ import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
-import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
-import fall2018.csc2017.slidingtiles.system.UserPanel;
-import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
-import fall2018.csc2017.slidingtiles.tfgames.view.GameActivityTF;
-import fall2018.csc2017.slidingtiles.tfgames.view.StartingActivityTF;
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
+import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 public class StartingActivitySudoku extends AppCompatActivity {
     /**

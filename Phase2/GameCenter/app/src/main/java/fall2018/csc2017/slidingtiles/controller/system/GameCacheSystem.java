@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.system;
+package fall2018.csc2017.slidingtiles.controller.system;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,13 +10,10 @@ import java.io.ObjectInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import fall2018.csc2017.slidingtiles.component.BasicBoard;
 import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
-import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
 
 /*
 Singleton:

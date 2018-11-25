@@ -1,16 +1,13 @@
 package fall2018.csc2017.slidingtiles.controller;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.widget.Toast;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.component.User;
 import fall2018.csc2017.slidingtiles.helper.SaveScore;
 import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
-import fall2018.csc2017.slidingtiles.system.GameCacheSystem;
-import fall2018.csc2017.slidingtiles.system.UserPanel;
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
+import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 public class MovementControllerSK extends MovementController {
     private BoardManagerSudoku boardManagerSK = new BoardManagerSudoku(9);

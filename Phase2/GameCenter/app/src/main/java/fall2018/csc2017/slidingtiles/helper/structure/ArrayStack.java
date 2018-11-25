@@ -1,6 +1,4 @@
-package fall2018.csc2017.slidingtiles.structure;
-
-import java.lang.reflect.Array;
+package fall2018.csc2017.slidingtiles.helper.structure;
 
 /**
  * ArrayStack for undo function implementation

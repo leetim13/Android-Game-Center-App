@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.system;
+package fall2018.csc2017.slidingtiles.controller.system;
 
 import fall2018.csc2017.slidingtiles.component.User;
 
