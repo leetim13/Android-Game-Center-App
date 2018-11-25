@@ -88,6 +88,7 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
      * @param position The postion of the tile
      */
     public void updateSudokuTiles(int newId, int position){
+
         int row = position / boardNumOfRows;
         int col = position % boardNumOfCols;
         boardSudoku.getSudokuTiles()[row][col].setId(newId);

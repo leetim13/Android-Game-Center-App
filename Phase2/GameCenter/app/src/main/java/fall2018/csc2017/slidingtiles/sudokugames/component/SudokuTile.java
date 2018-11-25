@@ -30,6 +30,7 @@ public class SudokuTile extends BasicTile {
         assignBackground(id);
         return background;
     }
+
     /*
     * set the tile to solid tile
     * */
@@ -69,6 +70,9 @@ public class SudokuTile extends BasicTile {
                 break;
             case 9:
                 background = (generated()) ? R.drawable.ngtf9 : R.drawable.tf9;
+                break;
+            case -1: // for selected case
+                background = R.drawable.login;
                 break;
             default:
                 background = R.drawable.tf0;

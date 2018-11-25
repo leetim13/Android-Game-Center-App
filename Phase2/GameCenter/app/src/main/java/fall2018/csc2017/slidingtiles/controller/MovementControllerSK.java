@@ -31,9 +31,14 @@ public class MovementControllerSK extends MovementController {
     public void processTapMovement(Context context, int position){
         System.out.println("haha, I am here!");
         if (boardManagerSK.isValidTap(position)) {
+            if (isSelected) {
+                boardManagerSK.updateSudokuTiles(0, selectedPos);
+            }
             this.selectedPos = position;
             isSelected = true;
+            boardManagerSK.updateSudokuTiles(-1, position);
         }
+
         System.out.println("current position is: " + position);
     }
     /*
