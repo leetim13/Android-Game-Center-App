@@ -19,7 +19,7 @@ import java.util.Observer;
 
 import fall2018.csc2017.slidingtiles.controller.MovementControllerST;
 import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
-import fall2018.csc2017.slidingtiles.controller.GestureDetectGridView;
+import fall2018.csc2017.slidingtiles.GestureDetectGridView;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.slidinggames.component.ImageTile;

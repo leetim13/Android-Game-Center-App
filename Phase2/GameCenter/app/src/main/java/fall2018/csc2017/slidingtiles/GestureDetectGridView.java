@@ -1,10 +1,10 @@
-package fall2018.csc2017.slidingtiles.controller;
+package fall2018.csc2017.slidingtiles;
 
 /*
+part of View:
+
 Adapted from:
 https://github.com/DaveNOTDavid/sample-puzzle/blob/master/app/src/main/java/com/davenotdavid/samplepuzzle/GestureDetectGridView.java
-
-This extension of GridView contains built in logic for handling swipes between buttons
  */
 
 import android.annotation.TargetApi;
@@ -16,7 +16,7 @@ import android.view.MotionEvent;
 import android.widget.GridView;
 
 import fall2018.csc2017.slidingtiles.component.BasicBoardManager;
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
+import fall2018.csc2017.slidingtiles.controller.MovementController;
 
 public class GestureDetectGridView extends GridView {
     public static final int SWIPE_MIN_DISTANCE = 100;

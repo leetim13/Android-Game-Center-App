@@ -17,7 +17,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.controller.GestureDetectGridView;
+import fall2018.csc2017.slidingtiles.GestureDetectGridView;
 import fall2018.csc2017.slidingtiles.controller.MovementControllerSK;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.helper.CustomAdapter;

@@ -8,7 +8,7 @@
     android:background="#f07c65"
     tools:context=".GameCenterActivity">
 
-    <fall2018.csc2017.slidingtiles.controller.GestureDetectGridView xmlns:android="http://schemas.android.com/apk/res/android"
+    <fall2018.csc2017.slidingtiles.GestureDetectGridView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/grid"
