@@ -19,7 +19,7 @@ public class StorageIndexer {
         hook.put(User.ST_GAME_INDEX_4, new String[]{UserRouter.GAME_STORAGE_SLIDING, UserRouter.SCORE_STORAGE_PATH44});
         hook.put(User.ST_GAME_INDEX_5, new String[]{UserRouter.GAME_STORAGE_SLIDING, UserRouter.SCORE_STORAGE_PATH55});
         hook.put(User.TF_GAME_INDEX, new String[]{UserRouter.GAME_STORAGE_TF, UserRouter.SCORE_STORAGE_TF});
-        hook.put(User.SD_GAME_INDEX, new String[]{UserRouter.SCORE_STORAGE_SD, UserRouter.SCORE_STORAGE_SD});
+        hook.put(User.SD_GAME_INDEX, new String[]{UserRouter.GAME_STORAGE_SD, UserRouter.SCORE_STORAGE_SD});
     }
 
     public String index(int gameIndex, int dataType) {

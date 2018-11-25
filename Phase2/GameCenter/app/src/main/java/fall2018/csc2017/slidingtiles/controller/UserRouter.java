@@ -25,6 +25,7 @@ public class UserRouter {
     final public static String GAME_STORAGE_TF = "game_storage_tf.ser"; // path to store the tfgame
 
     final public static String SCORE_STORAGE_SD = "score_storage_sd.ser";
+    final public static String GAME_STORAGE_SD = "game_storage_sd.ser";
 
     private HashMap <String, String[]> userMap;
     private Context context;
