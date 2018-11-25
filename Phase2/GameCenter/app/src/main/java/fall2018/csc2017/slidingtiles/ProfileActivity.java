@@ -1,9 +1,19 @@
 package fall2018.csc2017.slidingtiles;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import java.io.IOException;
 
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.StorageIndexer;
@@ -23,6 +33,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView cUser; // the name of the user in the bottom line
     private TextView lastGamePlayed; // the name of the last game played
     public static final String INVALID_TEXT = "no games played";
+    public final static int RESULT_LOAD_IMAGE = 1;
 
     /**
      *
@@ -32,6 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         display();
+        addUploadImage();
     }
 
     /**
@@ -82,4 +94,34 @@ public class ProfileActivity extends AppCompatActivity {
         int complexity = game.getComplexity();
         return indexer.getName(index) + ": " + complexity + " x " + complexity;
     }
+
+    private void addUploadImage() {
+        ImageView imageLoader = findViewById(R.id.avatar);
+        imageLoader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent selection = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(selection, RESULT_LOAD_IMAGE);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
+            Uri selectedTarget = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedTarget);
+                BitmapDrawable paint = new BitmapDrawable(getResources(), bitmap);
+                ImageView image = findViewById(R.id.avatar);
+                image.setImageResource(0);
+                image.setBackground(paint);
+            }
+            catch (IOException e) {
+                System.out.println("no file specified");
+            }
+        }
+    }
+
 }

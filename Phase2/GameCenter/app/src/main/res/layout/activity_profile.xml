@@ -31,7 +31,9 @@
                 android:adjustViewBounds="true"
                 android:padding="3dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/profile_avatar" />
+                android:src="@drawable/profile_avatar"
+                android:clickable="true"
+                android:id="@+id/avatar"/>
 
         </RelativeLayout>
 
@@ -169,7 +171,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
-                    android:text="Sliding Tiles"
+                    android:text="no games"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18sp"
                     android:id="@+id/last_play"/>
@@ -199,7 +201,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
-                    android:text="Sliding Tiles"
+                    android:text="no games"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18sp" />
 
