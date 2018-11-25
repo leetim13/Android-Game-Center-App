@@ -26,11 +26,7 @@ import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.slidinggames.view.StartingActivity;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private final static int NumOfUsers = 16;
-
-//    public final static HashMap<String, BoardManager> userBoardHashMap = new HashMap<>(NumOfUsers);
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -38,12 +34,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         addLoginListener();
     }
-
-
-    /**
-     * disable the button and show alert information
-    */
-
+    /*
+    add the login listener
+    * */
     private void addLoginListener() {
         Button loginButton = findViewById(R.id.btn_login);
         loginButton.setOnClickListener(new View.OnClickListener() {
