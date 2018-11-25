@@ -111,6 +111,8 @@ public class GameCenterActivity extends AppCompatActivity {
      * Switch to Profile Activity.
      */
     private void switchToProfile() {
+        GameCacheSystem sys = GameCacheSystem.getInstance();
+        sys.load_index(this);
         Intent tmp = new Intent(this, ProfileActivity.class);
         startActivity(tmp);
     }

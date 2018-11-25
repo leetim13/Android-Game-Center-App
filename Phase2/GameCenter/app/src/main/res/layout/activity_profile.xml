@@ -171,7 +171,8 @@
                     android:fontFamily="sans-serif"
                     android:text="Sliding Tiles"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:id="@+id/last_play"/>
 
                 <View
                     android:layout_width="match_parent"
