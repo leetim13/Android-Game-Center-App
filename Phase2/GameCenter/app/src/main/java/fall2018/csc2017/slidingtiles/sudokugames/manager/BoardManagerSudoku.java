@@ -100,7 +100,7 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
         int row = position / boardNumOfRows;
         int col = position % boardNumOfCols;
         SudokuTile selectedTile = boardSudoku.getSudokuTiles()[row][col];
-        return selectedTile.generated();
+        return !selectedTile.generated();
     }
 
     @Override
