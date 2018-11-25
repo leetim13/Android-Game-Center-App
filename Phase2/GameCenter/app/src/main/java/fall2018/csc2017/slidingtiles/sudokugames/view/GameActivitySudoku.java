@@ -21,6 +21,7 @@ import java.util.Observer;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.controller.GestureDetectGridView;
+import fall2018.csc2017.slidingtiles.controller.MovementControllerSK;
 import fall2018.csc2017.slidingtiles.controller.MovementControllerTF;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
@@ -95,6 +96,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
 
         // Add View to activity
         gridView = findViewById(R.id.grid);
+        gridView.setController(new MovementControllerSK()); // set the  controller so it can be applied to sudoku game
         gridView.setNumColumns(boardManager.getBoardNumOfCols());
 //        gridView.setBoardManager(boardManager);
         boardManager.getBoard().addObserver(this);
