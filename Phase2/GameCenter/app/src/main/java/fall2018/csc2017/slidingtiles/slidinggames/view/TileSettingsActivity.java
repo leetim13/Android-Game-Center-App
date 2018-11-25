@@ -17,6 +17,7 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.util.HashMap;
 
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
@@ -80,7 +81,9 @@ public class TileSettingsActivity extends AppCompatActivity{
                     }
 
                     BoardManager boardManager = new BoardManager(i, i);
-                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+                    GameCacheSystem sys = GameCacheSystem.getInstance();
+                    sys.update(UserPanel.getInstance().getName(), boardManager);
                     switchToGame();
                 }
 

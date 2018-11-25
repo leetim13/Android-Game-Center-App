@@ -12,6 +12,7 @@ import android.widget.Toast;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.ProfileActivity;
 import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
@@ -36,8 +37,9 @@ public class StartingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
-
+//        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+        GameCacheSystem sys = GameCacheSystem.getInstance();
+        boardManager = (BoardManager) sys.get(UserPanel.getInstance().getName());
         setContentView(R.layout.activity_starting_);
         addStartButtonListener();
         addLoadButtonListener();
@@ -81,12 +83,16 @@ public class StartingActivity extends AppCompatActivity {
         loadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+//                boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+                GameCacheSystem sys = GameCacheSystem.getInstance();
+                boardManager = (BoardManager) sys.get(UserPanel.getInstance().getName());
                 if (boardManager != null) {
 //                    Board.numRows = boardManager.boardNumOfRows;
 //                    Board.numCols = boardManager.boardNumOfCols;
-                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
-                    ActivityHelper.saveToFile(TEMP_SAVE_FILENAME, STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
+//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+                    sys.update(UserPanel.getInstance().getName(), boardManager);
+//                    ActivityHelper.saveToFile(TEMP_SAVE_FILENAME, STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
+                    sys.save(getApplicationContext());
                     makeToastLoadedText();
                     switchToGame();
                 } else {
@@ -114,7 +120,8 @@ public class StartingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (boardManager != null) {
-                    ActivityHelper.saveToFile(TEMP_SAVE_FILENAME, STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
+//                    ActivityHelper.saveToFile(TEMP_SAVE_FILENAME, STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
+                    GameCacheSystem.getInstance().save(getApplicationContext());
                     makeToastSavedText();
                 } else {
                     final TextView invalidView = findViewById(R.id.warningText);
@@ -157,9 +164,10 @@ public class StartingActivity extends AppCompatActivity {
      * Switch to the GameActivity view to play the game.
      */
     public void switchToGame() {
-        final StartingActivity STARTING_ACTIVITY = this;
+//        final StartingActivity STARTING_ACTIVITY = this;
         Intent tmp = new Intent(this, GameActivity.class);
-        ActivityHelper.saveToFile(TEMP_SAVE_FILENAME,STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
+//        ActivityHelper.saveToFile(TEMP_SAVE_FILENAME,STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
+        GameCacheSystem.getInstance().save(this);
         startActivity(tmp);
     }
     /**

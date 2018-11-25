@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.MovementController;
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.slidinggames.view.FinalScoreActivity;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
@@ -58,7 +59,10 @@ public class MovementControllerST extends MovementController {
             int[] dir = boardManager.touchMove(position);
             boardManager.addScore();
             int positionPrime = dir[0] * boardManager.getBoardNumOfRows() + dir[1];
-            LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+            UserPanel user = UserPanel.getInstance();
+//            LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+            GameCacheSystem sys = GameCacheSystem.getInstance();
+            sys.update(user.getName(), boardManager);
             stateStack.push(positionPrime);
             if (boardManager.hasWon()) {
                 Toast.makeText(context, "YOU WIN!", Toast.LENGTH_SHORT).show();

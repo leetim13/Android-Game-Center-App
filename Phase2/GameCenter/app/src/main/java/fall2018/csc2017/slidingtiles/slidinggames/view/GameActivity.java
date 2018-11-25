@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.MovementControllerST;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.GestureDetectGridView;
@@ -72,8 +73,9 @@ public class GameActivity extends AppCompatActivity implements Observer {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+        GameCacheSystem sys = GameCacheSystem.getInstance();
+//        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+        boardManager = (BoardManager) sys.get(UserPanel.getInstance().getName());
 
         createTileButtons(this);
         setContentView(R.layout.activity_main);
@@ -146,9 +148,11 @@ public class GameActivity extends AppCompatActivity implements Observer {
             }
             nextPos++;
         }
-        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
-        ActivityHelper.saveToFile(StartingActivity.TEMP_SAVE_FILENAME, this, LoginActivity.userBoardHashMap);
-
+//        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+        GameCacheSystem sys = GameCacheSystem.getInstance();
+        sys.update(UserPanel.getInstance().getName(), boardManager);
+//        ActivityHelper.saveToFile(StartingActivity.TEMP_SAVE_FILENAME, this, LoginActivity.userBoardHashMap);
+        sys.save(this);
     }
 
     /**
@@ -170,7 +174,9 @@ public class GameActivity extends AppCompatActivity implements Observer {
                 if(maxUndoSteps > 0) {
                     int position = gridView.getUndoPop();
                     boardManager.touchMove(position);
-                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
+                    GameCacheSystem sys = GameCacheSystem.getInstance();
+                    sys.update(UserPanel.getInstance().getName(), boardManager);
                     boardManager.minusScore();
                     maxUndoSteps--;
                 }

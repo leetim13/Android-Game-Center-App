@@ -18,6 +18,7 @@ import java.io.ObjectInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.model.component.User;
@@ -35,13 +36,18 @@ public class LoginActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        GameCacheSystem sys = GameCacheSystem.getInstance();
 
         loadFromFile(StartingActivity.TEMP_SAVE_FILENAME);
 
 
-        if(userBoardHashMap.size() == 0){
-            ActivityHelper.saveToFile(StartingActivity.TEMP_SAVE_FILENAME, this, userBoardHashMap);
+//        if(userBoardHashMap.size() == 0){
+//            ActivityHelper.saveToFile(StartingActivity.TEMP_SAVE_FILENAME, this, userBoardHashMap);
+//        }
+        if (sys.getData().size() == 0) {
+            sys.save(getApplicationContext());
         }
+
         addLoginListener();
     }
 
@@ -106,7 +112,9 @@ public class LoginActivity extends AppCompatActivity {
                 for(Map.Entry<String, BoardManager> entry: newMap.entrySet()) {
                     String key = entry.getKey();
                     BoardManager board = entry.getValue();
-                    userBoardHashMap.put(key, board);
+                    GameCacheSystem sys = GameCacheSystem.getInstance();
+//                    userBoardHashMap.put(key, board);
+                    sys.update(key, board);
                 }
                 inputStream.close();
             }

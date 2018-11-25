@@ -26,6 +26,7 @@ public class GameCacheSystem {
     private Map<String, BasicBoardManager> currentGame = new HashMap<>(NumOfUsers);
     private static final GameCacheSystem ourInstance = new GameCacheSystem();
     private StorageIndexer indexer = new StorageIndexer();
+    private int currentIndex = 0;
 
     public static GameCacheSystem getInstance() {
         return ourInstance;
@@ -51,6 +52,7 @@ public class GameCacheSystem {
                     currentGame.put(key, board);
                 }
                 inputStream.close();
+                currentIndex = gameIndex;
             }
         } catch (FileNotFoundException e) {
             Log.e("login activity", "File not found: " + e.toString());
@@ -86,5 +88,14 @@ public class GameCacheSystem {
     @SuppressWarnings("unchecked")
     public void save(int gameIndex, Context ctx) {
         ActivityHelper.saveToFile(indexer.index(gameIndex, StorageIndexer.GAME), ctx, currentGame);
+    }
+
+    /*
+    * default storage method
+    * save game progress to files according to current game index
+    * */
+    @SuppressWarnings("unchecked")
+    public void save(Context ctx) {
+        ActivityHelper.saveToFile(indexer.index(currentIndex, StorageIndexer.GAME), ctx, currentGame);
     }
 }

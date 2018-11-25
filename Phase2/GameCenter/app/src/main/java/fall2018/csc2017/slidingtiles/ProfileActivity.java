@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 
+import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
@@ -35,7 +36,9 @@ public class ProfileActivity extends AppCompatActivity {
     */
     private void display() {
         setConstant();
-        BoardManager game = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+        GameCacheSystem sys = GameCacheSystem.getInstance();
+//        BoardManager game = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
+        BoardManager game = (BoardManager) sys.get(UserPanel.getInstance().getName());
         String prevGame = (game != null) ?
                             game.getComplexity() + "x" + game.getComplexity():
                             INVALID_TEXT;
