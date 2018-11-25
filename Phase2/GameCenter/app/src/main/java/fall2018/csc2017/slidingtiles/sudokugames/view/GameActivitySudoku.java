@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,13 +48,14 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
      * The board manager.
      */
     private BoardManagerSudoku boardManager;
+    public final static String SELECT_FIRST_WARNNING = "Select a target first before choosing value!";
 
     /**
      * The buttons to display.
      */
     private List <Button> tileButtons;
     private boolean isSelected = false; // check whether we have selected a tile
-    private int[] currentCoordinate = {0, 0}; // the coordinate to change the value
+    private int selectedPos = 0; // the coordinate to change the value
     private int[] buttonList = {R.id.s1, R.id.s2, R.id.s3, R.id.s4, R.id.s5, R.id.s6, R.id.s7, R.id.s8, R.id.s9};
 //    /**
 //     * Constants for swiping directions. Should be an enum, probably.
@@ -171,7 +174,22 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
     * add the listener for buttons handling the number sets
     * */
     private void addSelectionListener() {
+        for (int id:buttonList) {
+            final Button button = findViewById(id);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (isSelected) {
 
+                    }
+
+                    else {
+                        TextView warnText = findViewById(R.id.warningTextSK);
+                        ActivityHelper.disableButton(button, warnText, SELECT_FIRST_WARNNING);
+                    }
+                }
+            });
+        }
     }
 
     /**
