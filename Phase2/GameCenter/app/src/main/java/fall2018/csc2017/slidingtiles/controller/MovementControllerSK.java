@@ -12,11 +12,20 @@ import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
 public class MovementControllerSK extends MovementController {
     private BoardManagerSudoku boardManagerSK = new BoardManagerSudoku(9);
     private SaveScore saveScore = new SaveScore();
+    private int selectedPos = 0;
     @Override
     public void setBoardManager(BasicBoardManager boardManager) {
         boardManagerSK = (BoardManagerSudoku) boardManager;
     }
-    public void processTapMovement(Context context, int direction){
+
+    @Override
+    public void processTapMovement(Context context, int loadVal){
         boardManagerSK.addScore();
+    }
+    /*
+    * load the position of the selected target
+    * */
+    public void loadPos(int position) {
+        this.selectedPos = position;
     }
 }
