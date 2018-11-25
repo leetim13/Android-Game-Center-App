@@ -44,31 +44,31 @@ public class SudokuTile extends BasicTile {
     private void assignBackground (int id) {
         switch (id) {
             case 1:
-                background = R.drawable.tf1;
+                background = (generated()) ? R.drawable.ngtf1 : R.drawable.tf1;
                 break;
             case 2:
-                background = R.drawable.tf2;
+                background = (generated()) ? R.drawable.ngtf2 : R.drawable.tf2;
                 break;
             case 3:
-                background = R.drawable.tf3;
+                background = (generated()) ? R.drawable.ngtf3 : R.drawable.tf3;
                 break;
             case 4:
-                background = R.drawable.tf4;
+                background = (generated()) ? R.drawable.ngtf4 : R.drawable.tf4;
                 break;
             case 5:
-                background = R.drawable.tf5;
+                background = (generated()) ? R.drawable.ngtf5 : R.drawable.tf5;
                 break;
             case 6:
-                background = R.drawable.tf6;
+                background = (generated()) ? R.drawable.ngtf6 : R.drawable.tf6;
                 break;
             case 7:
-                background = R.drawable.tf7;
+                background = (generated()) ? R.drawable.ngtf7 : R.drawable.tf7;
                 break;
             case 8:
-                background = R.drawable.tf8;
+                background = (generated()) ? R.drawable.ngtf8 : R.drawable.tf8;
                 break;
             case 9:
-                background = R.drawable.tf9;
+                background = (generated()) ? R.drawable.ngtf9 : R.drawable.tf9;
                 break;
             default:
                 background = R.drawable.tf0;
