@@ -204,7 +204,6 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("I am notified!");
         display();
     }
 }

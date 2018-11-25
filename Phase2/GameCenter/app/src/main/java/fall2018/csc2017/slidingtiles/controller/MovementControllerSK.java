@@ -18,10 +18,6 @@ public class MovementControllerSK extends MovementController {
     private int selectedPos = 0;
     private boolean isSelected = false;
 
-    public MovementControllerSK () {
-
-    }
-
     public MovementControllerSK (BoardManagerSudoku manager) {
         this.boardManagerSK = manager;
     }
@@ -62,5 +58,11 @@ public class MovementControllerSK extends MovementController {
      */
     public void changeSelect() {
         isSelected = !isSelected;
+    }
+    /*
+    * get the current selected position for use
+    * */
+    public int getSelectedPos() {
+        return selectedPos;
     }
 }
