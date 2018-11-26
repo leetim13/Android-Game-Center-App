@@ -1,6 +1,7 @@
 package fall2018.csc2017.slidingtiles.sudokugames.controller;
 
 import android.content.Context;
+import android.content.Intent;
 
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.MovementController;
@@ -9,10 +10,10 @@ import fall2018.csc2017.slidingtiles.helper.SaveScore;
 import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
+import fall2018.csc2017.slidingtiles.sudokugames.view.FinalScoreSKActivity;
 
 public class MovementControllerSK extends MovementController {
-    private BoardManagerSudoku boardManagerSK = new BoardManagerSudoku(9);
-    private SaveScore saveScore = new SaveScore();
+    private BoardManagerSudoku boardManagerSK;
     private int selectedPos = 0;
     private boolean isSelected = false;
 
@@ -29,9 +30,16 @@ public class MovementControllerSK extends MovementController {
     public void processTapMovement(Context context, int position){
         System.out.println("haha, I am here!");
         if (boardManagerSK.isValidTap(position)) {
-            if (isSelected) {
-                boardManagerSK.updateSudokuTiles(0, selectedPos);
+
+            if (boardManagerSK.hasWon()) {
+                SaveScore saveTool = new SaveScore();
+                saveTool.saveScoreIntoMap(context, boardManagerSK.getGameIndex(), boardManagerSK.getScore());
+                Intent intent = new Intent(context, FinalScoreSKActivity.class);
+                context.startActivity(intent);
             }
+//            if (isSelected) {
+//                boardManagerSK.updateSudokuTiles(0, selectedPos);
+//            }
             this.selectedPos = position;
             isSelected = true;
             boardManagerSK.updateSudokuTiles(-1, position);
@@ -50,6 +58,12 @@ public class MovementControllerSK extends MovementController {
         boardManagerSK.updateSudokuTiles(val, selectedPos);
         sys.update(panel.getName(), boardManagerSK);
         sys.save(User.SD_GAME_INDEX, ctx);
+        if (boardManagerSK.hasWon()) {
+            SaveScore saveTool = new SaveScore();
+            saveTool.saveScoreIntoMap(ctx, boardManagerSK.getGameIndex(), boardManagerSK.getScore());
+            Intent intent = new Intent(ctx, FinalScoreSKActivity.class);
+            ctx.startActivity(intent);
+        }
     }
     /*
     * return if the position has been selected or not

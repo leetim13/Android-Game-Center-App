@@ -75,6 +75,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
 
         if (boardManager == null) {
             boardManager = new BoardManagerSudoku(9);
+//            boardManager.setSudokuTiles(); // for test
         }
 
         createTileButtons(this);
@@ -156,15 +157,14 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (boardManager.hasWon()) {
-                    SaveScore saveTool = new SaveScore();
-                    saveTool.saveScoreIntoMap(getApplicationContext(), boardManager.getGameIndex(), boardManager.getScore());
-                    Intent intent = new Intent(GameActivitySudoku.this, FinalScoreSKActivity.class);
-                    startActivity(intent);
-                }
-
-                else {
-                    ActivityHelper.disableButton(v,  notWin, "you haven't solved this game");
+                if (!boardManager.checkBoardValidation()) {
+//                    SaveScore saveTool = new SaveScore();
+//                    saveTool.saveScoreIntoMap(getApplicationContext(), boardManager.getGameIndex(), boardManager.getScore());
+//                    Intent intent = new Intent(GameActivitySudoku.this, FinalScoreSKActivity.class);
+//                    startActivity(intent);
+                    ActivityHelper.disableButton(v,  notWin, "invalid move in board!");
+                } else {
+                    ActivityHelper.disableButton(v,  notWin, "this board is valid!");
                 }
             }
         });
