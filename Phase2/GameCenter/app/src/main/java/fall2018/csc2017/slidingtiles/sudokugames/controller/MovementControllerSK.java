@@ -37,9 +37,9 @@ public class MovementControllerSK extends MovementController {
                 Intent intent = new Intent(context, FinalScoreSKActivity.class);
                 context.startActivity(intent);
             }
-//            if (isSelected) {
-//                boardManagerSK.updateSudokuTiles(0, selectedPos);
-//            }
+            if (isSelected) {
+                boardManagerSK.updateSudokuTiles(0, selectedPos);
+            }
             this.selectedPos = position;
             isSelected = true;
             boardManagerSK.updateSudokuTiles(-1, position);
@@ -51,6 +51,7 @@ public class MovementControllerSK extends MovementController {
     * load the position of the selected target
     * */
     public void loadVal(Context ctx, int val) {
+
         UserPanel panel = UserPanel.getInstance();
         GameCacheSystem sys = GameCacheSystem.getInstance();
         boardManagerSK.addScore();
@@ -64,6 +65,8 @@ public class MovementControllerSK extends MovementController {
             Intent intent = new Intent(ctx, FinalScoreSKActivity.class);
             ctx.startActivity(intent);
         }
+
+//        isSelected = false;
     }
     /*
     * return if the position has been selected or not
