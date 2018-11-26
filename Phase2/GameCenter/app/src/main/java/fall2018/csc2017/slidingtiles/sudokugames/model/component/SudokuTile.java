@@ -72,7 +72,7 @@ public class SudokuTile extends BasicTile {
                 background = (generated()) ? R.drawable.ngtf9 : R.drawable.tf9;
                 break;
             case -1: // for selected case
-                background = R.drawable.login;
+                background = R.drawable.sudoku_selected;
                 break;
             default:
                 background = R.drawable.tf0;
