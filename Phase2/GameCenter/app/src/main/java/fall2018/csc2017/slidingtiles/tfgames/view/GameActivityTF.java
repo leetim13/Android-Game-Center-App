@@ -114,19 +114,19 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
             public void swipe(int signal) {
                 if (signal == OnSwipeTouchListener.UP_SIGNAL) {
 
-                    Toast.makeText(GameActivityTF.this, "You swiped Up", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(GameActivityTF.this, "You swiped Up", Toast.LENGTH_SHORT).show();
                 }
 
                 if (signal == OnSwipeTouchListener.RIGHT_SIGNAL) {
-                    Toast.makeText(GameActivityTF.this, "You swiped right", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(GameActivityTF.this, "You swiped right", Toast.LENGTH_SHORT).show();
                 }
 
                 if (signal == OnSwipeTouchListener.DOWN_SIGNAL) {
-                    Toast.makeText(GameActivityTF.this, "You swiped down", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(GameActivityTF.this, "You swiped down", Toast.LENGTH_SHORT).show();
                 }
 
                 if (signal == OnSwipeTouchListener.LEFT_SIGNAL) {
-                    Toast.makeText(GameActivityTF.this, "You swiped left", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(GameActivityTF.this, "You swiped left", Toast.LENGTH_SHORT).show();
                 }
                 MovementControllerTF movement = new MovementControllerTF();
                 movement.setBoardManager(boardManager);
