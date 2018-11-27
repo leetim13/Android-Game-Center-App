@@ -20,22 +20,11 @@ import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 public class StartingActivitySudoku extends AppCompatActivity {
-    /**
-     * A temporary save file.
-     */
-    public static final String TEMP_SAVE_FILENAME = "save_file_tmp.ser";
-
-    /**
-     * The board manager.
-     */
-    private BoardManagerSudoku boardManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting_sudoku);
-//        boardManager = (BoardManagerSudoku) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
-        boardManager = new BoardManagerSudoku(9);
         addStartButtonListener();
         addLoadButtonListener();
         addSaveButtonListener();
@@ -78,12 +67,8 @@ public class StartingActivitySudoku extends AppCompatActivity {
         loadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
-                boardManager = (BoardManagerSudoku) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
+                BoardManagerSudoku boardManager = (BoardManagerSudoku) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
                 if (boardManager != null) {
-//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
-                    GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
-                    ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivitySudoku, GameCacheSystem.getInstance().getData());
                     makeToastLoadedText();
                     switchToGame(false);
                 } else {
@@ -110,7 +95,7 @@ public class StartingActivitySudoku extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (boardManager != null) {
+                if (GameCacheSystem.getInstance().get(UserPanel.getInstance().getName()) != null) {
                     ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivitySudoku, GameCacheSystem.getInstance().getData());
                     makeToastSavedText();
                 } else {
