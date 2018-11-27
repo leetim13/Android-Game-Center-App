@@ -26,22 +26,9 @@ import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 
 public class StartingActivityTF extends AppCompatActivity {
 
-    /**
-     * A temporary save file.
-     */
-    public static final String TEMP_SAVE_FILENAME = "save_file_tmp.ser";
-
-    /**
-     * The board manager.
-     */
-    private BoardManagerTF boardManager;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
-        boardManager = (BoardManagerTF) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
         setContentView(R.layout.activity_starting_tf);
         addStartButtonListener();
         addLoadButtonListener();
@@ -81,16 +68,12 @@ public class StartingActivityTF extends AppCompatActivity {
      */
     private void addLoadButtonListener() {
         Button loadButton = findViewById(R.id.LoadButton);
-        final StartingActivityTF StartingActivityTF = this;
         loadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
-                boardManager = (BoardManagerTF) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
+
+                BoardManagerTF boardManager = (BoardManagerTF) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
                 if (boardManager != null) {
-//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
-                    GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
-                    ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivityTF, GameCacheSystem.getInstance().getData());
                     makeToastLoadedText();
                     switchToGame(false);
                 } else {
@@ -117,7 +100,7 @@ public class StartingActivityTF extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (boardManager != null) {
+                if (GameCacheSystem.getInstance().get(UserPanel.getInstance().getName()) != null) {
                     ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivityTF, GameCacheSystem.getInstance().getData());
                     makeToastSavedText();
                 } else {
@@ -174,13 +157,7 @@ public class StartingActivityTF extends AppCompatActivity {
         }
         switchToGame();
     }
-    /**
-     * Switch to the TileSettingsActivity Activity view to customize game settings.
-     */
-    public void switchToSettings(){
-        Intent tmp = new Intent(this, TileSettingsActivity.class);
-        startActivity(tmp);
-    }
+
     /**
      * Switch to the ScoreBoardActivity Activity view to see global scoreboard.
      */
