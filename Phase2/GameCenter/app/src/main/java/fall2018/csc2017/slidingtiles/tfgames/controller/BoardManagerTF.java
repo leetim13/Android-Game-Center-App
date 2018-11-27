@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.helper.TileFactory;
 import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.model.component.TfTile;
@@ -26,6 +27,11 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     public final static int LEFT_SIGNAL = 3;
 
     private BoardTF boardTF;
+
+    /**
+     * the tile factory to generate new tile.
+     */
+    private TileFactory tileFactory = new TileFactory();
 
     /**
      * The current number of steps.
@@ -52,7 +58,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         List<TfTile> tfTiles = new ArrayList<>();
         final int numTiles = lengthOfSide * lengthOfSide;
         for (int tileNum = 0; tileNum != numTiles; tileNum++) {
-            tfTiles.add(new TfTile(BoardTF.BLANK_ID));
+            tfTiles.add((TfTile) tileFactory.createTile(BoardTF.BLANK_ID, "TfTile"));
         }
         this.boardTF = new BoardTF(lengthOfSide, tfTiles);
         for (int i = 0; i < 2; i++)

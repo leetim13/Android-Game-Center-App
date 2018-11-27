@@ -31,16 +31,16 @@ public class Tile extends BasicTile {
         return id;
     }
 
-    /**
-     * A Tile with id and background. The background may not have a corresponding image.
-     *
-     * @param id         the id
-     * @param background the background
-     */
-    public Tile(int id, int background) {
-        this.id = id;
-        this.background = background;
-    }
+//    /**
+//     * A Tile with id and background. The background may not have a corresponding image.
+//     *
+//     * @param id         the id
+//     * @param background the background
+//     */
+//    public Tile(int id, int background) {
+//        this.id = id;
+//        this.background = background;
+//    }
 
     public Tile() {}
 
@@ -49,7 +49,7 @@ public class Tile extends BasicTile {
      *
      * @param backgroundId
      */
-    public Tile(int backgroundId,int numRows, int numCols) {
+    public Tile(int backgroundId, int numRows, int numCols) {
         id = backgroundId + 1;
         // This looks so ugly.
         if(id == numRows*numCols){

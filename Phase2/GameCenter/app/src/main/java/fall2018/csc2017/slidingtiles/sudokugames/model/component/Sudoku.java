@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import fall2018.csc2017.slidingtiles.helper.TileFactory;
+
 
 /**
  * Adapted from:
@@ -31,6 +33,11 @@ class Sudoku {
      * Number of digits to remove
      */
     private int numOfRemovedDigits;
+
+    /**
+     * the tile factory to generate new tile.
+     */
+    private TileFactory tileFactory = new TileFactory();
 
     /**
      * Constructor of the sudoku
@@ -259,7 +266,7 @@ class Sudoku {
         List<SudokuTile> tiles = new ArrayList<>();
         for(int i = 0; i < BoardSudoku.LENGTH_OF_SIDE; i++) {
             for (int j = 0; j < BoardSudoku.LENGTH_OF_SIDE; j++) {
-                SudokuTile newTile = new SudokuTile(mat[i][j]);
+                SudokuTile newTile = (SudokuTile) tileFactory.createTile(mat[i][j], "SudokuTile");
                 if (mat[i][j] != 0) {newTile.setTrait(true);}
                 tiles.add(newTile);
             }
