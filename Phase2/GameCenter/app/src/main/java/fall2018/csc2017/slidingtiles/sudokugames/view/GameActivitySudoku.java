@@ -162,9 +162,9 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
 //                    saveTool.saveScoreIntoMap(getApplicationContext(), boardManager.getGameIndex(), boardManager.getScore());
 //                    Intent intent = new Intent(GameActivitySudoku.this, FinalScoreSKActivity.class);
 //                    startActivity(intent);
-                    ActivityHelper.disableButton(v,  notWin, "invalid move in board!");
+                    ActivityHelper.disableButton(v,  notWin, "you're not on the right track");
                 } else {
-                    ActivityHelper.disableButton(v,  notWin, "this board is valid!");
+                    ActivityHelper.disableButton(v,  notWin, "you're on the right track");
                 }
             }
         });
