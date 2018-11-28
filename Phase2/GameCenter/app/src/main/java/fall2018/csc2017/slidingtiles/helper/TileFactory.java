@@ -1,12 +1,14 @@
 package fall2018.csc2017.slidingtiles.helper;
 
+import java.io.Serializable;
+
 import fall2018.csc2017.slidingtiles.model.component.BasicTile;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.ImageTile;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.Tile;
 import fall2018.csc2017.slidingtiles.sudokugames.model.component.SudokuTile;
 import fall2018.csc2017.slidingtiles.tfgames.model.component.TfTile;
 
-public class TileFactory {
+public class TileFactory implements Serializable {
     public BasicTile createTile(int id, String type){
         if(type.equals("TfTile")){
             return new TfTile(id);

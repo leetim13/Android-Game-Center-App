@@ -26,17 +26,11 @@ public class StartingActivitySudoku extends BasicStartingActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_starting_sudoku);
-        addStartButtonListener();
-        addLoadButtonListener();
-        addSaveButtonListener();
-        addScoreboardButtonListener();
-        addProfileImageButtonListener();
     }
 
     @Override
     public void setView() {
-        setContentView(R.layout.activity_starting_tf);
+        setContentView(R.layout.activity_starting_sudoku);
     }
 
     @Override
