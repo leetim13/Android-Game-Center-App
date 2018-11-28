@@ -54,6 +54,10 @@
         <activity
             android:name=".BasicScoreBoardActivity"
             android:label="@string/title_activity_basic_score_board"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".tfgames.view.ScoreboardtfActivity"
+            android:label="@string/title_activity_scoreboardtf"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 

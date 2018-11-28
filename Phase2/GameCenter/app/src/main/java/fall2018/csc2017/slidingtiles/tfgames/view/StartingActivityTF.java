@@ -150,7 +150,7 @@ public class StartingActivityTF extends AppCompatActivity {
      * Switch to the ScoreBoardActivity Activity view to see global scoreboard.
      */
     public void switchToScoreboard(){
-        Intent tmp = new Intent(this, ScoreBoardActivity.class);
+        Intent tmp = new Intent(this, ScoreboardtfActivity.class);
         startActivity(tmp);
     }
     /**

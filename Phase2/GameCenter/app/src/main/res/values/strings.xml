@@ -91,4 +91,6 @@
         completions."
     </string>
     <string name="title_activity_register">Sign in</string>
+    <string name="title_activity_basic_score_board">BasicScoreBoardActivity</string>
+    <string name="title_activity_scoreboardtf">ScoreboardtfActivity</string>
 </resources>

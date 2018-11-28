@@ -18,13 +18,9 @@ import fall2018.csc2017.slidingtiles.model.GameScore;
 
 public class ScoreBoardSystem <T extends TextView>{
 
-    private Context scoreContext;
-    private List<Map<String, int[]>> playerStates;
-    private GameScore[] score;
-
+    private List<Map<String, int[]>> playerStates; // the states for possible different games
 
     public ScoreBoardSystem(GameScore[] scoreModels, Context ctx) {
-        this.scoreContext = ctx;
         initialize(scoreModels);
     }
 
@@ -46,8 +42,6 @@ public class ScoreBoardSystem <T extends TextView>{
     /*
         make the views in the view list display the desirable content of score state at the
         specific index.
-        precondition for ranking: the viewList must contain the score view from top to bottom
-        @param viewList: the views to display the score
         @param index: the index of the score state (follow the index of the constructor scorefiles)
     * */
     public List<SequenceBundlers> displayScore(int index) {
@@ -61,15 +55,5 @@ public class ScoreBoardSystem <T extends TextView>{
         List<SequenceBundlers> bd = IOHelper.convertMap(map);
         Collections.sort(bd);
         return bd;
-//        for (int i = 0; i < bd.size(); i++) {
-//            SequenceBundlers bundler = bd.get(i);
-//            String username = bundler.getkey();
-//            int record = bundler.getValue();
-//            if (i < viewList.length) {
-//                T v = viewList[i];
-//                String content = username + " " + Integer.toString(record);
-//                v.setText(content);
-//            }
-//        }
     }
 }
