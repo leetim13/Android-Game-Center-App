@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import fall2018.csc2017.slidingtiles.controller.system.ScoreBoardSystem;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
+import fall2018.csc2017.slidingtiles.model.component.User;
+import fall2018.csc2017.slidingtiles.slidinggames.model.SlidingScore;
+
 /**
  * The global scoreboard activity for the sliding puzzle tile game.
  */
@@ -38,11 +41,11 @@ public class ScoreBoardActivity extends AppCompatActivity implements ScoreDispla
     @SuppressWarnings("unchecked")
     public void renderBoard() {
 
-        String[] scoreFiles = new String[]{UserRouter.SCORE_STORAGE_PATH33,
-                                           UserRouter.SCORE_STORAGE_PATH44,
-                                           UserRouter.SCORE_STORAGE_PATH55
+        SlidingScore[] scoreModels = new SlidingScore[]{new SlidingScore(User.ST_GAME_INDEX_3, this),
+                                           new SlidingScore(User.ST_GAME_INDEX_4, this),
+                                           new SlidingScore(User.ST_GAME_INDEX_5, this),
                                             }; // index0: 33, index1: 44, index2: 55
-        ScoreBoardSystem boardSystem = new ScoreBoardSystem<Button>(scoreFiles ,getApplicationContext());
+        ScoreBoardSystem boardSystem = new ScoreBoardSystem<Button>(scoreModels ,getApplicationContext());
         Button[] viewList1 = getViewList(renderList1);
         Button[] viewList2 = getViewList(renderList2);
         Button[] viewList3 = getViewList(renderList3);

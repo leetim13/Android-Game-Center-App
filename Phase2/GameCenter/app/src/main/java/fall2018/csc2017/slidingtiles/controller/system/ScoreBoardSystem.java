@@ -22,15 +22,10 @@ public class ScoreBoardSystem <T extends TextView>{
     private List<Map<String, int[]>> playerStates;
     private GameScore[] score;
 
-    public ScoreBoardSystem(String[] scoreFiles, Context ctx, GameScore[] record) {
-        this.score = record;
-        this.scoreContext = ctx;
-        initialize(scoreFiles, true);
-    }
 
-    public ScoreBoardSystem(String[] scoreFiles, Context ctx) {
+    public ScoreBoardSystem(GameScore[] scoreModels, Context ctx) {
         this.scoreContext = ctx;
-        initialize(scoreFiles, true);
+        initialize(scoreModels);
     }
 
     /*
@@ -39,19 +34,12 @@ public class ScoreBoardSystem <T extends TextView>{
       convenient mode
     * */
     @SuppressWarnings("unchecked")
-    private void initialize(String[] files, boolean mode) {
-        if (mode) {
-            System.out.println("convenient pattern triggered");
-        }
+    private void initialize(GameScore[] models) {
+
         List <Map<String, int[]>> states = new ArrayList<>();
-        for (String file: files) {
-            Map<String, int[]> state;
-            try {
-                state = IOHelper.readAndroidMap(file, scoreContext);
-                states.add(state);
-            } catch (IOException e) {
-                System.out.println("score board System reading problem occurs: ...." + e);
-            }
+        for (GameScore model: models) {
+            Map<String, int[]> state = model.data();
+            states.add(state);
         }
         playerStates = states;
     }
