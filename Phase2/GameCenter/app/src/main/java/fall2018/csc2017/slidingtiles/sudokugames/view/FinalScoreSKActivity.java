@@ -23,7 +23,6 @@ public class FinalScoreSKActivity extends AppCompatActivity {
         setContentView(R.layout.activity_final_score_tf);
         setNum();
         addScoreboardButtonListener();
-        addScoreboardpersonalButtonListener();
         addGameCenterButtonListener();
     }
     /**
@@ -53,18 +52,6 @@ public class FinalScoreSKActivity extends AppCompatActivity {
         });
     }
     /**
-     * Activate the personal scoreboard button.
-     */
-    private void addScoreboardpersonalButtonListener() {
-        Button startButton = findViewById(R.id.button_personal_record);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchToPersonalBoard();
-            }
-        });
-    }
-    /**
      * Activate the game center button.
      */
     private void addGameCenterButtonListener() {
@@ -82,13 +69,6 @@ public class FinalScoreSKActivity extends AppCompatActivity {
      */
     public void switchToScoreboard(){
         Intent tmp = new Intent(this, ScoreBoardActivity.class);
-        startActivity(tmp);
-    }
-    /**
-     * Switch to the PersonalScoreBoardActivity  view to see local (personal) scoreboard.
-     */
-    public void switchToPersonalBoard() {
-        Intent tmp = new Intent(this, PersonalScoreBoardActivity.class);
         startActivity(tmp);
     }
     /**
