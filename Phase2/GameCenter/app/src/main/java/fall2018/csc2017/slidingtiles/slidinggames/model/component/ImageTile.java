@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 public class ImageTile extends Tile {
 
     private Bitmap background; // background of this tile
-    public static Bitmap[][] bitmapCollection; // turned into 5x5 whenever the image is chosen
     public Bitmap getBack() {
         return this.background;
     }
@@ -18,6 +17,8 @@ public class ImageTile extends Tile {
     * @param int numCols
     * */
     public ImageTile(int backgroundId,int numRows, int numCols) {
+        BitmapCollection collect = BitmapCollection.getInstance();
+        Bitmap[][] collection = collect.data();
         id = backgroundId + 1;
         if(id == numRows*numCols){
             background = null;
@@ -27,7 +28,7 @@ public class ImageTile extends Tile {
             for (int i = 0; i < numRows; i ++) {
                 for (int j = 0; j < numCols; j++) {
                     if (counter == id) {
-                        background = bitmapCollection[i][j];
+                        background = collection[i][j];
                         return;
                     }
                     counter ++;
@@ -35,7 +36,7 @@ public class ImageTile extends Tile {
             }
         }
 
-        background = bitmapCollection[numRows- 1][numCols - 1];
+        background = collection[numRows- 1][numCols - 1];
     }
 
     @Override

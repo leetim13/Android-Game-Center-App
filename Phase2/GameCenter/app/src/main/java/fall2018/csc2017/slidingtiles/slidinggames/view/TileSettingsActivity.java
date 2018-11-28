@@ -21,6 +21,7 @@ import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.BitmapCollection;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.ImageTile;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.helper.structure.InputFilterMinMax;
@@ -75,7 +76,9 @@ public class TileSettingsActivity extends AppCompatActivity{
                     GameActivity.maxUndoSteps = undo;
                     int i = hook.get(s);
                     if (chosenImage != null && isImageTile) {
-                        ImageTile.bitmapCollection = ActivityHelper.splitBitmap(chosenImage, i, i);
+                        BitmapCollection collection = BitmapCollection.getInstance();
+                        collection.loadImage(ActivityHelper.splitBitmap(chosenImage, i, i));
+//                        ImageTile.bitmapCollection = ActivityHelper.splitBitmap(chosenImage, i, i);
                     } else {
                         isImageTile = false;
                     }
