@@ -192,7 +192,6 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
                 public void onClick(View v) {
                     if (controllerSK.selected()) {
                         String text = ((Button) v).getText().toString();
-                        boardManager.addScore();
                         int value = Integer.parseInt(text);
                         System.out.println("loading value:..." + value);
                         controllerSK.loadVal(getApplicationContext(), value);
