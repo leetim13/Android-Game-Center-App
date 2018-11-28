@@ -45,4 +45,8 @@ public class BasicScoreBoardActivity extends AppCompatActivity implements ScoreD
         System.out.println("board is rendered");
     }
 
+    public void returnPage(View v) {
+        finish();
+    }
+
 }

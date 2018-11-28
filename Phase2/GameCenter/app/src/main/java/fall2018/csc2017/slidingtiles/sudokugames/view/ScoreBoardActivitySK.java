@@ -36,10 +36,6 @@ public class ScoreBoardActivitySK extends BasicScoreBoardActivity {
         renderBoard();
     }
 
-    public void returnPage(View v) {
-        finish();
-    }
-
     @SuppressWarnings("unchecked")
     @Override
     public void renderBoard() {
