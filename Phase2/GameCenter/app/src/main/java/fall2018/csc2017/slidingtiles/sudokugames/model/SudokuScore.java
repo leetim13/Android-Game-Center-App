@@ -17,7 +17,7 @@ public class SudokuScore extends GameScore {
     private Map<String, int[]> data;
     @SuppressWarnings("unchecked")
     public SudokuScore(Context ctx) {
-        String filePath = indexer.index(User.TF_GAME_INDEX, StorageIndexer.SCORE);
+        String filePath = indexer.index(User.SD_GAME_INDEX, StorageIndexer.SCORE);
         try {
             data = IOHelper.readAndroidMap(filePath, ctx);
         } catch (IOException e) {

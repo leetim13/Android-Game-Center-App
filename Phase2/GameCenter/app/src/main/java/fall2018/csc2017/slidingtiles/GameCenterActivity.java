@@ -27,6 +27,7 @@ public class GameCenterActivity extends AppCompatActivity {
         addTFTilesGameListener();
         addProfileListener();
         addSudokuGameListener();
+        GameCacheSystem.getInstance().load_index(this);
     }
     /**
      * Activate the Sliding Tiles game image button.

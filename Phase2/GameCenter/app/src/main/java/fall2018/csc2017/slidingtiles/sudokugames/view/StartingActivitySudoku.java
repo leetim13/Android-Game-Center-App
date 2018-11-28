@@ -145,7 +145,7 @@ public class StartingActivitySudoku extends AppCompatActivity {
      * Switch to the ScoreBoardActivity Activity view to see global scoreboard.
      */
     public void switchToScoreboard(){
-        Intent tmp = new Intent(this, ScoreBoardActivity.class);
+        Intent tmp = new Intent(this, ScoreBoardActivitySK.class);
         startActivity(tmp);
     }
 
