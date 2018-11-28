@@ -16,10 +16,6 @@ import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 public class FinalScoreActivity extends BasicFinalScoreActivity {
-    /**
-     * The number of total moves used.
-     */
-    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

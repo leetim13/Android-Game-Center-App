@@ -41,13 +41,6 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
     private List <Button> tileButtons;
     private int[] buttonList = {R.id.s1, R.id.s2, R.id.s3, R.id.s4, R.id.s5, R.id.s6, R.id.s7, R.id.s8, R.id.s9};
     private MovementControllerSK controllerSK; // control part into controller
-//    /**
-//     * Constants for swiping directions. Should be an enum, probably.
-//     */
-//    public static final int UP = 1;
-//    public static final int DOWN = 2;
-//    public static final int LEFT = 3;
-//    public static final int RIGHT = 4;
 
     // Grid View and calculated column height and width based on device size
     private GestureDetectGridView gridView;
@@ -205,13 +198,6 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
                 }
             });
         }
-    }
-
-    /**
-     * Display remaining undo steps as toast.
-     */
-    private void remainedUndoText(){
-        Toast.makeText(this, "Remained undo steps: " + maxUndoSteps, Toast.LENGTH_SHORT).show();
     }
 
     @Override

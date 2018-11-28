@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import fall2018.csc2017.slidingtiles.BasicFinalScoreActivity;
 import fall2018.csc2017.slidingtiles.GameCenterActivity;
 import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
@@ -15,7 +17,7 @@ import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
-public class FinalScoreSKActivity extends AppCompatActivity {
+public class FinalScoreSKActivity extends BasicFinalScoreActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,57 +27,26 @@ public class FinalScoreSKActivity extends AppCompatActivity {
         addScoreboardButtonListener();
         addGameCenterButtonListener();
     }
-    /**
-     * Display total moves to replace "num" from BoardManager.
-     */
-    private void setNum(){
-//        BoardManager currentBM = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
-        GameCacheSystem system = GameCacheSystem.getInstance();
-        UserPanel user = UserPanel.getInstance();
-        BoardManagerSudoku currentBM = (BoardManagerSudoku) system.get(user.getName());
-        int numMoves = currentBM.getScore();
-        System.out.println("number of moves:" + numMoves);
-        TextView tv = findViewById(R.id.NumMovesButton);
-        tv.setText(Integer.toString(numMoves));
+    @Override
+    public void setBM() {
+        GameCacheSystem sys = GameCacheSystem.getInstance();
+        currentBM = sys.get(UserPanel.getInstance().getName());
     }
 
-    /**
-     * Activate the scoreboard button.
-     */
-    private void addScoreboardButtonListener() {
-        Button startButton = findViewById(R.id.button_scoreboard);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchToScoreboard();
-            }
-        });
-    }
-    /**
-     * Activate the game center button.
-     */
-    private void addGameCenterButtonListener() {
-        Button startButton = findViewById(R.id.GameCenterButton);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchToGameCenter();
-            }
-        });
-    }
-
+    @Override
     /**
      * Switch to the ScoreBoardActivity Activity view to see global scoreboard.
      */
     public void switchToScoreboard(){
-        Intent tmp = new Intent(this, ScoreBoardActivity.class);
+        Intent tmp = new Intent(this, ScoreBoardActivitySK.class);
         startActivity(tmp);
     }
+
+    @Override
     /**
      * Switch to the PersonalScoreBoardActivity  view to see local (personal) scoreboard.
      */
-    public void switchToGameCenter() {
-        Intent tmp = new Intent(this, GameCenterActivity.class);
-        startActivity(tmp);
+    public void switchToPersonalBoard() {
+        Toast.makeText(this, "this is exclusive for slidingtile game", Toast.LENGTH_LONG).show();
     }
 }

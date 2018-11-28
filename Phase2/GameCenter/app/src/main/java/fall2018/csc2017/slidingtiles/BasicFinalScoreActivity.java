@@ -18,8 +18,8 @@ import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
 
 public class BasicFinalScoreActivity extends AppCompatActivity {
 
-    public BasicBoardManager currentBM;
-    private TextView tv;
+    public BasicBoardManager currentBM; // current manager
+    private TextView tv; // the view of the moves
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,7 @@ public class BasicFinalScoreActivity extends AppCompatActivity {
 
 
     public void setBM() {
+
         System.out.println("current bm set!");
     } //
 
