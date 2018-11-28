@@ -140,9 +140,8 @@ public class StartingActivitySudoku extends AppCompatActivity {
      */
     public void switchToGame() {
         GameCacheSystem cached = GameCacheSystem.getInstance();
-        final StartingActivitySudoku StartingActivitySudoku = this;
         Intent tmp = new Intent(this, GameActivitySudoku.class);
-        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivitySudoku, cached.getData());
+        GameCacheSystem.getInstance().save(getApplicationContext());
         startActivity(tmp);
     }
     // a packed switch function to judge whether to order this game

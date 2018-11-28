@@ -96,12 +96,11 @@ public class StartingActivityTF extends AppCompatActivity {
      */
     private void addSaveButtonListener() {
         Button saveButton = findViewById(R.id.SaveButton);
-        final StartingActivityTF StartingActivityTF = this;
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (GameCacheSystem.getInstance().get(UserPanel.getInstance().getName()) != null) {
-                    ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, StartingActivityTF, GameCacheSystem.getInstance().getData());
+                    GameCacheSystem.getInstance().save(getApplicationContext());
                     makeToastSavedText();
                 } else {
                     final TextView invalidView = findViewById(R.id.warningText);

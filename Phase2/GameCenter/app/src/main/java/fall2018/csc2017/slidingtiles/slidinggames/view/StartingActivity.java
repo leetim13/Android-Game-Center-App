@@ -24,11 +24,6 @@ import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 public class StartingActivity extends AppCompatActivity {
 
     /**
-     * A temporary save file.
-     */
-    public static final String TEMP_SAVE_FILENAME = "save_file_tmp.ser";
-
-    /**
      * The board manager.
      */
     private BoardManager boardManager;
@@ -85,14 +80,8 @@ public class StartingActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
                 GameCacheSystem sys = GameCacheSystem.getInstance();
-                boardManager = (BoardManager) sys.get(UserPanel.getInstance().getName());
+                BoardManager boardManager = (BoardManager) sys.get(UserPanel.getInstance().getName());
                 if (boardManager != null) {
-//                    Board.numRows = boardManager.boardNumOfRows;
-//                    Board.numCols = boardManager.boardNumOfCols;
-//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
-                    sys.update(UserPanel.getInstance().getName(), boardManager);
-//                    ActivityHelper.saveToFile(TEMP_SAVE_FILENAME, STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
-                    sys.save(getApplicationContext());
                     makeToastLoadedText();
                     switchToGame();
                 } else {
@@ -119,8 +108,7 @@ public class StartingActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (boardManager != null) {
-//                    ActivityHelper.saveToFile(TEMP_SAVE_FILENAME, STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
+                if (GameCacheSystem.getInstance().get(UserPanel.getInstance().getName()) != null) {
                     GameCacheSystem.getInstance().save(getApplicationContext());
                     makeToastSavedText();
                 } else {
