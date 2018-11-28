@@ -62,7 +62,8 @@
         <activity
             android:name=".sudokugames.view.ScoreBoardActivitySK"
             android:label="@string/title_activity_score_board_sk"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".BasicFinalScoreActivity"></activity>
     </application>
 
 </manifest>
