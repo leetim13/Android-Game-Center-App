@@ -50,25 +50,26 @@ public class ScoreBoardSystem <T extends TextView>{
         @param viewList: the views to display the score
         @param index: the index of the score state (follow the index of the constructor scorefiles)
     * */
-    public void displayScore(T[] viewList, int index) {
+    public List<SequenceBundlers> displayScore(int index) {
         Map<String, int[]> map = playerStates.get(index);
 
         if (map == null) {
             System.out.println("score at index: " + index + "does not exisit");
-            return;
+            return null;
         }
 
         List<SequenceBundlers> bd = IOHelper.convertMap(map);
         Collections.sort(bd);
-        for (int i = 0; i < bd.size(); i++) {
-            SequenceBundlers bundler = bd.get(i);
-            String username = bundler.getkey();
-            int record = bundler.getValue();
-            if (i < viewList.length) {
-                T v = viewList[i];
-                String content = username + " " + Integer.toString(record);
-                v.setText(content);
-            }
-        }
+        return bd;
+//        for (int i = 0; i < bd.size(); i++) {
+//            SequenceBundlers bundler = bd.get(i);
+//            String username = bundler.getkey();
+//            int record = bundler.getValue();
+//            if (i < viewList.length) {
+//                T v = viewList[i];
+//                String content = username + " " + Integer.toString(record);
+//                v.setText(content);
+//            }
+//        }
     }
 }
