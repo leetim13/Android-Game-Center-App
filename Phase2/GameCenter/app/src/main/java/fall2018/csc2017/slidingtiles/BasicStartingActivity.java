@@ -1,4 +1,4 @@
-package fall2018.csc2017.slidingtiles.slidinggames.view;
+package fall2018.csc2017.slidingtiles;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,36 +9,37 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import fall2018.csc2017.slidingtiles.LoginActivity;
-import fall2018.csc2017.slidingtiles.ProfileActivity;
-import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
+import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
-import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
-import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
+import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
+import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.tfgames.view.GameActivityTF;
+import fall2018.csc2017.slidingtiles.tfgames.view.ScoreboardtfActivity;
+import fall2018.csc2017.slidingtiles.tfgames.view.StartingActivityTF;
 
-/**
- * The initial activity for the sliding puzzle tile game.
- */
-
-public class StartingActivity extends AppCompatActivity {
+public class BasicStartingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_starting_);
+        setView();
         addStartButtonListener();
         addLoadButtonListener();
         addSaveButtonListener();
         addScoreboardButtonListener();
-        addScoreboardpersonalButtonListener();
         addProfileImageButtonListener();
+    }
+
+    public void setView() {
+        System.out.println("override this before set your view");
     }
 
     /**
      * Activate Profile Image button, which goes to profile page
      */
-    private void addProfileImageButtonListener() {
+    public void addProfileImageButtonListener() {
         ImageButton pib = findViewById(R.id.ProfileImageButton);
         pib.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,15 +48,16 @@ public class StartingActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Activate Start button, which goes to settings page
      */
-    private void addStartButtonListener() {
+    public void addStartButtonListener() {
         Button startButton = findViewById(R.id.StartButton);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchToSettings();
+                switchToGame(true);
             }
         });
     }
@@ -63,18 +65,16 @@ public class StartingActivity extends AppCompatActivity {
     /**
      * Activate the load button.
      */
-    private void addLoadButtonListener() {
+    public void addLoadButtonListener() {
         Button loadButton = findViewById(R.id.LoadButton);
-        final StartingActivity STARTING_ACTIVITY = this;
         loadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
-                GameCacheSystem sys = GameCacheSystem.getInstance();
-                BoardManager boardManager = (BoardManager) sys.get(UserPanel.getInstance().getName());
+
+                BasicBoardManager boardManager = GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
                 if (boardManager != null) {
                     makeToastLoadedText();
-                    switchToGame();
+                    switchToGame(false);
                 } else {
                     final TextView invalidView = findViewById(R.id.warningText);
                     ActivityHelper.disableButton(v, invalidView, "You don't have incomplete game undergoing!");
@@ -93,9 +93,8 @@ public class StartingActivity extends AppCompatActivity {
     /**
      * Activate the save button.
      */
-    private void addSaveButtonListener() {
+    public void addSaveButtonListener() {
         Button saveButton = findViewById(R.id.SaveButton);
-        final StartingActivity STARTING_ACTIVITY = this;
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,27 +106,18 @@ public class StartingActivity extends AppCompatActivity {
                     ActivityHelper.disableButton(v, invalidView, "You don't have incomplete game undergoing!");
                 }
             }
-            });
+        });
     }
+
     /**
      * Activate the scoreboard button.
      */
-    private void addScoreboardButtonListener() {
+    public void addScoreboardButtonListener() {
         Button startButton = findViewById(R.id.button_scoreboard);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switchToScoreboard();
-            }
-        });
-    }
-
-    private void addScoreboardpersonalButtonListener() {
-        Button startButton = findViewById(R.id.button_personal_record);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchToPersonalBoard();
             }
         });
     }
@@ -143,33 +133,23 @@ public class StartingActivity extends AppCompatActivity {
      * Switch to the GameActivity view to play the game.
      */
     public void switchToGame() {
-//        final StartingActivity STARTING_ACTIVITY = this;
-        Intent tmp = new Intent(this, GameActivity.class);
-//        ActivityHelper.saveToFile(TEMP_SAVE_FILENAME,STARTING_ACTIVITY, LoginActivity.userBoardHashMap);
-        GameCacheSystem.getInstance().save(this);
-        startActivity(tmp);
+
     }
-    /**
-     * Switch to the TileSettingsActivity Activity view to customize game settings.
-     */
-    public void switchToSettings(){
-        Intent tmp = new Intent(this, TileSettingsActivity.class);
-        startActivity(tmp);
+
+    // a packed switch function to judge whether to order this game
+    public void switchToGame(boolean isNew) {
+        if (isNew) {
+            GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), null);
+        }
+        switchToGame();
     }
+
     /**
      * Switch to the ScoreBoardActivity Activity view to see global scoreboard.
      */
     public void switchToScoreboard(){
-        Intent tmp = new Intent(this, ScoreBoardActivity.class);
-        startActivity(tmp);
     }
-    /**
-     * Switch to the PersonalScoreBoardActivity  view to see local (personal) scoreboard.
-     */
-    public void switchToPersonalBoard() {
-        Intent tmp = new Intent(this, PersonalScoreBoardActivity.class);
-        startActivity(tmp);
-    }
+
     /**
      * Switch to the Profile Activity  view.
      */
