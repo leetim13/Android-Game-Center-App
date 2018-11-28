@@ -29,7 +29,6 @@ public class StartingActivitySudoku extends AppCompatActivity {
         addLoadButtonListener();
         addSaveButtonListener();
         addScoreboardButtonListener();
-        addScoreboardpersonalButtonListener();
         addProfileImageButtonListener();
     }
 
@@ -118,16 +117,6 @@ public class StartingActivitySudoku extends AppCompatActivity {
         });
     }
 
-    private void addScoreboardpersonalButtonListener() {
-        Button startButton = findViewById(R.id.button_personal_record);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchToPersonalBoard();
-            }
-        });
-    }
-
     /**
      * Display that a game was saved successfully.
      */
@@ -159,13 +148,7 @@ public class StartingActivitySudoku extends AppCompatActivity {
         Intent tmp = new Intent(this, ScoreBoardActivity.class);
         startActivity(tmp);
     }
-    /**
-     * Switch to the PersonalScoreBoardActivity  view to see local (personal) scoreboard.
-     */
-    public void switchToPersonalBoard() {
-        Intent tmp = new Intent(this, PersonalScoreBoardActivity.class);
-        startActivity(tmp);
-    }
+
     /**
      * Switch to the Profile Activity  view.
      */
