@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import fall2018.csc2017.slidingtiles.helper.TileFactory;
 import fall2018.csc2017.slidingtiles.model.component.BasicBoard;
 
 /**
@@ -39,6 +40,11 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
     private TfTile[][] tfTiles;
 
     /**
+     * the tileFactory to create new TfTiles
+     */
+    private TileFactory tileFactory = new TileFactory();
+
+    /**
      * Constructor of the board
      * @param lengthOfSide the length of the side of the board
      * @param tfTiles tiles planing to put in the board
@@ -53,6 +59,17 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
                 this.tfTiles[row][col] = iter.next();
             }
         }
+    }
+
+    /**
+     * Another constructor of the board
+     * @param lengthOfSide the length of the side of the board
+     * @param tfTiles tiles planing to put in the board, in final format
+     */
+    public BoardTF(int lengthOfSide, TfTile[][] tfTiles){
+        this.numCols = this.numRows = lengthOfSide;
+        this.tfTiles = new TfTile[numRows][numCols];
+        this.tfTiles = tfTiles;
     }
 
     @Override
@@ -132,4 +149,18 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
     @Override
     @NonNull
     public Iterator<TfTile> iterator() { return new BoardIterator(); }
+
+    /**
+     * Return a copy of the tfTiles in this current TfBoard
+     * @return a copy of the tfTiles in this current TfBoard
+     */
+    public TfTile[][] getTilesCopy(){
+        TfTile[][] copy = new TfTile[4][4];
+        for(int i = 0; i < 4; i ++){
+            for(int j = 0; j < 4; j++){
+                copy[i][j] = (TfTile) tileFactory.createTile(tfTiles[i][j].getId(), "TfTile");
+            }
+        }
+        return copy;
+    }
 }

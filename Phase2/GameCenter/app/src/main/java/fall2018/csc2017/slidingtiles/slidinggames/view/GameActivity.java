@@ -43,16 +43,14 @@ public class GameActivity extends AppCompatActivity implements Observer {
      */
     private List<Button> tileButtons;
 
-//    /**
-//     * Constants for swiping directions. Should be an enum, probably.
-//     */
-//    public static final int UP = 1;
-//    public static final int DOWN = 2;
-//    public static final int LEFT = 3;
-//    public static final int RIGHT = 4;
-
-    // Grid View and calculated column height and width based on device size
+    /**
+     * The Grid View and calculated column height and width based on device size
+     */
     private GestureDetectGridView gridView;
+
+    /**
+     * The width and height of column for current view
+     */
     private static int columnWidth, columnHeight;
 
     /**
@@ -78,7 +76,6 @@ public class GameActivity extends AppCompatActivity implements Observer {
 
         createTileButtons(this);
         setContentView(R.layout.activity_main);
-
 
         // Add View to activity
         gridView = findViewById(R.id.grid);

@@ -8,6 +8,7 @@ import android.widget.Toast;
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.MovementController;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
+import fall2018.csc2017.slidingtiles.helper.structure.ArrayStack;
 import fall2018.csc2017.slidingtiles.slidinggames.view.FinalScoreActivity;
 import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
@@ -39,6 +40,7 @@ public class MovementControllerST extends MovementController {
      * The new MovementControllerST
      */
     public MovementControllerST() {
+        super.stateStack = new ArrayStack<Integer>(20000);
     }
 
     /**

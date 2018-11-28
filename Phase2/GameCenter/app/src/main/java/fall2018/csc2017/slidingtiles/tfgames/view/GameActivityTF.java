@@ -42,18 +42,17 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
      */
     private List<Button> tileButtons;
 
-//    /**
-//     * Constants for swiping directions. Should be an enum, probably.
-//     */
-//    public static final int UP = 1;
-//    public static final int DOWN = 2;
-//    public static final int LEFT = 3;
-//    public static final int RIGHT = 4;
-
-    // Grid View and calculated column height and width based on device size
+    /**
+     * The Grid View and calculated column height and width based on device size
+     */
     private GestureDetectGridView gridView;
     private int columnWidth, columnHeight;
     private TextView tvSwipDescription;
+
+    /**
+     * The movementControllerTF manipulating changes for current game.
+     */
+    private MovementControllerTF movementControllerTF;
 
     /**
      * Set up the background image for each button based on the master list
@@ -73,9 +72,9 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
     @SuppressLint("ClickableViewAccessibility")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        maxUndoSteps = 10;
         boardManager = (BoardManagerTF) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
-
+        movementControllerTF = new MovementControllerTF();
         if (boardManager == null) {
             boardManager = new BoardManagerTF(4);
         }
@@ -87,6 +86,8 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
         // Add View to activity
         gridView = findViewById(R.id.grid);
         gridView.setNumColumns(boardManager.getBoardNumOfCols());
+        gridView.setController(movementControllerTF);
+        gridView.setBoardManager(boardManager);
         // Observer sets up desired dimensions as well as calls our display function
         gridView.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -108,37 +109,16 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
         tvSwipDescription.setOnTouchListener(new OnSwipeTouchListener(this, boardManager) {
             @Override
             public void swipe(int signal) {
-                if (signal == OnSwipeTouchListener.UP_SIGNAL) {
-
-                   // Toast.makeText(GameActivityTF.this, "You swiped Up", Toast.LENGTH_SHORT).show();
-                }
-
-                if (signal == OnSwipeTouchListener.RIGHT_SIGNAL) {
-                    //Toast.makeText(GameActivityTF.this, "You swiped right", Toast.LENGTH_SHORT).show();
-                }
-
-                if (signal == OnSwipeTouchListener.DOWN_SIGNAL) {
-                  //  Toast.makeText(GameActivityTF.this, "You swiped down", Toast.LENGTH_SHORT).show();
-                }
-
-                if (signal == OnSwipeTouchListener.LEFT_SIGNAL) {
-                   // Toast.makeText(GameActivityTF.this, "You swiped left", Toast.LENGTH_SHORT).show();
-                }
-                MovementControllerTF movement = new MovementControllerTF();
-                movement.setBoardManager(boardManager);
-                movement.processTapMovement(GameActivityTF.this, signal);
+                movementControllerTF.processTapMovement(GameActivityTF.this, signal);
                 display();
             }
         });
 
     }
+
     private void initializeView() {
         tvSwipDescription=(TextView) findViewById(R.id.tvSwipDescription);
     }
-
-
-
-
 
     /**
      * Create the buttons for displaying the tiles.
@@ -181,6 +161,7 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
      * The maximum undo steps that the user sets.
      */
     static int maxUndoSteps;
+
     /**
      * Activate the undo button.
      */
@@ -194,8 +175,8 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
                     return;
                 }
                 if(maxUndoSteps > 0) {
-                    int position = gridView.getUndoPop();
-                    boardManager.touchMove(position);
+                    BoardTF lastBoard = gridView.getUndoPopTf();
+                    boardManager.setBoardTF(lastBoard);
 //                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
                     GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
                     boardManager.minusScore();

@@ -17,6 +17,7 @@ import android.widget.GridView;
 
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.MovementController;
+import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
 
 public class GestureDetectGridView extends GridView {
     public static final int SWIPE_MIN_DISTANCE = 100;
@@ -116,8 +117,11 @@ public class GestureDetectGridView extends GridView {
     }
 
     public Integer getUndoPop(){
-        return mController.stateStack.pop();
+        return (Integer) mController.stateStack.pop();
     }
+
+    public BoardTF getUndoPopTf(){
+        return (BoardTF) mController.stateStack.pop();}
 
     public boolean stackIsEmpty(){
         return mController.stateStack.isEmpty();

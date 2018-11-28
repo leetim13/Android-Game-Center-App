@@ -324,6 +324,13 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         return User.TF_GAME_INDEX;
     }
 
+    /**
+     * set a new board to this boardManager
+     */
+    public void setBoardTF(BoardTF boardTF){
+        this.boardTF = boardTF;
+    }
+
     public static void setCount(int count) {
         BoardManagerTF.count = count;
     }

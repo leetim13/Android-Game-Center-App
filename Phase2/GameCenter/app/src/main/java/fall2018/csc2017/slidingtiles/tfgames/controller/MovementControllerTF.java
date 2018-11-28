@@ -11,6 +11,8 @@ import fall2018.csc2017.slidingtiles.helper.SaveScore;
 import fall2018.csc2017.slidingtiles.helper.structure.ArrayStack;
 import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
+import fall2018.csc2017.slidingtiles.tfgames.model.component.TfTile;
 import fall2018.csc2017.slidingtiles.tfgames.view.FinalScoreTFActivity;
 import fall2018.csc2017.slidingtiles.tfgames.view.YouLoseTFActivity;
 
@@ -18,12 +20,10 @@ public class MovementControllerTF extends MovementController {
 
     private BoardManagerTF boardManagerTF;
     private SaveScore saveScore = new SaveScore();
-    private ArrayStack <BoardManagerSudoku> managerStack = new ArrayStack<>(2000);
 
-//    MovementControllerTF(BoardManagerTF boardManagerTF){
-//        this.boardManagerTF = boardManagerTF;
-//    }
-
+    public MovementControllerTF(){
+        super.stateStack = new ArrayStack<BoardTF>(20000);
+    }
 
     @Override
     public void setBoardManager(BasicBoardManager boardManager) {
@@ -39,6 +39,8 @@ public class MovementControllerTF extends MovementController {
      */
     // TODO: add save state process for future undo functionality
     public void processTapMovement(Context context, int direction){
+        BoardTF boardCopy = getBoardManagerTFCopy(boardManagerTF);
+        stateStack.push(boardCopy);
         boardManagerTF.touchMove(direction);
         System.out.println("touch moved!");
         boardManagerTF.addScore();
@@ -56,5 +58,11 @@ public class MovementControllerTF extends MovementController {
             context.startActivity(intent);
         }
 
+    }
+
+    private BoardTF getBoardManagerTFCopy(BoardManagerTF boardManagerTF){
+        TfTile[][] newTiles = boardManagerTF.getBoard().getTilesCopy();
+        BoardTF newBoard = new BoardTF(4, newTiles);
+        return newBoard;
     }
 }

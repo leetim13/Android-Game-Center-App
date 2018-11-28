@@ -254,16 +254,31 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
+    /**
+     * return number of columns in the current board.
+     *
+     * @return number of columns in the current board
+     */
     public int getBoardNumOfCols() {
         return boardNumOfCols;
     }
 
     @Override
+    /**
+     * return number of rows in the current board.
+     *
+     * @return number of rows in the current board
+     */
     public int getBoardNumOfRows() {
         return boardNumOfRows;
     }
 
     @Override
+    /**
+     * return corresponding index of current game being played.
+     *
+     * @return corresponding index of current game being played
+     */
     public int getGameIndex(){
         return complexity-3;
     }
