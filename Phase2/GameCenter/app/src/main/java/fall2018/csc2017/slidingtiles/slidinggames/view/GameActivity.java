@@ -22,6 +22,7 @@ import fall2018.csc2017.slidingtiles.slidinggames.controller.MovementControllerS
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.GestureDetectGridView;
 import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.BitmapCollection;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.ImageTile;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.Board;
 import fall2018.csc2017.slidingtiles.CustomAdapter;
@@ -116,7 +117,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
         for (int row = 0; row != boardManager.getBoardNumOfRows(); row++) {
             for (int col = 0; col != boardManager.getBoardNumOfCols(); col++) {
                 Button tmp = new Button(context);
-                if(TileSettingsActivity.isImageTile) {
+                if(!BitmapCollection.getInstance().isLocked()) {
                     Drawable drawable = new BitmapDrawable(tmp.getResources(),
                             ((ImageTile) board.getTile(row, col)).getBack());
                     tmp.setBackground(drawable);
@@ -137,7 +138,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
         for (Button b : tileButtons) {
             int row = nextPos / boardManager.getBoardNumOfRows();
             int col = nextPos % boardManager.getBoardNumOfCols();
-            if(TileSettingsActivity.isImageTile) {
+            if(!BitmapCollection.getInstance().isLocked()) {
                 Drawable drawable = new BitmapDrawable(b.getResources(),
                         ((ImageTile) board.getTile(row, col)).getBack());
                 b.setBackground(drawable);

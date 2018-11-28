@@ -8,7 +8,7 @@ import android.graphics.Bitmap;
 public class BitmapCollection {
 
     private static final BitmapCollection ourInstance = new BitmapCollection();
-    private boolean locked = true;
+    private boolean locked = true; // don't use image if it's locked
     private Bitmap[][] collection;
     public static BitmapCollection getInstance() {
         return ourInstance;

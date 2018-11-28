@@ -7,6 +7,7 @@ import java.util.List;
 
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.helper.TileFactory;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.BitmapCollection;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.ImageTile;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.Tile;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.Board;
@@ -67,7 +68,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
         List<Tile> tiles = new ArrayList<>();
         final int numTiles = numRows * numCols;
         for (int tileNum = 0; tileNum != numTiles; tileNum++) {
-            if(TileSettingsActivity.isImageTile) {
+            if(!BitmapCollection.getInstance().isLocked()) {
                 tiles.add((ImageTile) tileFactory.createTile(tileNum, numRows, numCols, "imageTile"));
             } else{
                 tiles.add((Tile) tileFactory.createTile(tileNum, numRows, numCols, "StTile"));

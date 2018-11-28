@@ -41,12 +41,10 @@ public class TileSettingsActivity extends AppCompatActivity{
      */
     RadioButton radioButton;
 
-    public static Bitmap chosenImage;
+    private Bitmap chosenImage;
     /**
      * The maximum number of undo steps per move (inputted by user).
      */
-
-    public static boolean isImageTile = false; // whether we should use the ImageTile
 
     private static int undo;
 
@@ -75,12 +73,11 @@ public class TileSettingsActivity extends AppCompatActivity{
                 if (undo >= 3) {
                     GameActivity.maxUndoSteps = undo;
                     int i = hook.get(s);
-                    if (chosenImage != null && isImageTile) {
+                    if (chosenImage != null && !BitmapCollection.getInstance().isLocked()) {
                         BitmapCollection collection = BitmapCollection.getInstance();
                         collection.loadImage(ActivityHelper.splitBitmap(chosenImage, i, i));
-//                        ImageTile.bitmapCollection = ActivityHelper.splitBitmap(chosenImage, i, i);
                     } else {
-                        isImageTile = false;
+                        BitmapCollection.getInstance().latch(true);
                     }
 
                     BoardManager boardManager = new BoardManager(i, i);
@@ -131,7 +128,7 @@ public class TileSettingsActivity extends AppCompatActivity{
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedTarget);
                 chosenImage = bitmap;
-                isImageTile = true;
+                BitmapCollection.getInstance().latch(false);
             }
             catch (IOException e) {
                 System.out.println("no file specified");
