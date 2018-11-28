@@ -87,10 +87,6 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
         // Add View to activity
         gridView = findViewById(R.id.grid);
         gridView.setNumColumns(boardManager.getBoardNumOfCols());
-//        gridView.setBoardManager(boardManager);
-//        boardManager.getBoard().addObserver(this);
-//        gridView.setGameActivity(this);
-
         // Observer sets up desired dimensions as well as calls our display function
         gridView.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {

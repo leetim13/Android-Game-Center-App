@@ -14,23 +14,35 @@ import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.helper.IOHelper;
 import fall2018.csc2017.slidingtiles.helper.SequenceBundlers;
+import fall2018.csc2017.slidingtiles.model.GameScore;
 
 public class ScoreBoardSystem <T extends TextView>{
 
     private Context scoreContext;
     private List<Map<String, int[]>> playerStates;
+    private GameScore[] score;
+
+    public ScoreBoardSystem(String[] scoreFiles, Context ctx, GameScore[] record) {
+        this.score = record;
+        this.scoreContext = ctx;
+        initialize(scoreFiles, true);
+    }
 
     public ScoreBoardSystem(String[] scoreFiles, Context ctx) {
         this.scoreContext = ctx;
-        initialize(scoreFiles);
+        initialize(scoreFiles, true);
     }
 
     /*
       help load all the data of scores
       this will load the state in order
+      convenient mode
     * */
     @SuppressWarnings("unchecked")
-    private void initialize(String[] files) {
+    private void initialize(String[] files, boolean mode) {
+        if (mode) {
+            System.out.println("convenient pattern triggered");
+        }
         List <Map<String, int[]>> states = new ArrayList<>();
         for (String file: files) {
             Map<String, int[]> state;
