@@ -202,4 +202,10 @@ public class GameActivity extends AppCompatActivity implements Observer {
     public void update(Observable o, Object arg) {
         display();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BitmapCollection.getInstance().latch(true);
+    }
 }
