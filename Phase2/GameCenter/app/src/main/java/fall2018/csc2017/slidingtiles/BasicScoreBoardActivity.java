@@ -34,7 +34,7 @@ public class BasicScoreBoardActivity extends AppCompatActivity implements ScoreD
             int record = bundler.getValue();
             if (i < renderList.length) {
                 TextView v = renderList[i];
-                String content = username + " " + Integer.toString(record);
+                String content = username + " " + Integer.toString((int)(30000/record));
                 v.setText(content);
             }
         }
