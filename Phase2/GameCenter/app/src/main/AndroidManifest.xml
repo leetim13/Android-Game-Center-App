@@ -49,8 +49,12 @@
         <activity android:name=".sudokugames.view.GameActivitySudoku" />
         <activity android:name=".sudokugames.view.StartingActivitySudoku" />
         <activity android:name=".tfgames.view.FinalScoreTFActivity" />
-        <activity android:name=".tfgames.view.YouLoseTFActivity"></activity>
-        <activity android:name=".sudokugames.view.FinalScoreSKActivity"></activity>
+        <activity android:name=".tfgames.view.YouLoseTFActivity" />
+        <activity android:name=".sudokugames.view.FinalScoreSKActivity" />
+        <activity
+            android:name=".BasicScoreBoardActivity"
+            android:label="@string/title_activity_basic_score_board"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

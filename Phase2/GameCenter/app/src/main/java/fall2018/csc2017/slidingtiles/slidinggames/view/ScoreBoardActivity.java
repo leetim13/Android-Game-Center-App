@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import fall2018.csc2017.slidingtiles.BasicScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.helper.SequenceBundlers;
 import fall2018.csc2017.slidingtiles.interfaces.ScoreDisplayable;
@@ -21,11 +22,11 @@ import fall2018.csc2017.slidingtiles.slidinggames.model.SlidingScore;
  * The global scoreboard activity for the sliding puzzle tile game.
  */
 
-public class ScoreBoardActivity extends AppCompatActivity implements ScoreDisplayable {
+public class ScoreBoardActivity extends BasicScoreBoardActivity {
 
-    public int[] renderList1;
-    public int[] renderList2;
-    public int[] renderList3;
+    private int[] renderList1;
+    private int[] renderList2;
+    private int[] renderList3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class ScoreBoardActivity extends AppCompatActivity implements ScoreDispla
     }
 
     @SuppressWarnings("unchecked")
+    @Override
     public void renderBoard() {
 
         SlidingScore[] scoreModels = new SlidingScore[]{new SlidingScore(User.ST_GAME_INDEX_3, this),
@@ -63,24 +65,5 @@ public class ScoreBoardActivity extends AppCompatActivity implements ScoreDispla
             result[i] = findViewById(renderList[i]);
         }
         return result;
-    }
-
-    public void displayScore(TextView[] renderList, ScoreBoardSystem<TextView> system, int index) {
-        List<SequenceBundlers> bd = system.displayScore(index);
-
-        if (bd == null) {
-            return;
-        }
-
-        for (int i = 0; i < bd.size(); i++) {
-            SequenceBundlers bundler = bd.get(i);
-            String username = bundler.getkey();
-            int record = bundler.getValue();
-            if (i < renderList.length) {
-                TextView v = renderList[i];
-                String content = username + " " + Integer.toString(record);
-                v.setText(content);
-            }
-        }
     }
 }
