@@ -31,7 +31,6 @@ public class BoardManagerTFTest {
     @Test
     public void testLeftOperationSimple(){
         boardManagerTF = setBoardManagerTF();
-        BoardManagerTF.setCount(0);
         boardManagerTF.getBoard().getTile(1, 1).setId(1);
         boardManagerTF.getBoard().getTile(1, 3).setId(1);
         boardManagerTF.touchMove(BoardManagerTF.LEFT_SIGNAL);
@@ -44,7 +43,6 @@ public class BoardManagerTFTest {
     @Test
     public void testLeftOperationComplex(){
         boardManagerTF = setBoardManagerTF();
-        BoardManagerTF.setCount(0);
         boardManagerTF.getBoard().getTile(0, 3).setId(1);
         boardManagerTF.getBoard().getTile(2, 0).setId(1);
         boardManagerTF.getBoard().getTile(2, 3).setId(3);
@@ -64,7 +62,6 @@ public class BoardManagerTFTest {
     @Test
     public void testRightOperation(){
         boardManagerTF = setBoardManagerTF();
-        BoardManagerTF.setCount(0);
         boardManagerTF.getBoard().getTile(1, 0).setId(2);
         boardManagerTF.getBoard().getTile(1, 1).setId(1);
         boardManagerTF.getBoard().getTile(2, 0).setId(1);
@@ -88,7 +85,6 @@ public class BoardManagerTFTest {
     @Test
     public void testUpOperation(){
         boardManagerTF = setBoardManagerTF();
-        BoardManagerTF.setCount(0);
         boardManagerTF.getBoard().getTile(0, 0).setId(1);
         boardManagerTF.getBoard().getTile(0, 1).setId(1);
         boardManagerTF.getBoard().getTile(0, 3).setId(1);
@@ -112,7 +108,6 @@ public class BoardManagerTFTest {
     @Test
     public void testdownOperation(){
         boardManagerTF = setBoardManagerTF();
-        BoardManagerTF.setCount(0);
         boardManagerTF.getBoard().getTile(0, 0).setId(2);
         boardManagerTF.getBoard().getTile(0, 1).setId(1);
         boardManagerTF.getBoard().getTile(0, 2).setId(3);
@@ -218,6 +213,7 @@ public class BoardManagerTFTest {
         boardManagerTF = setBoardManagerTF();
         TfTile[][] tiles = boardManagerTF.getBoard().getTilesCopy();
         BoardTF boardTF = new BoardTF(BoardTF.LENGTH_OF_SIDE, tiles);
+        boardManagerTF.setBoardTF(boardTF);
         assertEquals(16, boardManagerTF.countNumOfBlankTiles());
         boardManagerTF.generateNewTile();
         assertEquals(15, boardManagerTF.countNumOfBlankTiles());
