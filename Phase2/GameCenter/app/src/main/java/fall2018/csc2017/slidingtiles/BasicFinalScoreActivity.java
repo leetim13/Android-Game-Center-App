@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
-import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
-import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
 
@@ -38,7 +36,6 @@ public class BasicFinalScoreActivity extends AppCompatActivity {
     } //
 
     public void setNum() {
-        GameCacheSystem sys = GameCacheSystem.getInstance();
         setBM(); // set the board manager here
         int numMoves = currentBM.getScore();
         System.out.println("number of moves:" + numMoves);

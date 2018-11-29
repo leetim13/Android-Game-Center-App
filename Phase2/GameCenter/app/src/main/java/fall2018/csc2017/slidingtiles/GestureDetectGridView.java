@@ -7,9 +7,7 @@ Adapted from:
 https://github.com/DaveNOTDavid/sample-puzzle/blob/master/app/src/main/java/com/davenotdavid/samplepuzzle/GestureDetectGridView.java
  */
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -42,13 +40,6 @@ public class GestureDetectGridView extends GridView {
         init(context);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP) // API 21
-    public GestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr,
-                                 int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(context);
-    }
-
     private void init(final Context context) {
 //        mController = new MovementControllerST();
         gDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
@@ -68,10 +59,6 @@ public class GestureDetectGridView extends GridView {
             }
 
         });
-    }
-
-    private void init(final Context context, MovementController controller) {
-
     }
 
     @Override

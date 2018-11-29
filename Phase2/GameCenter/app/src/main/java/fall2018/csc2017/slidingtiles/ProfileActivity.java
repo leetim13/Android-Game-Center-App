@@ -8,7 +8,6 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +17,6 @@ import java.io.IOException;
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.StorageIndexer;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
-import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 /**
@@ -30,7 +28,6 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView titleView; // the title of the user profile
     private TextView previousStateMove; // the number of moves the player took in previous game
     private TextView previousStateType; // previous game name
-    private TextView cUser; // the name of the user in the bottom line
     private TextView lastGamePlayed; // the name of the last game played
     public static final String INVALID_TEXT = "no games played";
     public final static int RESULT_LOAD_IMAGE = 1;
