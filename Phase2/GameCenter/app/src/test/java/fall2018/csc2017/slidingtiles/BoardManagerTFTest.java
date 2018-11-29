@@ -4,9 +4,9 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
-import fall2018.csc2017.slidingtiles.tfgames.component.BoardTF;
-import fall2018.csc2017.slidingtiles.tfgames.component.TfTile;
-import fall2018.csc2017.slidingtiles.tfgames.managers.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
+import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
+import fall2018.csc2017.slidingtiles.tfgames.model.component.TfTile;
 
 import static org.junit.Assert.*;
 
