@@ -1,5 +1,6 @@
 /*
 class used for sorting values of integer hashmap in IOHelper
+mainly used for sorting keys according to values in pair
 */
 package fall2018.csc2017.slidingtiles.helper;
 
@@ -11,7 +12,9 @@ public class SequenceBundlers implements Comparable <SequenceBundlers>{
         this.key = key;
         this.value = (int) value;
     }
-
+    /*
+    * sort the bundlers according to value
+    * */
     public int compareTo(SequenceBundlers other) {
         return this.value - other.value;
     }
