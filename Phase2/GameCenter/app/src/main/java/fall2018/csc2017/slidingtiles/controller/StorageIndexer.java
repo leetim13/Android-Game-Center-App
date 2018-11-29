@@ -29,11 +29,11 @@ public class StorageIndexer {
     }
 
     private void initializeNames() {
-        nameHook.put(User.ST_GAME_INDEX_3, "slidingTiles");
-        nameHook.put(User.ST_GAME_INDEX_4, "slidingTiles");
-        nameHook.put(User.ST_GAME_INDEX_5, "slidingTiles");
+        nameHook.put(User.ST_GAME_INDEX_3, "SlidingTiles");
+        nameHook.put(User.ST_GAME_INDEX_4, "SlidingTiles");
+        nameHook.put(User.ST_GAME_INDEX_5, "SlidingTiles");
         nameHook.put(User.TF_GAME_INDEX, "2048");
-        nameHook.put(User.SD_GAME_INDEX, "sadoku");
+        nameHook.put(User.SD_GAME_INDEX, "sudoku");
     }
 
     public String index(int gameIndex, int dataType) {
