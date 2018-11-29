@@ -190,6 +190,7 @@ public class BoardManagerTFTest {
     @Test
     public void testScore(){
         boardManagerTF = setBoardManagerTF();
+        assertEquals(3, boardManagerTF.getGameIndex());
         assertEquals(0, boardManagerTF.getScore());
         boardManagerTF.addScore();
         boardManagerTF.addScore();
