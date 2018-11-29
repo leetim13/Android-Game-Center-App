@@ -21,6 +21,11 @@ import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
+/**
+ * Excluded from tests because it's a view class.
+ * The starting activity for sudoku game, from where user can choose to start game or view the
+ * scoreBoard.
+ */
 public class StartingActivitySudoku extends BasicStartingActivity {
 
     @Override

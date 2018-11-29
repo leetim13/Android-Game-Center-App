@@ -28,14 +28,19 @@ import fall2018.csc2017.slidingtiles.helper.structure.InputFilterMinMax;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 /**
- * The Tiles Settings Activity that is the initial activity when the user clicks on the tiles game.
+ * Excluded from tests because it's a view class.
+ * The Tiles Settings Activity that is the initial activity when the user clicks on the tiles game,
+ * for which user can set the game configuration (complexity, max undo step, and their own image as
+ * tiles background).
  */
 public class TileSettingsActivity extends AppCompatActivity{
+
     /**
      * The main radioGroup of 3 RadioButton for each board complexity.
      */
     RadioGroup radioGroup;
     final static int RESULT_LOAD_IMAGE = 1;
+
     /**
      * The 3 RadioButton for each corresponding board complexity.
      */
@@ -81,7 +86,6 @@ public class TileSettingsActivity extends AppCompatActivity{
                     }
 
                     BoardManager boardManager = new BoardManager(i, i);
-//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
                     GameCacheSystem sys = GameCacheSystem.getInstance();
                     sys.update(UserPanel.getInstance().getName(), boardManager);
                     switchToGame();

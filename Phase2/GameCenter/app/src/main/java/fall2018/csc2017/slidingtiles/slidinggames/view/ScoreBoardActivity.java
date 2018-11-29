@@ -19,9 +19,9 @@ import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.slidinggames.model.SlidingScore;
 
 /**
+ * Excluded from tests because it's a view class.
  * The global scoreboard activity for the sliding puzzle tile game.
  */
-
 public class ScoreBoardActivity extends BasicScoreBoardActivity {
 
     private int[] renderList1;

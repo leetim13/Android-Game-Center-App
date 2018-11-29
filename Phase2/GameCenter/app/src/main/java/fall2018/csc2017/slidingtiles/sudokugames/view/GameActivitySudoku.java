@@ -27,6 +27,10 @@ import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
+/**
+ * Excluded from tests because it's a view class.
+ * The game activity of sudoku game.
+ */
 public class GameActivitySudoku extends AppCompatActivity implements Observer{
 
     /**
@@ -68,7 +72,6 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
 
         if (boardManager == null) {
             boardManager = new BoardManagerSudoku(9);
-//            boardManager.setSudokuTiles(); // for test
         }
 
         createTileButtons(this);
@@ -79,9 +82,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
         gridView = findViewById(R.id.grid);
         gridView.setController(controllerSK); // set the  controller so it can be applied to sudoku game
         gridView.setNumColumns(boardManager.getBoardNumOfCols());
-//        gridView.setBoardManager(boardManager);
         boardManager.getBoard().addObserver(this);
-//        gridView.setGameActivity(this);
 
         // Observer sets up desired dimensions as well as calls our display function
         gridView.getViewTreeObserver().addOnGlobalLayoutListener(
@@ -101,6 +102,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
         addCheckListener();
         addSelectionListener(); // used for buttons
     }
+
     /**
      * Create the buttons for displaying the tiles.
      *
@@ -135,10 +137,8 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
             System.out.println(board.getTile(row, col).getBackground());
             nextPos++;
         }
-//        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
         System.out.println("tile style changed!");
         system.update(user.getName(), boardManager);
-//        ActivityHelper.saveToFile(UserRouter.GAME_STORAGE_TF, this,  GameCacheSystem.getInstance().getData());
         system.save(boardManager.getGameIndex(), this);
     }
     /*
@@ -151,10 +151,6 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
             @Override
             public void onClick(View v) {
                 if (!boardManager.checkBoardValidation()) {
-//                    SaveScore saveTool = new SaveScore();
-//                    saveTool.saveScoreIntoMap(getApplicationContext(), boardManager.getGameIndex(), boardManager.getScore());
-//                    Intent intent = new Intent(GameActivitySudoku.this, FinalScoreSKActivity.class);
-//                    startActivity(intent);
                     ActivityHelper.disableButton(v,  notWin, "you're not on the right track");
                 } else {
                     ActivityHelper.disableButton(v,  notWin, "you're on the right track");
@@ -164,19 +160,8 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
     }
 
     /**
-     * The maximum undo steps that the user sets.
+     *  add the listener for buttons handling the number sets
      */
-    static int maxUndoSteps;
-
-    /**
-     * Display error message as toast when no steps are made, but undo is clicked.
-     */
-    private void cannotUndoText(){
-        Toast.makeText(this, "You should make a move first!", Toast.LENGTH_SHORT).show();
-    }
-    /*
-    * add the listener for buttons handling the number sets
-    * */
     private void addSelectionListener() {
         for (int id:buttonList) {
             Button button = findViewById(id);

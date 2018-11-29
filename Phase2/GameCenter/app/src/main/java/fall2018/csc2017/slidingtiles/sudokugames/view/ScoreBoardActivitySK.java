@@ -21,7 +21,8 @@ import fall2018.csc2017.slidingtiles.sudokugames.model.SudokuScore;
 import fall2018.csc2017.slidingtiles.tfgames.model.TfScore;
 
 /**
- * The global scoreboard activity for the sliding puzzle tile game.
+ * Excluded from tests because it's a view class.
+ * The global scoreboard activity for the sudoku game.
  */
 
 public class ScoreBoardActivitySK extends BasicScoreBoardActivity {

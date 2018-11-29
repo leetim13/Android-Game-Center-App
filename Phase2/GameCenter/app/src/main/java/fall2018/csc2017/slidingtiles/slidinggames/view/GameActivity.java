@@ -29,7 +29,8 @@ import fall2018.csc2017.slidingtiles.CustomAdapter;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 /**
- * The game activity.
+ * Excluded from tests because it's a view class.
+ * The game activity for slidingTile game.
  */
 public class GameActivity extends AppCompatActivity implements Observer {
 
@@ -71,7 +72,6 @@ public class GameActivity extends AppCompatActivity implements Observer {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         GameCacheSystem sys = GameCacheSystem.getInstance();
-//        boardManager = LoginActivity.userBoardHashMap.get(UserPanel.getInstance().getName());
         boardManager = (BoardManager) sys.get(UserPanel.getInstance().getName());
 
         createTileButtons(this);
@@ -83,7 +83,6 @@ public class GameActivity extends AppCompatActivity implements Observer {
         gridView.setNumColumns(boardManager.getBoardNumOfCols());
         gridView.setBoardManager(boardManager);
         boardManager.getBoard().addObserver(this);
-        //gridView.setGameActivity(this);
 
         // Observer sets up desired dimensions as well as calls our display function
         gridView.getViewTreeObserver().addOnGlobalLayoutListener(
