@@ -212,4 +212,14 @@ public class BoardManagerTFTest {
         boardManagerTF.generateNewTile();
         assertEquals(13, boardManagerTF.countNumOfBlankTiles());
     }
+
+    @Test
+    public void testBoardNewConstructor(){
+        boardManagerTF = setBoardManagerTF();
+        TfTile[][] tiles = boardManagerTF.getBoard().getTilesCopy();
+        BoardTF boardTF = new BoardTF(BoardTF.LENGTH_OF_SIDE, tiles);
+        assertEquals(16, boardManagerTF.countNumOfBlankTiles());
+        boardManagerTF.generateNewTile();
+        assertEquals(15, boardManagerTF.countNumOfBlankTiles());
+    }
 }
