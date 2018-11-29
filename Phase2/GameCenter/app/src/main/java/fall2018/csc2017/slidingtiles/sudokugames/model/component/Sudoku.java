@@ -267,7 +267,7 @@ class Sudoku {
         for(int i = 0; i < BoardSudoku.LENGTH_OF_SIDE; i++) {
             for (int j = 0; j < BoardSudoku.LENGTH_OF_SIDE; j++) {
                 SudokuTile newTile = (SudokuTile) tileFactory.createTile(mat[i][j], "SudokuTile");
-                if (mat[i][j] != 0) {newTile.setTrait(true);}
+                if (mat[i][j] != 0) {newTile.setTrait();}
                 tiles.add(newTile);
             }
         }
