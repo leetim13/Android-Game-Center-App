@@ -7,7 +7,6 @@ import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.MovementController;
 import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.helper.SaveScore;
-import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 import fall2018.csc2017.slidingtiles.sudokugames.view.FinalScoreSKActivity;
@@ -79,11 +78,5 @@ public class MovementControllerSK extends MovementController {
      */
     public void changeSelect() {
         isSelected = !isSelected;
-    }
-    /*
-    * get the current selected position for use
-    * */
-    public int getSelectedPos() {
-        return selectedPos;
     }
 }

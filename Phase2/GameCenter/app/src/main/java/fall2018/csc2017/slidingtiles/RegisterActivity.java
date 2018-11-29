@@ -37,9 +37,9 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO: add verification
-                EditText username = (EditText) findViewById(R.id.register_input_email);
-                EditText password = (EditText) findViewById(R.id.register_input_password);
-                EditText confirmWord = (EditText) findViewById(R.id.register_confirm_password);
+                EditText username = findViewById(R.id.register_input_email);
+                EditText password = findViewById(R.id.register_input_password);
+                EditText confirmWord = findViewById(R.id.register_confirm_password);
 
                 String usernameText = username.getText().toString();
                 String passwordText = password.getText().toString();

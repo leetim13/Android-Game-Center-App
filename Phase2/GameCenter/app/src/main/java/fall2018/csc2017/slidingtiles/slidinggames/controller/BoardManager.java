@@ -11,7 +11,6 @@ import fall2018.csc2017.slidingtiles.slidinggames.model.component.BitmapCollecti
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.ImageTile;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.Tile;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.Board;
-import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
 
 /**
  * Manage a board, including swapping tiles, checking for a win, and managing taps.
@@ -40,11 +39,6 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     private int boardNumOfCols;
 
     /**
-     * the tile factory to generate new tile.
-     */
-    private TileFactory tileFactory = new TileFactory();
-
-    /**
      * Manage a board that has been pre-populated.
      * @param board the board
      */
@@ -67,6 +61,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     public BoardManager(int numRows, int numCols) {
         List<Tile> tiles = new ArrayList<>();
         final int numTiles = numRows * numCols;
+        TileFactory tileFactory = new TileFactory();
         for (int tileNum = 0; tileNum != numTiles; tileNum++) {
             if(!BitmapCollection.getInstance().isLocked()) {
                 tiles.add((ImageTile) tileFactory.createTile(tileNum, numRows, numCols, "imageTile"));
@@ -134,7 +129,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /**
+    /*
      * Return whether the tiles are in row-major order.
      *
      * @return whether the tiles are in row-major order
@@ -220,13 +215,13 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /**
+    /*
      * add one step
      */
     public void addScore(){ this.score++; }
 
     @Override
-    /**
+    /*
      * minus one step
      */
     public void minusScore(){
@@ -234,7 +229,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /**
+    /*
      * return current number of steps
      *
      * @return current number of steps
@@ -244,7 +239,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /**
+    /*
      * return complexity of current game manipulated by this board manager
      *
      * @return complexity complexity of current game manipulated by this board manager
@@ -254,7 +249,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /**
+    /*
      * return number of columns in the current board.
      *
      * @return number of columns in the current board
@@ -264,7 +259,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /**
+    /*
      * return number of rows in the current board.
      *
      * @return number of rows in the current board
@@ -274,7 +269,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /**
+    /*
      * return corresponding index of current game being played.
      *
      * @return corresponding index of current game being played

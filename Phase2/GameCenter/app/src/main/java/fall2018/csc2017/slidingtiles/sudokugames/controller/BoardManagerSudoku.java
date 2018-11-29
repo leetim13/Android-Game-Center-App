@@ -92,7 +92,7 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
         sudokuTiles = boardSudoku.getSudokuTiles();
     }
 
-    public boolean isValidTap(int position) {
+    boolean isValidTap(int position) {
         int row = position / boardNumOfRows;
         int col = position % boardNumOfCols;
         SudokuTile selectedTile = boardSudoku.getSudokuTiles()[row][col];

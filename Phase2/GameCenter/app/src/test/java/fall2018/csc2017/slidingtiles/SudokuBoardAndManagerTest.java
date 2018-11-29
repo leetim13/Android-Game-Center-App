@@ -66,4 +66,33 @@ public class SudokuBoardAndManagerTest {
         boardManagerSudoku.updateSudokuTiles(10, i);
         assertFalse(boardManagerSudoku.checkBoardValidation());
     }
+
+    @Test
+    public void testRowAndCol(){
+        boardManagerSudoku = setBoardManager();
+        BoardSudoku boardSudoku = new BoardSudoku(BoardSudoku.LENGTH_OF_SIDE);
+        assertEquals(9, boardSudoku.getNumCols());
+        assertEquals(9, boardSudoku.getNumRows());
+        boardManagerSudoku.getBoard().change();
+        assertEquals(9, boardManagerSudoku.getBoardNumOfCols());
+        assertEquals(9, boardManagerSudoku.getBoardNumOfRows());
+    }
+
+    @Test
+    public void testGetTile(){
+        boardManagerSudoku = setBoardManager();
+        BoardSudoku boardSudoku = boardManagerSudoku.getBoard();
+        assertSame(boardSudoku.getTile(1, 0), boardManagerSudoku.getBoard().getTile(1, 0));
+    }
+
+    @Test
+    public void testScore(){
+        boardManagerSudoku = setBoardManager();
+        assertEquals(0, boardManagerSudoku.getScore());
+        boardManagerSudoku.addScore();
+        boardManagerSudoku.addScore();
+        assertEquals(2, boardManagerSudoku.getScore());
+        boardManagerSudoku.minusScore();
+        assertEquals(1, boardManagerSudoku.getScore());
+    }
 }

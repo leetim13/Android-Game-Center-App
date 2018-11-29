@@ -9,5 +9,5 @@ import fall2018.csc2017.slidingtiles.controller.StorageIndexer;
 * */
 public abstract class GameScore{
     public abstract Map<String, int[]> data();
-    public StorageIndexer indexer = new StorageIndexer();
+    protected StorageIndexer indexer = new StorageIndexer();
 }

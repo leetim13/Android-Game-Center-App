@@ -21,7 +21,7 @@ public class BasicScoreBoardActivity extends AppCompatActivity implements ScoreD
         super.onCreate(savedInstanceState);
     }
 
-    public void displayScore(TextView[] renderList, ScoreBoardSystem<TextView> system, int index) {
+    public void displayScore(TextView[] renderList, ScoreBoardSystem system, int index) {
         List<SequenceBundlers> bd = system.displayScore(index);
 
         if (bd == null) {

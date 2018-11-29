@@ -1,16 +1,13 @@
 package fall2018.csc2017.slidingtiles.sudokugames.view;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -21,7 +18,6 @@ import fall2018.csc2017.slidingtiles.GestureDetectGridView;
 import fall2018.csc2017.slidingtiles.sudokugames.controller.MovementControllerSK;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.CustomAdapter;
-import fall2018.csc2017.slidingtiles.helper.SaveScore;
 import fall2018.csc2017.slidingtiles.sudokugames.model.component.BoardSudoku;
 import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
@@ -56,11 +52,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
      */
     // Display
     public void display() {
-        try {
-            updateTileButtons();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        updateTileButtons();
         gridView.setAdapter(new CustomAdapter(tileButtons, columnWidth, columnHeight));
     }
 
@@ -123,7 +115,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
     /**
      * Update the backgrounds on the buttons to match the tiles.
      */
-    private void updateTileButtons() throws IOException {
+    private void updateTileButtons() {
 
         GameCacheSystem system = GameCacheSystem.getInstance();
         UserPanel user = UserPanel.getInstance();

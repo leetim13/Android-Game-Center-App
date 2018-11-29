@@ -11,7 +11,7 @@ public class UserPanel {
 
     private static final UserPanel ourInstance = new UserPanel();
 
-    public final static UserPanel getInstance() {
+    public static UserPanel getInstance() {
         return ourInstance;
     }
 
