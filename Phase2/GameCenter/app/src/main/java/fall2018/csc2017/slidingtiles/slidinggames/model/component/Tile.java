@@ -47,7 +47,9 @@ public class Tile extends BasicTile {
     /**
      * A tile with a background id; look up and set the id.
      *
-     * @param backgroundId
+     * @param backgroundId the id of this background
+     * @param numRows the row number
+     * @param numCols the col number
      */
     public Tile(int backgroundId, int numRows, int numCols) {
         id = backgroundId + 1;
