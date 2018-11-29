@@ -5,9 +5,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import fall2018.csc2017.slidingtiles.slidinggames.component.Board;
-import fall2018.csc2017.slidingtiles.slidinggames.component.Tile;
-import fall2018.csc2017.slidingtiles.slidinggames.manager.BoardManager;
+import fall2018.csc2017.slidingtiles.helper.TileFactory;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.Board;
+import fall2018.csc2017.slidingtiles.slidinggames.model.component.Tile;
+import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 
 import static org.junit.Assert.*;
 
@@ -19,7 +20,12 @@ import static org.junit.Assert.*;
 public class BoardAndTileTest {
 
     /** The board manager for testing. */
-    BoardManager boardManager;
+    private BoardManager boardManager;
+
+    /**
+     * the tile factory to generate new tile.
+     */
+    private TileFactory tileFactory = new TileFactory();
 
     /**
      * Make a set of tiles that are in order.
@@ -29,7 +35,7 @@ public class BoardAndTileTest {
         List<Tile> tiles = new ArrayList<>();
         final int numTiles = 4 * 4;
         for (int tileNum = 0; tileNum != numTiles; tileNum++) {
-            tiles.add(new Tile(tileNum + 1, tileNum));
+            tiles.add((Tile) tileFactory.createTile(tileNum, 4, 4, "StTile"));
         }
 
         return tiles;
@@ -57,9 +63,9 @@ public class BoardAndTileTest {
     @Test
     public void testIsSolved() {
         setUpCorrect();
-        assertEquals(true, boardManager.hasWon());
+        assertTrue(boardManager.hasWon());
         swapFirstTwoTiles();
-        assertEquals(false, boardManager.hasWon());
+        assertFalse(boardManager.hasWon());
     }
 
     /**
@@ -94,9 +100,9 @@ public class BoardAndTileTest {
     @Test
     public void testIsValidTap() {
         setUpCorrect();
-        assertEquals(true, boardManager.isValidTap(11));
-        assertEquals(true, boardManager.isValidTap(15));
-        assertEquals(false, boardManager.isValidTap(10));
+        assertTrue(boardManager.isValidTap(11));
+        assertTrue(boardManager.isValidTap(15));
+        assertFalse(boardManager.isValidTap(10));
     }
 }
 

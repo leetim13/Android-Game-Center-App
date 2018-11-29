@@ -4,9 +4,9 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
-import fall2018.csc2017.slidingtiles.sudokugames.component.BoardSudoku;
-import fall2018.csc2017.slidingtiles.sudokugames.component.SudokuTile;
-import fall2018.csc2017.slidingtiles.sudokugames.manager.BoardManagerSudoku;
+import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
+import fall2018.csc2017.slidingtiles.sudokugames.model.component.BoardSudoku;
+import fall2018.csc2017.slidingtiles.sudokugames.model.component.SudokuTile;
 
 import static org.junit.Assert.*;
 
