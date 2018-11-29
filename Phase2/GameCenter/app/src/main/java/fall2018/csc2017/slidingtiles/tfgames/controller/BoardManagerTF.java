@@ -65,6 +65,19 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
             generateNewTile();
     }
 
+    /**
+     * Constructor of BoardManagerTF for testing
+     */
+    public BoardManagerTF(){
+        this.boardNumOfCols = this.boardNumOfRows = BoardTF.LENGTH_OF_SIDE;
+        List<TfTile> tfTiles = new ArrayList<>();
+        final int numTiles = BoardTF.LENGTH_OF_SIDE * BoardTF.LENGTH_OF_SIDE;
+        for (int tileNum = 0; tileNum != numTiles; tileNum++) {
+            tfTiles.add((TfTile) tileFactory.createTile(BoardTF.BLANK_ID, "TfTile"));
+        }
+        this.boardTF = new BoardTF(BoardTF.LENGTH_OF_SIDE, tfTiles);
+    }
+
     @Override
     public BoardTF getBoard(){ return boardTF; }
 
