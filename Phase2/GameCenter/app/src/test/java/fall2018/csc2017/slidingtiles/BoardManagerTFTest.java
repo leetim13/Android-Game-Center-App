@@ -3,6 +3,7 @@ package fall2018.csc2017.slidingtiles;
 import org.junit.Test;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
@@ -158,6 +159,12 @@ public class BoardManagerTFTest {
         assertTrue(iterator.hasNext());
         assertEquals(2, iterator.next().getId());
         assertEquals(1, iterator.next().getId());
+        iterator = boardTF.iterator();
+        for(int i = 0; i < 17; i++)
+            try{iterator.next();}
+            catch (NoSuchElementException e){
+                System.out.println("Exception catched");
+            }
     }
 
     /**
@@ -189,7 +196,7 @@ public class BoardManagerTFTest {
      */
     @Test
     public void testScore(){
-        boardManagerTF = setBoardManagerTF();
+        boardManagerTF = new BoardManagerTF(BoardTF.LENGTH_OF_SIDE);
         assertEquals(3, boardManagerTF.getGameIndex());
         assertEquals(0, boardManagerTF.getScore());
         boardManagerTF.addScore();
@@ -202,11 +209,34 @@ public class BoardManagerTFTest {
     @Test
     public void testGenerateNewTile(){
         boardManagerTF = setBoardManagerTF();
+        boardManagerTF.setCount(2);
         assertEquals(16, boardManagerTF.countNumOfBlankTiles());
-        boardManagerTF.getBoard().getTile(0, 2).setId(3);
-        boardManagerTF.getBoard().getTile(0, 3).setId(1);
         boardManagerTF.generateNewTile();
-        assertEquals(13, boardManagerTF.countNumOfBlankTiles());
+        Iterator<TfTile> iterator = boardManagerTF.getBoard().iterator();
+        int id = 0;
+        while(iterator.hasNext()){
+            id = iterator.next().getId();
+            if(id != 0) break;
+        }
+        assertEquals(1, id);
+        boardManagerTF = setBoardManagerTF();
+        boardManagerTF.setCount(10);
+        boardManagerTF.generateNewTile();
+        iterator = boardManagerTF.getBoard().iterator();
+        while(iterator.hasNext()){
+            id = iterator.next().getId();
+            if(id != 0) break;
+        }
+        assertEquals(2, id);
+        boardManagerTF = setBoardManagerTF();
+        boardManagerTF.setCount(100);
+        boardManagerTF.generateNewTile();
+        iterator = boardManagerTF.getBoard().iterator();
+        while(iterator.hasNext()){
+            id = iterator.next().getId();
+            if(id != 0) break;
+        }
+        assertEquals(3, id);
     }
 
     @Test
