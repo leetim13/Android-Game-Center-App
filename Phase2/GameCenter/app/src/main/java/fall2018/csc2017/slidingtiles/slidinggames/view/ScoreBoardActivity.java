@@ -50,7 +50,7 @@ public class ScoreBoardActivity extends BasicScoreBoardActivity {
                                            new SlidingScore(User.ST_GAME_INDEX_4, this),
                                            new SlidingScore(User.ST_GAME_INDEX_5, this),
                                             }; // index0: 33, index1: 44, index2: 55
-        ScoreBoardSystem boardSystem = new ScoreBoardSystem<Button>(scoreModels ,getApplicationContext());
+        ScoreBoardSystem boardSystem = new ScoreBoardSystem(scoreModels);
         Button[] viewList1 = getViewList(renderList1);
         Button[] viewList2 = getViewList(renderList2);
         Button[] viewList3 = getViewList(renderList3);

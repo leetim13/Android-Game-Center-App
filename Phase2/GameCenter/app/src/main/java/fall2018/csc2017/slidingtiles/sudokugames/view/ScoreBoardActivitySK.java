@@ -42,7 +42,7 @@ public class ScoreBoardActivitySK extends BasicScoreBoardActivity {
     public void renderBoard() {
 
         SudokuScore[] scoreModels = new SudokuScore[]{new SudokuScore(this)}; // index0: 33, index1: 44, index2: 55
-        ScoreBoardSystem boardSystem = new ScoreBoardSystem<Button>(scoreModels ,getApplicationContext());
+        ScoreBoardSystem boardSystem = new ScoreBoardSystem(scoreModels);
         Button[] viewList1 = getViewList(renderList1);
         displayScore(viewList1, boardSystem, 0); // display 33 to viewList1
     }
