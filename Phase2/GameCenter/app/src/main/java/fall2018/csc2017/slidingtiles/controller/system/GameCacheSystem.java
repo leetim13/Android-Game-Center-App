@@ -2,25 +2,15 @@ package fall2018.csc2017.slidingtiles.controller.system;
 
 import android.content.Context;
 import android.util.Log;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
-import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Map;
-
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.StorageIndexer;
 import fall2018.csc2017.slidingtiles.helper.IOHelper;
-import fall2018.csc2017.slidingtiles.model.component.User;
-import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 
 /*

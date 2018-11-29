@@ -47,7 +47,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     /**
      * Counted number of numbers randomly generated
      */
-    private static int count = 2;
+    private int count = 2;
 
     /**
      * Constructor of BoardManagerTF
@@ -63,6 +63,19 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
         this.boardTF = new BoardTF(lengthOfSide, tfTiles);
         for (int i = 0; i < 2; i++)
             generateNewTile();
+    }
+
+    /**
+     * Constructor of BoardManagerTF for testing
+     */
+    public BoardManagerTF(){
+        this.boardNumOfCols = this.boardNumOfRows = BoardTF.LENGTH_OF_SIDE;
+        List<TfTile> tfTiles = new ArrayList<>();
+        final int numTiles = BoardTF.LENGTH_OF_SIDE * BoardTF.LENGTH_OF_SIDE;
+        for (int tileNum = 0; tileNum != numTiles; tileNum++) {
+            tfTiles.add((TfTile) tileFactory.createTile(BoardTF.BLANK_ID, "TfTile"));
+        }
+        this.boardTF = new BoardTF(BoardTF.LENGTH_OF_SIDE, tfTiles);
     }
 
     @Override
@@ -329,9 +342,5 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
      */
     public void setBoardTF(BoardTF boardTF){
         this.boardTF = boardTF;
-    }
-
-    public static void setCount(int count) {
-        BoardManagerTF.count = count;
     }
 }
