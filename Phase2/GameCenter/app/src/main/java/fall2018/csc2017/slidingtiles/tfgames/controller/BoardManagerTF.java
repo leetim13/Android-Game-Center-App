@@ -47,7 +47,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     /**
      * Counted number of numbers randomly generated
      */
-    private static int count = 2;
+    private int count = 2;
 
     /**
      * Constructor of BoardManagerTF
@@ -342,9 +342,5 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
      */
     public void setBoardTF(BoardTF boardTF){
         this.boardTF = boardTF;
-    }
-
-    public static void setCount(int count) {
-        BoardManagerTF.count = count;
     }
 }
