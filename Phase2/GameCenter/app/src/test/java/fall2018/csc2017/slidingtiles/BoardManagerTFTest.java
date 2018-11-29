@@ -21,7 +21,7 @@ public class BoardManagerTFTest {
      * @return a new BoardManagerTF
      */
     private BoardManagerTF setBoardManagerTF(){
-        boardManagerTF = new BoardManagerTF(BoardTF.LENGTH_OF_SIDE);
+        boardManagerTF = new BoardManagerTF();
         return boardManagerTF;
     }
 
@@ -206,10 +206,10 @@ public class BoardManagerTFTest {
     @Test
     public void testGenerateNewTile(){
         boardManagerTF = setBoardManagerTF();
-        assertEquals(14, boardManagerTF.countNumOfBlankTiles());
+        assertEquals(16, boardManagerTF.countNumOfBlankTiles());
         boardManagerTF.getBoard().getTile(0, 2).setId(3);
         boardManagerTF.getBoard().getTile(0, 3).setId(1);
         boardManagerTF.generateNewTile();
-        assertEquals(11, boardManagerTF.countNumOfBlankTiles());
+        assertEquals(13, boardManagerTF.countNumOfBlankTiles());
     }
 }
