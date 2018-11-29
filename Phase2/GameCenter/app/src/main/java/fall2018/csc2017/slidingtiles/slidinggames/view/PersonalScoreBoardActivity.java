@@ -16,6 +16,7 @@ import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 
 /**
+ * Excluded from tests because it's a view class.
  * The personal scoreboard activity for the sliding puzzle tile game.
  */
 public class PersonalScoreBoardActivity extends AppCompatActivity {
@@ -70,9 +71,11 @@ public class PersonalScoreBoardActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * To sort and display the personal slidingTile game scores of the current user
+     */
     protected void displayScore(int[] renderList, Map<String, int[]> mp) {
         int[] obj = mp.get(UserPanel.getInstance().getName());
-
         int[] new_array;
         if (obj != null) {
             new_array = new int[obj.length];
@@ -83,7 +86,6 @@ public class PersonalScoreBoardActivity extends AppCompatActivity {
             Arrays.sort(new_array); // sort the rank of the players
 
             for (int i = 0; i < new_array.length; i++) {
-
                 String username = UserPanel.getInstance().getName();
                 int record = new_array[i];
                 if (i < renderList.length) {

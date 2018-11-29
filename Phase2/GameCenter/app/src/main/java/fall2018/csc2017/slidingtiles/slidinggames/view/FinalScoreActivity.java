@@ -15,15 +15,20 @@ import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
+/**
+ * Excluded from tests because it's a view class.
+ * The FinalScore activity to show player their score after completed sliding Tile game.
+ */
 public class FinalScoreActivity extends BasicFinalScoreActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-    /*
-    * set the boardmanager
-    * */
+
+    /**
+     *set the boardManager
+     */
     @Override
     public void setBM() {
         GameCacheSystem sys = GameCacheSystem.getInstance();

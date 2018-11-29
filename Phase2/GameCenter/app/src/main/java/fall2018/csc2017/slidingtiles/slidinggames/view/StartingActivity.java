@@ -19,9 +19,10 @@ import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 /**
- * The initial activity for the sliding puzzle tile game.
+ * Excluded from tests because it's a view class.
+ * The initial activity for the sliding puzzle tile game, from which user can choose to start a game
+ * or view the scoreBoard.
  */
-
 public class StartingActivity extends BasicStartingActivity {
 
     @Override
@@ -50,9 +51,9 @@ public class StartingActivity extends BasicStartingActivity {
         });
     }
 
-    /*
-    * add the listener for personal ScoreBoard
-    * */
+    /**
+     * add the listener for personal ScoreBoard
+     */
     private void addScoreboardpersonalButtonListener() {
         Button startButton = findViewById(R.id.button_personal_record);
         startButton.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +87,7 @@ public class StartingActivity extends BasicStartingActivity {
     }
 
     /**
-     * Switch to the PersonalScoreBoardActivity  view to see local (personal) scoreboard.
+     * Switch to the PersonalScoreBoardActivity view to see local (personal) scoreboard.
      */
     public void switchToPersonalBoard() {
         Intent tmp = new Intent(this, PersonalScoreBoardActivity.class);
