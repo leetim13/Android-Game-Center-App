@@ -19,10 +19,8 @@ import java.util.HashMap;
 
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
-import fall2018.csc2017.slidingtiles.LoginActivity;
 import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.slidinggames.model.component.BitmapCollection;
-import fall2018.csc2017.slidingtiles.slidinggames.model.component.ImageTile;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.helper.structure.InputFilterMinMax;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
@@ -53,7 +51,7 @@ public class TileSettingsActivity extends AppCompatActivity{
 
     private static int undo;
 
-    private HashMap<String, Integer> hook = new HashMap<String, Integer>();
+    private HashMap<String, Integer> hook = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,8 +128,7 @@ public class TileSettingsActivity extends AppCompatActivity{
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
             Uri selectedTarget = data.getData();
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedTarget);
-                chosenImage = bitmap;
+                chosenImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedTarget);
                 BitmapCollection.getInstance().latch(false);
             }
             catch (IOException e) {

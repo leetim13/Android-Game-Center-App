@@ -4,9 +4,6 @@ package fall2018.csc2017.slidingtiles.controller.system;
     in activities related to score board.
 * */
 
-import android.content.Context;
-import android.widget.TextView;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,11 +13,11 @@ import fall2018.csc2017.slidingtiles.helper.IOHelper;
 import fall2018.csc2017.slidingtiles.helper.SequenceBundlers;
 import fall2018.csc2017.slidingtiles.model.GameScore;
 
-public class ScoreBoardSystem <T extends TextView>{
+public class ScoreBoardSystem{
 
     private List<Map<String, int[]>> playerStates; // the states for possible different games
 
-    public ScoreBoardSystem(GameScore[] scoreModels, Context ctx) {
+    public ScoreBoardSystem(GameScore[] scoreModels) {
         initialize(scoreModels);
     }
 

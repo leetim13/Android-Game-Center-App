@@ -36,8 +36,8 @@ public class SudokuTile extends BasicTile {
     /*
     * set the tile to solid tile
     * */
-    public void setTrait(boolean isGenerated) {
-        this.isGenerated = isGenerated;
+    void setTrait() {
+        this.isGenerated = true;
     }
 
     public boolean generated() {

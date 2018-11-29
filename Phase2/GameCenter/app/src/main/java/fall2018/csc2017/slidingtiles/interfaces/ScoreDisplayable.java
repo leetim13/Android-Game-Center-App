@@ -13,7 +13,7 @@ public interface ScoreDisplayable {
     * @param ScoreBoardSystem the current score board system
     * @param int index: the index of the current model for the scoreboard
     * */
-    void displayScore(TextView[] viewList, ScoreBoardSystem<TextView> system, int index);
+    void displayScore(TextView[] viewList, ScoreBoardSystem system, int index);
     /*
     * every score board should have a function to render its own score board
     * */

@@ -10,8 +10,6 @@ import fall2018.csc2017.slidingtiles.controller.MovementController;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.helper.structure.ArrayStack;
 import fall2018.csc2017.slidingtiles.slidinggames.view.FinalScoreActivity;
-import fall2018.csc2017.slidingtiles.LoginActivity;
-import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
 import fall2018.csc2017.slidingtiles.helper.SaveScore;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
@@ -30,6 +28,7 @@ public class MovementControllerST extends MovementController {
      */
 
     private SaveScore saveScore = new SaveScore();
+    private ArrayStack<Integer> stateStack;
 
 //    /**
 //     * The functional saveScore, which provides method to save score into corresponding HashMap.
@@ -40,7 +39,7 @@ public class MovementControllerST extends MovementController {
      * The new MovementControllerST
      */
     public MovementControllerST() {
-        super.stateStack = new ArrayStack<Integer>(20000);
+        stateStack = new ArrayStack<>(20000);
     }
 
     /**

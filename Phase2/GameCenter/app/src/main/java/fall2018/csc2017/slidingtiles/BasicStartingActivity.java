@@ -10,14 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
-import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
-import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
-import fall2018.csc2017.slidingtiles.tfgames.view.GameActivityTF;
-import fall2018.csc2017.slidingtiles.tfgames.view.ScoreboardtfActivity;
-import fall2018.csc2017.slidingtiles.tfgames.view.StartingActivityTF;
 
 public class BasicStartingActivity extends AppCompatActivity {
 

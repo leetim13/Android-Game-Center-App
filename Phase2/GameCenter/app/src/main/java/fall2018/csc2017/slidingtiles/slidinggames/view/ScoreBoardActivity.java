@@ -1,20 +1,14 @@
 package fall2018.csc2017.slidingtiles.slidinggames.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import fall2018.csc2017.slidingtiles.BasicScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.R;
-import fall2018.csc2017.slidingtiles.helper.SequenceBundlers;
-import fall2018.csc2017.slidingtiles.interfaces.ScoreDisplayable;
 import android.widget.Button;
-import android.widget.TextView;
 
-import java.util.List;
 
 import fall2018.csc2017.slidingtiles.controller.system.ScoreBoardSystem;
-import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.slidinggames.model.SlidingScore;
 
@@ -50,7 +44,7 @@ public class ScoreBoardActivity extends BasicScoreBoardActivity {
                                            new SlidingScore(User.ST_GAME_INDEX_4, this),
                                            new SlidingScore(User.ST_GAME_INDEX_5, this),
                                             }; // index0: 33, index1: 44, index2: 55
-        ScoreBoardSystem boardSystem = new ScoreBoardSystem<Button>(scoreModels ,getApplicationContext());
+        ScoreBoardSystem boardSystem = new ScoreBoardSystem(scoreModels);
         Button[] viewList1 = getViewList(renderList1);
         Button[] viewList2 = getViewList(renderList2);
         Button[] viewList3 = getViewList(renderList3);

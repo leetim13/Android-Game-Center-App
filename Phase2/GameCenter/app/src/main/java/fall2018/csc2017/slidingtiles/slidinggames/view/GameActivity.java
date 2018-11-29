@@ -10,8 +10,6 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -60,11 +58,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
      */
     // Display
     public void display() {
-        try {
-            updateTileButtons();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        updateTileButtons();
         gridView.setAdapter(new CustomAdapter(tileButtons, columnWidth, columnHeight));
     }
 
@@ -128,7 +122,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
     /**
      * Update the backgrounds on the buttons to match the tiles.
      */
-    private void updateTileButtons() throws IOException {
+    private void updateTileButtons() {
         Board board = boardManager.getBoard();
         int nextPos = 0;
         for (Button b : tileButtons) {

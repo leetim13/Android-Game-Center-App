@@ -15,11 +15,6 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
     public static final int LENGTH_OF_SIDE = 9;
 
     /**
-     * The id of a blank tile
-     */
-    public static final int BLANK_ID = 0;
-
-    /**
      * Number of rows and columns
      */
     private int numRows;
@@ -57,7 +52,6 @@ public class BoardSudoku extends BasicBoard implements Iterable<SudokuTile>{
         int numDigitRemoved = 40;
         List<SudokuTile> tiles;
         Sudoku sudoku = new Sudoku(lengthOfSide, numDigitRemoved);
-        int[][] mat;
         sudokuTiles = new SudokuTile[lengthOfSide][lengthOfSide];
         completeTiles = new SudokuTile[lengthOfSide][lengthOfSide];
         sudoku.fillValues();
