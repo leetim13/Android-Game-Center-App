@@ -139,7 +139,6 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
                 generateNewTile();
                 break;
             default:
-                System.out.println("Invalid Operation");
         }
     }
 
@@ -342,5 +341,13 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
      */
     public void setBoardTF(BoardTF boardTF){
         this.boardTF = boardTF;
+    }
+
+    /**
+     * Set the count
+     * @param count New value of count
+     */
+    public void setCount(int count){
+        this.count = count;
     }
 }
