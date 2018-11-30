@@ -5,25 +5,34 @@ mileStones in the whole process.
 =============RESPONSIBILITIES=============
 
 ## Timothy Lee
-- Designed User Interface (including corresponding Activities xml's and interactive buttons) for
-Starting Activity, GameCenterActivity, ProfilesActivity, and TilesSettingsActivity).
+- Designed User Interface (including corresponding Activities xml's and interactive buttons) Example
+for Sliding Tiles Game is Starting Activity, GameCenterActivity, ProfilesActivity, and TilesSettingsActivity).
 
-    - Implemented corresponding activities' xml's using constraint layout, and set onClick button
+- Continued to work on UI (Main displayed Activities [GameActivity TF) for the other 2 games). Used
+photoshop to create 2048 tiles to correspond with color scheme.
+
+- Implemented corresponding activities' xml's using constraint layout, and set onClick button
     listeners for corresponding buttons and their functions.
 
-    - Modified and uploaded all background images for the project via tools like Adobe PhotoShop
+- Modified and uploaded all background images for the project via tools like Adobe PhotoShop
     and Adobe Color CC in order for images and font colors to be consistent to the chosen color
     scheme of (#f2a0d4 [@color pink], #045aa9[@color PrimaryColor], #94d7a3[@color Accent],
     #94d7a3 [@color Green], #f07c65[@color Orange],#FF430346 [@color PrimaryDark]).
 
-    - Helped with debugging and refactoring code smells and naming conventions/javadoc to match
-    consistency.
+- Helped with debugging and refactoring code smells and naming conventions/javadoc to match consistency.
+
+- Implemented helper functions like InputFilterMinMax and OnSwipeTouchListener to detect swiping
+gesture and direction for 2048 game.
+
+- Completed walkthrough pdf with diagrams and thorough explainations to match criteria and
+worked on Powerpoint Presentation slides.
 
 
 ##Junxuan Wu
 --Designed the verification system, scoreboard system and some ui structure design.  ActivityHelper， IOHelper,
 sequenceBundler, User, UserRouter, LoginActivity, TileSettingsActivity, RegisterActivity, ScoreBoardActivity,
 PersonalScoreBoard Activity. Do some of the refactoring part(mostly with Yinling Luo). Find and fix most bugs of code.
+Implement the logic of games and the interaction with the controllers
 
 --Implement the user verify process using storable and non-storable procedure. Manage the user storage system.
 And implement the process of registration.
@@ -33,9 +42,13 @@ display image structure (xml format).
 
 --Implement the userProfile page to remind the user of the previous steps, records and games he did.
 
---Design the storage structure, based on HashMaps.
+--Design the storage structure, based on Maps.
 
 --Implement upload image function
+
+--Implement the controller logic except the managers, of saduko games and 2048 games
+
+--Do some of the refactoring, such as changing project to MVC format and use inheritance to optimize activities.
 
 ##Quanzhou Li
 --Implement undo function
@@ -64,6 +77,10 @@ display image structure (xml format).
 
 --Help implement upload image function
 
+--Help add javadoc and refactoring part
 
-====== MEETING MINUITES =======
-team meeting procedure and milestones are included in file "TEAMRECORD.md"
+--Implement the undo function of 2048 and implement methods of MovementController part
+
+
+====== MEETING RECORDS======
+team meetings and milestones are included in file "TEAMRECORD.md"

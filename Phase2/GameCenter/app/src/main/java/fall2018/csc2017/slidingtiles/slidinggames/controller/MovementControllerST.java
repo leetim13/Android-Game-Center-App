@@ -24,22 +24,15 @@ public class MovementControllerST extends MovementController {
     private BoardManager boardManager = null;
 
     /**
-     * The stack to keep track state of every movement.
+     * The functional saveScore, which provides method to save score into corresponding Map.
      */
-
     private SaveScore saveScore = new SaveScore();
-    private ArrayStack<Integer> stateStack;
-
-//    /**
-//     * The functional saveScore, which provides method to save score into corresponding HashMap.
-//     */
-//    private SaveScore saveScore = new SaveScore();
 
     /**
      * The new MovementControllerST
      */
     public MovementControllerST() {
-        stateStack = new ArrayStack<>(20000);
+        super.stateStack = new ArrayStack<>(20000);
     }
 
     /**
@@ -49,22 +42,23 @@ public class MovementControllerST extends MovementController {
         this.boardManager = (BoardManager) boardManager;
     }
 
+    @Override
     /**
      * To ask the board manager do proper things according to given tap.
      *
      * @param context  the context.
      * @param position the background number of current tile to be clicked on.
      */
+    @SuppressWarnings("unchecked")
     public void processTapMovement(Context context, int position) {
         if (boardManager.isValidTap(position)) {
             int[] dir = boardManager.touchMove(position);
             boardManager.addScore();
             int positionPrime = dir[0] * boardManager.getBoardNumOfRows() + dir[1];
             UserPanel user = UserPanel.getInstance();
-//            LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
             GameCacheSystem sys = GameCacheSystem.getInstance();
             sys.update(user.getName(), boardManager);
-            stateStack.push(positionPrime);
+            super.stateStack.push(positionPrime);
             if (boardManager.hasWon()) {
                 Toast.makeText(context, "YOU WIN!", Toast.LENGTH_SHORT).show();
                 saveScore.saveScoreIntoMap(context, boardManager.getGameIndex(), boardManager.getScore());

@@ -18,25 +18,28 @@ import fall2018.csc2017.slidingtiles.controller.UserRouter;
  */
 
 public class RegisterActivity extends AppCompatActivity {
-
+    /**
+     * Error messages to be displayed as TextView for invalid login.
+     */
     public static final String PASSWORD_REPEAT = "Passwords don't match!";
     public static final String INVALID_REGISTER = "This user  already exists!";
     public static final String INVALID_FORMAT = "Username/password should be at least 3 characters!";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        System.out.print("asd");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         addLoginListener();
     }
 
+    /**
+     * Identify and verify if the login is valid, prompt error message to user otherwise.
+     */
     private void addLoginListener() {
         Button loginButton = findViewById(R.id.register_btn_login);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: add verification
                 EditText username = findViewById(R.id.register_input_email);
                 EditText password = findViewById(R.id.register_input_password);
                 EditText confirmWord = findViewById(R.id.register_confirm_password);
@@ -72,11 +75,17 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Switch to Game Center Activity.
+     */
     private void switchToPanel() {
         Intent tmp = new Intent(this, GameCenterActivity.class);
         startActivity(tmp);
     }
 
+    /**
+     * Get context of current game
+     */
     private Context getContext() {
         return this.getApplicationContext();
     }
