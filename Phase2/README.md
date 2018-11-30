@@ -13,14 +13,11 @@
  appearance and design due to incompatibility.)
  
 ## Description ##
- Part 1 (Phase 1) of a CSC207 android app group project acts as a game center of
- three to four games. For this phase, only one game has been completed ("Sliding Tiles" game), which
- could be found on the top left corner of the game center. To enter this game, the user has to 
+To enter this game, the user has to 
  successfully register (or login to an existing account), which will then be directed to the game 
  center. There, the user can choose which games they would like to play by clicking/pressing onto
  the corresponding images (i.e. press the tiles image to enter "Sliding Tiles" game).In the game 
- center, the users can also access their personal profiles, which will display recent games played, 
- best scores for their best games, etc. This function will be further expanded in Phase 2.
+ center, the users can also access their personal profiles, which will display recent games played
   
  For the purpose of this app, a personal and global scoreboard, and a user profile has been
  implemented as well for each individual game, which could only be accessed upon a successful login 
@@ -91,6 +88,9 @@
  * upload user's own image to the background of tiles
  * 2048 game with scoreboard
  * sudoku game with scoreboard
+
+## How Do We Sort Scores ##
+ * We sort the scores according to the number of moves that a user made in a game after they win the game. If they managed to complete a game with fewer step, the number of their score will be smaller(since the score is the number of moves they made in a completed game) and the rank will be higher.
 
  ## License ##
 This project is licensed under the MIT License

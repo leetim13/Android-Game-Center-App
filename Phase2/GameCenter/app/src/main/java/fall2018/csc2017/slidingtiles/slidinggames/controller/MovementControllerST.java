@@ -28,7 +28,6 @@ public class MovementControllerST extends MovementController {
      */
 
     private SaveScore saveScore = new SaveScore();
-    private ArrayStack<Integer> stateStack;
 
 //    /**
 //     * The functional saveScore, which provides method to save score into corresponding HashMap.
@@ -39,7 +38,7 @@ public class MovementControllerST extends MovementController {
      * The new MovementControllerST
      */
     public MovementControllerST() {
-        stateStack = new ArrayStack<>(20000);
+        super.stateStack = new ArrayStack<>(20000);
     }
 
     /**
@@ -55,6 +54,7 @@ public class MovementControllerST extends MovementController {
      * @param context  the context.
      * @param position the background number of current tile to be clicked on.
      */
+    @SuppressWarnings("unchecked")
     public void processTapMovement(Context context, int position) {
         if (boardManager.isValidTap(position)) {
             int[] dir = boardManager.touchMove(position);
@@ -64,7 +64,7 @@ public class MovementControllerST extends MovementController {
 //            LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
             GameCacheSystem sys = GameCacheSystem.getInstance();
             sys.update(user.getName(), boardManager);
-            stateStack.push(positionPrime);
+            super.stateStack.push(positionPrime);
             if (boardManager.hasWon()) {
                 Toast.makeText(context, "YOU WIN!", Toast.LENGTH_SHORT).show();
                 saveScore.saveScoreIntoMap(context, boardManager.getGameIndex(), boardManager.getScore());

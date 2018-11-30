@@ -23,7 +23,7 @@ public class IOHelper {
     * @param Object obj: the object to write into file
     * @param String path: the path to store the object file
     * */
-    private final static void writeMap(Object obj, String path) throws IOException {
+    private static void writeMap(Object obj, String path) throws IOException {
         File userFile = new File(path);
         if (!userFile.exists()){
             System.out.println("using new file method...");
@@ -41,13 +41,13 @@ public class IOHelper {
     /*
     * write object file within android context
     * */
-    public final static void writeAndroidMap(Object obj, String path, Context ctx) throws IOException{
+    public static void writeAndroidMap(Object obj, String path, Context ctx) throws IOException{
         writeMap(obj, ctx.getFilesDir() + path);
     }
     /*
     *
     * */
-    private final static HashMap readMap (String path) throws IOException{
+    private static HashMap readMap (String path) throws IOException{
         File userFile = new File(path);
         if (userFile.exists()) {
             System.out.println("the path is: ..." + path);
@@ -70,18 +70,17 @@ public class IOHelper {
         return null;
     }
 
-    public final static HashMap readAndroidMap (String path, Context ctx) throws IOException{
+    public static HashMap readAndroidMap (String path, Context ctx) throws IOException{
         return readMap(ctx.getFilesDir() + path);
     }
 
     // sort any kinds of map through values
-    public final static List<SequenceBundlers> convertMap(Map<String, int[]> map) {
-        List<SequenceBundlers> returned_list = new ArrayList <SequenceBundlers>();
-        for (Object key: map.keySet()) {
+    public static List<SequenceBundlers> convertMap(Map<String, int[]> map) {
+        List<SequenceBundlers> returned_list = new ArrayList <>();
+        for (String key: map.keySet()) {
             int[] values = map.get(key);
             for (int item: values) {
-                int val = item;
-                returned_list.add(new SequenceBundlers((String) key, val));
+                returned_list.add(new SequenceBundlers(key, item));
             }
         }
 
