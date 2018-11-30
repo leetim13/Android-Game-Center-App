@@ -3,6 +3,7 @@ package fall2018.csc2017.slidingtiles;
 import org.junit.Test;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.sudokugames.model.component.BoardSudoku;
@@ -65,6 +66,12 @@ public class SudokuBoardAndManagerTest {
         assertTrue(boardManagerSudoku.checkBoardValidation());
         boardManagerSudoku.updateSudokuTiles(10, i);
         assertFalse(boardManagerSudoku.checkBoardValidation());
+        iterator = boardManagerSudoku.getBoard().iterator();
+        for(int j = 0; j < 82; j++)
+            try{iterator.next();}
+            catch (NoSuchElementException e){
+                System.out.println("Exception catched");
+            }
     }
 
     @Test
@@ -94,5 +101,41 @@ public class SudokuBoardAndManagerTest {
         assertEquals(2, boardManagerSudoku.getScore());
         boardManagerSudoku.minusScore();
         assertEquals(1, boardManagerSudoku.getScore());
+        assertEquals(9, boardManagerSudoku.getComplexity());
+        assertEquals(4, boardManagerSudoku.getGameIndex());
+    }
+
+    @Test
+    public void testSwapTiles(){
+        boardManagerSudoku = setBoardManager();
+        BoardSudoku boardSudoku = boardManagerSudoku.getBoard();
+        int id1 = boardSudoku.getTile(0, 1).getId();
+        int id2 = boardSudoku.getTile(0, 2).getId();
+        boardSudoku.swapTiles(0, 1, 0, 2);
+        assertEquals(id1, boardSudoku.getTile(0, 2).getId());
+        assertEquals(id2, boardSudoku.getTile(0, 1).getId());
+    }
+
+    @Test
+    public void testIsValidTap(){
+        boardManagerSudoku = setBoardManager();
+        BoardSudoku boardSudoku = boardManagerSudoku.getBoard();
+        Iterator<SudokuTile> iterator = boardSudoku.iterator();
+        SudokuTile temp;
+        int i = 0;
+        while(iterator.hasNext()){
+            temp = iterator.next();
+            if(temp.generated()) break;
+            i++;
+        }
+        assertFalse(boardManagerSudoku.isValidTap(i));
+        i = 0;
+        iterator = boardSudoku.iterator();
+        while(iterator.hasNext()){
+            temp = iterator.next();
+            if(!temp.generated()) break;
+            i++;
+        }
+        assertTrue(boardManagerSudoku.isValidTap(i));
     }
 }
