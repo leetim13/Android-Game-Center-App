@@ -1,9 +1,13 @@
 package fall2018.csc2017.slidingtiles;
+import android.content.Context;
 import android.text.Spanned;
 import android.text.SpannedString;
+import android.widget.Button;
+import android.widget.TextView;
 
 import org.junit.Test;
 
+import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.helper.structure.ArrayStack;
 import fall2018.csc2017.slidingtiles.helper.structure.InputFilterMinMax;
 import static org.mockito.Mockito.*;
@@ -38,5 +42,13 @@ public class HelperTests {
         when(word.toString()).thenReturn("0");
         String s = (String) mx.filter(testStr, 0, 1, word, 2, 4);
         assertEquals("", s);
+    }
+
+    @Test
+    public void testActivityHelper() {
+        Context ctx = mock(Context.class);
+        Button bt = new Button(ctx);
+        TextView tx = new TextView(ctx);
+        ActivityHelper.disableButton(bt, tx, "asd");
     }
 }
