@@ -1,10 +1,10 @@
 package fall2018.csc2017.slidingtiles;
 
-/*
-part of View:
-
-Adapted from:
-https://github.com/DaveNOTDavid/sample-puzzle/blob/master/app/src/main/java/com/davenotdavid/samplepuzzle/GestureDetectGridView.java
+/**
+ * Excluded from tests because it's a view class.
+ * part of View:
+ * Adapted from:
+ * https://github.com/DaveNOTDavid/sample-puzzle/blob/master/app/src/main/java/com/davenotdavid/samplepuzzle/GestureDetectGridView.java
  */
 
 import android.content.Context;

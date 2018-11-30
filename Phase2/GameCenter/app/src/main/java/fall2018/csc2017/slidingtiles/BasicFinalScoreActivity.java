@@ -1,7 +1,8 @@
 package fall2018.csc2017.slidingtiles;
-/*
-* Basic format of final score activity
-* */
+/**
+ * Excluded from tests because it's a view class.
+ * Basic format of final score activity
+ */
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

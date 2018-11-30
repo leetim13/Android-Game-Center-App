@@ -20,6 +20,7 @@ import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 /**
+ * Excluded from tests because it's a view class.
  * The profile activity for an individual user's profile.
  * used to display the profile of the user
  */

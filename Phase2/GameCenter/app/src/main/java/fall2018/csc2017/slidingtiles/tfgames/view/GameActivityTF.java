@@ -27,6 +27,7 @@ import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 
 /**
+ * Excluded from tests because it's a view class.
  * The game activity for tf game.
  */
 public class GameActivityTF extends AppCompatActivity implements Observer {
