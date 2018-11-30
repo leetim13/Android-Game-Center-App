@@ -27,13 +27,12 @@ import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 
 /**
- * The game activity.
- * TODO: make this activity compatible with BoardManagerTF not BoardManager
+ * The game activity for tf game.
  */
 public class GameActivityTF extends AppCompatActivity implements Observer {
 
     /**
-     * The board manager.
+     * The board manager of current game.
      */
     private BoardManagerTF boardManager;
 
@@ -58,7 +57,6 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
      * Set up the background image for each button based on the master list
      * of positions, and then call the adapter to set the view.
      */
-    // Display
     public void display() {
         try {
             updateTileButtons();
@@ -116,6 +114,9 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
 
     }
 
+    /**
+     * to initialize the current view.
+     */
     private void initializeView() {
         tvSwipDescription=(TextView) findViewById(R.id.tvSwipDescription);
     }
@@ -151,7 +152,6 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
             System.out.println(board.getTile(row, col).getBackground());
             nextPos++;
         }
-//        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
         System.out.println("tile style changed!");
         GameCacheSystem.getInstance().update(UserPanel.getInstance().getName(), boardManager);
         GameCacheSystem.getInstance().save(boardManager.getGameIndex(), this);
@@ -187,6 +187,7 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
             }
         });
     }
+
     /**
      * Display error message as toast when no steps are made, but undo is clicked.
      */
