@@ -1,5 +1,7 @@
 package fall2018.csc2017.slidingtiles;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.widget.Button;
@@ -50,5 +52,10 @@ public class HelperTests {
         Button bt = new Button(ctx);
         TextView tx = new TextView(ctx);
         ActivityHelper.disableButton(bt, tx, "asd");
+        Bitmap bmap = mock(Bitmap.class);
+        when(bmap.getWidth()).thenReturn(10);
+        when(bmap.getHeight()).thenReturn(10);
+        Bitmap[][] result = ActivityHelper.splitBitmap(bmap, 5, 5);
+        assertEquals(5, result.length);
     }
 }
