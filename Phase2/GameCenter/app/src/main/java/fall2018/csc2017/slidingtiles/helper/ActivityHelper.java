@@ -23,7 +23,7 @@ public class ActivityHelper {
         @param TextView invalidView: the warning textview in that layout
         @param String text: the text to display on the invalidView
      */
-    public final static void disableButton(final View button, final TextView invalidView, String text) {
+    public static void disableButton(final View button, final TextView invalidView, String text) {
         invalidView.setVisibility(View.VISIBLE);
         invalidView.setText(text);
         button.setEnabled(false);
@@ -44,7 +44,7 @@ public class ActivityHelper {
     * @param xCount: x columns
     * @param yCount: y columns
     * */
-    public final static Bitmap[][] splitBitmap(Bitmap bitmap, int xCount, int yCount) {
+    public static Bitmap[][] splitBitmap(Bitmap bitmap, int xCount, int yCount) {
         // Allocate a two dimensional array to hold the individual images.
         Bitmap[][] bitmaps = new Bitmap[xCount][yCount];
         int width, height;
@@ -70,7 +70,7 @@ public class ActivityHelper {
      * @param obj the object to write to the file with fileName
      */
 
-    public final static void saveToFile(String fileName, Context ctx, Object obj) {
+    public static void saveToFile(String fileName, Context ctx, Object obj) {
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(ctx.openFileOutput(fileName,
                                                                     ctx.MODE_PRIVATE));
