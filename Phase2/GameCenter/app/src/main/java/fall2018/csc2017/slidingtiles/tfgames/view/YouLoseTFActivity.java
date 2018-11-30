@@ -11,7 +11,7 @@ import fall2018.csc2017.slidingtiles.GameCenterActivity;
 import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 /**
- * Losing Activity for 2048.
+ * Losing Activity for 2048, to which the user would be led to after lose the game.
  */
 public class YouLoseTFActivity extends AppCompatActivity {
 
@@ -23,6 +23,7 @@ public class YouLoseTFActivity extends AppCompatActivity {
         TextView view = findViewById(R.id.gameover_username);
         view.setText(UserPanel.getInstance().getName());
     }
+
     /**
      * Activate the game center button.
      */

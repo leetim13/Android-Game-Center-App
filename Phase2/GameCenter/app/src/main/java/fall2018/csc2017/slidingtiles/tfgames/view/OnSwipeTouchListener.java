@@ -25,7 +25,7 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
     public static final int LEFT_SIGNAL = 3;
 
     /**
-     * A gesture Detecter
+     * A gesture Detector
      */
     private GestureDetector gestureDetector;
 
@@ -50,7 +50,7 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
         setBoardManager(manager);
     }
 
-
+    @Override
     public boolean onTouch(final View view, final MotionEvent motionEvent) {
         return gestureDetector.onTouchEvent(motionEvent);
     }
@@ -60,6 +60,9 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
      */
     private final class GestureListener extends SimpleOnGestureListener {
 
+        /**
+         * The threshold of swipe and its velocity.
+         */
         private static final int SWIPE_THRESHOLD = 100;
         private static final int SWIPE_VELOCITY_THRESHOLD = 100;
 
