@@ -83,13 +83,7 @@ public class GameCenterActivity extends AppCompatActivity {
      */
     private void switchToPanel() {
         GameCacheSystem sys = GameCacheSystem.getInstance();
-        if (!UserPanel.getInstance().isPlayed()) {
-            System.out.println("to 33 tiles");
-            sys.loadGame(User.ST_GAME_INDEX_3, getApplicationContext());
-        } else {
-            System.out.println("to usual tile");
-            sys.loadGame(getApplicationContext());
-        }
+        sys.loadGame(User.ST_GAME_INDEX_3, getApplicationContext());
         sys.load_index(this);
         Intent tmp = new Intent(this, StartingActivity.class);
         startActivity(tmp);
