@@ -7,7 +7,9 @@ import fall2018.csc2017.slidingtiles.model.component.User;
 
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
-
+/**
+ * test the UserPanel
+ */
 public class UserPanelTest {
     @Test
     public void testPlayState() {

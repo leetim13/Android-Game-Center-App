@@ -10,6 +10,9 @@ import fall2018.csc2017.slidingtiles.slidinggames.model.component.ImageTile;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
+/**
+ * test for image tile
+ */
 public class ImageTileTest {
     @Test
     public void testImageTile() {

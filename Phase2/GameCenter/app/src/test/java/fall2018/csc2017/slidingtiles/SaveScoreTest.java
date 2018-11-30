@@ -8,6 +8,9 @@ import fall2018.csc2017.slidingtiles.helper.SaveScore;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
+/**
+ * test for saveScore
+ */
 public class SaveScoreTest {
     // test the function of score saving
     @Test

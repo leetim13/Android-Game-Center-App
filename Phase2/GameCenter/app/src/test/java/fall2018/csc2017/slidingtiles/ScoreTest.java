@@ -10,6 +10,9 @@ import fall2018.csc2017.slidingtiles.tfgames.model.TfScore;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
+/**
+ * test for Score
+ */
 public class ScoreTest {
     @Test
     public void scoreModelTest() {

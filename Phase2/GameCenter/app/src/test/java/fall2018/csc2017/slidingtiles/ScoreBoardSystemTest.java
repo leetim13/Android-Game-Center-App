@@ -12,6 +12,9 @@ import fall2018.csc2017.slidingtiles.model.GameScore;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
+/**
+ * test for ScoreBoardSystem
+ */
 public class ScoreBoardSystemTest {
     @Test
     public void systemTest() {
