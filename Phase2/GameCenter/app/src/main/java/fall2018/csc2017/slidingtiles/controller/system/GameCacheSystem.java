@@ -177,6 +177,10 @@ public class GameCacheSystem {
             return previousGame.get(name);
         }
 
+        if (UserPanel.getInstance().isPlayed()) {
+            return currentIndex;
+        }
+
         return -1;
     }
 }
