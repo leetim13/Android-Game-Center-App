@@ -18,5 +18,4 @@ public class StorageIndexerTest {
         assertEquals(storageIndexer.index(1, 1), "score_storage_st1.ser");
         assertEquals(storageIndexer.getName(3), "2048");
     }
-
 }
