@@ -73,12 +73,13 @@ public class BoardAndTileTest {
      */
     @Test
     public void testSwapFirstTwo() {
-        setUpCorrect();
-        assertEquals(1, boardManager.getBoard().getTile(0, 0).getId());
-        assertEquals(2, boardManager.getBoard().getTile(0, 1).getId());
+        boardManager = new BoardManager(4, 4);
+        int id1, id2;
+        id1 = boardManager.getBoard().getTile(0, 0).getId();
+        id2 = boardManager.getBoard().getTile(0, 1).getId();
         boardManager.getBoard().swapTiles(0, 0, 0, 1);
-        assertEquals(2, boardManager.getBoard().getTile(0, 0).getId());
-        assertEquals(1, boardManager.getBoard().getTile(0, 1).getId());
+        assertEquals(id2, boardManager.getBoard().getTile(0, 0).getId());
+        assertEquals(id1, boardManager.getBoard().getTile(0, 1).getId());
     }
 
     /**
@@ -103,6 +104,17 @@ public class BoardAndTileTest {
         assertFalse(boardManager.isValidTap(1));
         assertFalse(boardManager.isValidTap(6));
         assertTrue(boardManager.isValidTap(14));
+    }
+
+    /**
+     * Test whether touchMove works
+     */
+    @Test
+    public void testTouchMove(){
+        setUpCorrect();
+        boardManager.touchMove(0);
+        boardManager.touchMove(14);
+        assertEquals(15, boardManager.getBoard().getTile(3, 3).getId());
     }
 }
 
