@@ -40,11 +40,21 @@ public class UserRouter {
             userMap = null;
         }
     }
+
+    /**
+     * the constructor for test use
+     * @param userMap: the user map passed in
+     */
+    public UserRouter(HashMap<String, String[]> userMap){
+        this.userMap = userMap;
+    }
+
     /**
      * the basic verification
+     * set to public for test use
      * @param user: the user being examined
     */
-    private boolean verifyUser(User user) {
+    public boolean verifyUser(User user) {
 
         if (userMap == null) {
             return false;
