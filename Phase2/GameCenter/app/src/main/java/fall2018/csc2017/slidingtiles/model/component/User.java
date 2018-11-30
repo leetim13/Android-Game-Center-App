@@ -39,6 +39,10 @@ public class User {
      * The game index for sudoku game, which is set as 4.
      */
     public static final int SD_GAME_INDEX = 4;
+
+    /**
+     * The user's name and password.
+     */
     public String username;
     public String password;
 
