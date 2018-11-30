@@ -13,7 +13,9 @@ import android.widget.TextView;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
-
+/**
+ * Login Activity for all games.
+ */
 public class LoginActivity extends AppCompatActivity {
     
     @Override
