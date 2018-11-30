@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import org.junit.Test;
 
+import fall2018.csc2017.slidingtiles.helper.SequenceBundlers;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.helper.structure.ArrayStack;
 import fall2018.csc2017.slidingtiles.helper.structure.InputFilterMinMax;
@@ -30,6 +31,19 @@ public class HelperTests {
         assertTrue(stack.isEmpty());
         assertEquals(null, stack.pop());
     }
+
+    @Test
+    /**
+     *
+     */
+    public void testSequenceBundler() {
+        SequenceBundlers sequenceBundlers1 = new SequenceBundlers("xm", 1);
+        SequenceBundlers sequenceBundlers2 = new SequenceBundlers("ly", 3);
+        assertEquals(1, sequenceBundlers1.getValue());
+        assertEquals("xm", sequenceBundlers1.getkey());
+        assertEquals(2, sequenceBundlers2.compareTo(sequenceBundlers1));
+    }
+
     /*
     * tets input filterminmax
     * */
@@ -47,7 +61,7 @@ public class HelperTests {
     }
 
     @Test
-    public void testActivityHelper() {
+    public void testActivityHelper(){
         Context ctx = mock(Context.class);
         Button bt = new Button(ctx);
         TextView tx = new TextView(ctx);
