@@ -14,6 +14,7 @@ import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.controller.UserRouter;
 /**
+ * Excluded from tests because it's a view class.
  * Login Activity for all games.
  */
 public class LoginActivity extends AppCompatActivity {
@@ -25,9 +26,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         addLoginListener();
     }
-    /*
-    add the login listener, identify and verify if login is valid
-    * */
+
+    /**
+     * add the login listener, identify and verify if login is valid
+     */
     private void addLoginListener() {
         Button loginButton = findViewById(R.id.btn_login);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Switch to Game Center Activity.
      */
@@ -66,10 +69,10 @@ public class LoginActivity extends AppCompatActivity {
     private Context getContext() {
         return this.getApplicationContext();
     }
+
     /**
      * Switch to Register Activity.
      */
-
     public void switchToRegister(View v) {
         TextView register = findViewById(R.id.link_signup);
         register.setTextColor(Color.WHITE);

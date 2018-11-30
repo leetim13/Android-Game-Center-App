@@ -14,6 +14,7 @@ import fall2018.csc2017.slidingtiles.controller.system.ScoreBoardSystem;
 import fall2018.csc2017.slidingtiles.helper.SequenceBundlers;
 import fall2018.csc2017.slidingtiles.interfaces.ScoreDisplayable;
 /**
+ * Excluded from tests because it's a view class.
  * The Basic Score Board activity for all three games.
  */
 public class BasicScoreBoardActivity extends AppCompatActivity implements ScoreDisplayable {

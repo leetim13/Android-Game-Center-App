@@ -6,6 +6,10 @@
  and proceed to GameCenter folder, then open it. Run build on android studio, wait for a few minutes before the
  whole project is synced and built successfully. Then you can run this program via an emulator.
 
+ To set up and run unit test related to mock, please follow instruction in
+ https://developer.android.com/training/testing/unit-testing/local-unit-tests
+
+
 ## Prerequisites ##
  This game is only designed to be run on Pixel 2 with API 27, as per the project setup instructions.
  Although, it is also possible for the game to be run on other specifications (such as a lower API
@@ -94,6 +98,13 @@ To enter this game, the user has to
 ## How Do We Sort Scores ##
  * We sort the scores according to the number of moves that a user made in a game after they win the game. If they managed to complete a game with fewer step, the number of their score will be smaller(since the score is the number of moves they made in a completed game) and the rank will be higher.
 
+## Winning Condition Of Games ##
+"slidingtile" is the same as in phase1
+"2048" you'll win if you get a number of 2048, then you win
+"saduko" same as the traditional one 
  ## License ##
 This project is licensed under the MIT License
  
+## Profile rendering ##
+In our personal profile activity, the number of moves of last game will be recorded
+only if the player makes one move in a game, for some reason, slidingtiles name may not be recorded since we didn't include it in our GameCachesystem saving process due to some storage reason.

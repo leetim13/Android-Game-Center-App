@@ -9,6 +9,7 @@ import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 /**
+ * Excluded from tests because it's a view class.
  * Final Score Activity for 2048.
  */
 public class FinalScoreTFActivity extends BasicFinalScoreActivity {

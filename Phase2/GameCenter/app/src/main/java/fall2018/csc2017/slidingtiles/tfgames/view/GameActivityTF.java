@@ -27,6 +27,7 @@ import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 
 /**
+ * Excluded from tests because it's a view class.
  * The game activity for tf game.
  */
 public class GameActivityTF extends AppCompatActivity implements Observer {
@@ -73,6 +74,7 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
         maxUndoSteps = 10;
         boardManager = (BoardManagerTF) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
         movementControllerTF = new MovementControllerTF();
+        UserPanel.getInstance().play();
         if (boardManager == null) {
             boardManager = new BoardManagerTF(4);
         }

@@ -12,17 +12,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/*
-* functional tool for IO operations, for reading and writing process
-*The static methods have the same use like System.Math, (utility) with only small scope of use
-* it's not a code smell. We're not creating object from any of these static method, or extends these
-* classes with static methods.
-* */
+/**
+ * functional tool for IO operations, for reading and writing process
+ * The static methods have the same use like System.Math, (utility) with only small scope of use
+ * it's not a code smell. We're not creating object from any of these static method, or extends these
+ * classes with static methods.
+ */
 public class IOHelper {
-    /*
-    * @param Object obj: the object to write into file
-    * @param String path: the path to store the object file
-    * */
+
+    /**
+     * @param obj: the object to write into file
+     * @param path: the path to store the object file
+     */
     private static void writeMap(Object obj, String path) throws IOException {
         File userFile = new File(path);
         if (!userFile.exists()){
@@ -38,15 +39,18 @@ public class IOHelper {
         objStream.flush();
         objStream.close();
     }
-    /*
-    * write object file within android context
-    * */
+
+    /**
+     * write object file within android context
+     */
     public static void writeAndroidMap(Object obj, String path, Context ctx) throws IOException{
         writeMap(obj, ctx.getFilesDir() + path);
     }
-    /*
-    *
-    * */
+
+    /**
+     * read from file
+     * @param path of the file
+     */
     private static HashMap readMap (String path) throws IOException{
         File userFile = new File(path);
         if (userFile.exists()) {
@@ -74,7 +78,10 @@ public class IOHelper {
         return readMap(ctx.getFilesDir() + path);
     }
 
-    // sort any kinds of map through values
+
+    /**
+     * sort any kinds of map through values
+     */
     public static List<SequenceBundlers> convertMap(Map<String, int[]> map) {
         List<SequenceBundlers> returned_list = new ArrayList <>();
         for (String key: map.keySet()) {

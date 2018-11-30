@@ -108,7 +108,7 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
      */
     private int numTiles(){ return numCols * numRows; }
 
-    /*
+    /**
      * The nested class defines an iterator of board by implementing Iterator<TfTile>.
      * Methods hasNext() and next() are implemented in this class.
      */
@@ -117,7 +117,7 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
         /** The index of the next Tile to return. */
         private int next = 0;
 
-        /*
+        /**
          * Return if there is a next Tile to return
          * @return if there is a next Tile to return
          */
@@ -126,7 +126,7 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
             return next < numTiles();
         }
 
-        /*
+        /**
          * Return the next Tile
          * @return the next Tile
          */

@@ -14,9 +14,9 @@ import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
  */
 public class SaveScore{
 
-    /*
-    * load the indexer
-    * */
+    /**
+     * load the indexer
+     */
     private StorageIndexer indexer = new StorageIndexer();
 
     /**

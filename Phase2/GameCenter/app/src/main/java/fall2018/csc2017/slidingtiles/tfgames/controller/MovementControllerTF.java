@@ -52,7 +52,7 @@ public class MovementControllerTF extends MovementController {
      */
     @SuppressWarnings("unchecked")
     public void processTapMovement(Context context, int direction){
-        BoardTF boardCopy = getBoardManagerTFCopy(boardManagerTF);
+        BoardTF boardCopy = getBoardTFCopy(boardManagerTF);
         stateStack.push(boardCopy);
         boardManagerTF.touchMove(direction);
         System.out.println("touch moved!");
@@ -79,7 +79,7 @@ public class MovementControllerTF extends MovementController {
      * @param boardManagerTF the boardManager with boardTF to be copied.
      * @return boardTF the deep copied boardTF.
      */
-    private BoardTF getBoardManagerTFCopy(BoardManagerTF boardManagerTF){
+    private BoardTF getBoardTFCopy(BoardManagerTF boardManagerTF){
         TfTile[][] newTiles = boardManagerTF.getBoard().getTilesCopy();
         return new BoardTF(4, newTiles);
     }

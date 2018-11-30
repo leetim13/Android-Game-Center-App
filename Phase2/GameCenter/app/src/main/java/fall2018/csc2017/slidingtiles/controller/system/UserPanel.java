@@ -15,6 +15,9 @@ public class UserPanel {
     /*
      * Initialize a new UserPanel
      * */
+
+    private boolean gamePlayed = false;
+
     private static final UserPanel ourInstance = new UserPanel();
 
     public static UserPanel getInstance() {
@@ -43,5 +46,17 @@ public class UserPanel {
      * */
     public String getName() {
         return this.getUser().username;
+    }
+    /*
+    * set the status of the player to have played this game
+    * */
+    public void play() {
+        gamePlayed = true;
+    }
+    /*
+    * test whether the player has played the game
+    * */
+    public boolean isPlayed() {
+        return gamePlayed;
     }
 }

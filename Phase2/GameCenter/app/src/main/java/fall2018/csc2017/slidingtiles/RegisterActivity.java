@@ -18,6 +18,7 @@ import fall2018.csc2017.slidingtiles.controller.UserRouter;
  */
 
 public class RegisterActivity extends AppCompatActivity {
+
     /**
      * Error messages to be displayed as TextView for invalid login.
      */

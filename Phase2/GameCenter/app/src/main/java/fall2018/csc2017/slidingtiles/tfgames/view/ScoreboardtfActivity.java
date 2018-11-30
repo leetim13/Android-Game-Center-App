@@ -8,6 +8,7 @@ import fall2018.csc2017.slidingtiles.controller.system.ScoreBoardSystem;
 import fall2018.csc2017.slidingtiles.tfgames.model.TfScore;
 
 /**
+ * Excluded from tests because it's a view class.
  * The global scoreboard activity for the sliding puzzle tile game.
  */
 public class ScoreboardtfActivity extends BasicScoreBoardActivity {

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.slidinggames.view.StartingActivity;
 import fall2018.csc2017.slidingtiles.sudokugames.view.StartingActivitySudoku;
@@ -82,11 +83,7 @@ public class GameCenterActivity extends AppCompatActivity {
      */
     private void switchToPanel() {
         GameCacheSystem sys = GameCacheSystem.getInstance();
-        if (!sys.isLoaded()) {
-            sys.loadGame(User.ST_GAME_INDEX_3, getApplicationContext());
-        } else {
-            sys.loadGame(getApplicationContext());
-        }
+        sys.loadGame(User.ST_GAME_INDEX_3, getApplicationContext());
         sys.load_index(this);
         Intent tmp = new Intent(this, StartingActivity.class);
         startActivity(tmp);

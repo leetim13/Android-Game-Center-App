@@ -49,9 +49,9 @@ public class MovementControllerSK extends MovementController {
 
         System.out.println("current position is: " + position);
     }
-    /*
-    * load the position of the selected target
-    * */
+    /**
+     * to load the position of the selected target
+     */
     public void loadVal(Context ctx, int val) {
 
         UserPanel panel = UserPanel.getInstance();
@@ -67,15 +67,16 @@ public class MovementControllerSK extends MovementController {
             Intent intent = new Intent(ctx, FinalScoreSKActivity.class);
             ctx.startActivity(intent);
         }
-
-//        isSelected = false;
+        //        isSelected = false;
     }
-    /*
-    * return if the position has been selected or not
-    * */
+
+    /**
+     * return if the position has been selected or not
+     */
     public boolean selected() {
         return isSelected;
     }
+
     /**
      *revert the current selected state of the activity
      */

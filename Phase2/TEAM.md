@@ -48,7 +48,8 @@ display image structure (xml format).
 
 --Implement the controller logic except the managers, of sudoku games and 2048 games
 
---Do some of the refactoring, such as changing project to MVC format and use inheritance to optimize activities.
+--Do some of the refactoring, such as changing project to MVC format and use inheritance to optimize
+  activities, and write some unit test.
 
 ##Quanzhou Li
 --Implement undo function
@@ -89,9 +90,10 @@ display image structure (xml format).
 
 --Help implement upload image function
 
---Help add javadoc and refactoring part
+--Write parts of javadoc and unit tests
 
---Implement the undo function of 2048 and implement methods of MovementController part
+--Implement the undo function of 2048 and implement functions of MovementControllers (including the
+ inheritance relationship between MovementControllers),
 
 
 ====== MEETING RECORDS======

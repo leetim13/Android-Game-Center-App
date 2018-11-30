@@ -1,11 +1,10 @@
 package fall2018.csc2017.slidingtiles;
 
-/*
-Taken from:
-https://github.com/DaveNOTDavid/sample-puzzle/blob/master/app/src/main/java/com/davenotdavid/samplepuzzle/CustomAdapter.java
-
-This Class is an overwrite of the Base Adapter class
-It is designed to aid setting the button sizes and positions in the GridView
+/**
+ * Taken from:
+ * https://github.com/DaveNOTDavid/sample-puzzle/blob/master/app/src/main/java/com/davenotdavid/samplepuzzle/CustomAdapter.java
+ * This Class is an overwrite of the Base Adapter class
+ * It is designed to aid setting the button sizes and positions in the GridView
  */
 
 
