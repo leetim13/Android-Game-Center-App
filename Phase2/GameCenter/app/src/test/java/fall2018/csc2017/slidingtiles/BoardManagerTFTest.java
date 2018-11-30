@@ -206,6 +206,9 @@ public class BoardManagerTFTest {
         assertEquals(1, boardManagerTF.getScore());
     }
 
+    /**
+     * Test whether generateNewTile works
+     */
     @Test
     public void testGenerateNewTile(){
         boardManagerTF = setBoardManagerTF();
@@ -239,6 +242,9 @@ public class BoardManagerTFTest {
         assertEquals(3, id);
     }
 
+    /**
+     * Test whether the other constructor of BoardTF works
+     */
     @Test
     public void testBoardNewConstructor(){
         boardManagerTF = setBoardManagerTF();

@@ -74,6 +74,9 @@ public class SudokuBoardAndManagerTest {
             }
     }
 
+    /**
+     * Test whether getters and setters of row and column works
+     */
     @Test
     public void testRowAndCol(){
         boardManagerSudoku = setBoardManager();
@@ -85,6 +88,9 @@ public class SudokuBoardAndManagerTest {
         assertEquals(9, boardManagerSudoku.getBoardNumOfRows());
     }
 
+    /**
+     * Test whether getTile works
+     */
     @Test
     public void testGetTile(){
         boardManagerSudoku = setBoardManager();
@@ -92,6 +98,9 @@ public class SudokuBoardAndManagerTest {
         assertSame(boardSudoku.getTile(1, 0), boardManagerSudoku.getBoard().getTile(1, 0));
     }
 
+    /**
+     * Test whether methods of score manipulation works
+     */
     @Test
     public void testScore(){
         boardManagerSudoku = setBoardManager();
@@ -105,6 +114,9 @@ public class SudokuBoardAndManagerTest {
         assertEquals(4, boardManagerSudoku.getGameIndex());
     }
 
+    /**
+     * Test whether swapTiles works
+     */
     @Test
     public void testSwapTiles(){
         boardManagerSudoku = setBoardManager();
@@ -116,6 +128,9 @@ public class SudokuBoardAndManagerTest {
         assertEquals(id2, boardSudoku.getTile(0, 1).getId());
     }
 
+    /**
+     * Test whether isValidTap works
+     */
     @Test
     public void testIsValidTap(){
         boardManagerSudoku = setBoardManager();
