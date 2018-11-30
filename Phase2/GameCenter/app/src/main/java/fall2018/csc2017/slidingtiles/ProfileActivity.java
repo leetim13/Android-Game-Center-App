@@ -25,16 +25,33 @@ import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
  */
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView titleView; // the title of the user profile
-    private TextView previousStateMove; // the number of moves the player took in previous game
-    private TextView previousStateType; // previous game name
-    private TextView lastGamePlayed; // the name of the last game played
+    /**
+     * the title of the user profile
+     */
+    private TextView titleView;
+
+    /**
+     * the number of moves the player took in previous game
+     */
+    private TextView previousStateMove;
+
+    /**
+     * previous game name
+     */
+    private TextView previousStateType;
+
+    /**
+     * the name of the last game played
+     */
+    private TextView lastGamePlayed;
+
+    /**
+     * The text to show if there is no game played
+     */
     public static final String INVALID_TEXT = "no games played";
     public final static int RESULT_LOAD_IMAGE = 1;
 
-    /**
-     *
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +77,10 @@ public class ProfileActivity extends AppCompatActivity {
         displayContent(previousStateType, prevGame);
         displayContent(previousStateMove, numMoves);
     }
+
     /**
      * initiate the instance variable(or elements going to be displayed) for the screen
-    */
+     */
     private void setConstant() {
         titleView = findViewById(R.id.tv_name);
         previousStateMove = findViewById(R.id.moveNum);
@@ -79,19 +97,21 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-    /*
-    * process the data of the previous index
-    * */
+    /**
+     * process the data of the previous index
+     */
     private String processPrexIndex(int index, BasicBoardManager game) {
 
         StorageIndexer indexer = new StorageIndexer();
         if (index == -1) {
             return INVALID_TEXT;
         }
-        int complexity = game.getComplexity();
-        return indexer.getName(index) + ": " + complexity + " x " + complexity;
+        return indexer.getName(index);
     }
 
+    /**
+     * To add OnclickListener for UploadImage
+     */
     private void addUploadImage() {
         ImageView imageLoader = findViewById(R.id.avatar);
         imageLoader.setOnClickListener(new View.OnClickListener() {
