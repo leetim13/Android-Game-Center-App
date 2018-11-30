@@ -32,6 +32,7 @@ worked on Powerpoint Presentation slides.
 --Designed the verification system, scoreboard system and some ui structure design.  ActivityHelper， IOHelper,
 sequenceBundler, User, UserRouter, LoginActivity, TileSettingsActivity, RegisterActivity, ScoreBoardActivity,
 PersonalScoreBoard Activity. Do some of the refactoring part(mostly with Yinling Luo). Find and fix most bugs of code.
+Implement the logic of games and the interaction with the controllers
 
 --Implement the user verify process using storable and non-storable procedure. Manage the user storage system.
 And implement the process of registration.
@@ -41,9 +42,13 @@ display image structure (xml format).
 
 --Implement the userProfile page to remind the user of the previous steps, records and games he did.
 
---Design the storage structure, based on HashMaps.
+--Design the storage structure, based on Maps.
 
 --Implement upload image function
+
+--Implement the controller logic except the managers, of saduko games and 2048 games
+
+--Do some of the refactoring, such as changing project to MVC format and use inheritance to optimize activities.
 
 ##Quanzhou Li
 --Implement undo function
@@ -71,6 +76,10 @@ display image structure (xml format).
     SlidingTileSetting, and startingActivity.
 
 --Help implement upload image function
+
+--Help add javadoc and refactoring part
+
+--Implement the undo function of 2048 and implement methods of MovementController part
 
 
 ====== MEETING RECORDS======
