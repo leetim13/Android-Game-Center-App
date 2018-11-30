@@ -10,10 +10,10 @@
  This game is only designed to be run on Pixel 2 with API 27, as per the project setup instructions.
  Although, it is also possible for the game to be run on other specifications (such as a lower API
  version or a different-sized phone, please keep in mind there might be differences to the overall
- appearance and design due to incompatibility.
+ appearance and design due to incompatibility.)
  
 ## Description ##
- This is Part 1 (Phase 1) of a CSC207 android app group project that acts as a game center of 
+ Part 1 (Phase 1) of a CSC207 android app group project acts as a game center of
  three to four games. For this phase, only one game has been completed ("Sliding Tiles" game), which
  could be found on the top left corner of the game center. To enter this game, the user has to 
  successfully register (or login to an existing account), which will then be directed to the game 
@@ -29,29 +29,36 @@
  also be customized for each individual game (i.e. changing the board complexity, or pre-defining a
  maximum number of undo moves that could be made per move for the "Sliding Tiles" game.
 
+ For Phase 2, we have implemented the game 2048 and sudoku, which is could accessed by clicking on
+ their respective image tiles in game center. Most functions of the sliding tiles game has been achieved
+ including, but not limited to global scoreboard, load/save game, undo (for 2048 game), profile photo
+ upload and winning/losing screen with the number of moves the user has taken.
+
  ## Tips ##
  * You could use the android built-in return/back button (usually located at the bottom for most android
  phones) to return to the previous page (or "activity").  
  
  * We'll have a scene counting your steps when you win this game!
-  And, you can check successful implementation of functions after win by easily comment out
+  And, you can check successful implementation of functions after you win by easily commenting out
   all "Collections.shuffle(tiles);" in BoardManager.java, 
 
- * You cannot save/load game if there is no incomplete game working.
+ * You cannot save/load game if there is no incomplete game in progress.
 
  * Upload your own image for the tile background every time you want one. Otherwise the program will use the default background.  
  If you want to test this on android studio, you can open "View -> tool windows -> Device File Explorer" and click it and then find "sdcard/DCIM", then right click the mouse, upload the picture in it.
- after opening the project and running it  
-
+ after opening the project and running it
 
  * Your undo chances of previous game after loading the game will be 0. (We think it is most likely that
  those chances of undoing will no longer exist since you cannot finish this game in one time and it's unfair for someone else who can do it in one time.)
 
  * The profile page will show the number of steps you got in your latest game. (whether it's
- complete or not)
+ complete or not). You can also upload your own photo by clicking on the profile button now.
 
  * Start a new game after completed one, or else (if you continue load saved game) your number of
  steps will increase, which is not wanted in this game.
+
+ *Scores (on scoreboard) are calculated and ranked by the LEAST number of moves taken to win the
+ give game.
 
 
 ## Structure of Program ##
@@ -77,11 +84,13 @@
  * login & register *
  * undo & loadsave/autosave * (undo button is on the upper right corner when playing the tile game)
  * Choosing the max undo step and complexity of board to play with *
- * Individual user profile* (the new functionality we implement)
+ * Individual user profile* (the new functionality we implemented!)
  * Game Center Created*
  * Score counter achieved* (compare number of steps to solve puzzle for same complexity, smaller step
                             means better)
  * upload user's own image to the background of tiles
+ * 2048 game with scoreboard
+ * sudoku game with scoreboard
 
  ## License ##
 This project is licensed under the MIT License
