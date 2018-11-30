@@ -19,20 +19,42 @@ this is a system to store and cache the game data when login process succeeds
   * help store and return the expected data
 * */
 public class GameCacheSystem {
-    private final static int NumOfUsers = 16; // maximum number of users at the same time
-    private Map<String, BasicBoardManager> currentGame = new HashMap<>(NumOfUsers); // current game undergoing
-    private Map<String, Integer> previousGame = new HashMap<>(NumOfUsers); // previous game map
+    /**
+     * maximum number of users at the same time
+     */
+    private final static int NumOfUsers = 16;
+
+    /**
+     * current game undergoing
+     */
+    private Map<String, BasicBoardManager> currentGame = new HashMap<>(NumOfUsers);
+
+    /**
+     * previous game map
+     */
+    private Map<String, Integer> previousGame = new HashMap<>(NumOfUsers);
+
+    /**
+     * the GameCacheSystem currently activated
+     */
     private static final GameCacheSystem ourInstance = new GameCacheSystem();
+
+
     private StorageIndexer indexer = new StorageIndexer();
     private int currentIndex = -1;
     private static String LAST_GAME_INDEX = "__last__.ser";
-    private boolean prevLoaded = false; // check whether the previous index loaded
 
+    /**
+     * check whether the previous index loaded
+     */
+    private boolean prevLoaded = false;
+
+    /**
+     * the getter for outInstance
+     */
     public static GameCacheSystem getInstance() {
         return ourInstance;
     }
-
-
 
     private GameCacheSystem() {
     }
@@ -64,9 +86,10 @@ public class GameCacheSystem {
             Log.e("login activity", "File contained unexpected data type: " + e.toString());
         }
     }
-    /*
-    * load the game of the current index
-    * */
+
+    /**
+     * load the game of the current index
+     */
     public void loadGame(Context ctx) {
         loadGame(currentIndex, ctx);
     }
@@ -79,6 +102,9 @@ public class GameCacheSystem {
         return currentGame;
     }
 
+    /**
+     * To get the boardManager of current game
+     */
     public BasicBoardManager get(String username) {
         if (currentGame.containsKey(username)) {
             return currentGame.get(username);
@@ -89,10 +115,11 @@ public class GameCacheSystem {
             return null;
         }
     }
-    /*
-    * @param gameIndex the index of this game
-    * save game progress to certain files according to game index
-    * */
+
+    /**
+     * @param gameIndex the index of this game
+     * save game progress to certain files according to game index
+     */
     @SuppressWarnings("unchecked")
     public void save(int gameIndex, Context ctx) {
         ActivityHelper.saveToFile(indexer.index(gameIndex, StorageIndexer.GAME), ctx, currentGame);
@@ -100,10 +127,10 @@ public class GameCacheSystem {
         saveCurrentIndex(ctx);
     }
 
-    /*
-    * default storage method
-    * save game progress to files according to current game index
-    * */
+    /**
+     * default storage method
+     * save game progress to files according to current game index
+     */
     @SuppressWarnings("unchecked")
     public void save(Context ctx) {
         if (currentIndex == -1) {
@@ -112,9 +139,10 @@ public class GameCacheSystem {
         }
         save(currentIndex, ctx);
     }
-    /*
-    * save the current game index when save to file
-    * */
+
+    /**
+     * save the current game index when save to file
+     */
     private void saveCurrentIndex(Context ctx) {
 
         if (currentIndex == -1 || !prevLoaded) {
@@ -124,9 +152,10 @@ public class GameCacheSystem {
         previousGame.put(UserPanel.getInstance().getName(), currentIndex);
         ActivityHelper.saveToFile(LAST_GAME_INDEX, ctx, previousGame);
     }
-    /*
-    * load the index of the last game played
-    * */
+
+    /**
+     * load the index of the last game played
+     */
     @SuppressWarnings("unchecked")
     public void load_index(Context ctx) {
         try {
@@ -137,9 +166,10 @@ public class GameCacheSystem {
             System.out.println("previous indexes cannot be loaded!");
         }
     }
-    /*
-    * return the index of the previous game
-    * */
+
+    /**
+     * return the index of the previous game
+     */
     public int prevGame() {
         String name = UserPanel.getInstance().getName();
 

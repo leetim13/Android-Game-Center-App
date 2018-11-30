@@ -15,22 +15,49 @@ router class for user and file reflections.
 * */
 public class UserRouter {
 
-    final private static String USER_STORE_PATH = "user.ser"; // path to store user file
-    final public static String SCORE_STORAGE_PATH33 = "score_storage_st0.ser"; // path to store the game file 3x3
-    final public static String SCORE_STORAGE_PATH44 = "score_storage_st1.ser"; // path to store the game file 4x4
-    final public static String SCORE_STORAGE_PATH55 = "score_storage_st2.ser"; // path to store the game file 5x5
-    final static String GAME_STORAGE_SLIDING = "save_file_tmp.ser"; // path to store the game file of slidingtile
+    /**
+     * path to store user file
+     */
+    final private static String USER_STORE_PATH = "user.ser";
 
+    /**
+     * path to store the sliding tile game score file 3x3, 4x4, 5x5
+     */
+    final public static String SCORE_STORAGE_PATH33 = "score_storage_st0.ser";
+    final public static String SCORE_STORAGE_PATH44 = "score_storage_st1.ser";
+    final public static String SCORE_STORAGE_PATH55 = "score_storage_st2.ser";
+
+    /**
+     * path to store the game file of slidingTile game
+     */
+    final static String GAME_STORAGE_SLIDING = "save_file_tmp.ser";
+
+    /**
+     * path to store the score files and game file for tf game.
+     */
     final static String SCORE_STORAGE_TF = "score_storage_tf.ser";
     final static String GAME_STORAGE_TF = "game_storage_tf.ser"; // path to store the tfgame
 
+    /**
+     * path to store the score files and game file for sudoku game.
+     */
     final static String SCORE_STORAGE_SD = "score_storage_sd.ser";
     final static String GAME_STORAGE_SD = "game_storage_sd.ser";
 
+    /**
+     * User Map
+     */
     private HashMap <String, String[]> userMap;
+
+    /**
+     * the context
+     */
     private Context context;
 
     @SuppressWarnings("unchecked")
+    /**
+     * To new a UserRouter with given context
+     */
     public UserRouter(Context ctx) {
         try {
             userMap = (HashMap<String, String[]>) IOHelper.readAndroidMap(USER_STORE_PATH, ctx);
