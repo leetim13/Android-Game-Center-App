@@ -4,18 +4,14 @@ import android.content.Context;
 
 import org.junit.Test;
 
-import fall2018.csc2017.slidingtiles.slidinggames.controller.BoardManager;
-import fall2018.csc2017.slidingtiles.slidinggames.controller.MovementControllerST;
 import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
 import fall2018.csc2017.slidingtiles.sudokugames.controller.MovementControllerSK;
-import fall2018.csc2017.slidingtiles.sudokugames.model.component.BoardSudoku;
-import fall2018.csc2017.slidingtiles.sudokugames.model.component.Sudoku;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+
 
 /**
  * test for sudoku movement controller
