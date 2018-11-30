@@ -18,9 +18,9 @@ import static org.junit.Assert.*;
 
 public class HelperTests {
     @Test
-    /*
+    /**
      * Test the arraystack functionalities
-     * */
+     */
     public void testArrayStack() {
         ArrayStack<Integer> stack = new ArrayStack<>(2000);
         stack.push(3);
@@ -44,10 +44,10 @@ public class HelperTests {
         assertEquals(2, sequenceBundlers2.compareTo(sequenceBundlers1));
     }
 
-    /*
-    * tets input filterminmax
-    * */
     @Test
+    /**
+     * test input filterMinMax using mock
+     */
     public void testInputFilter() {
         InputFilterMinMax mx = new InputFilterMinMax("1", "10");
         String testStr = "1";
@@ -61,6 +61,9 @@ public class HelperTests {
     }
 
     @Test
+    /**
+     * test input Activity Helper using mock
+     */
     public void testActivityHelper(){
         Context ctx = mock(Context.class);
         Button bt = new Button(ctx);
