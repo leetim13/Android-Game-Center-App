@@ -2,6 +2,9 @@ package fall2018.csc2017.slidingtiles.controller;
 
 import android.util.SparseArray;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import fall2018.csc2017.slidingtiles.model.component.User;
 
 /*
@@ -13,8 +16,8 @@ public class StorageIndexer {
     public final static int GAME = 0;
     public final static int SCORE = 1;
 
-    private SparseArray<String[]> hook = new SparseArray<>(); // hook to place the storages
-    private SparseArray<String> nameHook = new SparseArray<>(); // hook to reflect to name according to index
+    private Map<Integer, String[]> hook = new HashMap<>(); // hook to place the storages
+    private Map<Integer, String> nameHook = new HashMap<>(); // hook to reflect to name according to index
     /*
      * A constructor to initialize storage and names
      * */
