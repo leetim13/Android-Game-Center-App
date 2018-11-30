@@ -46,7 +46,7 @@ display image structure (xml format).
 
 --Implement upload image function
 
---Implement the controller logic except the managers, of saduko games and 2048 games
+--Implement the controller logic except the managers, of sudoku games and 2048 games
 
 --Do some of the refactoring, such as changing project to MVC format and use inheritance to optimize activities.
 
