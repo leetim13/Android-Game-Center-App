@@ -17,11 +17,12 @@ import java.io.ObjectOutputStream;
 * */
 public class ActivityHelper {
 
-    /*disable a button and shows the expected text on the textview which has
-        been set inside a layout xml
-        @param View button: the button in the layout
-        @param TextView invalidView: the warning textview in that layout
-        @param String text: the text to display on the invalidView
+    /**
+     * disable a button and shows the expected text on the textView which has
+     * been set inside a layout xml
+     * @param button: the button in the layout
+     * @param invalidView: the warning textView in that layout
+     * @param text: the text to display on the invalidView
      */
     public static void disableButton(final View button, final TextView invalidView, String text) {
         invalidView.setVisibility(View.VISIBLE);
@@ -38,12 +39,14 @@ public class ActivityHelper {
 
         System.out.println("not matched!");
     }
-    /* split a bitmap into certain parts
-        reference: https://stackoverflow.com/questions/19728181/how-to-divide-a-bitmap-into-parts-that-are-bitmaps-too
-    * @param bitmap the bit map to split
-    * @param xCount: x columns
-    * @param yCount: y columns
-    * */
+
+    /**
+     * split a bitmap into certain parts
+     * reference: https://stackoverflow.com/questions/19728181/how-to-divide-a-bitmap-into-parts-that-are-bitmaps-too
+     * @param bitmap the bit map to split
+     * @param xCount: x columns
+     * @param yCount: y columns
+     */
     public static Bitmap[][] splitBitmap(Bitmap bitmap, int xCount, int yCount) {
         // Allocate a two dimensional array to hold the individual images.
         Bitmap[][] bitmaps = new Bitmap[xCount][yCount];
@@ -69,7 +72,6 @@ public class ActivityHelper {
      * @param fileName the name of the file
      * @param obj the object to write to the file with fileName
      */
-
     public static void saveToFile(String fileName, Context ctx, Object obj) {
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(ctx.openFileOutput(fileName,
