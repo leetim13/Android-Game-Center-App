@@ -25,7 +25,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        System.out.print("asd");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         addLoginListener();
@@ -36,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: add verification
                 EditText username = findViewById(R.id.register_input_email);
                 EditText password = findViewById(R.id.register_input_password);
                 EditText confirmWord = findViewById(R.id.register_confirm_password);
