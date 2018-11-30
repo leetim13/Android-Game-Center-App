@@ -14,6 +14,9 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+/**
+ * test the UserRouter
+ */
 public class UserRouterTest {
 
     @Test
@@ -23,10 +26,6 @@ public class UserRouterTest {
         User user1 = new User("333", "333");
         UserRouter userRouter = new UserRouter(map);
         assertFalse(userRouter.verifyUser(user1));
-
-//      assertFalse(userRouter.verifyUser(user1, true));
         map.put("333", context);
-//        when(userRouter.verifyUser(user1,true)).thenReturn(true);
-//        assertTrue(userRouter.verifyUser(user1, true));
     }
 }

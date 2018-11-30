@@ -8,9 +8,9 @@ import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
 public class TFtileTest {
-    /*
-    * test the functionality of tftiles
-    * */
+    /**
+     * test the functionality of TfTiles
+     */
     @Test
     public void testTftile() {
         TfTile tile = new TfTile(1);
