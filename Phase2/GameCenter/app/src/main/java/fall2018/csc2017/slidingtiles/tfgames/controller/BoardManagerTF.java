@@ -17,15 +17,18 @@ import fall2018.csc2017.slidingtiles.tfgames.model.component.TfTile;
  * and checking for a win or a lose.
  */
 public class BoardManagerTF extends BasicBoardManager implements Serializable {
-    /**
-     * The board being managed.
-     */
 
+    /**
+     * the numeric representation of signals with different swipe directions
+     */
     public final static int UP_SIGNAL = 0;
     public final static int RIGHT_SIGNAL = 1;
     public final static int DOWN_SIGNAL = 2;
     public final static int LEFT_SIGNAL = 3;
 
+    /**
+     * The board being managed.
+     */
     private BoardTF boardTF;
 
     /**
@@ -51,6 +54,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
 
     /**
      * Constructor of BoardManagerTF
+     *
      * @param lengthOfSide The length of the side of the board
      */
     public BoardManagerTF(int lengthOfSide){
@@ -79,9 +83,17 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     }
 
     @Override
+    /**
+     * The getter for BoardTF Manipulated by this boardManager
+     */
     public BoardTF getBoard(){ return boardTF; }
 
     @Override
+    /**
+     * To check whether the user has won the tf game (if he/she have a 2048 tile in his board)
+     *
+     * @return whether the user has won the tf game.
+     */
     public boolean hasWon(){
         boolean win = false;
 
@@ -99,6 +111,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
 
     /**
      * Check if the user loses the game
+     *
      * @return whether the user loses the game
      */
     public boolean hasLost(){
@@ -118,6 +131,7 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
 
     /**
      * Make movements in the boardTF according to operation of the user
+     *
      * @param x Character indicating the operation the user made
      */
     public void touchMove(int x){
@@ -312,39 +326,61 @@ public class BoardManagerTF extends BasicBoardManager implements Serializable {
     }
 
     @Override
+    /**
+     * to add score by 1
+     */
     public void addScore(){ this.score++; }
 
     @Override
+    /**
+     * to minus score by 1
+     */
     public void minusScore(){ this.score--; }
 
     @Override
+    /**
+     * the getter for score.
+     */
     public int getScore(){ return this.score; }
 
     @Override
+    /**
+     * the getter for number of rows of the board
+     */
     public int getBoardNumOfRows(){ return this.boardNumOfRows; }
 
     @Override
+    /**
+     * the getter for number of columns of the board
+     */
     public int getBoardNumOfCols(){ return this.boardNumOfCols; }
 
     @Override
+    /**
+     * the getter for complexity of this current game, which is fixed as 4 for tf game.
+     */
     public int getComplexity() {
         return 4;
     }
 
     @Override
+    /**
+     * the getter for the game index of tf game, which is 3 for tf game.
+     */
     public int getGameIndex(){
         return User.TF_GAME_INDEX;
     }
 
     /**
      * set a new board to this boardManager
+     * which is mainly used to implement the undo function.
      */
     public void setBoardTF(BoardTF boardTF){
         this.boardTF = boardTF;
     }
 
     /**
-     * Set the count
+     * the setter for <count>
      * @param count New value of count
      */
     public void setCount(int count){
