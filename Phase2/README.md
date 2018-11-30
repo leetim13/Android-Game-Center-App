@@ -54,8 +54,10 @@ To enter this game, the user has to
  * Start a new game after completed one, or else (if you continue load saved game) your number of
  steps will increase, which is not wanted in this game.
 
- *Scores (on scoreboard) are calculated and ranked by the LEAST number of moves taken to win the
+ * Scores (on scoreboard) are calculated and ranked by the LEAST number of moves taken to win the
  give game.
+
+ * Many utility class/methods are in helpers, so they are set to be static.
 
 
 ## Structure of Program ##
