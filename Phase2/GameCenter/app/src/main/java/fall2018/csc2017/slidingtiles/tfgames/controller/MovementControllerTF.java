@@ -9,8 +9,6 @@ import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.MovementController;
 import fall2018.csc2017.slidingtiles.helper.SaveScore;
 import fall2018.csc2017.slidingtiles.helper.structure.ArrayStack;
-import fall2018.csc2017.slidingtiles.sudokugames.controller.BoardManagerSudoku;
-import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 import fall2018.csc2017.slidingtiles.tfgames.model.component.BoardTF;
 import fall2018.csc2017.slidingtiles.tfgames.model.component.TfTile;
 import fall2018.csc2017.slidingtiles.tfgames.view.FinalScoreTFActivity;
@@ -37,7 +35,7 @@ public class MovementControllerTF extends MovementController {
      * DOWN_SIGNAL = 2;
      * LEFT_SIGNAL = 3;
      */
-    // TODO: add save state process for future undo functionality
+    @SuppressWarnings("unchecked")
     public void processTapMovement(Context context, int direction){
         BoardTF boardCopy = getBoardManagerTFCopy(boardManagerTF);
         stateStack.push(boardCopy);
@@ -62,7 +60,6 @@ public class MovementControllerTF extends MovementController {
 
     private BoardTF getBoardManagerTFCopy(BoardManagerTF boardManagerTF){
         TfTile[][] newTiles = boardManagerTF.getBoard().getTilesCopy();
-        BoardTF newBoard = new BoardTF(4, newTiles);
-        return newBoard;
+        return new BoardTF(4, newTiles);
     }
 }
