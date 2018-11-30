@@ -1,9 +1,17 @@
 package fall2018.csc2017.slidingtiles;
+import android.content.Context;
+import android.text.Spanned;
+import android.text.SpannedString;
+import android.widget.Button;
+import android.widget.TextView;
+
 import org.junit.Test;
 
 import fall2018.csc2017.slidingtiles.helper.SequenceBundlers;
+import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.helper.structure.ArrayStack;
-
+import fall2018.csc2017.slidingtiles.helper.structure.InputFilterMinMax;
+import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
 public class HelperTests {
@@ -26,11 +34,35 @@ public class HelperTests {
     /**
      *
      */
-    public void testSequenceBundler(){
+    public void testSequenceBundler() {
         SequenceBundlers sequenceBundlers1 = new SequenceBundlers("xm", 1);
         SequenceBundlers sequenceBundlers2 = new SequenceBundlers("ly", 3);
         assertEquals(1, sequenceBundlers1.getValue());
         assertEquals("xm", sequenceBundlers1.getkey());
         assertEquals(2, sequenceBundlers2.compareTo(sequenceBundlers1));
+    }
+
+    /*
+    * tets input filterminmax
+    * */
+    @Test
+    public void testInputFilter() {
+        InputFilterMinMax mx = new InputFilterMinMax("1", "10");
+        String testStr = "1";
+        SpannedString word = mock(SpannedString.class);
+        when(word.toString()).thenReturn("100");
+        String result = (String) mx.filter(testStr, 0, 1, word, 2, 4);
+        assertEquals("", result);
+        when(word.toString()).thenReturn("0");
+        String s = (String) mx.filter(testStr, 0, 1, word, 2, 4);
+        assertEquals("", s);
+    }
+
+    @Test
+    public void testActivityHelper(){
+        Context ctx = mock(Context.class);
+        Button bt = new Button(ctx);
+        TextView tx = new TextView(ctx);
+        ActivityHelper.disableButton(bt, tx, "asd");
     }
 }
