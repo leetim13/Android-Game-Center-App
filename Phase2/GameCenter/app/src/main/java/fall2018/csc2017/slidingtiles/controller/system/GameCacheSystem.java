@@ -12,6 +12,7 @@ import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.StorageIndexer;
 import fall2018.csc2017.slidingtiles.helper.IOHelper;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
+import fall2018.csc2017.slidingtiles.model.component.User;
 
 /*
 Singleton:
@@ -138,6 +139,7 @@ public class GameCacheSystem {
             return;
         }
         save(currentIndex, ctx);
+        UserPanel.getInstance().play();
     }
 
     /**
