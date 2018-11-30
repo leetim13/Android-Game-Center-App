@@ -179,8 +179,6 @@ class Sudoku {
             row = row + 1;
             col = 0;
         }
-        if (row>= lengthOfSide && col>= lengthOfSide)
-            return true;
 
         if (row < rootLenOfSide)
         {
