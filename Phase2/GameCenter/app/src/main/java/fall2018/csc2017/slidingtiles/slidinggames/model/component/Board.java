@@ -66,7 +66,7 @@ public class Board extends BasicBoard implements Iterable<Tile> {
     }
 
     @Override
-    /*
+    /**
      * Return the tile at (row, col)
      *
      * @param row the tile row

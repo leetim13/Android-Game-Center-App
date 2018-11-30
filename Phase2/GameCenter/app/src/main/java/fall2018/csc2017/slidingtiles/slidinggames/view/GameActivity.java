@@ -138,10 +138,8 @@ public class GameActivity extends AppCompatActivity implements Observer {
             }
             nextPos++;
         }
-//        LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
         GameCacheSystem sys = GameCacheSystem.getInstance();
         sys.update(UserPanel.getInstance().getName(), boardManager);
-//        ActivityHelper.saveToFile(StartingActivity.TEMP_SAVE_FILENAME, this, LoginActivity.userBoardHashMap);
         sys.save(this);
     }
 
@@ -149,6 +147,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
      * The maximum undo steps that the user sets.
      */
     static int maxUndoSteps;
+
     /**
      * Activate the undo button.
      */
@@ -164,7 +163,6 @@ public class GameActivity extends AppCompatActivity implements Observer {
                 if(maxUndoSteps > 0) {
                     int position = gridView.getUndoPop();
                     boardManager.touchMove(position);
-//                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
                     GameCacheSystem sys = GameCacheSystem.getInstance();
                     sys.update(UserPanel.getInstance().getName(), boardManager);
                     boardManager.minusScore();
@@ -175,6 +173,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
             }
         });
     }
+
     /**
      * Display error message as toast when no steps are made, but undo is clicked.
      */

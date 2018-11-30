@@ -2,20 +2,22 @@ package fall2018.csc2017.slidingtiles.slidinggames.model.component;
 
 import android.graphics.Bitmap;
 
-/*Tile  used for changing background functionality
-* */
+/**
+ * Tile  used for changing background functionality
+ */
 public class ImageTile extends Tile {
 
     private Bitmap background; // background of this tile
     public Bitmap getBack() {
         return this.background;
     }
-    /*
-    initiated the image of the tile
-    * @param int backgroundId
-    * @param int numRows
-    * @param int numCols
-    * */
+    /**
+     * initiated the image of the tile
+     *
+     * @param backgroundId the background id for this tile
+     * @param numRows number of rows in the current board
+     * @param numCols number of columns in the current board
+     */
     public ImageTile(int backgroundId,int numRows, int numCols) {
         BitmapCollection collect = BitmapCollection.getInstance();
         Bitmap[][] collection = collect.data();

@@ -44,13 +44,19 @@ public class TileSettingsActivity extends AppCompatActivity{
      */
     RadioButton radioButton;
 
+    /**
+     * the Bitmap collection of uploaded image
+     */
     private Bitmap chosenImage;
+
     /**
      * The maximum number of undo steps per move (inputted by user).
      */
-
     private static int undo;
 
+    /**
+     * The hashMap to store the String info got from user and the corresponding numeric complexity
+     */
     private HashMap<String, Integer> hook = new HashMap<>();
 
     @Override
@@ -99,6 +105,9 @@ public class TileSettingsActivity extends AppCompatActivity{
         addUploadImage();
     }
 
+    /**
+     * To set those constant value used in the configuration process
+     */
     private void setConstant() {
         hook.put("three", 3);
         hook.put("four", 4);
@@ -111,6 +120,9 @@ public class TileSettingsActivity extends AppCompatActivity{
 
     }
 
+    /**
+     * to add imaged uploaded if there is one.
+     */
     private void addUploadImage() {
         Button imageLoader = findViewById(R.id.image_loader);
         imageLoader.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +149,9 @@ public class TileSettingsActivity extends AppCompatActivity{
         }
     }
 
+    /**
+     * switch to Game activity
+     */
     private void switchToGame(){
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
