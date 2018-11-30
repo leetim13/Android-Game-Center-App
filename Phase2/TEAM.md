@@ -60,6 +60,18 @@ display image structure (xml format).
     save their own games. The HashMap changes after each move and is stored to an external file, enabling
     the game to save its state automatically.
 
+--Design the board and its manager for game 2048. Implement methods to calculate movements of tiles after
+  each move, check a win and lose, update tiles, randomly generate new tiles, etc.
+
+--Design the board and its manager for game Sudoku. Implement Sudoku class to generate sudoku matrix.
+  Implement methods to check a win, randomly remove digits from sudoku boards, update sudoku board, etc.
+
+--Implement the functionality of game slidingTiles to make sure generated tiles are solvable.
+
+--Design the inheritance hierarchy of board and its manager. Implement BasicBoard and BasicBoardManager
+
+--Write most of tests for our code
+
 ##Yinling Luo
 --Implement complexity function
     Make Tiles callable for boards of all complexity, and generate corresponding images for 5X5 game.
