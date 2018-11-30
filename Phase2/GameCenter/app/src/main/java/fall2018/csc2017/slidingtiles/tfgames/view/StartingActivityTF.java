@@ -22,9 +22,8 @@ import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
 
 /**
- * The initial activity for the 2048 game.
+ * The initial activity for the 2048 game, from which user can start a game or view the scoreBoard.
  */
-
 public class StartingActivityTF extends BasicStartingActivity {
 
     @Override
