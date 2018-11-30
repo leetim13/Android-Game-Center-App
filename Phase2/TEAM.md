@@ -5,19 +5,27 @@ mileStones in the whole process.
 =============RESPONSIBILITIES=============
 
 ## Timothy Lee
-- Designed User Interface (including corresponding Activities xml's and interactive buttons) for
-Starting Activity, GameCenterActivity, ProfilesActivity, and TilesSettingsActivity).
+- Designed User Interface (including corresponding Activities xml's and interactive buttons) Example
+for Sliding Tiles Game is Starting Activity, GameCenterActivity, ProfilesActivity, and TilesSettingsActivity).
 
-    - Implemented corresponding activities' xml's using constraint layout, and set onClick button
+- Continued to work on UI (Main displayed Activities [GameActivity TF) for the other 2 games). Used
+photoshop to create 2048 tiles to correspond with color scheme.
+
+- Implemented corresponding activities' xml's using constraint layout, and set onClick button
     listeners for corresponding buttons and their functions.
 
-    - Modified and uploaded all background images for the project via tools like Adobe PhotoShop
+- Modified and uploaded all background images for the project via tools like Adobe PhotoShop
     and Adobe Color CC in order for images and font colors to be consistent to the chosen color
     scheme of (#f2a0d4 [@color pink], #045aa9[@color PrimaryColor], #94d7a3[@color Accent],
     #94d7a3 [@color Green], #f07c65[@color Orange],#FF430346 [@color PrimaryDark]).
 
-    - Helped with debugging and refactoring code smells and naming conventions/javadoc to match
-    consistency.
+- Helped with debugging and refactoring code smells and naming conventions/javadoc to match consistency.
+
+- Implemented helper functions like InputFilterMinMax and OnSwipeTouchListener to detect swiping
+gesture and direction for 2048 game.
+
+- Completed walkthrough pdf with diagrams and thorough explainations to match criteria and
+worked on Powerpoint Presentation slides.
 
 
 ##Junxuan Wu
@@ -65,5 +73,5 @@ display image structure (xml format).
 --Help implement upload image function
 
 
-====== MEETING MINUITES =======
-team meeting procedure and milestones are included in file "TEAMRECORD.md"
+====== MEETING RECORDS======
+team meetings and milestones are included in file "TEAMRECORD.md"
