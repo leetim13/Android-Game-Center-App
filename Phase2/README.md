@@ -107,4 +107,4 @@ This project is licensed under the MIT License
  
 ## Profile rendering ##
 In our personal profile activity, the number of moves of last game will be recorded
-only if the player makes one move in a game
+only if the player makes one move in a game, for some reason, slidingtiles name may not be recorded since we didn't include it in our GameCachesystem saving process due to some storage reason.
