@@ -24,15 +24,9 @@ public class MovementControllerST extends MovementController {
     private BoardManager boardManager = null;
 
     /**
-     * The stack to keep track state of every movement.
+     * The functional saveScore, which provides method to save score into corresponding Map.
      */
-
     private SaveScore saveScore = new SaveScore();
-
-//    /**
-//     * The functional saveScore, which provides method to save score into corresponding HashMap.
-//     */
-//    private SaveScore saveScore = new SaveScore();
 
     /**
      * The new MovementControllerST
@@ -48,6 +42,7 @@ public class MovementControllerST extends MovementController {
         this.boardManager = (BoardManager) boardManager;
     }
 
+    @Override
     /**
      * To ask the board manager do proper things according to given tap.
      *
@@ -61,7 +56,6 @@ public class MovementControllerST extends MovementController {
             boardManager.addScore();
             int positionPrime = dir[0] * boardManager.getBoardNumOfRows() + dir[1];
             UserPanel user = UserPanel.getInstance();
-//            LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
             GameCacheSystem sys = GameCacheSystem.getInstance();
             sys.update(user.getName(), boardManager);
             super.stateStack.push(positionPrime);
