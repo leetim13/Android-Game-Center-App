@@ -26,7 +26,7 @@ public class ScoreBoardSystemTest {
         ScoreBoardSystem sys = new ScoreBoardSystem(new GameScore[]{score});
         List<SequenceBundlers> bd = sys.displayScore(0);
         SequenceBundlers a = bd.get(0);
-        assertEquals("asd", a.getkey());
+        assertEquals("asd", a.getKey());
         assertEquals(1, a.getValue());
 
     }

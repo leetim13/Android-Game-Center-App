@@ -57,17 +57,11 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (usernameText.length() < 3 || passwordText.length() < 3) {
                     ActivityHelper.disableButton(v, invalidView, INVALID_FORMAT);
-                }
-
-                else if (!passwordText.equals(confirmText)) {
+                } else if (!passwordText.equals(confirmText)) {
                     ActivityHelper.disableButton(v, invalidView, PASSWORD_REPEAT);
-                }
-
-                else if (router.verifyUser(user, false)) {
+                } else if (router.verifyUser(user, false)) {
                     ActivityHelper.disableButton(v, invalidView, INVALID_REGISTER);
-                }
-
-                else {
+                } else {
                     router.verifyUser(user, true);
                     finish();
                     switchToPanel();

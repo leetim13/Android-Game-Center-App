@@ -120,7 +120,7 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
      * to initialize the current view.
      */
     private void initializeView() {
-        tvSwipDescription=(TextView) findViewById(R.id.tvSwipDescription);
+        tvSwipDescription = (TextView) findViewById(R.id.tvSwipDescription);
     }
 
     /**
@@ -167,16 +167,16 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
     /**
      * Activate the undo button.
      */
-    private void addUndoButtonListener(){
+    private void addUndoButtonListener() {
         final ImageView undo = findViewById(R.id.imageView2);
         undo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(gridView.stackIsEmpty()) {
+                if (gridView.stackIsEmpty()) {
                     cannotUndoText();
                     return;
                 }
-                if(maxUndoSteps > 0) {
+                if (maxUndoSteps > 0) {
                     BoardTF lastBoard = gridView.getUndoPopTf();
                     boardManager.setBoardTF(lastBoard);
 //                    LoginActivity.userBoardHashMap.put(UserPanel.getInstance().getName(), boardManager);
@@ -193,14 +193,14 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
     /**
      * Display error message as toast when no steps are made, but undo is clicked.
      */
-    private void cannotUndoText(){
+    private void cannotUndoText() {
         Toast.makeText(this, "You should make a move first!", Toast.LENGTH_SHORT).show();
     }
 
     /**
      * Display remaining undo steps as toast.
      */
-    private void remainedUndoText(){
+    private void remainedUndoText() {
         Toast.makeText(this, "Remained undo steps: " + maxUndoSteps, Toast.LENGTH_SHORT).show();
     }
 

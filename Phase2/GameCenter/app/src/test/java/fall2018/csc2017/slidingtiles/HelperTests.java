@@ -1,8 +1,6 @@
 package fall2018.csc2017.slidingtiles;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.Spanned;
 import android.text.SpannedString;
 import android.widget.Button;
 import android.widget.TextView;
@@ -40,7 +38,7 @@ public class HelperTests {
         SequenceBundlers sequenceBundlers1 = new SequenceBundlers("xm", 1);
         SequenceBundlers sequenceBundlers2 = new SequenceBundlers("ly", 3);
         assertEquals(1, sequenceBundlers1.getValue());
-        assertEquals("xm", sequenceBundlers1.getkey());
+        assertEquals("xm", sequenceBundlers1.getKey());
         assertEquals(2, sequenceBundlers2.compareTo(sequenceBundlers1));
     }
 

@@ -3,6 +3,7 @@ package fall2018.csc2017.slidingtiles;
  * Excluded from tests because it's a view class.
  * Basic format of final score activity
  */
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
+
 /**
  * The Basic Final Score activity for all three games.
  */
@@ -21,6 +23,7 @@ public class BasicFinalScoreActivity extends AppCompatActivity {
 
     public BasicBoardManager currentBM; // current manager
     private TextView tv; // the view of the moves
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +95,7 @@ public class BasicFinalScoreActivity extends AppCompatActivity {
     /**
      * Switch to the ScoreBoardActivity Activity view to see global scoreboard.
      */
-    public void switchToScoreboard(){
+    public void switchToScoreboard() {
         Intent tmp = new Intent(this, ScoreBoardActivity.class);
         startActivity(tmp);
     }

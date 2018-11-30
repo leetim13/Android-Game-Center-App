@@ -1,10 +1,7 @@
 package fall2018.csc2017.slidingtiles;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,6 +10,7 @@ import java.util.List;
 import fall2018.csc2017.slidingtiles.controller.system.ScoreBoardSystem;
 import fall2018.csc2017.slidingtiles.helper.SequenceBundlers;
 import fall2018.csc2017.slidingtiles.interfaces.ScoreDisplayable;
+
 /**
  * Excluded from tests because it's a view class.
  * The Basic Score Board activity for all three games.
@@ -36,7 +34,7 @@ public class BasicScoreBoardActivity extends AppCompatActivity implements ScoreD
 
         for (int i = 0; i < bd.size(); i++) {
             SequenceBundlers bundler = bd.get(i);
-            String username = bundler.getkey();
+            String username = bundler.getKey();
             int record = bundler.getValue();
             if (i < renderList.length) {
                 TextView v = renderList[i];

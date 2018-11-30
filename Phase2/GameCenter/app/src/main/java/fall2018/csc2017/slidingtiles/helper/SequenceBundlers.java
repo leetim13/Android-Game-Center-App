@@ -6,7 +6,7 @@ package fall2018.csc2017.slidingtiles.helper;
 
 import android.support.annotation.NonNull;
 
-public class SequenceBundlers implements Comparable <SequenceBundlers>{
+public class SequenceBundlers implements Comparable<SequenceBundlers> {
     private String key;
     private int value;
 
@@ -30,7 +30,7 @@ public class SequenceBundlers implements Comparable <SequenceBundlers>{
     /**
      * @return String the key value of this bundler
      */
-    public String getkey() {
+    public String getKey() {
         return this.key;
     }
 

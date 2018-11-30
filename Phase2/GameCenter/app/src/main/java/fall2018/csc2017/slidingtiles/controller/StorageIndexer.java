@@ -7,10 +7,10 @@ import java.util.Map;
 
 import fall2018.csc2017.slidingtiles.model.component.User;
 
-/*
-* This is the class for game indexing, serve as a middleware
-*  Telling the storage files for scores and game
-* */
+/**
+ * This is the class for game indexing, serve as a middleware
+ *  Telling the storage files for scores and game
+ */
 public class StorageIndexer {
 
     /**
@@ -32,7 +32,7 @@ public class StorageIndexer {
     /**
      * A constructor to initialize storage and names
      */
-    public StorageIndexer () {
+    public StorageIndexer() {
         initializeStorage();
         initializeNames();
     }
@@ -61,8 +61,9 @@ public class StorageIndexer {
 
     /**
      * Return the name of the game, often used as filePath
+     *
      * @param gameIndex the game index attribute in User class
-     * @param dataType the data type of the game either GAME or SCORE
+     * @param dataType  the data type of the game either GAME or SCORE
      */
     public String index(int gameIndex, int dataType) {
         return hook.get(gameIndex)[dataType];
@@ -70,6 +71,7 @@ public class StorageIndexer {
 
     /**
      * Return the name of the specifed game through the index.
+     *
      * @param gameIndex the game index attribute in User class
      */
     public String getName(int gameIndex) {

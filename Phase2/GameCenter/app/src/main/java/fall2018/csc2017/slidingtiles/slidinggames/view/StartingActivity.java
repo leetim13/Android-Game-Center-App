@@ -66,13 +66,13 @@ public class StartingActivity extends BasicStartingActivity {
     /**
      * Switch to the TileSettingsActivity Activity view to customize game settings.
      */
-    public void switchToSettings(){
+    public void switchToSettings() {
         Intent tmp = new Intent(this, TileSettingsActivity.class);
         startActivity(tmp);
     }
 
     @Override
-    public void switchToScoreboard(){
+    public void switchToScoreboard() {
         Intent tmp = new Intent(this, ScoreBoardActivity.class);
         startActivity(tmp);
     }

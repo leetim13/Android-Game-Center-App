@@ -36,16 +36,17 @@ public class BitmapCollection {
     }
 
     /**
-    * whether to lock the image tile functionality
-    * @param lock: whether to lock it
-    */
+     * whether to lock the image tile functionality
+     *
+     * @param lock: whether to lock it
+     */
     public void latch(boolean lock) {
         locked = lock;
     }
 
     /**
-    * check whether the image is locked
-    */
+     * check whether the image is locked
+     */
     public boolean isLocked() {
         return locked;
     }

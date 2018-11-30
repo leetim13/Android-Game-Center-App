@@ -13,7 +13,7 @@ import fall2018.csc2017.slidingtiles.model.GameScore;
  * this is a ScoreBoard System providing score data for all games, and help render the scenes in
  * activities related to score board.
  */
-public class ScoreBoardSystem{
+public class ScoreBoardSystem {
 
     /**
      * the states for possible different games
@@ -25,13 +25,13 @@ public class ScoreBoardSystem{
     }
 
     /**
-      *help load all the data of scores this will load the state in order convenient mode
+     * help load all the data of scores this will load the state in order convenient mode
      */
     @SuppressWarnings("unchecked")
     private void initialize(GameScore[] models) {
 
-        List <Map<String, int[]>> states = new ArrayList<>();
-        for (GameScore model: models) {
+        List<Map<String, int[]>> states = new ArrayList<>();
+        for (GameScore model : models) {
             Map<String, int[]> state = model.data();
             states.add(state);
         }
@@ -39,10 +39,11 @@ public class ScoreBoardSystem{
     }
 
     /**
-      * make the views in the view list display the desirable content of score state at the
-      * specific index.
-      * @param index: the index of the score state (follow the index of the constructor scorefiles)
-      */
+     * make the views in the view list display the desirable content of score state at the
+     * specific index.
+     *
+     * @param index: the index of the score state (follow the index of the constructor score files)
+     */
     public List<SequenceBundlers> displayScore(int index) {
         Map<String, int[]> map = playerStates.get(index);
 

@@ -1,7 +1,10 @@
 package fall2018.csc2017.slidingtiles.sudokugames.view;
+
 import android.os.Bundle;
+
 import fall2018.csc2017.slidingtiles.BasicScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.R;
+
 import android.widget.Button;
 
 import fall2018.csc2017.slidingtiles.controller.system.ScoreBoardSystem;

@@ -31,7 +31,7 @@ import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
  * for which user can set the game configuration (complexity, max undo step, and their own image as
  * tiles background).
  */
-public class TileSettingsActivity extends AppCompatActivity{
+public class TileSettingsActivity extends AppCompatActivity {
 
     /**
      * The main radioGroup of 3 RadioButton for each board complexity.
@@ -93,9 +93,7 @@ public class TileSettingsActivity extends AppCompatActivity{
                     GameCacheSystem sys = GameCacheSystem.getInstance();
                     sys.update(UserPanel.getInstance().getName(), boardManager);
                     switchToGame();
-                }
-
-                else {
+                } else {
                     final TextView invalidView = findViewById(R.id.text_tile_warnning);
                     ActivityHelper.disableButton(v, invalidView, "Minimum number of undo steps should be at least 3");
                 }
@@ -115,7 +113,7 @@ public class TileSettingsActivity extends AppCompatActivity{
 
         radioGroup = findViewById(R.id.radioGroup);
         EditText et = findViewById(R.id.text_undo);
-        et.setFilters(new InputFilter[]{ new InputFilterMinMax("3", "100000")});
+        et.setFilters(new InputFilter[]{new InputFilterMinMax("3", "100000")});
         et.setText("3");
 
     }
@@ -142,8 +140,7 @@ public class TileSettingsActivity extends AppCompatActivity{
             try {
                 chosenImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedTarget);
                 BitmapCollection.getInstance().latch(false);
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 System.out.println("no file specified");
             }
         }
@@ -152,7 +149,7 @@ public class TileSettingsActivity extends AppCompatActivity{
     /**
      * switch to Game activity
      */
-    private void switchToGame(){
+    private void switchToGame() {
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
     }

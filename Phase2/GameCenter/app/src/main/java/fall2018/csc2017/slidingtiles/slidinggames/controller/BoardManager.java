@@ -40,6 +40,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
 
     /**
      * Manage a board that has been pre-populated.
+     *
      * @param board the board
      */
     public BoardManager(Board board) {
@@ -63,15 +64,15 @@ public class BoardManager extends BasicBoardManager implements Serializable {
         final int numTiles = numRows * numCols;
         TileFactory tileFactory = new TileFactory();
         for (int tileNum = 0; tileNum != numTiles; tileNum++) {
-            if(!BitmapCollection.getInstance().isLocked()) {
+            if (!BitmapCollection.getInstance().isLocked()) {
                 tiles.add((ImageTile) tileFactory.createTile(tileNum, numRows, numCols, "imageTile"));
-            } else{
+            } else {
                 tiles.add((Tile) tileFactory.createTile(tileNum, numRows, numCols, "StTile"));
             }
         }
         do {
             Collections.shuffle(tiles);
-        }while(!isValidShuffle(tiles, numCols, numRows));
+        } while (!isValidShuffle(tiles, numCols, numRows));
 
         this.board = new Board(numRows, numCols, tiles);
         this.complexity = numCols;
@@ -81,17 +82,18 @@ public class BoardManager extends BasicBoardManager implements Serializable {
 
     /**
      * Get the number of inversions in tiles
-     * @param tiles the tiles for the board
+     *
+     * @param tiles   the tiles for the board
      * @param blankId the Id of the blank tile
      * @return the number of inversions in tiles
      */
-    private int getNumOfInversions(List<Tile> tiles, int blankId){
-        if(tiles.isEmpty())
+    private int getNumOfInversions(List<Tile> tiles, int blankId) {
+        if (tiles.isEmpty())
             return 0;
         int size = tiles.size();
         int count = 0;
-        for(int i = 0; i < size; i++) {
-            if(tiles.get(i).getId() == blankId)
+        for (int i = 0; i < size; i++) {
+            if (tiles.get(i).getId() == blankId)
                 continue;
             for (int j = i + 1; j < size; j++) {
                 if (tiles.get(i).getId() > tiles.get(j).getId()
@@ -103,26 +105,24 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     /**
-     *
-     * @param tiles the tiles of the board
+     * @param tiles          the tiles of the board
      * @param boardNumOfCols the number of columns of the board
      * @param boardNumOfRows the number of rows of the board
      * @return if the board is solvable
      */
-    private boolean isValidShuffle(List<Tile> tiles, int boardNumOfCols, int boardNumOfRows){
+    private boolean isValidShuffle(List<Tile> tiles, int boardNumOfCols, int boardNumOfRows) {
         int i;
         int row;
         int blankId = boardNumOfCols * boardNumOfRows;
-        if(boardNumOfCols % 2 == 0){
-            for(i = 0; i < tiles.size(); i++)
-                if(tiles.get(i).getId() == blankId)
+        if (boardNumOfCols % 2 == 0) {
+            for (i = 0; i < tiles.size(); i++)
+                if (tiles.get(i).getId() == blankId)
                     break;
             row = i / boardNumOfCols + 1;
             if (row % 2 == 0 && getNumOfInversions(tiles, blankId) % 2 == 0)
                 return true;
             return row % 2 != 0 && getNumOfInversions(tiles, blankId) % 2 != 0;
-        }
-        else{
+        } else {
             return getNumOfInversions(tiles, blankId) % 2 == 0;
         }
     }
@@ -139,7 +139,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
         // judge by id
         int currentCorrectId = 1;
 
-        for (Tile t: board) {
+        for (Tile t : board) {
             if (t.getId() != currentCorrectId) {
                 solved = false;
             }
@@ -184,11 +184,11 @@ public class BoardManager extends BasicBoardManager implements Serializable {
         int blankId = board.numTiles();
 
         // tiles is the blank tile, swap by calling Board's swap method.
-        int[][] pos = new int[][]{new int[]{row-1, col}, new int[]{row + 1,col},
-                new int[]{row, col-1}, new int[]{row, col + 1}};
+        int[][] pos = new int[][]{new int[]{row - 1, col}, new int[]{row + 1, col},
+                new int[]{row, col - 1}, new int[]{row, col + 1}};
 
-        for (int[] dir: pos) {
-            if (    isValidPos(dir) &&
+        for (int[] dir : pos) {
+            if (isValidPos(dir) &&
                     board.getTile(dir[0], dir[1]).getId() == blankId) {
                 board.swapTiles(dir[0], dir[1], row, col);
                 return dir;
@@ -207,7 +207,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     private boolean isValidPos(int[] pos) {
 
         int row = pos[0], col = pos[1];
-        return  row >= 0 &&
+        return row >= 0 &&
                 row < boardNumOfRows &&
                 col >= 0 &&
                 col < boardNumOfCols;
@@ -217,13 +217,15 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     /**
      * add one step(score)
      */
-    public void addScore(){ this.score++; }
+    public void addScore() {
+        this.score++;
+    }
 
     @Override
     /**
      * minus one step(score)
      */
-    public void minusScore(){
+    public void minusScore() {
         this.score--;
     }
 
@@ -233,7 +235,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
      *
      * @return current number of steps
      */
-    public int getScore(){
+    public int getScore() {
         return score;
     }
 
@@ -243,7 +245,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
      *
      * @return complexity complexity of current game manipulated by this board manager
      */
-    public int getComplexity(){
+    public int getComplexity() {
         return complexity;
     }
 
@@ -273,8 +275,8 @@ public class BoardManager extends BasicBoardManager implements Serializable {
      *
      * @return corresponding index of current game being played
      */
-    public int getGameIndex(){
-        return complexity-3;
+    public int getGameIndex() {
+        return complexity - 3;
     }
 
 }

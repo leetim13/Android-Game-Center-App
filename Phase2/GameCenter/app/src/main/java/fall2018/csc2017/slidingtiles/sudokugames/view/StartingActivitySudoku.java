@@ -32,7 +32,7 @@ public class StartingActivitySudoku extends BasicStartingActivity {
     }
 
     @Override
-    public void switchToScoreboard(){
+    public void switchToScoreboard() {
         Intent tmp = new Intent(this, ScoreBoardActivitySK.class);
         startActivity(tmp);
     }

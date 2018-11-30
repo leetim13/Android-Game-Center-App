@@ -87,9 +87,10 @@ public class GestureDetectGridView extends GridView {
 
         return super.onInterceptTouchEvent(ev);
     }
+
     /*
-    * set the controller for the grid view
-    * */
+     * set the controller for the grid view
+     * */
     public void setController(MovementController controller) {
         mController = controller;
     }
@@ -103,14 +104,15 @@ public class GestureDetectGridView extends GridView {
         mController.setBoardManager(boardManager);
     }
 
-    public Integer getUndoPop(){
+    public Integer getUndoPop() {
         return (Integer) mController.stateStack.pop();
     }
 
-    public BoardTF getUndoPopTf(){
-        return (BoardTF) mController.stateStack.pop();}
+    public BoardTF getUndoPopTf() {
+        return (BoardTF) mController.stateStack.pop();
+    }
 
-    public boolean stackIsEmpty(){
+    public boolean stackIsEmpty() {
         return mController.stateStack.isEmpty();
     }
 }

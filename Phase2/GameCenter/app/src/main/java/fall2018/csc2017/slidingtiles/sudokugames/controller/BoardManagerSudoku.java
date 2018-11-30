@@ -37,9 +37,10 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
 
     /**
      * Constructor of BoardManagerTF
+     *
      * @param lengthOfSide The length of the side of the board
      */
-    public BoardManagerSudoku(int lengthOfSide){
+    public BoardManagerSudoku(int lengthOfSide) {
         this.boardNumOfCols = this.boardNumOfRows = lengthOfSide;
         this.boardSudoku = new BoardSudoku(lengthOfSide);
         sudokuTiles = boardSudoku.getSudokuTiles();
@@ -47,14 +48,16 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
     }
 
     @Override
-    public BoardSudoku getBoard(){ return boardSudoku; }
+    public BoardSudoku getBoard() {
+        return boardSudoku;
+    }
 
     @Override
-    public boolean hasWon(){
+    public boolean hasWon() {
         boolean win = true;
-        for(int i = 0; i < boardNumOfRows; i++)
-            for(int j = 0; j < boardNumOfCols; j++)
-                if(sudokuTiles[i][j].getId() != completeTiles[i][j].getId()){
+        for (int i = 0; i < boardNumOfRows; i++)
+            for (int j = 0; j < boardNumOfCols; j++)
+                if (sudokuTiles[i][j].getId() != completeTiles[i][j].getId()) {
                     win = false;
                     break;
                 }
@@ -63,14 +66,15 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
 
     /**
      * Check if the board after inputting from the user is valid
+     *
      * @return whether the board if valid after the user inputs numbers
      */
-    public boolean checkBoardValidation(){
+    public boolean checkBoardValidation() {
         boolean valid = true;
-        for(int i = 0; i < boardNumOfRows; i++)
-            for(int j = 0; j < boardNumOfCols; j++)
-                if(sudokuTiles[i][j].getId() != 0 &&
-                        sudokuTiles[i][j].getId() != completeTiles[i][j].getId()){
+        for (int i = 0; i < boardNumOfRows; i++)
+            for (int j = 0; j < boardNumOfCols; j++)
+                if (sudokuTiles[i][j].getId() != 0 &&
+                        sudokuTiles[i][j].getId() != completeTiles[i][j].getId()) {
                     valid = false;
                     break;
                 }
@@ -79,10 +83,11 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
 
     /**
      * Add or change the values of a tile
-     * @param newId New id the user wants to give the tile
+     *
+     * @param newId    New id the user wants to give the tile
      * @param position The postion of the tile
      */
-    public void updateSudokuTiles(int newId, int position){
+    public void updateSudokuTiles(int newId, int position) {
 
         int row = position / boardNumOfRows;
         int col = position % boardNumOfCols;
@@ -100,19 +105,29 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
     }
 
     @Override
-    public void addScore(){ this.score++; }
+    public void addScore() {
+        this.score++;
+    }
 
     @Override
-    public void minusScore(){ this.score--; }
+    public void minusScore() {
+        this.score--;
+    }
 
     @Override
-    public int getScore(){ return this.score; }
+    public int getScore() {
+        return this.score;
+    }
 
     @Override
-    public int getBoardNumOfRows(){ return this.boardNumOfRows; }
+    public int getBoardNumOfRows() {
+        return this.boardNumOfRows;
+    }
 
     @Override
-    public int getBoardNumOfCols(){ return this.boardNumOfCols; }
+    public int getBoardNumOfCols() {
+        return this.boardNumOfCols;
+    }
 
     @Override
     public int getComplexity() {
@@ -127,5 +142,7 @@ public class BoardManagerSudoku extends BasicBoardManager implements Serializabl
     /**
      * Make sudokuTiles equal to completeTiles (Used for testing)
      */
-    public void setSudokuTiles(){ sudokuTiles = completeTiles; }
+    public void setSudokuTiles() {
+        sudokuTiles = completeTiles;
+    }
 }

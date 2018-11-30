@@ -11,8 +11,8 @@ import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 
 /**
-router class for user and file reflections.
-* */
+ * router class for user and file reflections.
+ */
 public class UserRouter {
 
     /**
@@ -47,7 +47,7 @@ public class UserRouter {
     /**
      * User Map
      */
-    private HashMap <String, String[]> userMap;
+    private HashMap<String, String[]> userMap;
 
     /**
      * the context
@@ -70,17 +70,19 @@ public class UserRouter {
 
     /**
      * the constructor for test use
+     *
      * @param userMap: the user map passed in
      */
-    public UserRouter(HashMap<String, String[]> userMap){
+    public UserRouter(HashMap<String, String[]> userMap) {
         this.userMap = userMap;
     }
 
     /**
      * the basic verification
      * set to public for test use
+     *
      * @param user: the user being examined
-    */
+     */
     public boolean verifyUser(User user) {
 
         if (userMap == null) {
@@ -93,11 +95,12 @@ public class UserRouter {
 
         return false;
     }
+
     /**
-     * @param  user: the user that is being verified
-     * @param  store: whether to store this user when verification succeeds
+     * @param user:  the user that is being verified
+     * @param store: whether to store this user when verification succeeds
      * @return whether the user has passed the verification
-    */
+     */
     public boolean verifyUser(User user, boolean store) {
 
         boolean result = verifyUser(user);

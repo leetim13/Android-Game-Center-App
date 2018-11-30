@@ -9,6 +9,14 @@ import fall2018.csc2017.slidingtiles.controller.StorageIndexer;
  * abstract class for defining the score model
  */
 public abstract class GameScore implements Serializable {
-    public abstract Map<String, int[]> data(); // return the raw data
-    protected StorageIndexer indexer = new StorageIndexer(); // the indexer to help identify games
+
+    /**
+     * return the raw data.
+     */
+    public abstract Map<String, int[]> data();
+
+    /**
+     * the indexer to help identify games
+     */
+    protected StorageIndexer indexer = new StorageIndexer();
 }

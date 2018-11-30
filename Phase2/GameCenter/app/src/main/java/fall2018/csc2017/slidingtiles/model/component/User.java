@@ -7,10 +7,10 @@ HashMap0 Structure
         - index 1: String GameName
 */
 /*
-* the user instance
-* +username: the name of the user
-* +password: the password of this user
-* */
+ * the user instance
+ * +username: the name of the user
+ * +password: the password of this user
+ * */
 package fall2018.csc2017.slidingtiles.model.component;
 
 public class User {

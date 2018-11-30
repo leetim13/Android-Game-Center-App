@@ -5,13 +5,13 @@ import fall2018.csc2017.slidingtiles.model.component.BasicTile;
 
 public class SudokuTile extends BasicTile {
 
-    public SudokuTile(int id){
+    public SudokuTile(int id) {
         this.id = id;
         assignBackground(id);
     }
 
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -19,9 +19,11 @@ public class SudokuTile extends BasicTile {
     public int getId() {
         return this.id;
     }
+
     private boolean isGenerated = false;
 
     private int background;
+
     /**
      * Return the background id.
      *
@@ -34,8 +36,8 @@ public class SudokuTile extends BasicTile {
     }
 
     /*
-    * set the tile to solid tile
-    * */
+     * set the tile to solid tile
+     * */
     void setTrait() {
         this.isGenerated = true;
     }
@@ -44,7 +46,7 @@ public class SudokuTile extends BasicTile {
         return this.isGenerated;
     }
 
-    private void assignBackground (int id) {
+    private void assignBackground(int id) {
         switch (id) {
             case 1:
                 background = (generated()) ? R.drawable.ngtf1 : R.drawable.tf1;

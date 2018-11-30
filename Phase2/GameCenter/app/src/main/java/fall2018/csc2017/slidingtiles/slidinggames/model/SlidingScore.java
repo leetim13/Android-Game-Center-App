@@ -8,6 +8,7 @@ import java.util.Map;
 import fall2018.csc2017.slidingtiles.controller.StorageIndexer;
 import fall2018.csc2017.slidingtiles.helper.IOHelper;
 import fall2018.csc2017.slidingtiles.model.GameScore;
+
 /**
  * the model for the data in sliding tile score
  */

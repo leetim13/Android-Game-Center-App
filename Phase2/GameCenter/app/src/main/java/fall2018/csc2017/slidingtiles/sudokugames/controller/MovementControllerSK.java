@@ -1,8 +1,9 @@
 package fall2018.csc2017.slidingtiles.sudokugames.controller;
 /*
-* controller for joining view with controller part, observe every part of the current movement of games
-* and help do the corresponding reaction
-* */
+ * controller for joining view with controller part, observe every part of the current movement of games
+ * and help do the corresponding reaction
+ * */
+
 import android.content.Context;
 import android.content.Intent;
 
@@ -19,7 +20,7 @@ public class MovementControllerSK extends MovementController {
     private int selectedPos = 0;
     private boolean isSelected = false;
 
-    public MovementControllerSK (BoardManagerSudoku manager) {
+    public MovementControllerSK(BoardManagerSudoku manager) {
         this.boardManagerSK = manager;
     }
 
@@ -29,7 +30,7 @@ public class MovementControllerSK extends MovementController {
     }
 
     @Override
-    public void processTapMovement(Context context, int position){
+    public void processTapMovement(Context context, int position) {
         System.out.println("haha, I am here!");
         if (boardManagerSK.isValidTap(position)) {
 
@@ -49,6 +50,7 @@ public class MovementControllerSK extends MovementController {
 
         System.out.println("current position is: " + position);
     }
+
     /**
      * to load the position of the selected target
      */
@@ -78,7 +80,7 @@ public class MovementControllerSK extends MovementController {
     }
 
     /**
-     *revert the current selected state of the activity
+     * revert the current selected state of the activity
      */
     public void changeSelect() {
         isSelected = !isSelected;

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
+
 import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.MovementController;
 import fall2018.csc2017.slidingtiles.helper.SaveScore;
@@ -31,7 +32,7 @@ public class MovementControllerTF extends MovementController {
     /**
      * The new MovementControllerTF
      */
-    public MovementControllerTF(){
+    public MovementControllerTF() {
         super.stateStack = new ArrayStack<BoardTF>(20000);
     }
 
@@ -51,20 +52,20 @@ public class MovementControllerTF extends MovementController {
      * @param position the background number of current tile to be clicked on.
      */
     @SuppressWarnings("unchecked")
-    public void processTapMovement(Context context, int direction){
+    public void processTapMovement(Context context, int direction) {
         BoardTF boardCopy = getBoardTFCopy(boardManagerTF);
         stateStack.push(boardCopy);
         boardManagerTF.touchMove(direction);
         System.out.println("touch moved!");
         boardManagerTF.addScore();
-        if(boardManagerTF.hasWon()){
+        if (boardManagerTF.hasWon()) {
             Toast.makeText(context, "You win!", Toast.LENGTH_SHORT).show();
             saveScore.saveScoreIntoMap(context, boardManagerTF.getGameIndex(), boardManagerTF.getScore());
             ((Activity) context).finish();
             Intent intent = new Intent(context, FinalScoreTFActivity.class);
             context.startActivity(intent);
         }
-        if(boardManagerTF.hasLost()){
+        if (boardManagerTF.hasLost()) {
             Toast.makeText(context, "Game over", Toast.LENGTH_SHORT).show();
             ((Activity) context).finish();
             Intent intent = new Intent(context, YouLoseTFActivity.class);
@@ -79,7 +80,7 @@ public class MovementControllerTF extends MovementController {
      * @param boardManagerTF the boardManager with boardTF to be copied.
      * @return boardTF the deep copied boardTF.
      */
-    private BoardTF getBoardTFCopy(BoardManagerTF boardManagerTF){
+    private BoardTF getBoardTFCopy(BoardManagerTF boardManagerTF) {
         TfTile[][] newTiles = boardManagerTF.getBoard().getTilesCopy();
         return new BoardTF(4, newTiles);
     }

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import fall2018.csc2017.slidingtiles.GameCenterActivity;
 import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
+
 /**
  * Excluded from tests because it's a view class.
  * Losing Activity for 2048, to which the user would be led to after lose the game.
@@ -37,6 +38,7 @@ public class YouLoseTFActivity extends AppCompatActivity {
             }
         });
     }
+
     public void switchToGameCenter() {
         Intent tmp = new Intent(this, GameCenterActivity.class);
         startActivity(tmp);

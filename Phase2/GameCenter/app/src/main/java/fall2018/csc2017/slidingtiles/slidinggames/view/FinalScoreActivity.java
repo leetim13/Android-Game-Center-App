@@ -18,7 +18,7 @@ public class FinalScoreActivity extends BasicFinalScoreActivity {
     }
 
     /**
-     *set the boardManager
+     * set the boardManager
      */
     @Override
     public void setBM() {

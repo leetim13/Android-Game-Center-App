@@ -11,8 +11,8 @@ public interface ScoreDisplayable {
 
     /**
      * @param viewList the view to display
-     * @param system the current score board system
-     * @param index: the index of the current model for the scoreboard
+     * @param system   the current score board system
+     * @param index:   the index of the current model for the scoreboard
      */
     void displayScore(TextView[] viewList, ScoreBoardSystem system, int index);
 

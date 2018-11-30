@@ -15,6 +15,7 @@ import fall2018.csc2017.slidingtiles.model.component.User;
  * */
 public class SudokuScore extends GameScore {
     private Map<String, int[]> data;
+
     @SuppressWarnings("unchecked")
     public SudokuScore(Context ctx) {
         String filePath = indexer.index(User.SD_GAME_INDEX, StorageIndexer.SCORE);

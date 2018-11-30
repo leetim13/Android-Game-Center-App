@@ -37,7 +37,7 @@ public class FinalScoreSKActivity extends BasicFinalScoreActivity {
     /*
      * Switch to the ScoreBoardActivity Activity view to see global scoreboard.
      */
-    public void switchToScoreboard(){
+    public void switchToScoreboard() {
         Intent tmp = new Intent(this, ScoreBoardActivitySK.class);
         startActivity(tmp);
     }

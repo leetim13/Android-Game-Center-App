@@ -5,6 +5,7 @@ import android.view.View;
 
 import fall2018.csc2017.slidingtiles.BasicScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.R;
+
 import android.widget.Button;
 
 
@@ -41,9 +42,9 @@ public class ScoreBoardActivity extends BasicScoreBoardActivity {
     public void renderBoard() {
 
         SlidingScore[] scoreModels = new SlidingScore[]{new SlidingScore(User.ST_GAME_INDEX_3, this),
-                                           new SlidingScore(User.ST_GAME_INDEX_4, this),
-                                           new SlidingScore(User.ST_GAME_INDEX_5, this),
-                                            }; // index0: 33, index1: 44, index2: 55
+                new SlidingScore(User.ST_GAME_INDEX_4, this),
+                new SlidingScore(User.ST_GAME_INDEX_5, this),
+        }; // index0: 33, index1: 44, index2: 55
         ScoreBoardSystem boardSystem = new ScoreBoardSystem(scoreModels);
         Button[] viewList1 = getViewList(renderList1);
         Button[] viewList2 = getViewList(renderList2);

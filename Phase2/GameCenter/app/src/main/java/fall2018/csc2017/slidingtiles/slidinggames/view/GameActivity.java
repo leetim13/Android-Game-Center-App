@@ -10,6 +10,7 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -108,11 +109,11 @@ public class GameActivity extends AppCompatActivity implements Observer {
         for (int row = 0; row != boardManager.getBoardNumOfRows(); row++) {
             for (int col = 0; col != boardManager.getBoardNumOfCols(); col++) {
                 Button tmp = new Button(context);
-                if(!BitmapCollection.getInstance().isLocked()) {
+                if (!BitmapCollection.getInstance().isLocked()) {
                     Drawable drawable = new BitmapDrawable(tmp.getResources(),
                             ((ImageTile) board.getTile(row, col)).getBack());
                     tmp.setBackground(drawable);
-                } else{
+                } else {
                     tmp.setBackgroundResource(board.getTile(row, col).getBackground());
                 }
                 this.tileButtons.add(tmp);
@@ -129,11 +130,11 @@ public class GameActivity extends AppCompatActivity implements Observer {
         for (Button b : tileButtons) {
             int row = nextPos / boardManager.getBoardNumOfRows();
             int col = nextPos % boardManager.getBoardNumOfCols();
-            if(!BitmapCollection.getInstance().isLocked()) {
+            if (!BitmapCollection.getInstance().isLocked()) {
                 Drawable drawable = new BitmapDrawable(b.getResources(),
                         ((ImageTile) board.getTile(row, col)).getBack());
                 b.setBackground(drawable);
-            } else{
+            } else {
                 b.setBackgroundResource(board.getTile(row, col).getBackground());
             }
             nextPos++;
@@ -151,16 +152,16 @@ public class GameActivity extends AppCompatActivity implements Observer {
     /**
      * Activate the undo button.
      */
-    private void addUndoButtonListener(){
+    private void addUndoButtonListener() {
         final ImageView undo = findViewById(R.id.imageView2);
         undo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(gridView.stackIsEmpty()) {
+                if (gridView.stackIsEmpty()) {
                     cannotUndoText();
                     return;
                 }
-                if(maxUndoSteps > 0) {
+                if (maxUndoSteps > 0) {
                     int position = gridView.getUndoPop();
                     boardManager.touchMove(position);
                     GameCacheSystem sys = GameCacheSystem.getInstance();
@@ -177,14 +178,14 @@ public class GameActivity extends AppCompatActivity implements Observer {
     /**
      * Display error message as toast when no steps are made, but undo is clicked.
      */
-    private void cannotUndoText(){
+    private void cannotUndoText() {
         Toast.makeText(this, "You should make a move first!", Toast.LENGTH_SHORT).show();
     }
 
     /**
      * Display remaining undo steps as toast.
      */
-    private void remainedUndoText(){
+    private void remainedUndoText() {
         Toast.makeText(this, "Remained undo steps: " + maxUndoSteps, Toast.LENGTH_SHORT).show();
     }
 

@@ -22,10 +22,11 @@ public abstract class MovementController {
     public abstract void setBoardManager(BasicBoardManager boardManager);
 
     /**
-      * An abstract method to be implemented that process a given "tap"/move
-      * @param context context of the current game
-      * @param position a position on the board
-      */
+     * An abstract method to be implemented that process a given "tap"/move
+     *
+     * @param context  context of the current game
+     * @param position a position on the board
+     */
     public abstract void processTapMovement(Context context, int position);
 
 }

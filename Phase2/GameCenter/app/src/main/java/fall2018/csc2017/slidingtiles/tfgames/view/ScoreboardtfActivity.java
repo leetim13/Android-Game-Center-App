@@ -1,9 +1,12 @@
 package fall2018.csc2017.slidingtiles.tfgames.view;
 
 import android.os.Bundle;
+
 import fall2018.csc2017.slidingtiles.BasicScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.R;
+
 import android.widget.Button;
+
 import fall2018.csc2017.slidingtiles.controller.system.ScoreBoardSystem;
 import fall2018.csc2017.slidingtiles.tfgames.model.TfScore;
 

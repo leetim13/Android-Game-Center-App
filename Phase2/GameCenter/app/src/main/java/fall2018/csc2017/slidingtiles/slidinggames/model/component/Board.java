@@ -49,16 +49,19 @@ public class Board extends BasicBoard implements Iterable<Tile> {
 
     @NonNull
     @Override
-    public TileIterator iterator() { return new TileIterator();
+    public TileIterator iterator() {
+        return new TileIterator();
     }
+
     /**
      * Return the number of tiles on the board.
+     *
      * @return the number of tiles on the board
      */
     public int numTiles() {
         int sum = 0;
 
-        for (Tile[] row:this.tiles) {
+        for (Tile[] row : this.tiles) {
             sum += row.length;
         }
 
@@ -104,17 +107,17 @@ public class Board extends BasicBoard implements Iterable<Tile> {
     }
 
     /**
-     *the nested iterator class, used to iterate over the tiles
+     * the nested iterator class, used to iterate over the tiles
      */
-    private class TileIterator implements Iterator<Tile>{
+    private class TileIterator implements Iterator<Tile> {
 
         /**
-         *the index of the certain tile in one row of tiles
+         * the index of the certain tile in one row of tiles
          */
         private int colIndex = 0;
 
         /**
-         *the index of the certain row in tiles
+         * the index of the certain row in tiles
          */
         private int rowIndex = 0;
 
@@ -152,7 +155,7 @@ public class Board extends BasicBoard implements Iterable<Tile> {
     public int getNumRows() {
         return numRows;
     }
-    
+
     @Override
     public int getNumCols() {
         return numCols;

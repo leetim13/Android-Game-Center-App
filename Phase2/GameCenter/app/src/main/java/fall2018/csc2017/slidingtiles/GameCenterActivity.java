@@ -16,6 +16,7 @@ import fall2018.csc2017.slidingtiles.tfgames.view.StartingActivityTF;
 
 /**
  * The game activity.
+ *
  * @author Timothy Lee
  */
 public class GameCenterActivity extends AppCompatActivity {
@@ -30,6 +31,7 @@ public class GameCenterActivity extends AppCompatActivity {
         addSudokuGameListener();
         GameCacheSystem.getInstance().load_index(this);
     }
+
     /**
      * Activate the Sliding Tiles game image button.
      */
@@ -42,6 +44,7 @@ public class GameCenterActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Activate the Sudoku game image button.
      */
@@ -54,6 +57,7 @@ public class GameCenterActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Activate the 2048 game image button.
      */
@@ -66,6 +70,7 @@ public class GameCenterActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Activate the my profile button.
      */
@@ -78,6 +83,7 @@ public class GameCenterActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Switch to Starting Activity of Tiles game.
      */
@@ -88,6 +94,7 @@ public class GameCenterActivity extends AppCompatActivity {
         Intent tmp = new Intent(this, StartingActivity.class);
         startActivity(tmp);
     }
+
     /**
      * Switch to Starting Activity of 2048 game.
      */
@@ -98,6 +105,7 @@ public class GameCenterActivity extends AppCompatActivity {
         Intent tmp = new Intent(this, StartingActivityTF.class);
         startActivity(tmp);
     }
+
     /**
      * Switch to Starting Activity of Sudoku game.
      */

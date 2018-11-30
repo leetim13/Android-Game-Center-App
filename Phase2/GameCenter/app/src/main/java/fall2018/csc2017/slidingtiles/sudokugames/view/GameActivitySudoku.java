@@ -27,7 +27,7 @@ import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
  * Excluded from tests because it's a view class.
  * The game activity of sudoku game.
  */
-public class GameActivitySudoku extends AppCompatActivity implements Observer{
+public class GameActivitySudoku extends AppCompatActivity implements Observer {
 
     /**
      * The board manager.
@@ -38,7 +38,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
     /**
      * The buttons to display.
      */
-    private List <Button> tileButtons;
+    private List<Button> tileButtons;
     private int[] buttonList = {R.id.s1, R.id.s2, R.id.s3, R.id.s4, R.id.s5, R.id.s6, R.id.s7, R.id.s8, R.id.s9};
     private MovementControllerSK controllerSK; // control part into controller
 
@@ -134,9 +134,10 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
         system.update(user.getName(), boardManager);
         system.save(boardManager.getGameIndex(), this);
     }
+
     /*
-    * check whether the user has won the saduko game
-    * */
+     * check whether the user has won the saduko game
+     * */
     private void addCheckListener() {
         Button bt = findViewById(R.id.check_button);
         final TextView notWin = findViewById(R.id.warningTextSK);
@@ -144,19 +145,19 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
             @Override
             public void onClick(View v) {
                 if (!boardManager.checkBoardValidation()) {
-                    ActivityHelper.disableButton(v,  notWin, "you're not on the right track");
+                    ActivityHelper.disableButton(v, notWin, "you're not on the right track");
                 } else {
-                    ActivityHelper.disableButton(v,  notWin, "you're on the right track");
+                    ActivityHelper.disableButton(v, notWin, "you're on the right track");
                 }
             }
         });
     }
 
     /**
-     *  add the listener for buttons handling the number sets
+     * add the listener for buttons handling the number sets
      */
     private void addSelectionListener() {
-        for (int id:buttonList) {
+        for (int id : buttonList) {
             Button button = findViewById(id);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -167,9 +168,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
                         System.out.println("loading value:..." + value);
                         controllerSK.loadVal(getApplicationContext(), value);
                         controllerSK.changeSelect();
-                    }
-
-                    else {
+                    } else {
                         TextView warnText = findViewById(R.id.warningTextSK);
                         ActivityHelper.disableButton(v, warnText, SELECT_FIRST_WARNNING);
                     }

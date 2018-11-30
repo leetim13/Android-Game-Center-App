@@ -12,7 +12,7 @@ import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
  * the functional class, save the score of current completed sliding tile game into correspoding
  * hashMap.
  */
-public class SaveScore{
+public class SaveScore {
 
     /**
      * load the indexer
@@ -34,22 +34,22 @@ public class SaveScore{
      * @param context the context.
      */
     @SuppressWarnings("unchecked")
-    public void saveScoreIntoMap(Context context, int gameIndex, int score){
+    public void saveScoreIntoMap(Context context, int gameIndex, int score) {
         String mapName = indexer.index(gameIndex, StorageIndexer.SCORE);
-        try{
+        try {
             HashMap<String, int[]> map = IOHelper.readAndroidMap(mapName, context);
             int[] newScores;
-            if(map == null){
+            if (map == null) {
                 map = new HashMap<String, int[]>();
                 newScores = changeScore(map, new int[1], score);
-            }else{
+            } else {
                 int[] scores = map.get(UserPanel.getInstance().getName());
                 newScores = changeScore(map, scores, score);
             }
             writeInMapHelper(map, newScores, context, gameIndex);
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("byebye");
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println("File Stream Problem ");
         }
     }
@@ -57,12 +57,10 @@ public class SaveScore{
     /**
      * To make proper change in the user's score record.
      *
-     * @param map the hashMap of the complexity for current game.
+     * @param map    the hashMap of the complexity for current game.
      * @param scores the original score records this user has.
-     * @param score the score user got this time.
-     *
+     * @param score  the score user got this time.
      * @return the new score records including the newest score user got.
-     *
      */
     private int[] changeScore(HashMap map, int[] scores, int score) {
         int[] newScores;
@@ -81,12 +79,11 @@ public class SaveScore{
     /**
      * To make proper change in the user's score record.
      *
-     * @param map the hashMap of the complexity for current game.
+     * @param map      the hashMap of the complexity for current game.
      * @param newScore the new score records including the newest score user got.
-     * @param context the context.
-     *
+     * @param context  the context.
      */
-    private void writeInMapHelper(HashMap<String, int[]> map, int[] newScore, Context context, int gameIndex) throws IOException{
+    private void writeInMapHelper(HashMap<String, int[]> map, int[] newScore, Context context, int gameIndex) throws IOException {
         String mapName = indexer.index(gameIndex, StorageIndexer.SCORE);
         map.put(UserPanel.getInstance().getName(), newScore);
         IOHelper.writeAndroidMap(map, mapName, context);

@@ -12,7 +12,7 @@ import fall2018.csc2017.slidingtiles.model.component.BasicBoard;
 /**
  * The board of game twenty forty-eight
  */
-public class BoardTF extends BasicBoard implements Iterable<TfTile>{
+public class BoardTF extends BasicBoard implements Iterable<TfTile> {
     /**
      * The length of side of the board
      */
@@ -46,10 +46,11 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
 
     /**
      * Constructor of the board
+     *
      * @param lengthOfSide the length of the side of the board
-     * @param tfTiles tiles planing to put in the board
+     * @param tfTiles      tiles planing to put in the board
      */
-    public BoardTF(int lengthOfSide, List<TfTile> tfTiles){
+    public BoardTF(int lengthOfSide, List<TfTile> tfTiles) {
         this.numCols = this.numRows = lengthOfSide;
         this.tfTiles = new TfTile[numRows][numCols];
         Iterator<TfTile> iter = tfTiles.iterator();
@@ -63,28 +64,34 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
 
     /**
      * Another constructor of the board
+     *
      * @param lengthOfSide the length of the side of the board
-     * @param tfTiles tiles planing to put in the board, in final format
+     * @param tfTiles      tiles planing to put in the board, in final format
      */
-    public BoardTF(int lengthOfSide, TfTile[][] tfTiles){
+    public BoardTF(int lengthOfSide, TfTile[][] tfTiles) {
         this.numCols = this.numRows = lengthOfSide;
         this.tfTiles = new TfTile[numRows][numCols];
         this.tfTiles = tfTiles;
     }
 
     @Override
-    public TfTile getTile(int row, int col){
+    public TfTile getTile(int row, int col) {
         return tfTiles[row][col];
     }
 
     @Override
-    public int getNumCols(){ return this.numCols; }
+    public int getNumCols() {
+        return this.numCols;
+    }
 
     @Override
-    public int getNumRows(){ return this.numRows; }
+    public int getNumRows() {
+        return this.numRows;
+    }
 
     /**
      * Swap positions of tile1 at position (row1, col1) and tile2 at position (row2, col2)
+     *
      * @param row1 the row number of tile1
      * @param col1 the column number of tile1
      * @param row2 the row number of tile2
@@ -104,21 +111,27 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
 
     /**
      * Return the number of tiles
+     *
      * @return the number of tiles
      */
-    private int numTiles(){ return numCols * numRows; }
+    private int numTiles() {
+        return numCols * numRows;
+    }
 
     /**
      * The nested class defines an iterator of board by implementing Iterator<TfTile>.
      * Methods hasNext() and next() are implemented in this class.
      */
-    public class BoardIterator implements Iterator<TfTile>{
+    public class BoardIterator implements Iterator<TfTile> {
 
-        /** The index of the next Tile to return. */
+        /**
+         * The index of the next Tile to return.
+         */
         private int next = 0;
 
         /**
          * Return if there is a next Tile to return
+         *
          * @return if there is a next Tile to return
          */
         @Override
@@ -128,6 +141,7 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
 
         /**
          * Return the next Tile
+         *
          * @return the next Tile
          */
         @Override
@@ -144,20 +158,24 @@ public class BoardTF extends BasicBoard implements Iterable<TfTile>{
 
     /**
      * Return a iterator of the board
+     *
      * @return a iterator of the board
      */
     @Override
     @NonNull
-    public Iterator<TfTile> iterator() { return new BoardIterator(); }
+    public Iterator<TfTile> iterator() {
+        return new BoardIterator();
+    }
 
     /**
      * Return a copy of the tfTiles in this current TfBoard
+     *
      * @return a copy of the tfTiles in this current TfBoard
      */
-    public TfTile[][] getTilesCopy(){
+    public TfTile[][] getTilesCopy() {
         TfTile[][] copy = new TfTile[4][4];
-        for(int i = 0; i < 4; i ++){
-            for(int j = 0; j < 4; j++){
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
                 copy[i][j] = (TfTile) tileFactory.createTile(tfTiles[i][j].getId(), "TfTile");
             }
         }

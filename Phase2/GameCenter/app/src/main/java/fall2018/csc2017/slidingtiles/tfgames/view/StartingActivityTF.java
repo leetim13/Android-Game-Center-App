@@ -51,7 +51,7 @@ public class StartingActivityTF extends BasicStartingActivity {
      * Switch to the ScoreBoardActivity Activity view to see global scoreboard.
      */
     @Override
-    public void switchToScoreboard(){
+    public void switchToScoreboard() {
         Intent tmp = new Intent(this, ScoreboardtfActivity.class);
         startActivity(tmp);
     }

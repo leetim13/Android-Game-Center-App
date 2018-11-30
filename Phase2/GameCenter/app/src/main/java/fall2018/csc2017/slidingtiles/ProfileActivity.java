@@ -63,7 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     /**
      * display the content on the profile page
-    */
+     */
     private void display() {
         setConstant();
         GameCacheSystem sys = GameCacheSystem.getInstance();
@@ -71,7 +71,7 @@ public class ProfileActivity extends AppCompatActivity {
         BasicBoardManager game = sys.get(UserPanel.getInstance().getName());
         int prevIndex = GameCacheSystem.getInstance().prevGame();
         String prevGame = processPrexIndex(prevIndex, game);
-        String numMoves = (game != null) ? Integer.toString(game.getScore()): INVALID_TEXT;
+        String numMoves = (game != null) ? Integer.toString(game.getScore()) : INVALID_TEXT;
         String lastGameName = indexer.getName(prevIndex);
         displayContent(lastGamePlayed, lastGameName);
         displayContent(titleView, UserPanel.getInstance().getName());
@@ -91,7 +91,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     /**
      * set text for the content going to be displayed
-    */
+     */
     private void displayContent(TextView v, String text) {
         if (text != null) {
             v.setText(text);
@@ -135,8 +135,7 @@ public class ProfileActivity extends AppCompatActivity {
                 ImageView image = findViewById(R.id.avatar);
                 image.setImageResource(0);
                 image.setBackground(paint);
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 System.out.println("no file specified");
             }
         }

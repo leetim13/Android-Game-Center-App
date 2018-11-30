@@ -15,12 +15,16 @@ public class TfTile extends BasicTile {
 
     /**
      * Update the id of this tile
+     *
      * @param id new id
      */
-    public void setId(int id) {this.id = id; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
     /**
      * Return the id of this tile
+     *
      * @return the id of this tile
      */
     public int getId() {
@@ -47,7 +51,7 @@ public class TfTile extends BasicTile {
     /**
      * A Tile with id and background. The background may not have a corresponding image.
      *
-     * @param id         the id
+     * @param id the id
      */
     public TfTile(int id) {
         this.id = id;
