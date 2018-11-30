@@ -67,6 +67,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
         super.onCreate(savedInstanceState);
         GameCacheSystem sys = GameCacheSystem.getInstance();
         boardManager = (BoardManager) sys.get(UserPanel.getInstance().getName());
+        UserPanel.getInstance().play();
 
         createTileButtons(this);
         setContentView(R.layout.activity_main);

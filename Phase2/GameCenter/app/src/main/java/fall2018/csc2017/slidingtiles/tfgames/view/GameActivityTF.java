@@ -73,6 +73,7 @@ public class GameActivityTF extends AppCompatActivity implements Observer {
         maxUndoSteps = 10;
         boardManager = (BoardManagerTF) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
         movementControllerTF = new MovementControllerTF();
+        UserPanel.getInstance().play();
         if (boardManager == null) {
             boardManager = new BoardManagerTF(4);
         }

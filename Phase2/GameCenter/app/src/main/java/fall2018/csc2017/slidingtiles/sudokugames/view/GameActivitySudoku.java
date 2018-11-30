@@ -61,6 +61,7 @@ public class GameActivitySudoku extends AppCompatActivity implements Observer{
         super.onCreate(savedInstanceState);
 
         boardManager = (BoardManagerSudoku) GameCacheSystem.getInstance().get(UserPanel.getInstance().getName());
+        UserPanel.getInstance().play();
 
         if (boardManager == null) {
             boardManager = new BoardManagerSudoku(9);

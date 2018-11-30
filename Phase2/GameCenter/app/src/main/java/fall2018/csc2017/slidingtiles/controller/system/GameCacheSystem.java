@@ -149,11 +149,4 @@ public class GameCacheSystem {
 
         return -1;
     }
-
-    /*
-    * return whether the gamecache system has loaded the previous game
-    * */
-    public boolean isLoaded() {
-        return prevLoaded;
-    }
 }

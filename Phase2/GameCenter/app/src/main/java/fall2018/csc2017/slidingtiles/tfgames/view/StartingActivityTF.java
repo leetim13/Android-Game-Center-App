@@ -14,6 +14,7 @@ import fall2018.csc2017.slidingtiles.controller.UserRouter;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
 import fall2018.csc2017.slidingtiles.ProfileActivity;
 import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.model.component.User;
 import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.TileSettingsActivity;
