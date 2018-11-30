@@ -13,7 +13,9 @@ import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 import fall2018.csc2017.slidingtiles.helper.ActivityHelper;
-
+/**
+ * The Basic Starting activity for all three games.
+ */
 public class BasicStartingActivity extends AppCompatActivity {
 
     @Override

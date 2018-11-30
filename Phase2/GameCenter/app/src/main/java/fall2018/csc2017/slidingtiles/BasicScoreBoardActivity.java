@@ -13,7 +13,9 @@ import java.util.List;
 import fall2018.csc2017.slidingtiles.controller.system.ScoreBoardSystem;
 import fall2018.csc2017.slidingtiles.helper.SequenceBundlers;
 import fall2018.csc2017.slidingtiles.interfaces.ScoreDisplayable;
-
+/**
+ * The Basic Score Board activity for all three games.
+ */
 public class BasicScoreBoardActivity extends AppCompatActivity implements ScoreDisplayable {
 
     @Override
@@ -21,6 +23,9 @@ public class BasicScoreBoardActivity extends AppCompatActivity implements ScoreD
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Display score as TextView.
+     */
     public void displayScore(TextView[] renderList, ScoreBoardSystem system, int index) {
         List<SequenceBundlers> bd = system.displayScore(index);
 

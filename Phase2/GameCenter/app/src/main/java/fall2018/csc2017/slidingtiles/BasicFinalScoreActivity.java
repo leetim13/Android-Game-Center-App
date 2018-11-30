@@ -13,7 +13,9 @@ import fall2018.csc2017.slidingtiles.controller.BasicBoardManager;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.slidinggames.view.PersonalScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
-
+/**
+ * The Basic Final Score activity for all three games.
+ */
 public class BasicFinalScoreActivity extends AppCompatActivity {
 
     public BasicBoardManager currentBM; // current manager
@@ -29,12 +31,16 @@ public class BasicFinalScoreActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Set BoardManager.
+     */
     public void setBM() {
-
         System.out.println("current bm set!");
     } //
 
+    /**
+     * Set number of moves.
+     */
     public void setNum() {
         setBM(); // set the board manager here
         int numMoves = currentBM.getScore();

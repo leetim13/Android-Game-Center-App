@@ -16,7 +16,9 @@ import fall2018.csc2017.slidingtiles.slidinggames.view.ScoreBoardActivity;
 import fall2018.csc2017.slidingtiles.controller.system.GameCacheSystem;
 import fall2018.csc2017.slidingtiles.controller.system.UserPanel;
 import fall2018.csc2017.slidingtiles.tfgames.controller.BoardManagerTF;
-
+/**
+ * Final Score Activity for 2048.
+ */
 public class FinalScoreTFActivity extends BasicFinalScoreActivity {
 
     @Override
