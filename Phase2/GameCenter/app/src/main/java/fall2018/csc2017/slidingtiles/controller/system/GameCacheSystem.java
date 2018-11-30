@@ -64,6 +64,12 @@ public class GameCacheSystem {
             Log.e("login activity", "File contained unexpected data type: " + e.toString());
         }
     }
+    /*
+    * load the game of the current index
+    * */
+    public void loadGame(Context ctx) {
+        loadGame(currentIndex, ctx);
+    }
 
     public void update(String username, BasicBoardManager manager) {
         currentGame.put(username, manager);
@@ -142,5 +148,12 @@ public class GameCacheSystem {
         }
 
         return -1;
+    }
+
+    /*
+    * return whether the gamecache system has loaded the previous game
+    * */
+    public boolean isLoaded() {
+        return prevLoaded;
     }
 }

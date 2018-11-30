@@ -82,7 +82,11 @@ public class GameCenterActivity extends AppCompatActivity {
      */
     private void switchToPanel() {
         GameCacheSystem sys = GameCacheSystem.getInstance();
-        sys.loadGame(User.ST_GAME_INDEX_3, getApplicationContext());
+        if (!sys.isLoaded()) {
+            sys.loadGame(User.ST_GAME_INDEX_3, getApplicationContext());
+        } else {
+            sys.loadGame(getApplicationContext());
+        }
         sys.load_index(this);
         Intent tmp = new Intent(this, StartingActivity.class);
         startActivity(tmp);
