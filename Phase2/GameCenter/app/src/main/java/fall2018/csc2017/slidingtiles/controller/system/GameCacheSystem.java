@@ -19,8 +19,8 @@ this is a system to store and cache the game data when login process succeeds
   * help store and return the expected data
 * */
 public class GameCacheSystem {
-    private final static int NumOfUsers = 16;
-    private Map<String, BasicBoardManager> currentGame = new HashMap<>(NumOfUsers);
+    private final static int NumOfUsers = 16; // maximum number of users at the same time
+    private Map<String, BasicBoardManager> currentGame = new HashMap<>(NumOfUsers); // current game undergoing
     private Map<String, Integer> previousGame = new HashMap<>(NumOfUsers); // previous game map
     private static final GameCacheSystem ourInstance = new GameCacheSystem();
     private StorageIndexer indexer = new StorageIndexer();
