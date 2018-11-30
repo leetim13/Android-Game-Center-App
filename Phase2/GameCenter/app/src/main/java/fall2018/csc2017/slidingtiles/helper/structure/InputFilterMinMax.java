@@ -24,6 +24,12 @@ public class InputFilterMinMax implements InputFilter {
         this.max = Integer.parseInt(max);
     }
 
+    /**
+     * Filters the input data and verify if it's in desired range
+     * @param source source of CharSequence
+     * @param start starting int
+     * @param end ending int
+     */
     @Override
     public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
 
