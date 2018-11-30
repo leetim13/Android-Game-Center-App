@@ -1,5 +1,8 @@
 package fall2018.csc2017.slidingtiles.sudokugames.controller;
-
+/*
+* controller for joining view with controller part, observe every part of the current movement of games
+* and help do the corresponding reaction
+* */
 import android.content.Context;
 import android.content.Intent;
 
