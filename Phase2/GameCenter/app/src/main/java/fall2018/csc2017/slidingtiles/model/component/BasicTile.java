@@ -8,6 +8,7 @@ import java.io.Serializable;
 * abstract of the tiles, standard method
 * */
 public abstract class BasicTile implements Comparable <BasicTile>, Serializable {
+
     /**
      * The id of the BasicTile
      */

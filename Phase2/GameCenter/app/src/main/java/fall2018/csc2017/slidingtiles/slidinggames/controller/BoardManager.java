@@ -102,7 +102,6 @@ public class BoardManager extends BasicBoardManager implements Serializable {
         return count;
     }
 
-
     /**
      *
      * @param tiles the tiles of the board
@@ -129,7 +128,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /*
+    /**
      * Return whether the tiles are in row-major order.
      *
      * @return whether the tiles are in row-major order
@@ -215,21 +214,21 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /*
-     * add one step
+    /**
+     * add one step(score)
      */
     public void addScore(){ this.score++; }
 
     @Override
-    /*
-     * minus one step
+    /**
+     * minus one step(score)
      */
     public void minusScore(){
         this.score--;
     }
 
     @Override
-    /*
+    /**
      * return current number of steps
      *
      * @return current number of steps
@@ -239,7 +238,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /*
+    /**
      * return complexity of current game manipulated by this board manager
      *
      * @return complexity complexity of current game manipulated by this board manager
@@ -249,7 +248,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /*
+    /**
      * return number of columns in the current board.
      *
      * @return number of columns in the current board
@@ -259,7 +258,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /*
+    /**
      * return number of rows in the current board.
      *
      * @return number of rows in the current board
@@ -269,7 +268,7 @@ public class BoardManager extends BasicBoardManager implements Serializable {
     }
 
     @Override
-    /*
+    /**
      * return corresponding index of current game being played.
      *
      * @return corresponding index of current game being played

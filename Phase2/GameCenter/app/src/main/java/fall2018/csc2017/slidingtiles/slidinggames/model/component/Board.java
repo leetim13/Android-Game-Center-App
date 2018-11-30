@@ -103,26 +103,38 @@ public class Board extends BasicBoard implements Iterable<Tile> {
                 '}';
     }
 
-    /*
-    the nested iterator class, used to iterate over the tiles
-    * */
-
+    /**
+     *the nested iterator class, used to iterate over the tiles
+     */
     private class TileIterator implements Iterator<Tile>{
-        /*
-          the index of the certain tile in one row of tiles
-        */
+
+        /**
+         *the index of the certain tile in one row of tiles
+         */
         private int colIndex = 0;
-        /*
-        the index of the certain row in tiles
-        * */
+
+        /**
+         *the index of the certain row in tiles
+         */
         private int rowIndex = 0;
 
         @Override
+        /**
+         * return whether there is tile following the current tile (here means at right/below of
+         * current tile)
+         *
+         * @return whether there is tile following the current tile
+         */
         public boolean hasNext() {
             return rowIndex + 1 < tiles.length || (colIndex + 1 < tiles[rowIndex].length);
         }
 
         @Override
+        /**
+         * return next tile if there exists one.
+         *
+         * @return next tile if there exists one.
+         */
         public Tile next() {
 
             Tile[] curTile = tiles[rowIndex];

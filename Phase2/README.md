@@ -6,6 +6,10 @@
  and proceed to GameCenter folder, then open it. Run build on android studio, wait for a few minutes before the
  whole project is synced and built successfully. Then you can run this program via an emulator.
 
+ To set up unit test, please follow instruction in
+ https://stackoverflow.com/questions/44859301/how-to-set-up-mockito-to-mock-class-for-android-unit-test
+ !replace "test compile" in this website with "test implementation"
+
 ## Prerequisites ##
  This game is only designed to be run on Pixel 2 with API 27, as per the project setup instructions.
  Although, it is also possible for the game to be run on other specifications (such as a lower API
