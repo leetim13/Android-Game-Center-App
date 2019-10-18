@@ -1,4 +1,4 @@
- # CSC207 Group 0618 Team responsibilities/contributions#
+ # Team responsibilities/contributions#
 This is the TEAM.md file to log individual responsibilities/contributions to the project, and the
 mileStones in the whole process.
 
