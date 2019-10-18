@@ -1,6 +1,7 @@
 Game Center App
  =====================================================================================
- ##SetUp Instructions ##
+ ## SetUp Instructions ##
+ 
  In order to successfully set up our project, the user should first git clone into a certain directory,
  And then, open android studio, choose "open another project", select the folder, click into the group file,
  and proceed to GameCenter folder, then open it. Run build on android studio, wait for a few minutes before the
