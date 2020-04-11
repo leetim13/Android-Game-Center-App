@@ -2,10 +2,10 @@ Game Center App
  =====================================================================================
  ## SetUp Instructions ##
  
- In order to successfully set up our project, the user should first git clone into a certain directory,
+ In order to successfully set up our project (in dev mode), the user should first `git clone` into an empty directory,
  And then, open android studio, choose "open another project", select the folder, click into the group file,
  and proceed to GameCenter folder, then open it. Run build on android studio, wait for a few minutes before the
- whole project is synced and built successfully. Then you can run this program via an emulator.
+ whole project is synced and built successfully. Then you can run this program via an emulator. Note that the app can also be     downloaded as an `apk` file to be run in an Android device.
 
  To set up and run unit test related to mock, please follow instruction in
  https://developer.android.com/training/testing/unit-testing/local-unit-tests
@@ -75,7 +75,7 @@ To enter this game, the user has to
 * In the view System, we put some controller in it to make the system more maintainable, since some controller is quite small, such as the score system, and it's not worthy of making one since currently. In other words, we try to make a MVVM design to make the program more reliable. The dependencies of Views are straight forward, the view will contain some constant variables to help identify later effects while running.
  
 ## Authors ##
-* Timothy Lee (leetim13; personal git username: xshadowoflightx )
+* Timothy Lee (git username: leetim13)
 * Junxuan Wu 
 * Quanzhou Li
 * Yinling Luo
@@ -84,7 +84,7 @@ To enter this game, the user has to
  * Android Studio
  * Gradle
 
-## Functions Achieved: ##
+## Functions Implemented: ##
  * login & register *
  * undo & loadsave/autosave * (undo button is on the upper right corner when playing the tile game)
  * Choosing the max undo step and complexity of board to play with *
@@ -96,13 +96,16 @@ To enter this game, the user has to
  * 2048 game with scoreboard
  * sudoku game with scoreboard
 
-## How Do We Sort Scores ##
+## How We Sort Scores ##
  * We sort the scores according to the number of moves that a user made in a game after they win the game. If they managed to complete a game with fewer step, the number of their score will be smaller(since the score is the number of moves they made in a completed game) and the rank will be higher.
 
 ## Winning Condition Of Games ##
-"slidingtile" is the same as in phase1
-"2048" you'll win if you get a number of 2048, then you win
-"saduko" same as the traditional one 
+"slidingtile" sort the tiles in descending order
+
+"2048" same rules as the 2048 game, but our version will terminate once the user hits the `2048` tile
+
+"sudoku" same rules as the sudoku game
+
  ## License ##
 This project is licensed under the MIT License
  
