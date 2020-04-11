@@ -1,11 +1,13 @@
 Game Center App
  =====================================================================================
  ## SetUp Instructions ##
- 
+ ### Note that the app can also be   directly  downloaded as an `apk` file to be run in a compatible Android device.
  In order to successfully set up our project (in dev mode), the user should first `git clone` into an empty directory,
  And then, open android studio, choose "open another project", select the folder, click into the group file,
  and proceed to GameCenter folder, then open it. Run build on android studio, wait for a few minutes before the
- whole project is synced and built successfully. Then you can run this program via an emulator. Note that the app can also be     downloaded as an `apk` file to be run in an Android device.
+ whole project is synced and built successfully. Then you can run this program via an emulator. 
+ 
+
 
  To set up and run unit test related to mock, please follow instruction in
  https://developer.android.com/training/testing/unit-testing/local-unit-tests
