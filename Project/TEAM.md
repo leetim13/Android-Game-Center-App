@@ -5,8 +5,7 @@ mileStones in the whole process.
 =============RESPONSIBILITIES=============
 
 ## Timothy Lee
-- Designed User Interface (including corresponding Activities xml's and interactive buttons) Example
-for Sliding Tiles Game is Starting Activity, GameCenterActivity, ProfilesActivity, and TilesSettingsActivity).
+- Designed all user interfaces and overall high-level program architecture, including corresponding Activities xml's and program-to-program interactions (see walkthrough.pdf). Examples for Sliding Tiles Game includes Starting Activity, GameCenterActivity, ProfilesActivity, and TilesSettingsActivity).
 
 - Continued to work on UI (Main displayed Activities [GameActivity TF) for the other 2 games). Used
 photoshop to create 2048 tiles to correspond with color scheme.
@@ -24,11 +23,11 @@ photoshop to create 2048 tiles to correspond with color scheme.
 - Implemented helper functions like InputFilterMinMax and OnSwipeTouchListener to detect swiping
 gesture and direction for 2048 game.
 
-- Completed walkthrough pdf with diagrams and thorough explainations to match criteria and
+- Completed walkthrough.pdf with diagrams and thorough explainations to match criteria and
 worked on Powerpoint Presentation slides.
 
 
-##Junxuan Wu
+## Junxuan Wu
 --Designed the verification system, scoreboard system and some ui structure design.  ActivityHelper， IOHelper,
 sequenceBundler, User, UserRouter, LoginActivity, TileSettingsActivity, RegisterActivity, ScoreBoardActivity,
 PersonalScoreBoard Activity. Do some of the refactoring part(mostly with Yinling Luo). Find and fix most bugs of code.
@@ -51,7 +50,7 @@ display image structure (xml format).
 --Do some of the refactoring, such as changing project to MVC format and use inheritance to optimize
   activities, and write some unit test.
 
-##Quanzhou Li
+## Quanzhou Li
 --Implement undo function
     Implement a stack to store each move the user makes in a game, enabling the user to undo by popping
     from the stack. The maximum number of undo steps is changeable (Before a game starts).
@@ -73,7 +72,7 @@ display image structure (xml format).
 
 --Write most of tests for our code
 
-##Yinling Luo
+## Yinling Luo
 --Implement complexity function
     Make Tiles callable for boards of all complexity, and generate corresponding images for 5X5 game.
     Implementing the complexity part in tileSettings and initialize the game activity.
