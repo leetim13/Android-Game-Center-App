@@ -1,5 +1,8 @@
 Game Center App
  =====================================================================================
+ ## Sample Game Play ##
+ ![](sample_play.gif)
+ 
  ## SetUp Instructions ##
  ### Note that the app can also be   directly  downloaded as an `apk` file to be run in a compatible Android device.
  In order to successfully set up our project (in dev mode), the user should first `git clone` into an empty directory,
