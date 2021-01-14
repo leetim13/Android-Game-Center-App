@@ -1,7 +1,12 @@
 Game Center App
  =====================================================================================
  ## Sample Game Play ##
- ![](sample_play.gif) ![](name-of-giphy.gif)
+
+<p float="left">
+  <img src="sample_play.gif" width="300" height="550" />
+  <img src="sudoku.gif" width="300" height="550"  /> 
+</p>
+
  
  ## SetUp Instructions ##
  ### Note that the app can also be   directly  downloaded as an `apk` file to be run in a compatible Android device.
