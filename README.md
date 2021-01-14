@@ -2,7 +2,7 @@ Game Center App
  =====================================================================================
  ## Sample Game Play ##
 <p float="center">
-  <img src="all_games.gif" width="300" /> 
+  <img src="all_games.gif" width="200" /> 
 </p>
 
  ### Winning positions ###
