@@ -5,7 +5,7 @@ Game Center App
   <img src="all_games.gif" width="200" /> 
 </p>
 
- ### Winning positions ###
+ ### Winning positions and scoreboards update ###
 <p float="center">
   <img src="sample_play.gif" width="175" height="350" />
   <img src="sudoku.gif" width="175" height="350"  /> 
